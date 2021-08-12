@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="tw">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+
+    <script>
+        //https://www.youtube.com/watch?v=_vFuDQ_6Xt8
+        let test = [
+            {
+                name : 'a',  
+                thing : '草莓',
+                money : 70
+            },
+            {
+                name: '0000',
+                thing : '銅鑼燒',
+                money : 50
+            },
+            {
+                name : '778',
+                thing : '西瓜',
+                money : 100
+            },
+            {
+                name: '多拉A夢',
+                thing : '銅鑼燒',
+                money : 300
+            },
+
+        ]
+    
+        // 查看obj跟key內容
+        // test.forEach(function(obj,key){                   //兩個參數命名為obj跟key 可改
+        //     console.log('item : ' ,obj ,'index :' ,key);  //obj對應上面的參數 是物件內容 key是索引值
+        // })
+    
+
+
+
+
+
+
+
+        //將每個物件都新增一個新價格 命名為newMoney
+        //方法一 用push forEach迴圈重複多次將每個物件都推一個新內容進去
+        // const newObj = [];                    //宣告陣列型態
+        // test.forEach(function(obj,key){       //test物件執行forEach迴圈 
+        //     newObj.push({                     //push語法 .push({內容})
+        //         ...obj,                       //展開obj物件
+        //         newMoney : obj.money*0.8      //新建物件newMoney 對應: obj.money * 0.8 取obj裡的money數值*0.8
+        //     })
+        // })
+        // console.log(newObj)
+
+        // const newObj = [];              
+        // test.forEach(function(obj,key){    //forEach根據陣列內有幾個物件而決定做幾次for迴圈
+        //     newObj [key]={                 //根據索引值將每個物件內容都執行    26:35影片位置 ES6寫法
+        //         ...obj,                    //展開 在這裡為展開obj內容
+        //         newMoney: obj.money*0.8    //建立新物件newMoney 對應 obj(原先物件).money(裡面的money) * 0.8
+        //     } 
+        // })
+        // console.log(newObj)
+
+        //方法二 .map 比上面更好
+        // const change = test.map(function(obj,key){
+        //     return{                                  //回傳
+        //         ...obj,                              //展開
+        //         newMoney : obj.money * 0.8           //建立新物件
+        //     }
+        // })
+        // console.log(change)
+
+        //方法三 .map的箭頭函式
+        // const change = test.map((obj,key,arr) => ({
+        //                                              //箭頭函式已經自帶return 因此不用寫
+        //         ...obj,                              //展開
+        //         newMoney : obj.money * 0.8           //建立新物件
+        //     }));
+            
+        // console.log(change)
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        // //80元以上列出來
+        // const newName = [];                        //宣告newName 型態陣列
+        // test.forEach(function(obj,key){            //給予參數1,2 分別為obj及key 參數1是物件內容,參數2是索引值,參數3是全部物件array( arr很少用到)
+            //     if(obj.money >= 80){               //if如果obj內的money物件的內容大於等於80(字串或數值皆可) 
+                //         newName.push(obj)          //將符合的obj物件內容push推給newName
+                //     }
+                // })
+                
+                //console.log(newName)                //console.log出來
+                
+        //filter function寫法
+        // const newName = test.filter(function(obj,index){
+        //     return obj.money >= 80;
+        // })
+        // console.log(newName)
+
+        //filter 箭頭函式寫法 arrow(箭頭函式)
+        //最短縮寫法    filter會判斷true或false值 true就回傳 這邊用箭頭函式就不用寫return 
+        // const newName = test.filter((obj) => obj.money >= 80)   
+        // console.log(newName)
+
+
+
+
+
+
+
+
+
+
+        //把銅鑼燒改成超級銅鑼燒
+        // //最後一個
+        // let number = [];
+        // test.forEach(function(item,key){
+        //     if(item.thing === '銅鑼燒'){
+        //         number = key;
+
+        //     }
+        // })
+        // test[number].thing = '超級銅鑼燒';
+        // console.log(test)
+
+        // findIndex function寫法  列出一個
+        // const number = test.findIndex(function(item){
+        //     return item.thing === '銅鑼燒' 
+        // })
+        // test[number].thing = '超級銅鑼燒'; 
+        // console.log(test[number])
+
+        // findIndex 箭頭函式寫法 僅限第一個
+        // const number = test.findIndex((item) => item.thing === '銅鑼燒')
+        // test[number].thing = '超級銅鑼燒'
+        // console.log(test )
+
+
+        //多個寫法需用到迴圈  以下這個限於創造新陣列
+        // const number = [];
+        // test.forEach(function(item,key){
+        //     if(item.thing === '銅鑼燒'){
+        //         number.push({
+        //             ...item,
+        //             thing : '超級銅鑼燒'
+        //         })
+        //     }
+        // })
+        // console.log(number)
+
+
+        // 需先用if判斷 將符合的key數值push給const number 裡面 再用let i of number將number值給i 用迴圈將對應的值的物件內容更改 此方法不建議使用 直接使用下面方法即可
+        // const number = [];
+        // for(let i of number){
+        //     test[i].thing = '超級銅鑼燒';
+        // }
+        // console.log('for寫法 : ',test)
+        
+        // //多個寫法-放入forEach 符合物品時直接修改陣列裡的對應內容
+        // test.forEach(function(item){
+        //     if(item.thing === '銅鑼燒'){
+        //         item.thing = '超級銅鑼燒'
+        //     }
+        // })
+        // console.log('forEach寫法 : ',test);
+
+        // const number = [];
+        // test.forEach((item) => {  
+        //     if(item.thing === '銅鑼燒'){
+        //         item.thing = '超級銅鑼燒'
+        //     }
+        // })
+        // console.log(test);
+
+        // 箭頭函式+終極寫法 778表示不要白目
+        // test.forEach((time) => time.thing === '銅鑼燒' && (time.thing = '超級銅鑼燒'))
+        // console.log(test)
+            
+
+
+
+
+
+
+
+
+
+
+        //將姓名跟金額印出來 
+        // let nameMoney = '';
+        // test.forEach(function(item,key){     //下一行註解 nameMoney變數 等於 原先 + <li> ${item內的name} ,(跟) ${item內的money} </li>  樣板字面值使用方式為 `內容` 內容中使用到變數要${放裡面}
+        //     nameMoney = nameMoney + `<li>       
+        //         姓名 : ${item.name} <P> 價格 : ${item.money};
+        //     </li>`;
+        // })
+        // console.log(nameMoney)
+
+        //map會進行return 陣列有多長map回傳的結果就會多長
+        // const nameMoney = test.map(function(item){            //使用map
+        //     return `<li>
+        //             姓名 : ${item.mame}<p> 價格 : ${item.money};
+        //         </li>`;
+        // }).join('')  //如果沒加''的話會有,   沒用join的話是陣列  join為轉為字串作用
+        // console.log(nameMoney)
+
+        // 箭頭函式 arrow寫法
+        // const nameMoney = test.map((item) =>
+        //     `<li>
+        //     姓名 : ${item.name}<p> 價格 : ${item.money};
+        // </li>`).join('')  
+        // console.log(nameMoney)
+
+
+
+
+
+
+
+
+        // //全部人的錢
+        // let allMoney = 0;
+        // test.forEach(function(item,key){
+        //     allMoney += item.money;
+        // })
+        // console.log(allMoney)
+        
+        
+        // reduce寫法           acc = accumulator , cur = currentValue
+        // let allMoney = test.reduce(function(acc, cur){
+        //     return acc + cur.money      //每次回傳值是acc本身+當前物件的money
+        // },0);                           //這邊的0是acc的初始值
+        // console.log(allMoney)
+
+        // let allMoney = test.reduce((acc, cur) => acc + cur.money ,0);       //arrow箭頭函式不需要寫return 本身已自帶 範例程式碼參考上方 
+        // console.log(allMoney)
+
+        
+
+        // //比較誰吃的貴  sort的判斷方式為數值傳遞的優先順序 透過return將傳遞的優先順序做排列
+        // const newName = test.sort((a,b) => {
+        //     return a.money - b.money;    //由小到大
+        //     return b.money - a.money;    //由大到小
+        // })
+        // console.log(newName)
+
+
+
+        // $(function(){
+        //     $('#menu').html(nameMoney)       //實際修改
+        // })
+
+
+
+
+
+
+
+
+
+        // //以下是載入頁面後再執行js
+        // window.addEventListener('load', (event) => {
+
+        //     document.getElementById('menu').innerHTML = nameMoney;
+        // })
+
+        // window.addEventListener('load',function() {
+
+        //     document.getElementById('menu').innerHTML = nameMoney;
+
+        // })
+
+
+
+    </script>
+
+    
+
+</head>
+<body>
+    <div id="menu">123</div>
+    <script>
+    </script>
+</body>
+</html>
