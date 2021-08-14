@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tw">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array_images</title>
+    <script SRC="js/jquery-3.6.0.min.js"></script>
+    <script>
+            const test_images=[{
+                images1 : '<img src="images/hololive/Pekora/file_369780.png">',
+                images2 : 'images/hololive/Pekora/file_369785.png'
+            },{
+                images3 : 'images/hololive/Pekora/file_369785.png',
+                images4 : '還沒想到要放什麼'
+            }]
+
+
+            
+
+            window.addEventListener('load' ,(event) => {
+                document.getElementById('test1').innerHTML = (`用物件+img src標籤直接嵌入完整語法${test_images[0].images1}<br>`);
+                document.getElementById('test2').innerHTML = (`僅用物件代替照片位置<img src="${test_images[0].images2}">`);
+
+
+
+
+                const pekora_images = ['<img src="images/hololive/Pekora/file_369795.png">','<img src="images/hololive/Pekora/file_369906.png">'];
+                document.getElementById('test3').innerHTML = ('陣列儲存完整img標籤直接嵌入頁面上'+pekora_images[0]+pekora_images[1]);
+
+
+
+
+
+            })
+
+
+            // $(function(){
+            //     $('#test1').html(`第一張圖片是 : ${test_images[0].images1}> <p> 第二張圖片是 : <img src="${test_images[1].images3}">`)
+            // })
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            // const rushia_images = ['https://ayvc0420.github.io/images/hololive_card_rushia.jpg','https://ayvc0420.github.io/images/destroy_card_1.jpg'];
+            // $(function(){
+            //     $('#rushia').html(`第一張圖片是 : <img src="${rushia_images[0]}"> <p> 第二張圖片是 : <img src="${rushia_images[1]}">`)
+            // })
+            </script>
+
+
+
+            <style>
+                #test1,#test2,#test3{
+                    display: inline-block;
+                    font-size: 30px;
+                }
+                #test1{
+                    background-color: teal;
+                }
+                #test2{
+                    background-color: violet;
+                }
+                #test3{
+                    background-color: yellowgreen;
+                }
+            </style>
+
+
+
+</head>
+<body>
+    <div id="test1"></div>
+    <div id="test2"></div>
+    <div id="test3"></div>
+</body>
+</html>

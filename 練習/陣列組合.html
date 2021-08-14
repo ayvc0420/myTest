@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>陣列組合</title>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script>
         //https://regex101.com/
@@ -16,56 +16,124 @@
 
 
         //arrow map方式將上述相同索引值長度的陣列組合為新的陣列 命名為apprisal
+        // const apprisal = sql.map((item,key) => ({
+        //     name : sql[key],
+        //     number: number[key]
+        //     })
+        // )
 
-        const apprisal = sql.map((item,key) => {
-            return ({
-                資料庫名稱 : sql[key],
-                分數: number[key]
-            })
-        })
+        // window.addEventListener('load', (event) => {
+        //     //利用for迴圈將對應物件內容逐一顯示   注意+=不然會只顯示最後一個
+        //     for(let i = 0;i < apprisal.length;i++){
+        //         document.getElementById('menu').innerHTML += `資料庫名稱:${apprisal[i].name} 分數:${apprisal[i].number}<br>`;
+        //     }
+        // })
+
+
+
+
+        //↑是方法一 物件陣列   ↓方法二陣列轉
+
+
+
+        // push建立成陣列內容  上面那個是物件陣列
+        // const apprisal = [];
+        // sql.forEach((item,key) => {
+        //     apprisal.push('<br>'+sql[key]+number[key]+'<br>'
+        //     )
+        // })
+
+        // 不用push 改用map 並縮寫一行
+        // const apprisal = sql.map((item,key) => `資料庫名稱:${sql[key]}分數:${number[key]}<br><br>`).join('')
         // console.log(apprisal)
+        // window.addEventListener('load', (event) => {
+        //     document.getElementById('menu').innerHTML = `${apprisal}`;
+        // })
+        // $(function (){
+        //     $('#menu').html(apprisal);
+        // })
+
+
+
+
+
+        //以下更複雜  上面是比較新的做法XD
+
+
+
+
+
+
+
+
+
 
         //將值推回新陣列
         // const apprisal_sql = [];
-        // apprisal.map(function(item,key){
-        //     apprisal_sql.push(item.資料庫名稱)
-        //     apprisal_sql.push(item.分數)
+        // apprisal.forEach(function(item,key){
+        //     apprisal_sql.push(item.name)
+        //     apprisal_sql.push(item.number)
         //     apprisal_sql.push('<br><br>')
         // })
         // console.log(apprisal_sql)
-
+        
+        // 把物件的內容推到新陣列 變成陣列內容
+        // const apprisal_sql = apprisal.map(item => `${item.name},${item.number},<br><br>`)
+        // console.log(apprisal_sql)
 
         // //上方簡寫版
         // const apprisal_sql = apprisal.map((item) => {
         //     const calculate = [];
-        //     calculate.push(item.資料庫名稱,item.分數,'<br><br>')
+        //     calculate.push(item.name,item.number,'<br><br>')
         //     return calculate
         // })
         // console.log(apprisal_sql)
 
-        //最後簡寫 使用map特性每次回傳就將item內的對應資料回傳 以下為一次三分資料回傳包含<p>  以下為箭頭函式及單行特性不寫return 若箭頭函式後使用{}則視為多行
-        const apprisal_sql = apprisal.map(item => `<li>${item.資料庫名稱},${item.分數},<p></li>`)
+        //最後簡寫 使用map特性每次回傳就將item內的對應資料回傳   以下為一次三分資料回傳包含<p>    以下為箭頭函式及單行特性不寫return若箭頭函式後使用{}則視為多行      不寫join就用jQ喔不然原生可沒那麼好幫你轉換成字串
+        // const apprisal_sql = apprisal.map(item => `資料庫名稱 : ${item.name} 分數 : ${item.number}<p>`).join('')
 
-        //用jq的.html渲染至menu上
-        $(function (){
-            $('#menu').html(apprisal_sql);
-        })
+        // 用jq的.html渲染至menu上
+        // $(function (){
+        //     $('#menu').html(apprisal_sql);
+        // })
 
 
 
-        //用js的ById取得id值後用innerHTML方法 將後面變數渲染至id值內
-        window.addEventListener('load', (event) => {
-            document.getElementById('menu').innerHTML = apprisal_sql;
-        })
 
-        
+        // 用js的ById取得id值後用innerHTML方法 將後面變數渲染至id值內
+        // window.addEventListener('load', (event) => {
+        //     document.getElementById('menu').innerHTML = apprisal_sql;
+        // })
 
-        // const hololive = '兎田ぺこら , 宝鍾マリン , 潤羽るしあ , 湊あくあ , 天音かなた , 夏色祭り'.split(/\s*,\s*/)
-        // console.log(hololive[1]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // const hololive = '兎田ぺこら , 宝鍾マリン , 潤羽るしあ , 湊あくあ , 天音かなた , 夏色祭り'.split(/\s*,\s*/)   // /regex/去玩https://regex101.com/
+        // console.log(hololive[1]);  //只顯示陣列1內容
 
     </script>
+    <style>
+        #menu{
+            line-height: 2rem;
+            font-size: 20px;
+        }
+
+    </style>
 </head>
 <body>
-    <div id="menu"></div>
+    <div id="menu">可愛的測試區，當你看見這串字就代表你沒成功innerhtml好啦~</div>
 </body>
 </html>
