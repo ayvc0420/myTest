@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script>
+
+        var s = 1;
+        var a = 2;        
+        var aaa = function(y){
+            console.log(a);
+            var s = 100;
+            return s + y;
+        }
+
+        console.log(aaa(50));
+        console.log(s);
+    </script> -->
+
+
+    <script>
+
+
+        var square = function (number) {
+            return number * number;
+        }
+        console.log(square)
+    </script>
+
+    <script>
+        var a = 10;  
+        {
+            let a = 200;   //在{}內作用域 出{}外則清空 因此作用域外有a變數 {}內宣告同樣變數a也一樣可以正常宣告
+            document.write(a+'<br>');
+        }
+        document.write(a);
+    </script>
+
+</body>
+
+</html>
