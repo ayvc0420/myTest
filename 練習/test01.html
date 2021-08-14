@@ -11,39 +11,39 @@
         //https://www.youtube.com/watch?v=_vFuDQ_6Xt8
         let test = [
             {
-                name : 'a',  
+                name : '阿明',  
                 thing : '草莓',
-                money : 70
-            },
-            {
-                name: '0000',
+                money : 80
+            },{
+                name: '小可',
                 thing : '銅鑼燒',
-                money : 50
-            },
-            {
-                name : '778',
+                money : 45
+            },{
+                name : '大壯',
                 thing : '西瓜',
-                money : 100
+                money : 250
+            },{
+                name: '小P',
+                thing : '西瓜',
+                money : 120
             },
-            {
-                name: '多拉A夢',
-                thing : '銅鑼燒',
-                money : 300
-            },
-
         ]
-    
+
+
+
+        
         // 查看obj跟key內容
-        // test.forEach(function(obj,key){                   //兩個參數命名為obj跟key 可改
-        //     console.log('item : ' ,obj ,'index :' ,key);  //obj對應上面的參數 是物件內容 key是索引值
+        // test.forEach((obj,index) => {                    //兩個參數命名為obj跟key 可改
+        //     console.log(obj,index)                       //obj對應上面的參數 是物件內容 key是索引值
         // })
 
+        //轉換成陣列
+        // const array = test.map(item => `${item.name},${item.thing},${item.money}` )
+        // console.log(array)
+        
 
 
-
-
-
-        //將每個物件都新增一個新價格 命名為newMoney
+        //將每個物件都新增一個新價格 命名為newMoney 價格設定money的8折
         //方法一 用push forEach迴圈重複多次將每個物件都推一個新內容進去
         // const newObj = [];                    //宣告陣列型態
         // test.forEach(function(obj,key){       //test物件執行forEach迴圈 
@@ -80,12 +80,27 @@
         //     }));
             
         // console.log(change)
+        
+        //上面簡寫
+        // const change = test.map(item => ({...item,newMoney : item.money * 0.8}))
+        // console.log(change)
 
 
 
 
 
-        // 將物件內的name thing money按照順序放到其他多個陣列 再將其他多個陣列放到一個陣列內
+
+
+
+        // 將物件內的個別對應單獨提取至其他陣列 但該用處毫無意義 
+        // const test1 = test.map(obj => `${obj.name}`)
+        // const test2 = test.map(obj => `${obj.thing}`)
+        // const test3 = test.map(obj => `${obj.money}`)
+        // const test4 = test3.map(item => parseInt(item , 10))
+        // const test5 = test4.reduce((acc,money) =>  acc + money ,0 );
+        // console.log(test5)
+
+        
         // const qq = [];
         // const qq1 = [];
         // const qq2 = [];
@@ -99,9 +114,10 @@
         // // qq.push('姓名:',qq1,
         // //         '物品:',qq2,
         // //         '金額:',qq3)
-
         
         // qq.push( `<a>姓名:${qq1}, <br> 物品:${qq2}, <br> 金額:${qq3}</a>` )
+        // console.log(qq)
+
 
         // $(function(){
         //     $('#menu').html(qq);
@@ -112,20 +128,15 @@
         // console.log(qq)
 
 
-        // const qq = [];
-        // sql.map((item,key) => {
-        //     qq.push({
-        //         資料庫名稱 : sql[key],
-        //         分數: number[key]
-        //     })
-        // })
-        // console.log(qq)
 
-        
-        // //80元以上列出來
+
+
+
+
+        // //100元以上列出來
         // const newName = [];                        //宣告newName 型態陣列
         // test.forEach(function(obj,key){            //給予參數1,2 分別為obj及key 參數1是物件內容,參數2是索引值,參數3是全部物件array( arr很少用到)
-            //     if(obj.money >= 80){               //if如果obj內的money物件的內容大於等於80(字串或數值皆可) 
+            //     if(obj.money >= 100){               //if如果obj內的money物件的內容大於等於100(字串或數值皆可) 
                 //         newName.push(obj)          //將符合的obj物件內容push推給newName
                 //     }
                 // })
@@ -134,56 +145,64 @@
                 
         //filter function寫法
         // const newName = test.filter(function(obj,index){
-        //     return obj.money >= 80;
+        //     return obj.money >= 100;
         // })
         // console.log(newName)
 
         //filter 箭頭函式寫法 arrow(箭頭函式)
         //最短縮寫法    filter會判斷true或false值 true就回傳 這邊用箭頭函式就不用寫return 
-        // const newName = test.filter((obj) => obj.money >= 80)   
+        // const newName = test.filter((obj) => obj.money >= 100)   
         // console.log(newName)
 
 
 
 
 
+        //將物件內符合西瓜的thing新增一個物件 給予名稱為升級後產品 對應內容為黃金西瓜
+        // const dessert = [];
+        // test.forEach((item,key) => {
+        //     if(item.thing === '西瓜'){
+        //         dessert.push({
+        //             ...item,
+        //             升級後產品 : '黃金西瓜'
+        //         })
+        //     }
+        // })
+        // console.log(dessert)
 
 
-
-
-
-        //把銅鑼燒改成超級銅鑼燒
+        //把西瓜改成黃金西瓜
         // //最後一個
         // let number = [];
         // test.forEach(function(item,key){
-        //     if(item.thing === '銅鑼燒'){
+        //     if(item.thing === '西瓜'){
         //         number = key;
 
         //     }
         // })
-        // test[number].thing = '超級銅鑼燒';
+        // test[number].thing = '黃金西瓜';
         // console.log(test)
 
         // findIndex function寫法  列出一個
         // const number = test.findIndex(function(item){
-        //     return item.thing === '銅鑼燒' 
+        //     return item.thing === '西瓜' 
         // })
-        // test[number].thing = '超級銅鑼燒'; 
+        // test[number].thing = '黃金西瓜'; 
         // console.log(test[number])
 
         // findIndex 箭頭函式寫法 僅限第一個
-        // const number = test.findIndex((item) => item.thing === '銅鑼燒')
-        // test[number].thing = '超級銅鑼燒'
+        // const number = test.findIndex((item) => item.thing === '西瓜')
+        // test[number].thing = '黃金西瓜'
         // console.log(test )
 
 
         //多個寫法需用到迴圈  以下這個限於創造新陣列
         // const number = [];
         // test.forEach(function(item,key){
-        //     if(item.thing === '銅鑼燒'){
+        //     if(item.thing === '西瓜'){
         //         number.push({
         //             ...item,
-        //             thing : '超級銅鑼燒'
+        //             thing : '黃金西瓜'
         //         })
         //     }
         // })
@@ -193,28 +212,28 @@
         // 需先用if判斷 將符合的key數值push給const number 裡面 再用let i of number將number值給i 用迴圈將對應的值的物件內容更改 此方法不建議使用 直接使用下面方法即可
         // const number = [];
         // for(let i of number){
-        //     test[i].thing = '超級銅鑼燒';
+        //     test[i].thing = '黃金西瓜';
         // }
         // console.log('for寫法 : ',test)
         
         // //多個寫法-放入forEach 符合物品時直接修改陣列裡的對應內容
         // test.forEach(function(item){
-        //     if(item.thing === '銅鑼燒'){
-        //         item.thing = '超級銅鑼燒'
+        //     if(item.thing === '西瓜'){
+        //         item.thing = '黃金西瓜'
         //     }
         // })
         // console.log('forEach寫法 : ',test);
 
         // const number = [];
         // test.forEach((item) => {  
-        //     if(item.thing === '銅鑼燒'){
-        //         item.thing = '超級銅鑼燒'
+        //     if(item.thing === '西瓜'){
+        //         item.thing = '黃金西瓜'
         //     }
         // })
         // console.log(test);
 
-        // 箭頭函式+終極寫法 778表示不要白目
-        // test.forEach((time) => time.thing === '銅鑼燒' && (time.thing = '超級銅鑼燒'))
+        // 箭頭函式+終極寫法 
+        // test.forEach((time) => time.thing === '西瓜' && (time.thing = '黃金西瓜'))
         // console.log(test)
             
 
