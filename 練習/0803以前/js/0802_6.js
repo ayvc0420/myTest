@@ -13,43 +13,39 @@
 // console.log(a2);
 // console.log(a3);
 
-class card{
-    constructor(frome1){
-        this.一號 = frome1;
-        this.二號 = frome1;
-        this.三號 = frome1;
-        this.四號 = frome1;
+// class Card{
+//     constructor(frome1){
+//         this.一號 = frome1;
+//         this.二號 = frome1;
+//     }
+// }
 
-    }
+// const f1 = new Card('大壯');
+// const f2 = new Card('小美');
 
-}
-
-const f1 = new card('風霜');
-const f2 = new card('美麗');
-
-console.log(f1);
-console.log(f2);
+// console.log(f1);
+// console.log(f2);
 
 
 // 以下this綁定範例
 class Card{
     constructor(ininName){
-        this.name_test = ininName;
-        this.fixed_name_test = this.hello.bind(this);  
+        this.name_test =ininName;
+        this.fixed_name_test = this.hello.bind(this);   //回傳se綁定this後的原函數
     }
     hello () {
         console.log('hello', this.name_test);
     }
 }
 
-const Name_test_01 = new Card('a0000778');
-console.log('Name_test_01',Name_test_01);
-Name_test_01.hello();
+const name_test_01 = new Card('小新');
+console.log('name_test_01 :',name_test_01);
 
-const Name_test_02 = {name : '79'};
-Name_test_02.fixed_name_test = Name_test_01.fixed_name_test;
-Name_test_02.fixed_name_test();
 
+const name_test_02 = {name : '阿良'};
+name_test_02.fixed_name_test = name_test_01.fixed_name_test;
+name_test_02.fixed_name_test();
+console.log(name_test_02)
 
 //繼承
 //https://www.youtube.com/watch?v=1pYtVwIAvhY 2:20:00
