@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tw">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,12 +16,13 @@
 
 
         //arrow map方式將上述相同索引值長度的陣列組合為新的陣列 命名為apprisal
-        // const apprisal = sql.map((item,key) => ({
-        //     name : sql[key],
-        //     number: number[key]
-        //     })
-        // )
+        const apprisal = sql.map((item,key) => ({
+            name : sql[key],
+            number: number[key]
+            })
+        )
 
+        //     console.log(apprisal)
         // window.addEventListener('load', (event) => {
         //     //利用for迴圈將對應物件內容逐一顯示   注意+=不然會只顯示最後一個
         //     for(let i = 0;i < apprisal.length;i++){
@@ -52,8 +53,7 @@
         // $(function (){
         //     $('#menu').html(apprisal);
         // })
-
-
+        
 
 
 

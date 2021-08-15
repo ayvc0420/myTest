@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        // function log1(){
+        //     console.log(1)
+        // }
+        // function log2(i,k){               //callback
+        //     setTimeout(()=> {
+        //         console.log(2)
+        //         i()                       //按順序執行i k
+        //         k()
+        //     },0)                          //設定多久再執行setTimeout裡面的片段 單位ms
+        // }
+        // function log3(){
+        //     console.log(3)
+        // }
+        // function log4(){
+        //     console.log(4)
+        // }
+
+        // log1()
+        // log2(log3,log4)                    //傳回去i k
+
+
+
+
+        $(function(){
+
+            function log1(){
+                let def = $.Deferred()
+                console.log('第一');
+                def.resolve('成功1')          //正常結束
+                //def.reject()               //不正常結束 只能選一個用  如果沒用jQ就一直等 等到天荒地老~~~
+                return def.promise()         //把resolve或者是reject傳回去
+            }
+            function log2(i){                //這邊的i是上一個resolve給你的
+                console.log(i)               //驗證
+                let def = $.Deferred()
+                setTimeout(() => {
+                    console.log('第二');
+                    def.resolve('成功2')
+                    // def.reject('第二個失敗了')
+                },0)
+                return def.promise()
+            }
+            function log3(){
+                let def = $.Deferred()
+                console.log('第三');
+                def.resolve('成功3')
+                return def.promise()
+            }
+
+            log1().then(log2).then(log3).then(function (vic) {
+                console.log('正常結束' ,vic)          //最後一個resolve是成功3
+            },function(error){  
+                console.log('錯誤' , '是',error)
+            })
+            
+
+
+
+            // function repeat (){
+            //     console.log('test');
+            //     setTimeout(repeat,1000);
+            // }
+
+            // repeat()
+
+            //setTimeout   //間隔多久執行
+            //setInterval  //每隔多久執行
+
+
+
+
+
+        })
+
+
+    </script>
+
+
+</head>
+<body>
+    
+</body>
+</html>
