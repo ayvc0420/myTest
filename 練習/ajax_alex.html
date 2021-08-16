@@ -41,15 +41,34 @@
                 //def.reject()               //不正常結束 只能選一個用  如果沒用jQ就一直等 等到天荒地老~~~
                 return def.promise()         //把resolve或者是reject傳回去
             }
-            function log2(i){                //這邊的i是上一個resolve給你的
-                console.log(i)               //驗證
+            function log2(res){                
+
                 let def = $.Deferred()
-                setTimeout(() => {
-                    console.log('第二');
-                    def.resolve('成功2')
-                    // def.reject('第二個失敗了')
-                },0)
+                console.log(res)
+
+
+                $.ajax({
+                    url:'api/stations.json',
+                    type: 'get',        //get,post,put,path,delete
+                    dataType: 'json',   //html,xml,text,jsonp
+                    date: {}
+                }).then(function(res){
+                    //response request  --> 請求、要求
+                    console.log(res)    //資料
+                    return def.resolve('成功2')
+                },function(err){
+                    console.log(err)
+                    return def.reject('第二個失敗了')
+                })
+                
+
+
+
                 return def.promise()
+
+
+
+
             }
             function log3(){
                 let def = $.Deferred()
@@ -64,6 +83,21 @@
                 console.log('錯誤' , '是',error)
             })
             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -89,6 +123,6 @@
 
 </head>
 <body>
-    
+    <div id="menu"></div>
 </body>
 </html>
