@@ -39,29 +39,53 @@
         $(function(){
 
 
-            $.ajax({
-                url:'api/stations.json',
-                type:'get',
-                success: function(suc){
-                    console.log(suc)            //查看資料內容
-                    // console.log(typeof(suc)) //查看資料格式
-                    //const aqua = JSON.parse(suc)   //將string字串轉換成json
-                    //console.log(aqua)
+            // $.ajax({
+            //     url:'api/stations.json',        //api/stations.txt
+            //     type:'get',
+            //     success: function(suc){
+            //         console.log(suc)            //查看資料內容
+            //         // console.log(typeof(suc)) //查看資料格式
+            //         //const aqua = JSON.parse(suc)   //將string字串轉換成json
+            //         //console.log(aqua)
 
-                    for (let i = 0; i < suc.length; i++) {
+            //         for (let i = 0; i < suc.length; i++) {
 
-                        $('#menu').append('開始站:'+suc[i].Station+'|')
-                        $('#menu').append('目的地:'+suc[i].Destination+'<br>')
+            //             $('#menu').append('開始站:'+suc[i].Station+'|')
+            //             $('#menu').append('目的地:'+suc[i].Destination+'<br>')
 
-                    }
+            //         }
 
-                }
-            })
-
-
+            //     }
+            // })
 
 
 
+                    $.ajax({
+                        url:'api/test.json',
+                        method:'get',
+                        dataType:'json',
+                        success:function(suc){
+                            //偵測是否為食物 若是請印出店名跟物品跟金額 
+
+
+
+                                for(let i = 0; i <= suc.length ; i++){
+
+                                var food_type = suc[i].food;
+                                // console.log(food_type)
+                                if(food_type === "yes"){
+                                    $('#name').append("<li>店名:"+suc[i].name+"</li>");
+                                    $('#thing').append("<li>物品:"+suc[i].thing+"</li>");
+                                    $('#money').append("<li>金額:"+suc[i].money+"</li>");
+                                    
+                                }
+
+                            }
+                        },
+                        error: function(err){
+                            console('error,錯誤')
+                        }
+                    })
 
 
 
@@ -71,7 +95,8 @@
 
 
 
- 
+
+
 
 
 
@@ -93,9 +118,29 @@
 
     </script>
 
+    <style>
+        /* #menu{
+
+        } */
+        #menu div{
+            width: 30%;
+            display: inline-block;
+
+        }
+        #menu div:nth-of-type(odd){
+            background-color: rgb(255, 195, 255);
+        }
+        #menu div:nth-of-type(even){
+            background-color: rgb(209, 255, 215);
+        }
+    </style>
 
 </head>
 <body>
-    <div id="menu"></div>
+    <section id="menu">
+        <div id="name"></div>
+        <div id="thing"></div>
+        <div id="money"></div>
+    </section>
 </body>
 </html>

@@ -1,0 +1,51 @@
+[{
+    "name": "7-11",
+    "thing": "壽司",
+    "money": "40",
+    "food": "yes"
+}, {
+    "name": "7-11",
+    "thing": "汽水",
+    "money": "30",
+    "food": "yes"
+}, {
+    "name": "FM全家",
+    "thing": "便當",
+    "money": "80",
+    "food": "yes"
+}, {
+    "name": "九九五金行",
+    "thing": "一硬擠彎管",
+    "money": "50",
+    "food": "no"
+}, {
+    "name": "阿嬤服飾店",
+    "thing": "小可愛洋裝",
+    "money": "300",
+    "food": "no"
+}, {
+    "name": "FM全家",
+    "thing": "綠茶",
+    "money": "20",
+    "food": "yes"
+}, {
+    "name": "路邊攤",
+    "thing": "香腸",
+    "money": "50",
+    "food": "yes"
+}, {
+    "name": "三星旗艦店",
+    "thing": "手機殼",
+    "money": "700",
+    "food": "no"
+}, {
+    "name": "雙鳳",
+    "thing": "排骨便當",
+    "money": "100",
+    "food": "yes"
+}, {
+    "name": "麥當勞",
+    "thing": "一號套餐",
+    "money": "150",
+    "food": "yes"
+}]
