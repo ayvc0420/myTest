@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>jq_ajax</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+
+        $(function () {
+            //證交所api  https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20210816&stockNo=2330
+            //網站不支援跨網域 需下載
+            $('#trade2330_click').click(function () {
+                $.ajax({
+                    url: 'api/trade_2330.json',
+                    method: 'get',
+                    dataType: 'json',
+                    success: function (trade2330) {
+                        // console.log(trade2330.stat)
+                        $('#trade2330').html(trade2330.title)
+                        for (let i = 0; i <= trade2330.data.length; i++) {   //為什麼要取data的長度? 因為裡面資料他最長阿XD 
+                            $('#trade2330_1').append(trade2330.fields[i], trade2330.data[trade2330.data.length-1][i], ' ')
+                        }
+                    }
+                })
+                $('#trade2330_click').hide();
+            })
+
+            $('#trade3008_click').click(function () {
+                $.ajax({
+                    url:'api/trade_3008.json',
+                    method:'get',
+                    dataType:'JSON',
+                    success: function(trade3008){
+                        //將三日內的大立光資訊印出來
+                        // console.log(trade3008.data)
+                        $('#trade3008_title').html(trade3008.title);
+                        for(let k = 0; k <= trade3008.data.length; k++){
+                            let p = 3;
+                            $('#trade3008_1').append(trade3008.fields[k],trade3008.data[trade3008.data.length-p][k])
+                            p--;
+                            $('#trade3008_2').append(trade3008.fields[k],trade3008.data[trade3008.data.length-p][k])
+                            p--;
+                            $('#trade3008_3').append(trade3008.fields[k],trade3008.data[trade3008.data.length-p][k])
+                        }
+                    }
+                })
+                $('#trade3008_click').hide()
+            })
+
+
+            $('#trade2317').hide()
+            $('#trade2317_hide').hide()
+            
+            //先將區塊隱藏起來 點擊查看之後JQ toggle顯示 點擊隱藏toggle隱藏
+            $.ajax({
+                url:'api/trade_2317.json',
+                method:'get',
+                dataType:'JSON',
+                success: function(trade2317){
+                    //題目 : 將鴻海八月份的資訊全部印出來 並且使用css上背景顏色讓可讀性更高
+                    for(let i = 0;i < trade2317.data.length; i++){
+                        $('table').append('<tr></tr>')
+                        for(let k = 0; k < trade2317.fields.length ; k++){
+                            // $('table tr').eq(i).append('<td>'+trade2317.fields[k]+'</td>')
+                            $('table tr').eq(i).append('<td>'+trade2317.fields[k]+':'+trade2317.data[i][k]+'</td>')
+                        }
+                    }
+                },
+                error:function(){
+                    $('#trade2317').html('錯誤，請求未成功。');
+                }
+            })
+            $('#trade2317_click').click(function(){
+                $('#trade2317').toggle()
+                $('#trade2317_hide').toggle()
+                $('#trade2317_click').toggle()
+            })
+            $('#trade2317_hide').click(function(){
+                $('#trade2317').toggle()
+                $('#trade2317_hide').toggle()
+                $('#trade2317_click').toggle()
+            })
+
+
+
+
+
+        })
+
+
+    </script>
+
+    <style>
+        body{
+            font-size: 24px;
+        }
+        #trade, #trade1{
+            width: 100%;
+        }
+        .trade3008 section:nth-of-type(odd){
+            background-color: green;
+        }
+        .trade3008 section:nth-of-type(even){
+            background-color: hotpink;
+        }
+        .test_tr{
+            border-style: solid;
+            border-color: red;
+            margin-top: 10px;
+        }
+        .trade2317{
+            background-color: rgb(211, 255, 218);
+        }
+        .trade2317 tr:nth-of-type(odd){
+            background-color: rgb(255, 200, 228);
+        }
+        .trade2317 tr:nth-of-type(even){
+            background-color: rgb(255, 198, 198);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="trade2330"></div>
+    <div id="trade2330_1"></div>
+    <br>
+    <input type="button" value="查看台積電2330最新的資訊" id="trade2330_click">
+    <div class="trade3008">
+        <section id="trade3008_title"></section>
+        <section id="trade3008_1"></section>
+        <section id="trade3008_2"></section>
+        <section id="trade3008_3"></section>
+    </div>
+    <input type="button" value="查看大立光3008近三日的資訊" id="trade3008_click">
+    <br>
+
+    <table class="trade2317" id="trade2317" border="1">
+    
+    </table>
+
+    <input type="button" value="查看鴻海2317八月份的資訊" id="trade2317_click">
+    <input type="button" value="隱藏鴻海資訊" id="trade2317_hide">
+
+</body>
+
+</html>

@@ -73,8 +73,7 @@
                             //console.log(store)   //查看參數
                             
                                 for(let i = 0; i <= store.length ; i++){
-                                let food_type = store[i].food;
-
+                                let food_type = store[i].food
                                 // console.log(food_type)   //查看屬性
                                 if(food_type === "yes"){
                                     // 分開來 比較好看
@@ -95,29 +94,6 @@
                             console('error,錯誤')
                         }
                     })
-
-
-
-                    //證交所api  https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20210816&stockNo=2330
-                    //網站不支援跨網域 需下載
-                    $.ajax({
-                        url:'api/2330.json',
-                        method:'get',
-                        dataType:'json',
-                        success: function(trade2330){
-                            // console.log(trade2330.stat)
-                            $('#trade').html(trade2330.title)
-                            for(let i = 0; i <= trade2330.data.length ;i++){   //為什麼要取data的長度? 因為裡面資料他最長阿XD
-                                $('#trade1').append(trade2330.fields[i],trade2330.data[trade2330.data.length-1][i],' ')
-                            }
-                        }
-                    })
-
-
-
-
-
-
 
 
 
@@ -163,34 +139,11 @@
         #menu div:nth-of-type(even){
             background-color: rgb(209, 255, 215);
         }
-        #trade,#trade1{
-            width: 100%;
-        }
 
-        #test li:nth-of-type(odd){
-            background-color: violet;
-
-        }
-        #test li:nth-of-type(even){
-            background-color: yellow;
-        }
-        
-        .test_tr, .test_tr tr{
-
-        }
-        .test_tr  {
-            border-style: solid;
-            border-color: red;
-            margin-top: 10px;
-        }
-        
     </style>
 
 </head>
 <body>
-    <div id="test">
-        <ol></ol>
-    </div>
     <section id="menu">
         <div id="name"></div>
         <div id="thing"></div>
@@ -198,8 +151,13 @@
         <div id="nofood">不是食物的</div>
     </section>
     <br>
+    <div id="test">
+        <ol></ol>
+    </div>
     <div id="trade"></div>
     <div id="trade1"></div>
+    <input type="button" value="顯示2330" id="trade_show">
+    <input type="button" value="隱藏2330" id="trade_hide">
 
 </body>
 </html>
