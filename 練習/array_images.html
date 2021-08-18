@@ -41,9 +41,17 @@
             
             
             
+            //字串接法 空間變數
+            const test = (function(i){
+                return function (string, re){
+                    return i[string.charAt(0).repeat(re)];
+                    };
+                })
+                
+                ({'aaaaaa': 'hello~ Good!' });
             
-            
-            
+                console.log(test('a',6))
+                
             
             
             

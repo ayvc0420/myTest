@@ -55,6 +55,11 @@
                 }).then(function(res){
                     //response request  --> 請求、要求
                     console.log(res)    //資料
+                    for(let i = 0; i < res.length; i++){
+                        $('#menu').append(res[i].Station+' | ')
+                        $('#menu').append(res[i].Destination+' <br>')
+
+                    }
                     return def.resolve('成功2')
                 },function(err){
                     console.log(err)
@@ -83,7 +88,6 @@
                 console.log('錯誤' , '是',error)
             })
             
-
 
 
 

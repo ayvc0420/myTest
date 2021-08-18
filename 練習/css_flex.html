@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+    .content{
+    }
+    ol{
+        display: flex;
+        background-color: royalblue;
+    }
+    li{
+        background-color: red;
+        margin:auto;
+    }
+
+
+    .item_title{
+        background-color: seagreen;
+        width: 100%;
+        height: 500px;
+        display: flex;
+    }
+    .item_title div{
+        background-color: skyblue;
+        margin: auto;
+        width: 10%;
+        height: 30%;
+        text-align: center;
+        line-height: 150px;
+    }
+
+</style>
+
+<script>
+    const s = (function(o){
+        return function (k, r){
+            return o[k.charAt(0).repeat(r)];
+        };
+        })({'wwwww': 777 });
+    console.log(s('w',5))
+</script>
+<body>
+    <div class="content">
+        <ol>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+        </ol>
+
+        <div class="item_title">
+            <div class="item1">item1</div>
+            <div class="item2">item2</div>
+            <div class="item3">item3</div>
+            <div class="item4">item4</div>
+            <div class="item5">item5</div>
+        </div>
+    </div>
+</body>
+</html>
