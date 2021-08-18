@@ -9,15 +9,34 @@
 
 <style>
 
-    ol{
+    ul{
         display: flex;
         background-color: royalblue;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
-    li{
+    ul li{
         background-color: red;
-        margin:auto;
+        width: 7%;
+        margin: auto;
+        border: 2px yellow solid;
+        text-align: center;
+        list-style: none; /*li符號*/
     }
 
+    .menu{
+        display: flex;
+        background-color: royalblue;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .menu a{
+        background-color: red;
+        width: 7%;
+        margin: auto;
+        border: 2px yellow solid;
+        text-align: center;
+    }
 
     .item_title{
         background-color: seagreen;
@@ -41,18 +60,26 @@
 </script>
 <body>
     <div class="content">
-        <ol>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
-            <li>7</li>
-            <li>8</li>
-            <li>9</li>
-            <li>10</li>
-        </ol>
+
+        <!-- ul li 標籤特性 -->
+        <ul>  
+            <li>首頁</li>
+            <li>運動</li>
+            <li>新聞</li>
+            <li>財經</li>
+            <li>娛樂</li>
+            <li>語言</li>
+            <li>語言</li>
+        </ul>
+
+        <div class="menu">
+            <a>首頁</a>
+            <a>運動</a>
+            <a>新聞</a>
+            <a>財經</a>
+            <a>娛樂</a>
+            <a>語言</a>
+        </div>
 
         <div class="item_title">
             <div class="item1">item1</div>
@@ -64,3 +91,4 @@
     </div>
 </body>
 </html>
+
