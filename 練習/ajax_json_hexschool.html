@@ -9,56 +9,56 @@
 
     <script>
 
-        // const home = [{
-        //     爸 : 'jack',
-        //     媽 : 'maria',
-        //     兄 : 'jun',
-        //     姊 : function(i){
-        //         console.log(i*2,'お姉ちゃん')
-        //     },
-        //     爸1 : 'jack_1'
-        // },{
-        //     媽1 : 'maria'
-        // }]
+        const home = [{
+            爸 : 'jack',
+            媽 : 'maria',
+            兄 : 'jun',
+            姊 : function(i){
+                console.log(i*2,'お姉ちゃん')
+            },
+            爸1 : 'jack_1'
+        },{
+            媽1 : 'maria'
+        }]
 
-        // console.log(home[0].姊(43.5));
+        console.log(home[0].姊(43.5));
 
 
-        // const home1 = {
-        //     father : 'jack1',
-        //     mother : 'maria',
-        //     brother : [
-        //         {brother1 : 'jun1'},
-        //         {brother2 : 'jun2'},
-        //         ]
-        // }
-        //     console.log(home1)
-        //     delete home1.mother   //刪除
-        //     console.log(home1)
-        // console.log(home1.brother[1].brother2)
+        const home1 = {
+            father : 'jack1',
+            mother : 'maria',
+            brother : [
+                {brother1 : 'jun1'},
+                {brother2 : 'jun2'},
+                ]
+        }
+            console.log(home1)
+            delete home1.mother   //刪除
+            console.log(home1)
+        console.log(home1.brother[1].brother2)
 
 
         $(function(){
 
 
-            // $.ajax({
-            //     url:'api/stations.json',        //api/stations.txt
-            //     type:'get',
-            //     success: function(suc){
-            //         console.log(suc)            //查看資料內容
-            //         // console.log(typeof(suc)) //查看資料格式
-            //         //const aqua = JSON.parse(suc)   //將string字串轉換成json
-            //         //console.log(aqua)
+            $.ajax({
+                url:'api/stations.json',        //api/stations.txt
+                type:'get',
+                success: function(suc){
+                    //console.log(suc)               //查看資料內容
+                    //console.log(typeof(suc))       //查看資料格式
+                    //const aqua = JSON.parse(suc)   //將string字串轉換成json
+                    //console.log(aqua)
 
-            //         for (let i = 0; i < suc.length; i++) {
+                    for (let i = 0; i < suc.length; i++) {
 
-            //             $('#menu').append('開始站:'+suc[i].Station+'|')
-            //             $('#menu').append('目的地:'+suc[i].Destination+'<br>')
+                        $('#menu').append('開始站:'+suc[i].Station+'|')
+                        $('#menu').append('目的地:'+suc[i].Destination+'<br>')
 
-            //         }
+                    }
 
-            //     }
-            // })
+                }
+            })
 
 
 
@@ -73,7 +73,7 @@
                             //console.log(store)   //查看參數
                             
                                 for(let i = 0; i <= store.length ; i++){
-                                let food_type = store[i].food
+                                let food_type = store[i].food;
                                 // console.log(food_type)   //查看屬性
                                 if(food_type === "yes"){
                                     // 分開來 比較好看
@@ -149,15 +149,12 @@
         <div id="thing"></div>
         <div id="money"></div>
         <div id="nofood">不是食物的</div>
+        <br>
     </section>
     <br>
     <div id="test">
         <ol></ol>
     </div>
-    <div id="trade"></div>
-    <div id="trade1"></div>
-    <input type="button" value="顯示2330" id="trade_show">
-    <input type="button" value="隱藏2330" id="trade_hide">
 
 </body>
 </html>
