@@ -8,14 +8,19 @@
 
     <style>
         body{
+            background-image: url(images/hololive/Rshia/file_369879.png);
             margin:0;
         }
         header{
             display: flex;
-            position: relative;
             width: 100%;
-            background: linear-gradient(180deg,rgb(87, 87, 87),rgb(153, 153, 153));
+            background: linear-gradient(180deg,rgb(49, 49, 49),rgb(87, 87, 87));
             height: 120px;
+            opacity: 0.5;
+        }
+        .header{
+            position: relative;
+            margin-top: -120px;
         }
         .header_logo{
             margin-left: 5%;
@@ -25,8 +30,9 @@
             font-weight: 600;
         }
         .header_menu{
-            display: flex;            
+            display: flex;
             position: absolute;
+            top: 0;
             right: 0;
             margin-right: 10%;
         }
@@ -73,6 +79,8 @@
     
 
     <header>
+    </header>
+    <div class="header">
         <div class="header_logo">
             Hex School 
         </div>
@@ -81,7 +89,7 @@
                 <li><a href="#">課程</a></li>
                 <li><a href="#">問答</a></li>
         </div>
-    </header>
+    </div>
         <div class="content">
             <div class="content_text">
                 test text
