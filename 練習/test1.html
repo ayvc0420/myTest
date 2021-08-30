@@ -84,6 +84,66 @@
             line-height: 15vw;
             text-align: center;
         }
+        .content_div{
+            height: 300px;
+            background-color: yellow;
+            margin: 5% 10% 5% 10%;
+            display: flex;
+            justify-content: center; /* 水平對齊 */
+            align-items: center;  /* 垂直對齊 */
+        }
+        .content_div .test_content{
+            background-color: tomato;
+            margin: 30px;
+        }
+        .flex_div{
+            display: flex;
+            height: 200px;
+            background-color: teal;
+            margin: 5% 10% 5% 10%;
+        }
+        .flex_div .test_flex_1{
+            flex: none;  /*若取消固定寬度將flex:none去掉即可*/
+            width: 200px;
+            background-color: red;
+        }
+        .flex_div .test_flex_2{
+            flex: auto;
+            background-color: thistle;
+        }
+        .flex_div .test_flex_3{
+            flex: none;  /*若取消固定寬度將flex:none去掉即可*/
+            width: 250px;
+            background-color: yellowgreen;
+        }
+        /* PC 預設1200px以上 */
+        .test_rwd{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 5% 10% 5% 10%;
+            background-color: blueviolet;
+        }
+        .test_rwd .rwd{
+            flex: none;
+            width: 20%; 
+            margin: 15px;
+            background-color: blue;
+            color: white;
+            text-align: center;
+        }
+        /* 平板 */
+        @media(max-width:1200px){
+            .test_rwd .rwd{
+                width: 40%;
+            }
+        }
+        /* 手機 */
+        @media(max-width:700px){
+            .test_rwd .rwd{
+                width: 90%;
+            }
+        }
     </style>
 
 </head>
@@ -115,6 +175,25 @@
             <div class="box">
                 測試區塊
             </div>
+        </div>
+
+        <div class="content_div">
+            <div class="test_content">content_1</div>
+            <div class="test_content">content_2</div>
+            <div class="test_content">content_3</div>
+        </div>
+        <!-- 設計一個左右固定寬度 中間可自由彈性的區塊 -->
+        <div class="flex_div">
+            <div class="test_flex_1">flex_1</div>
+            <div class="test_flex_2">flex_2</div>
+            <div class="test_flex_3">flex_3</div>
+        </div>
+
+        <div class="test_rwd">
+            <div class="rwd">test_rwd</div>
+            <div class="rwd">test_rwd</div>
+            <div class="rwd">test_rwd</div>
+            <div class="rwd">test_rwd</div>
         </div>
 
     <div class="footer">
