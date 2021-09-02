@@ -8,8 +8,7 @@
 
     <style>
         body{
-            background-image: url(images/hololive/Rshia/file_369879.png);
-            margin:0;
+            background-image: url(images/hololive/Rshia/file_369876.png);
         }
         header{
             position: relative;
@@ -41,9 +40,44 @@
             line-height: 110px;
             padding: 0% 10% 0% 10%;
         }
-        li a{
-            text-decoration: none;
 
+        /* 遊戲 */
+
+        .game{
+            margin: 5% 10% 5% 10%;
+            background-color: darkgray ;
+            height: 200px;
+            display: flex;
+            position: relative;
+        }
+        .game_click{
+            width: 50%;
+        }
+        .game_click button{
+            font-size: 40px;
+            margin: 2%;
+        }
+        .game_picture{
+            position: absolute;
+            font-size: 48px;
+            right: 0;
+            top: 0;
+            height: 200px;
+            width: 50%;
+            background-color: red;
+            color: yellow;
+        }
+        .game_none{
+            background-color: black;
+            color: white;
+            font-size: 80px;
+            z-index: 999;
+            width: 100%;
+            text-align: center;
+            line-height: 200px;
+        }
+        li a{   
+            text-decoration: none;
         }
         li a:visited{
             color: blue;
@@ -149,6 +183,82 @@
     <script>
         // javascript
         // linux test
+/*
+        let player = new Object();
+        player.name="Alice";
+        player.lv=1;
+        player.hp=500;
+        player.mp=100;
+
+        console.log(player)
+
+        let player_1 = [
+            {name : 'Alice'},
+            {lv : 1},
+            {hp : 500},
+            {mp : 100}
+        ]
+
+        let player_2 = {
+            type : ['name' , 'lv' , 'hp' , 'mp'],
+            allDate : ['Alice',1,500,100]
+        }
+        console.log(player_1)
+        console.log(player_2.type,player_2.allDate)  //遇到這種物件建議用for一遍一遍印出來
+*/
+
+        //寫錯的~
+        // let player = [
+        //     {name : 'Alice'},
+        //     {hp : 100},
+        //     {die : 0},
+        //     {money : 0}
+        // ]
+
+        let player = [
+            {
+                name : 'Alice',
+                hp : 100,
+                die : 0,
+                money : 0
+            }
+        ]
+        window.addEventListener('load' , function ( ){
+            document.getElementById('fight').addEventListener('click', function (){
+                player[0].hp = player[0].hp - 10;
+                player[0].money = player[0].money + 20;
+                document.getElementById('game_picture').innerHTML = '生命減少10點，金錢增加20元';
+                    if(player[0].hp <= 0){
+                    player[0].die++;
+                    player[0].hp = 100;
+                    player[0].money = player[0].money / 2;
+                    document.getElementById('game_picture').innerHTML = '你已經死亡，生命力恢復至100點，金錢減半。';
+                }
+                if(player[0].die >= 10 ){
+                        document.getElementById('game_picture').classList.add('game_none')
+                        document.getElementById('game_picture').innerHTML = '你已經死亡超過十次，遊戲失敗。';
+                    }
+            })
+            document.getElementById('recover').addEventListener('click',function (){
+                player[0].hp = player[0].hp + 5;
+                document.getElementById('game_picture').innerHTML = '生命恢復5點';
+                    if(player[0].hp <= 0){
+                    player[0].die++;
+                    player[0].hp = 100;
+                    player[0].money = player[0].money / 2;
+                    document.getElementById('game_picture').innerHTML = '你已經死亡，生命力恢復至100點，金錢減半。';
+                }
+                if(player[0].die >= 10 ){
+                    document.getElementById('game_picture').classList.add('game_none')
+                    document.getElementById('game_picture').innerHTML = '你已經死亡超過十次，遊戲失敗。';
+                }
+            })
+            document.getElementById('show').addEventListener('click', function () {
+                document.getElementById('game_picture').innerHTML = '名字: '+player[0].name+'血量: '+player[0].hp+'死亡次數: '+player[0].die+'<br>'+'擁有金錢: '+player[0].money;
+            })
+        })
+        
+
     </script>
 </head>
 
@@ -166,6 +276,18 @@
                 <li><a href="#">問答</a></li>
         </div>
     </header>
+
+    <div class="game" id="game">
+        <div class="game_click">
+            <button id="fight">戰鬥</button>
+            <button id="recover">恢復</button>
+            <button id="show">顯示我的資訊</button>
+        </div>
+        <div class="game_picture " id="game_picture">
+            
+        </div>
+    </div>
+
         <div class="content">
             <div class="content_text">
                 test text
