@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>test頁面</title>
 
     <style>
+
         body{
+            margin: 0;  /* 整個body畫面預設8px空間 做滿版要margin0 */
             background-image: url(images/hololive/Rshia/file_369876.png);
         }
         header{
@@ -41,7 +43,7 @@
             padding: 0% 10% 0% 10%;
         }
 
-        /* 遊戲 */
+        /* 遊戲開始 */
 
         .game{
             margin: 5% 10% 5% 10%;
@@ -59,13 +61,14 @@
         }
         .game_picture{
             position: absolute;
-            font-size: 48px;
+            font-size: 2.4rem;
             right: 0;
             top: 0;
             height: 200px;
             width: 50%;
             background-color: red;
             color: yellow;
+            margin: auto;
         }
         .game_none{
             background-color: black;
@@ -76,6 +79,9 @@
             text-align: center;
             line-height: 200px;
         }
+
+        /* 遊戲結束 */
+
         li a{   
             text-decoration: none;
         }
@@ -166,6 +172,62 @@
             color: white;
             text-align: center;
         }
+        .cube{
+            margin: 5% 10% 5% 10%;
+            border: 5px solid red;
+            position: relative;
+        }
+        .cube .top{
+            width: 200px;
+            height: 50px;
+            background-color: rgb(255, 211, 253);
+            transform: skew(-45deg,0deg) translateX(25px);
+            margin-left: 2%;
+        }
+        .cube .front{
+            width: 200px;
+            height: 200px;
+            background-color: rgb(255, 181, 251);
+            display: inline-block;
+            margin-left: 2%;
+        }
+        .cube .right{
+            width: 50px;
+            height: 200px;
+            background-color: rgb(179, 128, 176);
+            display: inline-block;
+            transform: skew(0deg,-45deg) translateY(-25px);
+        }
+        .cube .top2{
+            position: absolute;
+            top: 0;
+            right: 0px;
+            width: 200px;
+            height: 50px;
+            background-color: rgb(255, 211, 253);
+            transform: skew(45deg,0deg) translateX(-25px);
+            margin-right: 2%;
+        }
+        .cube .front2{
+            position: absolute;
+            top: 50;
+            right: 0px;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(255, 181, 251);
+            display: inline-block;
+            margin-right: 2%;
+        }
+        .cube .right2{
+            position: absolute;
+            right: 200px;
+            width: 50px;
+            height: 200px;
+            background-color: rgb(179, 128, 176);
+            display: inline-block;
+            transform: skew(0deg,45deg) translateY(-25px);
+            margin-right: 2%;
+        }
         /* 平板 */
         @media(max-width:1200px){
             .test_rwd .rwd{
@@ -181,6 +243,7 @@
     </style>
 
     <script>
+
         // javascript
         // linux test
 /*
@@ -221,44 +284,73 @@
                 hp : 100,
                 die : 0,
                 money : 0
+            },{
+                // 新角色
             }
         ]
         // console.log(player[0].name)
         window.addEventListener('load' , function ( ){
+            //const fight_js = document.getElementById('fight')     //綁定id  下面用不綁定做法  document.querySelector
+
             document.getElementById('fight').addEventListener('click', function (){
                 player[0].hp = player[0].hp - 10;
                 player[0].money = player[0].money + 20;
-                document.getElementById('game_picture').innerHTML = '生命減少10點，金錢增加20元';
+                document.getElementById('game_picture').innerHTML = `${player[0].name}的生命減少10點，金錢增加20元！`;
                     if(player[0].hp <= 0){
                     player[0].die++;
                     player[0].hp = 100;
                     player[0].money = player[0].money / 2;
-                    document.getElementById('game_picture').innerHTML = '你已經死亡，生命力恢復至100點，金錢減半。';
+                    document.getElementById('game_picture').innerHTML = `${player[0].name}已經死亡，生命力恢復至100點，金錢減半。`;
                 }
                 if(player[0].die >= 10 ){
                         document.getElementById('game_picture').classList.add('game_none')
-                        document.getElementById('game_picture').innerHTML = '你已經死亡超過十次，遊戲失敗。';
+                        document.getElementById('game_picture').innerHTML = `${player[0].name}已經死亡超過十次，遊戲失敗。`;
                     }
             })
             document.getElementById('recover').addEventListener('click',function (){
                 player[0].hp = player[0].hp + 5;
-                document.getElementById('game_picture').innerHTML = '生命恢復5點';
+                document.getElementById('game_picture').innerHTML = `${player[0].name}的生命恢復5點`;
                     if(player[0].hp <= 0){
                     player[0].die++;
                     player[0].hp = 100;
                     player[0].money = player[0].money / 2;
-                    document.getElementById('game_picture').innerHTML = '你已經死亡，生命力恢復至100點，金錢減半。';
+                    document.getElementById('game_picture').innerHTML = `${player[0].name}已經死亡，生命力恢復至100點，金錢減半。`;
                 }
                 if(player[0].die >= 10 ){
                     document.getElementById('game_picture').classList.add('game_none')
-                    document.getElementById('game_picture').innerHTML = '你已經死亡超過十次，遊戲失敗。';
+                    document.getElementById('game_picture').innerHTML = `${player[0].name}已經死亡超過十次，遊戲失敗。`;
                 }
             })
             document.getElementById('show').addEventListener('click', function () {
-                document.getElementById('game_picture').innerHTML = '名字: '+player[0].name+'血量: '+player[0].hp+'死亡次數: '+player[0].die+'<br>'+'擁有金錢: '+player[0].money;
+                document.getElementById('game_picture').innerHTML = '名字: '+player[0].name+'<br>血量: '+player[0].hp+'<br>死亡次數: '+player[0].die+'<br>擁有金錢: '+player[0].money;
             })
         })
+        // 遊戲結束 不過以上程式碼太長 建議還是先宣告const綁定id後再進行innerHTML或append
         
+        
+        
+        // ES6建構式
+        class Player {
+            constructor(user,hp,atk,def){
+                this.name = user;
+                this.hp = hp;
+                this.atk = atk;
+                this.def = def;
+            }
+            get death(){
+                return this.hp <= 0;
+            }
+            attack(target){
+                target.hp -= this.atk - target.def;
+            }
+        }
+        const joan = new Player('joan',20,5,3)
+        const ana = new Player('ana',18,6,2)
+        console.log(joan)
+        console.log(ana)
+        joan.attack(ana)
+        console.log(joan)
+        console.log(ana)
 
     </script>
 </head>
@@ -284,8 +376,8 @@
             <button id="recover">恢復</button>
             <button id="show">顯示我的資訊</button>
         </div>
-        <div class="game_picture " id="game_picture">
-            
+        <div class="game_picture" id="game_picture">
+            點擊左邊選項開始遊戲！
         </div>
     </div>
 
@@ -321,6 +413,11 @@
             <div class="rwd">test_rwd</div>
             <div class="rwd">test_rwd</div>
             <div class="rwd">test_rwd</div>
+        </div>
+
+        <div class="cube">
+            <div class="top"></div><div class="front"></div><div class="right"></div>
+            <div class="top2"></div><div class="front2"></div><div class="right2"></div>
         </div>
 
     <div class="footer">
