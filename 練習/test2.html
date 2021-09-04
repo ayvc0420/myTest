@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+    <style> /* box */
+        body{
+            margin: 0;
+            background-color: gray;
+        }
+        hr{
+            margin: 50px 0px 50px 0px;
+        }
+        .box , .box2{
+            width: 200px;
+            background-color: red;
+            border: 20px solid orange;
+            padding: 10px;
+        }
+        .box2{
+            box-sizing: border-box;
+        }
+    </style>
+    <style> /* wrap */
+        .wrap{
+            width: 1030px;
+            background-color: palegreen;
+            margin: auto;
+            display: flex;
+        }
+        .item{
+            width: 300px;
+            margin: auto;
+            background-color: white;
+            border: 2px solid rgb(207, 207, 207);
+            box-sizing: border-box;
+            margin-top: 10%;
+            margin-bottom: 10%;
+        }
+
+    </style>
+    <style> /* grid */
+        .grid{
+            width: 1000px;
+            border: 1px solid red;
+            margin: auto;
+        }
+        .grid div{
+            width: 100%;
+            display: flex;
+        }
+        .grid div span{
+            width: 30%;
+            border: 1px yellow solid;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            box-sizing: border-box;
+            margin: auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+<body>
+    <hr>
+    no_box-sizing
+    <div class="box">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident placeat autem, expedita debitis temporibus totam adipisci optio officiis! Eum dignissimos asperiores quae cupiditate. Cum error aspernatur dolor inventore sint nulla, facere quia quaerat fugit minima vel eius odio quidem ipsa nostrum nemo eos quasi ratione ab officiis ea commodi explicabo.</div>
+    box-sizing
+    <div class="box2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident placeat autem, expedita debitis temporibus totam adipisci optio officiis! Eum dignissimos asperiores quae cupiditate. Cum error aspernatur dolor inventore sint nulla, facere quia quaerat fugit minima vel eius odio quidem ipsa nostrum nemo eos quasi ratione ab officiis ea commodi explicabo.</div>
+
+    <hr>
+
+    <div class="wrap">
+        <div class="item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium voluptatem, corrupti incidunt minima, quas asperiores repellat autem quidem doloribus, officia blanditiis tenetur veritatis adipisci! Rerum unde ullam optio natus tempore?</div>
+        <div class="item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium voluptatem, corrupti incidunt minima, quas asperiores repellat autem quidem doloribus, officia blanditiis tenetur veritatis adipisci! Rerum unde ullam optio natus tempore?</div>
+        <div class="item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium voluptatem, corrupti incidunt minima, quas asperiores repellat autem quidem doloribus, officia blanditiis tenetur veritatis adipisci! Rerum unde ullam optio natus tempore?</div>
+    </div>
+
+    <hr>
+
+    <div class="grid">
+        <div>
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+        </div>
+        <div>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+        </div>
+        <div>
+            <span>7</span>
+            <span>8</span>
+            <span>9</span>
+        </div>
+    </div>
+
+    <hr>
+</body>
+</html>

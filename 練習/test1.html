@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>test頁面</title>
-
-    <style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <style> /* 基本設定  */
 
         body{
             margin: 0;  /* 整個body畫面預設8px空間 做滿版要margin0 */
@@ -42,8 +42,19 @@
             line-height: 110px;
             padding: 0% 10% 0% 10%;
         }
-
-        /* 遊戲開始 */
+        li a{   
+            text-decoration: none; /* 超連結取消 */
+        }
+        li a:visited{
+            color: blue;
+        }
+        li a:hover{
+            color: yellow
+        }
+    </style>
+    
+    <style>/* 遊戲 */
+        /* JS - 遊戲開始 */
 
         .game{
             margin: 5% 10% 5% 10%;
@@ -79,19 +90,47 @@
             text-align: center;
             line-height: 200px;
         }
+        
+        /* jQ 遊戲開始 */
+        .game2{
+            margin: 5% 10% 5% 10%;
+            background-color: darkgray ;
+            height: 200px;
+            display: flex;
+            position: relative;
+        }
+        .game_click2{
+            width: 50%;
+        }
+        .game_click2 button{
+            font-size: 40px;
+            margin: 2%;
+        }
+        .game_picture2{
+            position: absolute;
+            font-size: 2.4rem;
+            right: 0;
+            top: 0;
+            height: 200px;
+            width: 50%;
+            background-color: red;
+            color: yellow;
+            margin: auto;
+        }
+        .game_none2{
+            background-color: black;
+            color: white;
+            font-size: 80px;
+            z-index: 999;
+            width: 100%;
+            text-align: center;
+            line-height: 200px;
+        }
+
 
         /* 遊戲結束 */
-
-        li a{   
-            text-decoration: none;
-        }
-        li a:visited{
-            color: blue;
-        }
-        li a:hover{
-            color: yellow
-        }
-
+    </style>
+    <style> /* footer */
         footer{
             margin-top: 5%;
             width: 100%;
@@ -102,10 +141,14 @@
             padding: 30px;
             text-align: center;
         }
+    </style>
+    <style> /* content */
         .content{
             margin: 5% 10% 5% 10%;
             background-color: red;
         }
+    </style>
+    <style> /* position test */
         .position_test{
             width: 80%;
             height: 500px;
@@ -124,6 +167,8 @@
             line-height: 15vw;
             text-align: center;
         }
+    </style>
+    <style> /* content test */
         .content_div{
             height: 300px;
             background-color: yellow;
@@ -136,10 +181,12 @@
             background-color: tomato;
             margin: 30px;
         }
+    </style>
+    <style> /* flex test - red thistle yellowgreen*/
         .flex_div{
             display: flex;
             height: 200px;
-            background-color: teal;
+            background-color: teal;  /* 底色 這裡設計測試是否會顯示 若顯示則失敗因中間設計占滿左右多餘的空間 */
             margin: 5% 10% 5% 10%;
         }
         .flex_div .test_flex_1{
@@ -156,6 +203,8 @@
             width: 250px;
             background-color: yellowgreen;
         }
+    </style>
+    <style> /* rwd test 非mediaQuery */
         /* PC 預設1200px以上 */
         .test_rwd{
             display: flex;
@@ -172,6 +221,20 @@
             color: white;
             text-align: center;
         }
+        /* 平板 */
+        @media(max-width:1200px){
+            .test_rwd .rwd{
+                width: 40%;
+            }
+        }
+        /* 手機 */
+        @media (max-width:700px){
+            .test_rwd .rwd{
+                width: 90%;
+            }
+        }
+    </style>
+    <style> /* css transform */
         .cube{
             margin: 5% 10% 5% 10%;
             border: 5px solid red;
@@ -228,18 +291,6 @@
             transform: skew(0deg,45deg) translateY(-25px);
             margin-right: 2%;
         }
-        /* 平板 */
-        @media(max-width:1200px){
-            .test_rwd .rwd{
-                width: 40%;
-            }
-        }
-        /* 手機 */
-        @media (max-width:700px){
-            .test_rwd .rwd{
-                width: 90%;
-            }
-        }
     </style>
 
     <script>
@@ -288,6 +339,8 @@
                 // 新角色
             }
         ]
+
+
         // console.log(player[0].name)
         window.addEventListener('load' , function ( ){
             //const fight_js = document.getElementById('fight')     //綁定id  下面用不綁定做法  document.querySelector
@@ -327,31 +380,66 @@
         })
         // 遊戲結束 不過以上程式碼太長 建議還是先宣告const綁定id後再進行innerHTML或append
         
+        //jQ寫上面遊戲 用建構式
+
+        $(function(){
+
+            class player {
+                constructor(name,hp,die,money){
+                    this.name = name;
+                    this.hp = hp;
+                    this.die = die;
+                    this.money = money;
+                }
+            }
+
+            const elise = new player('Elise',110,0,0);
+            const monsterAtk = 15;
+            const monsterMoney = 30;
+            const recoverHp = 10
+
+            $('#fight2').click(function(){
+                elise.hp -= monsterAtk;
+                if(elise.hp <= 0){
+                    $('#game_picture2').html(`戰鬥失敗，${elise.name}已經死亡<br>受到金錢減半懲罰<br>生命值已回復一半。`);
+                    elise.money /= 2;
+                    elise.hp = 65;
+                    elise.die++;
+                }else{
+                    elise.money += monsterMoney;
+                    $('#game_picture2').html(`${elise.name}的hp降低了${monsterAtk}點<br>HP值剩下${elise.hp}<br>獲得金錢${monsterMoney}元。`);
+                }
+            })
+            $('#recover2').click(function(){
+                elise.hp += recoverHp;
+                $('#game_picture2').html(`${elise.name}的HP恢復${recoverHp}點<br>目前的生命值是${elise.hp}。`);
+            })
+            $('#show2').click(function(){
+                $('#game_picture2').html(`角色名稱:${elise.name}<br>
+                                          生命值:${elise.hp}<br>
+                                          死亡次數:${elise.die}<br>
+                                          擁有金錢:${elise.money}`);
+            })
+        })
         
         
         // ES6建構式
         class Player {
-            constructor(user,hp,atk,def){
-                this.name = user;
+            constructor(name,hp,atk,def){
+                this.name = name;
                 this.hp = hp;
                 this.atk = atk;
                 this.def = def;
-            }
-            get death(){
-                return this.hp <= 0;
             }
             attack(target){
                 target.hp -= this.atk - target.def;
             }
         }
-        const joan = new Player('joan',20,5,3)
-        const ana = new Player('ana',18,6,2)
-        console.log(joan)
-        console.log(ana)
-        joan.attack(ana)
-        console.log(joan)
-        console.log(ana)
-
+        const alice2 = new Player('alice2',20,10,6)
+        const elise2 = new Player('elise2',18,12,5)
+        console.log('攻擊前: ', elise2)
+        alice2.attack(elise2)
+        console.log('攻擊後: ', elise2)
     </script>
 </head>
 
@@ -377,6 +465,16 @@
             <button id="show">顯示我的資訊</button>
         </div>
         <div class="game_picture" id="game_picture">
+            點擊左邊選項開始遊戲！
+        </div>
+    </div>
+    <div class="game2" id="game2">
+        <div class="game_click2">
+            <button id="fight2">戰鬥</button>
+            <button id="recover2">恢復</button>
+            <button id="show2">顯示我的資訊</button>
+        </div>
+        <div class="game_picture2" id="game_picture2">
             點擊左邊選項開始遊戲！
         </div>
     </div>

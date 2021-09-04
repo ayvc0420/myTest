@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Document</title>
+    
+</head>
+    <style>
+    @keyframes loading_animation {
+        100% {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+    .icon {
+        width: 200px;
+        height: 200px;
+        border: 5px solid rgba(255, 0, 0, 0.5);
+        border-top-color: rgb(255, 0, 0);
+        margin: 25% 0% 0% 50%;
+        transform: translate(-50%, -50%) rotate(0deg);
+        border-radius: 50%; 
+        box-sizing: border-box;
+
+        animation-name: loading_animation;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+
+    
+    </style>
+<body>
+    <div class="icon"></div>
+</body>
+</html>
