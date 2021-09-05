@@ -1,0 +1,16 @@
+http://www.myfreecsstemplates.com/free_css_templates/freecss_spusious/
+
+下午1:50分開始
+
+晚上9點13分 git push結束
+
+總耗時約6小時20分左右
+
+素材擷取網址上的物件
+
+F12檢查使用兩次為網址內的title images跟item 旋轉動畫
+
+預計隔日完成後續@media 1200px 767px以下版本
+
+2021-09-05
+------------------------------------------------------------------------
