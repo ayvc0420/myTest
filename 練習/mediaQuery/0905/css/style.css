@@ -4,76 +4,86 @@
 body{
     position: relative;
 }
-nav{
-    background: linear-gradient(180deg,
-        rgb(68, 68, 68),
-        rgb(139, 139, 139),
-        rgb(68, 68, 68) 50%,
-        black 50%,
-        rgb(41, 41, 41) 70%,
-        rgb(63, 63, 63) 80%,
-        rgb(41, 41, 41));
-    position: relative;
-    z-index: 100;
-}
-.nav_title{
-    color: white;
-    font-size: 40px;
-    padding: 20px 0 20px 50px;
-}
-.nav_menu{
-    padding: 0;
-    position: absolute;
-    right: 100px;
-    top: 0;
-}
-.nav_menu li{
-    float: left;
-    list-style: none;
-    font-size: 24px;
-    line-height: 87px;
-}
-.nav_menu li a {
-    text-decoration: none;
-    color: white;
-    display: inline-block;
-    padding: 0 25px 0 25px;
-}
-#nav_show{
+#mob_click{
     display: none;
-    position: absolute;
-    left: 0px;
 }
-#nav_show:nth-of-type(2){
-    position: relative;
-}
-#nav_show li{
-    float: none;
-    width: 330px;
-    display: inline-block;
-    background-color: #FF845E;
-}
-#nav_show li a{
-    width: 280px;
-}
-#nav_show li a:hover ,#about_menu li:hover{
-    color: #FF845E;
-    background-color: white;
-}
-.nav_menu li a:hover{
-    background-color: #FF845E;
-}
-
-#nav_show li a span{
-    color: #FF845E;
-}
-#about_menu{
-    display: none;
-    position: absolute;
-    right: -50px;
-}
-#about_menu li{
-    display: block;
+@media screen and (min-width:768px){
+    
+    nav{
+        background: linear-gradient(180deg,
+            rgb(68, 68, 68),
+            rgb(139, 139, 139),
+            rgb(68, 68, 68) 50%,
+            black 50%,
+            rgb(41, 41, 41) 70%,
+            rgb(63, 63, 63) 80%,
+            rgb(41, 41, 41));
+        position: relative;
+        z-index: 100;
+        height: 100px;
+    }
+    .nav_title{
+        color: white;
+        font-size: 40px;
+        padding: 20px 0 20px 50px;
+    }
+    .nav_menu{
+        padding: 0;
+        position: absolute;
+        right: 100px;
+        top: 0;
+    }
+    .nav_menu li{
+        float: left;
+        list-style: none;
+        font-size: 24px;
+        line-height: 87px;
+    }
+    .nav_menu li a {
+        text-decoration: none;
+        color: white;
+        display: inline-block;
+        padding: 7px 30px 7px 30px;
+    }
+    #nav_show{
+        display: none;
+        position: absolute;
+        left: 0px;
+    }
+    #nav_show:nth-of-type(2){
+        position: relative;
+    }
+    #nav_show li{
+        float: none;
+        width: 330px;
+        display: inline-block;
+        background-color: #FF845E;
+    }
+    #nav_show li a{
+        width: 280px;
+    }
+    #nav_show li a:hover ,#about_menu li:hover{
+        color: #FF845E;
+        background-color: white;
+    }
+    .nav_menu li a:hover{
+        background-color: #FF845E;
+    }
+    
+    #nav_show li a span{
+        color: #FF845E;
+    }
+    #about_menu{
+        display: none;
+        position: absolute;
+        right: -50px;
+    }
+    #about_menu li{
+        display: block;
+    }
+    .pc_home{
+        background-color: #FF845E;
+    }
 }
 
 @keyframes title_img_animation{
@@ -105,6 +115,7 @@ nav{
     position: relative;
     display: block;
     z-index: 1;
+    
 }
 .title_text{
     position: absolute;
@@ -207,15 +218,17 @@ nav{
 
 .list {
     background-image: url(../images/parallax2.jpg);
-    height: 768px;
+    height: 750px;
     width: 100%;
     position: relative;
+    background-size: cover;
+
 }
 .list_text{
     position: absolute;
     margin-left: 40%;
     display: block;
-    margin-top: 12%;
+    margin-top: 200px;
     margin-right: 12%;
     font-size: 3vw;
     /* word-wrap:break-word; */
@@ -224,18 +237,15 @@ nav{
 
 .list2{
     margin: 5% 20% 5% 20%;
-}
-
-
-.list2_content{
     position: relative;
     display: flex;
 }
 
+
 .list2_content h2{
     position: absolute;
     font-weight: normal;
-    font-size: 2.5vw;
+    font-size: 42px;
     top: 0;
     left: 0;
 }
@@ -249,7 +259,6 @@ nav{
     padding-top: 5%;
     width: 350px;
     margin-right: 30px;
-    float: left;
     height: 300px;
 }
 #list_btn{
@@ -261,16 +270,140 @@ nav{
 }
 
 footer{
-    margin-top: 5%;
-    bottom: 0;
-    left: 0;
+    margin-top: 200px;
     background-color: white;
-    color: black;
-    font-size: 14px;
-    margin-left: 20%;
+    position: relative;
 }
 
 footer div{
     margin: 20px 0 20px 0;
+    bottom: 0;
+    left: 0;
+    color: black;
+    font-size: 14px;
+    margin-left: 20%;
+    display: inline-block;
+}
+.mob_nav ,.mob_text{
+    display: none;
 }
 
+@media screen and (max-width:1200px){
+    .nav_title{
+        width: 100%;
+        text-align: center;
+        font-size: 36px;
+        top: 0;
+        vertical-align: top;
+        line-height: 10px;
+    }
+    .nav_menu{
+        margin-top: 20px;
+        padding: 0px;
+    }
+    .nav_menu li{
+        position: relative;
+        top: 30px;
+        right: 50px;
+        line-height: 35px;
+    }
+    #nav_show{
+        top: 20px;
+    }
+    #about_menu{
+        top: -20px;
+        right: -380px;
+        line-height: 40px;
+        z-index: 100;
+    }
+    .title_text{
+        margin-top: 5%;
+        margin-left: 5%;
+    }
+    .welcome{
+        padding-left:5%;
+        padding-right: 5%;
+    }
+    .list{
+        height: 400px;
+    }
+    .list_text{
+        margin-top: 120px;
+    }
+    .list2{
+        margin: 5% 10% 5% 10%;
+    }
+}
+@media screen and (max-width:950px){
+    .nav_menu li{
+        position: relative;
+        top: 30px;
+        right: 1%;
+        line-height: 35px;
+    }
+    #about_menu{
+        right: -300px;
+    }
+}
+
+@media screen and (max-width:820px){
+    .nav_menu li{
+        right: -5%;
+    }
+}
+
+@media screen and (max-width:767px){
+    #mob_click{
+        display: block;
+    }
+    nav{
+        display:none;
+    }
+    .mob_nav{
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        font-size: 30px;
+        margin-left: 30px;
+    }
+    .mob_nav li ,.mob_nav li ul ,.mob_nav a{
+        text-decoration: none;
+        padding: 0;
+        list-style: none;
+        color: #FF845E;
+    }
+    .mob_nav a:hover{
+        color: white;
+        background-color: #FF845E;
+    }
+    #mob_click{
+        font-size: 42px;
+        border-radius: 1rem;
+    }
+    .title_text{
+        display: none;
+    }
+    .mob_text{
+        display: block;
+        text-align: center;
+        padding-top: 60px;
+        font-size: 40px;
+    }
+    .welcome{
+        display: inline-block;
+        padding-bottom: 10%;
+    }
+    .welcome_img{
+        padding-left: 12%;
+    }
+    .welcome_text{
+        text-align: center;
+    }
+
+    .list2_content{
+        margin-bottom: 50px;
+    }
+    .list2{
+        display: inline-block;
+    }
+}

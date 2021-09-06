@@ -43,6 +43,8 @@ $(function(){
         $('.item6 div img').stop().removeClass("rotate_animation");
     }))
 
-
+    $('#mob_click').click(function(){
+        $('.mob_nav').toggle()
+    })
 
 })
