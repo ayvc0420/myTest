@@ -89,13 +89,13 @@ nav a:nth-of-type(2):before,nav a:nth-of-type(3):before{
     align-items: center;
 }
 .item div img{
-    vertical-align: bottom;
+    vertical-align: middle;
+    padding: 20px;
 }
 .item_text{
     max-width: 500px;
     font-size: 18px;
     text-align: center;
-    margin-left: 3%;
 }
 .item_text h2{
     font-size: 40px;
