@@ -72,25 +72,43 @@ nav a:nth-of-type(2):before,nav a:nth-of-type(3):before{
 }
 .about .about_2 h3{
     font-size: 30px;
+    padding-bottom: 15px;
 }
-.about .about_2 article{
-    max-width: 400px;
+.about .about_2 article img{
+    border-radius: 50%;
 }
 .about .about_2 span{
-    margin-top: 30px;
     display: inline-block;
+    padding: 20px 0;
 }
 
 .item{
     width: 100%;
-    display: flex;
     background-color: indianred;
+    display: flex;
     justify-content: center;
     align-items: center;
+}
+.item div{
+    position: relative;
 }
 .item div img{
     vertical-align: middle;
     padding: 20px;
+}
+.hot::before{
+    content: 'power';
+    background-color: red;
+    color: white;
+    width: 80px;
+    height: 50px;
+    margin: 20px;
+    right: 0;
+    position: absolute;
+    text-align: center;
+    line-height: 50px;
+    z-index: 1;
+    opacity: 0.7;
 }
 .item_text{
     max-width: 500px;
@@ -99,6 +117,7 @@ nav a:nth-of-type(2):before,nav a:nth-of-type(3):before{
 }
 .item_text h2{
     font-size: 40px;
+    padding-bottom: 30px;
 }
 
 .item2{
