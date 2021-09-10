@@ -5,7 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <style> /* menu_box */
+        .menu_box{
+            display: flex;
+            font-size: 40px;
+            width: 800px;
+            background-color: brown;
+            margin: auto;
+        }
+        .menu_box ul{
+            text-align: center;
+            width: 100%;
+        }
+        .menu_box ul li{
+            list-style: none;
+            padding: 0;
+            font-size: 24px;
+            display: none;
+        }
+    </style>
+        <script>
+            $(function(){
+                $('.menu_box ul').hover(function(){
+                    $(this).children('li').stop().slideDown(500)
+                },function(){
+                    $(this).children('li').stop().slideUp(500)
+                })
+            })
+        </script>
+    <style> /* box_text*/
 
+        .box_text{
+        }
+        .box_text ul{
+            font-size: 0;
+            margin: 0;
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .box_text li{
+            list-style: none;
+            padding: 0;
+            background-color: green;
+            color: yellow;
+            /* display: inline-block; */
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            font-size: 30px;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
     <style> /* box */
 
         body{
@@ -131,6 +186,88 @@
     </style>
 </head>
 <body>
+    <div class="menu_box">
+        <ul>
+            menu1
+            <li>menu1-1</li>
+            <li>menu1-2</li>
+            <li>menu1-3</li>
+            <li>menu1-4</li>
+            <li>menu1-5</li>
+        </ul>
+        <ul>
+            menu2
+            <li>menu2-1</li>
+            <li>menu2-2</li>
+            <li>menu2-3</li>
+            <li>menu2-4</li>
+            <li>menu2-5</li>
+        </ul>
+        <ul>
+            menu3
+            <li>menu3-1</li>
+            <li>menu3-2</li>
+            <li>menu3-3</li>
+            <li>menu3-4</li>
+            <li>menu3-5</li>
+        </ul>
+    </div>
+    <div class="box_text">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+            <li>11</li>
+            <li>12</li>
+            <li>13</li>
+            <li>14</li>
+            <li>15</li>
+            <li>16</li>
+            <li>17</li>
+            <li>18</li>
+            <li>19</li>
+            <li>20</li>
+            <li>21</li>
+            <li>22</li>
+            <li>23</li>
+            <li>24</li>
+            <li>25</li>
+            <li>26</li>
+            <li>27</li>
+            <li>28</li>
+            <li>29</li>
+            <li>30</li>
+            <li>31</li>
+            <li>32</li>
+            <li>33</li>
+            <li>34</li>
+            <li>35</li>
+            <li>36</li>
+            <li>37</li>
+            <li>38</li>
+            <li>39</li>
+            <li>40</li>
+            <li>41</li>
+            <li>42</li>
+            <li>43</li>
+            <li>44</li>
+            <li>45</li>
+            <li>46</li>
+            <li>47</li>
+            <li>48</li>
+            <li>49</li>
+            <li>50</li>
+            <li>51</li>
+        </ul>
+    </div>
+
     <hr>
     no_box-sizing
     <div class="box">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident placeat autem, expedita debitis temporibus totam adipisci optio officiis! Eum dignissimos asperiores quae cupiditate. Cum error aspernatur dolor inventore sint nulla, facere quia quaerat fugit minima vel eius odio quidem ipsa nostrum nemo eos quasi ratione ab officiis ea commodi explicabo.</div>
