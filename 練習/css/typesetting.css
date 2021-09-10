@@ -48,7 +48,7 @@ nav a{
     font-size: 18px;
 }
 nav a:nth-of-type(2):before,nav a:nth-of-type(3):before{
-    content: ' / ';
+    content: ' | ';
 }
 .about{
     width: 100%;
@@ -89,7 +89,7 @@ nav a:nth-of-type(2):before,nav a:nth-of-type(3):before{
     align-items: center;
 }
 .item div img{
-    margin-bottom: -3px;
+    vertical-align: bottom;
 }
 .item_text{
     max-width: 500px;
@@ -163,6 +163,9 @@ footer{
         color: chartreuse;
         text-decoration: none;
         margin: 0 8px;
+    }
+    .header_mob a:hover{
+        color: yellow;
     }
     .nav_img{
         margin-top:60px; 
