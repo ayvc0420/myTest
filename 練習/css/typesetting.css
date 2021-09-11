@@ -36,11 +36,12 @@ header{
     color: chartreuse;
     display: inline-block;
     line-height: 120px;
+    transition: all 0.2s 0s ease;
 }
 
 .header_menu a:hover{
     background-color: white;
-    color: black;
+    color: red;
 }
 nav a{
     text-decoration: none;

@@ -1,0 +1,184 @@
+main{
+    max-width: 1200px;
+    margin: auto;
+}
+.header{
+    border-top: 1px solid rgb(236, 236, 236);
+    border-bottom: 1px solid rgb(236, 236, 236);
+    /* width: 1200px;
+    margin: auto; */
+}
+
+.header_nav{
+    margin: auto;
+    position: relative;
+}
+.header_item{
+    display: flex;
+}
+.header_item>li{
+    margin: 10px 0;
+    margin-right: 25px;
+    letter-spacing: 1px;
+    font-size: 0;
+}
+.header_item>li>a{
+    font-size: 13px;
+    color: gray;
+    text-decoration: none;
+}
+.heafer_img{
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.header ul li img{
+    width: 14px;
+    height: 14px;
+    margin: 10px 0;
+    margin-right: 14px;
+    opacity: 0.5;
+}
+.header ul li a img:hover{
+    opacity: 1.0;
+    transition: all 0.5s 0s ease;
+}
+
+
+/* 頂部結束 */
+
+.logo {
+    text-align: center;
+    padding: 50px 0 30px 0;
+}
+.logo a img{
+    padding-bottom: 10px;
+}
+.logo>p{
+    margin-top: 5px;
+    color: gray;
+}
+
+
+/* logo結束 */
+.pc_nav{
+    border-top: 1px solid rgb(236, 236, 236);
+    border-bottom: 1px solid rgb(236, 236, 236);
+}
+.pc_nav ul{
+    display: flex;
+    justify-content: center;
+}
+.pc_nav a{
+    text-decoration: none;
+    color: gray;
+    margin-right: 24px;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+
+.pc_nav a:hover{
+    transition: all 0.5s 0s ease;
+    color: rgb(187, 187, 114);
+
+}
+
+.pc_nav_2>a{
+    padding-top: 2px;
+}
+
+.pc_nav>ul>li{
+    display: inline-block;
+    padding: 20px;
+}
+.pc_nav ul>li>ul{
+    position: relative;
+}
+.pc_nav_2 div{
+    position: absolute;
+    display: none;
+    width: 200px;
+    top: 35px;
+    left: -15px;
+    line-height: 40px;
+    box-shadow: 1px 10px 10px 1px #d6d6d6;
+    background-color: white;
+    z-index: 2;
+}
+.pc_nav_2 div li{
+    display: inline-block;
+    width: 90%;
+    padding-left: 10%;
+    border: 1px solid rgb(236, 236, 236);
+    border-bottom: 1px solid rgb(255, 255, 255);
+
+    
+}
+.pc_nav_2 div li a{
+    display: inline-block;
+    width: 100%;
+
+}
+
+.pc_nav_2 div li:hover{
+    background-color: rgb(236, 236, 236);
+}
+
+
+/* pc_nav結束 */
+
+.wrap{
+    margin-top: 50px;
+}
+.wrap a{
+    text-decoration: none;
+    color: white;
+}
+.wrap a:nth-of-type(1) article {
+    background-image: url(../images/rob-bye-18279.jpg);
+    height: 480px;
+    width: 780px;
+    background-color: red;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+}
+
+.wrap a:nth-of-type(1) article>div{
+    /* display: flex; */
+    /* height: 480px; */
+    /* justify-content: center;
+    align-items: center; */
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 560px;
+    height: 140px;
+    margin: auto;
+    align-items: center;
+    margin-top: 170px;
+    text-align: center;
+}
+.wrap a:nth-of-type(1) article{
+    
+}
+.wrap a:nth-of-type(1) article>div>div{
+    display: inline-block;
+    text-align: center;
+    justify-content: center;
+    border: 1px white solid;
+    font-size: 14px;
+    margin-top: 20px;
+    padding: 5px;
+}
+.wrap a:nth-of-type(1) article>div>h2{
+    margin-top: 15px;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+.wrap a:nth-of-type(1) article>div>span{
+}
+.wrap a:nth-of-type(1) article>div>span>span{
+    font-size: 14px;
+    font-style: italic;
+}

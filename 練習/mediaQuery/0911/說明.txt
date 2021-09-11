@@ -1,0 +1,9 @@
+參照對象 http://www.templatemonsterpreview.com/demo/65640.html
+
+版型分為
+768px以下
+769~991px
+992~1199px
+1200以上px
+
+0911 PM8:00開始
