@@ -27,7 +27,7 @@ main{
     color: gray;
     text-decoration: none;
 }
-.heafer_img{
+.header_img{
     display: flex;
     position: absolute;
     right: 0;
