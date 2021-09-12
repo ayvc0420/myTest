@@ -1,15 +1,12 @@
-main{
-    max-width: 1200px;
-    margin: auto;
-}
+
 .header{
     border-top: 1px solid rgb(236, 236, 236);
     border-bottom: 1px solid rgb(236, 236, 236);
-    /* width: 1200px;
-    margin: auto; */
+    margin: auto;
 }
 
 .header_nav{
+    width: 1200px;
     margin: auto;
     position: relative;
 }
@@ -129,9 +126,10 @@ main{
 /* pc_nav結束 */
 
 .wrap{
-    margin-top: 50px;
     position: relative;
     width: 1200px;
+    margin: auto;
+    margin-top: 50px;
     height: 480px;
     margin-bottom: 60px;
 }
@@ -245,6 +243,8 @@ main{
 
 .content{
     position: relative;
+    width: 1200px;
+    margin: auto;
 }
 .content_1{
     display: flex;
@@ -261,28 +261,28 @@ main{
 .content div>img{
     border-radius: 3px;
 }
-.content h3{
+.content .content_1 h3{
     margin-top: 20px;
     margin-bottom: 15px;
     text-align: center;
 }
-.content h3>a{
+.content .content_1 h3>a{
     font-size: 17px;
     color: black;
 }
-.content h3>a:hover{
+.content .content_1 h3>a:hover{
     color: #c39f76;
     transition: all 0.4s 0s ease;
 }
-.content h4{
+.content .content_1 h4{
     margin-top: 30px;
     text-align: center;
 }
-.content h4>a{
-    font-size: 12px;
+.content .content_1 h4>a{
+    font-size: 13px;
     color: #c39f76;
 }
-.content h4>a:hover{
+.content .content_1 h4>a:hover{
     color: black;
     transition: all 0.4s 0s ease;
 }
@@ -294,7 +294,7 @@ main{
     justify-content: center;
 }
 .content_1>div>span , .content_1>div>span>a{
-    color: rgb(187, 187, 187);
+    color: #939393;
 }
 .content_1>div>span>a:hover{
     color: #c39f76;
@@ -330,12 +330,14 @@ main{
     margin-left: 42px;
 }
 
-/* content結束 */
+/* content1結束 */
 
-.search{
+.content2{
     position: absolute;
     top: 0;
     right: 20px;
+}
+.search{
     width: 350px;
 }
 .search>input{
@@ -343,6 +345,8 @@ main{
     width: 100%;
     padding: 10px;
     font-size: 16px;
+    position: relative;
+    right: 0;
 }
 .search button{
     border: 0;
@@ -351,8 +355,7 @@ main{
     color: rgb(187, 187, 187);
     position: absolute;
     right: 0;
-    top: 0;
-    bottom: 0;
+    top: 12px;
 }
 .search_btn{
     cursor: pointer;
@@ -360,14 +363,46 @@ main{
 .search_btn>img{
     width: 15px;
     height: 15px;
-
+}
+.content_data{
+    margin-top: 70px;
+    width: 350px;
+    position: relative;
+    right: -10px;
+}
+.content_data h3{
+    position: relative;
+    z-index: 2;
+    width: 100px;
+    margin: auto;
+    text-align: center;
+    background-color: white;
+    font-weight: 700;
+}
+.content_data:before{
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: 0;
+    right: 0px;
+    border-top: 1px solid #e1e1e1;
+    z-index: 1;
+}
+.content_data>img{
+    margin-top: 20px;
+}
+.content_data>p{
+    font-size: 17px;
+    line-height: 30px;
+    text-align: center;
+    margin-top: 15px;
 }
 
 
-
-
-
 @media screen and (max-width:768px){
+    .content{
+        width: 100%;
+    }
     .content_1{
         display: inline-block;
     }
