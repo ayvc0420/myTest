@@ -42,7 +42,7 @@ main{
 }
 .header ul li a img:hover{
     opacity: 1.0;
-    transition: all 0.5s 0s ease;
+    transition: all 0.4s 0s ease;
 }
 
 
@@ -50,7 +50,7 @@ main{
 
 .logo {
     text-align: center;
-    padding: 50px 0 30px 0;
+    padding: 50px 0 35px 0;
 }
 .logo a img{
     padding-bottom: 10px;
@@ -73,25 +73,24 @@ main{
 .pc_nav a{
     text-decoration: none;
     color: gray;
-    margin-right: 24px;
+    margin-right: 18px;
     letter-spacing: 1px;
     font-size: 14px;
 }
-
-
 .pc_nav a:hover{
     transition: all 0.5s 0s ease;
-    color: rgb(187, 187, 114);
-
+    color: #c39f76;
 }
-
 .pc_nav_2>a{
     padding-top: 2px;
 }
-
+.pc_nav_2 img{
+    width: 10px;
+    opacity: 0.5;
+}
 .pc_nav>ul>li{
     display: inline-block;
-    padding: 20px;
+    padding: 17px 5px;
 }
 .pc_nav ul>li>ul{
     position: relative;
@@ -119,8 +118,8 @@ main{
 .pc_nav_2 div li a{
     display: inline-block;
     width: 100%;
-
 }
+
 
 .pc_nav_2 div li:hover{
     background-color: rgb(236, 236, 236);
@@ -131,27 +130,25 @@ main{
 
 .wrap{
     margin-top: 50px;
+    position: relative;
+    width: 1200px;
+    height: 480px;
+    margin-bottom: 60px;
 }
 .wrap a{
     text-decoration: none;
     color: white;
 }
-.wrap a:nth-of-type(1) article {
+.wrap>a article {
     background-image: url(../images/rob-bye-18279.jpg);
     height: 480px;
     width: 780px;
-    background-color: red;
     display: inline-block;
     position: relative;
     z-index: 1;
 }
-
-.wrap a:nth-of-type(1) article>div{
-    /* display: flex; */
-    /* height: 480px; */
-    /* justify-content: center;
-    align-items: center; */
-    background-color: rgba(0, 0, 0, 0.4);
+.wrap>a article>div{
+    background-color: rgba(0, 0, 0, 0.3);
     width: 560px;
     height: 140px;
     margin: auto;
@@ -159,26 +156,222 @@ main{
     margin-top: 170px;
     text-align: center;
 }
-.wrap a:nth-of-type(1) article{
-    
-}
-.wrap a:nth-of-type(1) article>div>div{
+.wrap>a article>div>div{
     display: inline-block;
     text-align: center;
     justify-content: center;
     border: 1px white solid;
     font-size: 14px;
     margin-top: 20px;
-    padding: 5px;
+    padding: 2px 5px;
+    letter-spacing: 1px;
 }
-.wrap a:nth-of-type(1) article>div>h2{
+.wrap>a article>div>h2{
     margin-top: 15px;
     font-size: 28px;
     margin-bottom: 20px;
 }
-.wrap a:nth-of-type(1) article>div>span{
+.wrap>a article>div>span{
+    font-size: 14px;
 }
-.wrap a:nth-of-type(1) article>div>span>span{
+.wrap>a article>div>span>span{
     font-size: 14px;
     font-style: italic;
+}
+
+.wrap_right{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 410px;
+    height: 480px;
+}
+.wrap_right a:nth-of-type(1) article {
+    right: 0;
+    background-image: url(../images/samuel-zeller-111395.jpg);
+    height: 480px;
+    width: 780px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    width: 410px;
+    height: 240px;
+    margin-bottom: 10px;
+}
+.wrap_right a:nth-of-type(2) article {
+    background-image: url(../images/nick-baker-98364.jpg);
+    height: 480px;
+    width: 780px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    width: 410px;
+    height: 230px;
+}
+.wrap_right>a article>div{
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 280px;
+    height: 120px;
+    margin: auto;
+    align-items: center;
+    margin-top: 60px;
+    text-align: center;
+}
+.wrap_right>a article>div>div{
+    display: inline-block;
+    text-align: center;
+    justify-content: center;
+    border: 1px white solid;
+    font-size: 14px;
+    margin-top: 20px;
+    padding: 3px 5px;
+    letter-spacing: 1px;
+}
+.wrap_right>a article>div>h2{
+    margin-top: 10px;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+.wrap_right>a article>div>span{
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+.wrap_right>a article>div>span>span{
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* wrap結束*/
+
+.content{
+    position: relative;
+}
+.content_1{
+    display: flex;
+    width: 370px;
+}
+.content a{
+    text-decoration: none;
+}
+.content span>img{
+    border-radius: 50%;
+    vertical-align: middle;
+    padding-right: 5px;
+}
+.content div>img{
+    border-radius: 3px;
+}
+.content h3{
+    margin-top: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.content h3>a{
+    font-size: 17px;
+    color: black;
+}
+.content h3>a:hover{
+    color: #c39f76;
+    transition: all 0.4s 0s ease;
+}
+.content h4{
+    margin-top: 30px;
+    text-align: center;
+}
+.content h4>a{
+    font-size: 12px;
+    color: #c39f76;
+}
+.content h4>a:hover{
+    color: black;
+    transition: all 0.4s 0s ease;
+}
+
+
+.content_1>div>span{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.content_1>div>span , .content_1>div>span>a{
+    color: rgb(187, 187, 187);
+}
+.content_1>div>span>a:hover{
+    color: #c39f76;
+    transition: all 0.4s 0s ease;
+}
+.content_1>div>p{
+    margin-top: 20px;
+    line-height: 30px;
+    font-size: 17px;
+    
+}
+.content_1>div>a{
+    color: #c39f76;
+}
+.content_1>div>a>div{
+    padding: 8px 22px 10px;
+    border: 1px solid #c39f76;
+    text-align: center;
+    border-radius: 100px;
+    width: 120px;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    transition: color .4s ,border .4s;
+}
+
+.content_1>div>a>div:hover{
+    color: black;
+    border: 1px solid black;
+}
+
+.content_1_2{
+    margin-left: 42px;
+}
+
+/* content結束 */
+
+.search{
+    position: absolute;
+    top: 0;
+    right: 20px;
+    width: 350px;
+}
+.search>input{
+    border: 1px solid #e1e1e1;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+.search button{
+    border: 0;
+    padding: 0 .5rem;
+    background: 0 0;
+    color: rgb(187, 187, 187);
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.search_btn{
+    cursor: pointer;
+}
+.search_btn>img{
+    width: 15px;
+    height: 15px;
+
+}
+
+
+
+
+
+@media screen and (max-width:768px){
+    .content_1{
+        display: inline-block;
+    }
+    .content_1_2{
+        margin-left: 0px;
+    }
 }
