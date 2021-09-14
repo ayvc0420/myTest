@@ -9,6 +9,7 @@
     color: white;
     font-weight: 700;
     cursor: pointer;
+    z-index: 100;
 }
 
 .buy_btn:hover{
@@ -155,19 +156,23 @@
     text-decoration: none;
     color: white;
 }
-.wrap>a article {
+.wrap_left{
+    width: 65%;
+}
+.wrap_left article {
     background-image: url(../images/rob-bye-18279.jpg);
     height: 480px;
-    width: 780px;
+    width: 100%;
     display: inline-block;
     position: relative;
     z-index: 1;
+
 }
-.wrap a>article:hover{
+.wrap article:hover{
     filter:brightness(1.05);
     transition: all 0.4s;
 }
-.wrap>a article>div{
+.wrap_left article>div{
     background-color: rgba(0, 0, 0, 0.3);
     width: 560px;
     height: 140px;
@@ -176,7 +181,7 @@
     margin-top: 170px;
     text-align: center;
 }
-.wrap>a article>div>div{
+.wrap_left article>div>div{
     display: inline-block;
     text-align: center;
     justify-content: center;
@@ -186,15 +191,15 @@
     padding: 2px 5px;
     letter-spacing: 1px;
 }
-.wrap>a article>div>h2{
+.wrap_left article>div>h2{
     margin-top: 15px;
     font-size: 28px;
     margin-bottom: 20px;
 }
-.wrap>a article>div>span{
+.wrap_left article>div>span{
     font-size: 14px;
 }
-.wrap>a article>div>span>span{
+.wrap_left article>div>span>span{
     font-size: 14px;
     font-style: italic;
 }
@@ -203,30 +208,30 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 410px;
-    height: 480px;
+    /* width: 410px; */
+    width: 35%;
+    padding-left: 10px;
+    box-sizing: border-box;
 }
 .wrap_right a:nth-of-type(1) article {
     right: 0;
     background-image: url(../images/samuel-zeller-111395.jpg);
-    height: 480px;
-    width: 780px;
+    background-size: cover;
     display: inline-block;
     position: relative;
     z-index: 1;
-    width: 410px;
     height: 240px;
     margin-bottom: 10px;
+    width: 100%;
 }
 .wrap_right a:nth-of-type(2) article {
     background-image: url(../images/nick-baker-98364.jpg);
-    height: 480px;
-    width: 780px;
+    background-size: cover;
     display: inline-block;
     position: relative;
     z-index: 1;
-    width: 410px;
     height: 230px;
+    width: 100%;
 }
 .wrap_right>a article>div{
     background-color: rgba(0, 0, 0, 0.3);
@@ -375,15 +380,10 @@
 /* content1結束 */
 
 .content2{
-    /* position: absolute; */
-    /* top: 0;
-    right: 0px; */
-    /* float: right; */
     width: 360px;
     box-sizing: border-box;
 }
 .search{
-    width: 340px;
     position: relative;
 }
 .search>input{
@@ -393,6 +393,7 @@
     font-size: 16px;
     position: relative;
     right: 0;
+    box-sizing: border-box;
 }
 .search button{
     border: 0;
@@ -407,7 +408,7 @@
 }
 .search_btn>img{
     position: absolute;
-    right: -5px;
+    right: 10px;
     top: 12px;
     width: 15px;
     height: 15px;
@@ -440,6 +441,7 @@
     line-height: 30px;
     text-align: center;
     margin-top: 15px;
+    color: #444;
 }
 .connection{
     margin: 70px 0;
@@ -459,14 +461,15 @@
 .connection>p{
     text-align: left;
     margin-bottom: 20px;
+    color: #444;
 }
 .connection>input:nth-of-type(1){
     width: 100%;
+    box-sizing: border-box;
     padding: 10px;
-    border: 1px solid #e1e1e1;
+    border: 1px solid #eef1f3;
     font-size: 15px;
     font-weight: 500;
-    
 }
 .connection>input:nth-of-type(2){
     background-color: black;
@@ -688,7 +691,7 @@
 }
 .area_1{
     padding-left: 0;
-    margin-right: 20px;
+    padding-right: 20px;
 }
 .area_2>div img,.area_3>div img{
     width: 90px;
@@ -757,6 +760,218 @@ footer>article a:hover{
     transition: all 0.3s;
 }
 
+@media screen and (max-width:1200px) {
+    .header_nav , .wrap , .main{
+        width: 992px;
+    }
+    .main{
+        margin: auto;
+        position: relative;
+    }
+    .wrap{
+        position: relative;
+        height: 388px;
+    }
+    .wrap>div article{
+        height: 388px;
+        background-size: contain;
+    }
+    .wrap_left{
+        width:65%;
+        box-sizing: border-box;
+    }
+    .wrap_right a:nth-of-type(1) article {
+        height: 189px;
+    }
+    .wrap_right a:nth-of-type(2) article {
+        height: 189px;
+    }
+    .wrap_right{
+        width: 35%;
+        box-sizing: border-box;
+        padding-left: 10px;
+        height: auto;
+        height: 388px;
+    }
+    .wrap_left article , .wrap_right article{
+        width: 100%;
+    }
+    .wrap_left article>div{
+        margin-top: 124px;
+        width: 520px;
+    }
+    .wrap_right > a article > div > h2{
+        margin-top: 15px;
+    }
+    .wrap_right>a article>div{
+        margin-top: 44.5px;
+        width: 80%;
+        height: 100px;
+    }
+    .wrap_right>a:nth-of-type(2) article>div{
+        width: 240px;
+    }
+    .wrap_right>a article>div span{
+        display: none;
+    }
+    .search{
+        width: 100%;
+    }
+    .content{
+        width: 70%;
+        padding-right: 60px;
+    }
+    .content_1{
+        width: 100%;
+    }
+    .content_1_1 , .content_1_2{
+        width: 100%;
+    }
+    .content_1_1>a img, .content_1_2>a img{
+        width: 100%;
+    }
+    .content2{
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 30%;
+        box-sizing: border-box;
+    }
+    .content_data>img{
+        width: 100%;
+    }
+    .content2>div{
+        width: 100%;
+    }
+    .my_ig{
+        width: 100%;
+    }
+    .ny_ig a{
+        margin: 0;
+    }
+    .my_ig_img>div img{
+        width: 100%;
+        background-size: cover;
+        height: 100%;
+        /* padding: 0 0 2px 2px; */
+        box-sizing: border-box;
+    }
+    .my_ig_img_3 a{
+        width: 100%;
+    }
+
+    .footer_area_bg{
+        width: 100%;
+    }
+    .footer_area{
+        width: 970px;
+    }
+    .footer_area>div{
+        width: 33.3%;
+    }
+    .footer_area>div>div{
+        width: 100%;
+    }
+    footer{
+        width: 970px;
+    }
+
+}
+
+@media screen and (max-width:1024px) {
+    .slider_img{
+        display: inline-block;
+    }
+    .slider_1 , .slider_2{
+        width: 100%;
+        background-size: cover;
+    }
+    .slider a{
+        height: 25vw;
+    }
+    .footer_area {
+        flex-wrap: wrap;
+    }
+    .footer_area>div{
+        width: 50%;
+        box-sizing: border-box;
+        margin-bottom: 30px;
+    }
+
+    .area_3{
+        padding:0;
+    }
+}
+
+@media screen and (max-width:992px) {
+    .header_nav , .wrap , .main {
+        width: 768px;
+    }
+    .wrap{
+        height: 300px;
+    }
+    .wrap>div article{
+        height: 300px;
+        background-size: contain;
+    }
+    .wrap_left{
+        width:65%;
+        box-sizing: border-box;
+    }
+    .wrap_left article > div{
+        width: 90%;
+        height: 170px;
+        margin-top: 65px;
+    }
+    .wrap_right a:nth-of-type(1) article {
+        height: 145px;
+    }
+    .wrap_right a:nth-of-type(2) article {
+        height: 145px;
+    }
+    .wrap_right > a article > div > div{
+        display: none;
+    }
+    .wrap_right > a article > div{
+        margin-top: 35px;
+        height: 80px;
+        font-size: 11px;
+    }
+    .wrap_right a:nth-of-type(2) article > div{
+        width: 75%;
+    }
+    
+    .main{
+        display: block;
+        margin: auto;
+    }
+    .content{
+        width: 100%;
+        padding-right: 0;
+        box-sizing: border-box;
+        /* padding: 0 5% 0 5%; */
+    }
+    .content2{
+        position: relative;
+        width: 100%;
+    }
+    .content_data > img{
+        width: 370px;
+    }
+    
+    .my_ig a{
+        margin: 10px;
+    }
+
+    .footer_area{
+        padding: 50px 100px;
+        box-sizing: border-box;
+    }
+    
+    footer{
+        換行
+    }
+}
 @media screen and (max-width:768px){
     .content{
         width: 100%;
