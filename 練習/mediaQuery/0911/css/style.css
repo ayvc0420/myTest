@@ -1006,7 +1006,7 @@ footer>article a:hover{
 
 @media screen and (max-width:992px) {
     .header_nav , .wrap , .main {
-        /* max-width: 768px; */
+        max-width: 768px;
     }
     .wrap{
         height: 300px;
@@ -1091,36 +1091,6 @@ footer>article a:hover{
         display: block;
     }
 
-    /* .wrap{
-        display: inline-block;
-        max-width: 768px;
-
-        height: 180vw;
-    }
-
-    .wrap_left , .wrap_right {
-        width: 100%;
-        height: 60vw;
-        background-size: contain;
-    }
-    .wrap_left article{
-        width: 100%;
-    }
-    .wrap_left article > div , .wrap > div article{
-        max-width: 100%;
-        height: 20vw;
-        margin-top: 65px;
-    }
-    .wrap_right{
-        position:relative;
-    }
-    .wrap_right a:nth-of-type(1) article , .wrap_right a:nth-of-type(2) article{
-        height: 50vw;
-    }
-
-    .wrap , .main {
-        max-width: 767px;
-    } */
 
     .wrap_mob img{
         width: 100%;
@@ -1131,19 +1101,7 @@ footer>article a:hover{
         text-decoration: none; 
         color: white;
     }
-    /* .wrap_mob_1 , .wrap_mob_2 , .wrap_mob_3{
-        position: relative;
-    }
-    .wrap_mob_1 article , .wrap_mob_2 article , .wrap_mob_3 article{
-        position: absolute;
-        background-color: red;
-        top: 0;
-        left: 0;
-        justify-content: center;
-        align-items: center;
-        z-index: 1;
-        line-height: 50px;
-    } */
+
     .wrap_mob_1 ,.wrap_mob_2 , .wrap_mob_3{
         position: relative;
     }
