@@ -18,7 +18,7 @@
     transition: all 0.5s;
 }
 
-.mob_nav_menu{
+.mob_nav_menu , .wrap_mob{
     display: none;
 }
 .mob_menu_btn{
@@ -268,7 +268,6 @@
     display: inline-block;
     position: relative;
     z-index: 1;
-
 }
 .wrap article:hover{
     filter:brightness(1.05);
@@ -370,7 +369,7 @@
 
 /* wrap結束*/
 .main{
-    width: 1200px;
+    max-width: 1200px;
     margin: auto;
     display: flex;
 }
@@ -864,7 +863,7 @@ footer>article a:hover{
 
 @media screen and (max-width:1200px) {
     .header_nav , .wrap , .main{
-        width: 992px;
+        max-width: 992px;
     }
     .main{
         margin: auto;
@@ -1007,7 +1006,7 @@ footer>article a:hover{
 
 @media screen and (max-width:992px) {
     .header_nav , .wrap , .main {
-        max-width: 768px;
+        /* max-width: 768px; */
     }
     .wrap{
         height: 300px;
@@ -1085,13 +1084,14 @@ footer>article a:hover{
     }
 }
 @media screen and (max-width:768px){
-    header , .pc_nav>ul{
+    header , .pc_nav>ul , .wrap{
         display: none;
     }
-    .mob_nav_menu{
+    .mob_nav_menu , .wrap_mob{
         display: block;
     }
-    .wrap{
+
+    /* .wrap{
         display: inline-block;
         max-width: 768px;
 
@@ -1120,6 +1120,52 @@ footer>article a:hover{
 
     .wrap , .main {
         max-width: 767px;
+    } */
+
+    .wrap_mob img{
+        width: 100%;
+        margin: 10px;
+        box-sizing: border-box;
+    }
+    .wrap_mob a{
+        text-decoration: none; 
+        color: white;
+    }
+    /* .wrap_mob_1 , .wrap_mob_2 , .wrap_mob_3{
+        position: relative;
+    }
+    .wrap_mob_1 article , .wrap_mob_2 article , .wrap_mob_3 article{
+        position: absolute;
+        background-color: red;
+        top: 0;
+        left: 0;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        line-height: 50px;
+    } */
+    .wrap_mob_1 ,.wrap_mob_2 , .wrap_mob_3{
+        position: relative;
+    }
+    .wrap_mob_1 div ,.wrap_mob_2 div ,.wrap_mob_3 div{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .wrap_mob_1:hover , .wrap_mob_2:hover , .wrap_mob_3:hover{
+        filter: brightness(1.05);
+        transition: filter 0.4s;
+    }
+    .wrap_mob_1 h2 ,.wrap_mob_2 h2 ,.wrap_mob_3 h2 {
+        text-align: center;
+        padding: 20px;
+        background-color: rgb(0, 0, 0, 0.3);
     }
     .content{
         width: 100%;
