@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+
+        .images{
+            background-color: rgb(233, 233, 233);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .images img{
+            vertical-align: middle;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(230, 255, 192);
+        }
+    </style>
+    <style>  /* box */
+        .work{
+            width: 500px;
+            background-color: white;
+        }
+        .work img{
+            width: 130px;
+            height: 60px;
+            border: 1px solid rgb(194, 194, 194);
+        }
+        .work_title{
+            padding: 4px 0 4px 20px;
+            color: #444;
+            font-size: 14px;
+            border-top: 2px solid rgb(221, 221, 221);
+            border-left: 2px solid rgb(221, 221, 221);
+            border-right: 2px solid rgb(221, 221, 221);
+            border-radius: 5px 5px 0 0 ;
+            background: linear-gradient(white 50%, rgb(255, 234, 202) 100%);
+            letter-spacing: 1px;
+        }
+        .work_item{
+            border: 2px solid rgb(221, 221, 221);
+            display: flex;
+            padding: 5px;
+        }
+        .work_item>article>div{
+            display: flex;
+            margin-top: 15px;
+        }
+        .work_item>article{
+            width: 50%;
+            margin: 0px 0 15px 10px;
+            box-sizing: border-box;
+        }
+        .work_item_right{
+            background-color: white;
+        }
+        .work_item a{
+            color: #278dbd;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 13px;
+            display: inline-block;
+            line-height: 17px;
+            padding: 2px 0 0 2px;
+            white-space:nowrap
+        }
+        .work_item a:hover{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="images">
+        <img src="1.png">
+    </div>
+    <div class="box">
+        <section class="work">
+            <div class="work_title">精選頻道</div>
+            <section class="work_item">
+                <article class="work_item_left">
+                    <div>
+                        <img src="https://f.ecimg.tw/img/ecshop/v1/layout/index/1/20210909111629_b364-2-260x120.jpg" alt="">
+                        <div>
+                            <a href="#華碩送1000P幣">華碩送1000P幣</a>
+                            <br>
+                            <a href="#Adidas折價卷">Adidas折價卷</a>
+                            <br>
+                            <a href="#結帳75折">結帳75折</a>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://d.ecimg.tw/img/ecshop/v1/layout/index/1/20210909111845_b384-2-260x120.jpg" alt="">
+                        <div>
+                            <a href="#">買就抽999P幣</a>
+                            <br>
+                            <a href="#">滿額最高現折99</a>
+                            <br>
+                            <a href="#">最高回饋10%</a>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://c.ecimg.tw/img/ecshop/v1/layout/index/1/20210909113038_b403-2-260x120.jpg" alt="">
+                        <div>
+                            <a href="#買就抽萬元獎">買就抽萬元獎</a>
+                            <br>
+                            <a href="#送TUMI證件掛帶">送TUMI證件掛帶</a>
+                            <br>
+                            <a href="#TUMI全館5折起">TUMI全館5折起</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="work_item_right">
+                    <div>
+                        <img src="https://f.ecimg.tw/img/ecshop/v1/layout/index/1/20210818150320_b375-2-260x120.jpg" alt="">
+                        <div>
+                            <a href="#3C爆紅小物">3C爆紅小物</a>
+                            <br>
+                            <a href="#最新獲獎商品">最新獲獎商品</a>
+                            <br>
+                            <a href="#特選優質好物">特選優質好物</a>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://b.ecimg.tw/img/ecshop/v1/layout/index/1/20210909112356_b400-2-260x120.jpg" alt="">
+                        <div>
+                            <a href="#全館8折起">全館8折起</a>
+                            <br>
+                            <a href="#最高回饋15%">最高回饋15%</a>
+                            <br>
+                            <a href="#買就抽電烤盤">買就抽電烤盤</a>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://d.ecimg.tw/img/ecshop/v1/layout/index/1/20210909110356_b414-2-260x120.jpg" alt="">
+                        <div>
+                            <a href="#realme品牌回饋">realme品牌回饋</a>
+                            <br>
+                            <a href="#新機預購贈好禮">新機預購贈好禮</a>
+                            <br>
+                            <a href="#最高贈15%P幣">最高贈15%P幣</a>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </section>
+    </div>
+</body>
+</html>
