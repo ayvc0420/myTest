@@ -15,11 +15,11 @@ $(function(){
 
     $('#mob_menu_btn').click(function(){
         $('.mob_menu').toggle()
-        $('.pc_nav , .logo , .wrap , .main , .slider ,.footer_area_bg , footer').toggle()
+        $('.pc_nav , .logo , .wrap_mob , .main , .slider ,.footer_area_bg , footer').toggle()
     })
     $('#mob_close_btn').click(function(){
         $('.mob_menu').toggle()
-        $('.pc_nav , .logo , .wrap , .main , .slider ,.footer_area_bg , footer').toggle()
+        $('.pc_nav , .logo , .wrap_mob , .main , .slider ,.footer_area_bg , footer').toggle()
     })
 
     $('.mob_li_btn').click(function(){
