@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+
+        .images{
+            background-color: rgb(255, 215, 215);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .images img{
+            vertical-align: middle;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(230, 255, 192);
+        }
+    </style>
+    <style>
+        .box{
+            display: flex;
+            justify-content: center;
+        }
+        .work{
+            width: 1370px;
+            background-color: rgb(243, 243, 243);
+        }
+        .work a{
+            text-decoration: none;
+            color: black;
+            font-weight: 300;
+            font-size: 17px;
+        }
+        .video{
+            padding: 20px 40px;
+            position: relative;
+        }
+        .video_title{
+            border-top : 1px solid gainsboro;
+            display: flex;
+            padding-top: 20px;
+        }
+        .video_title>a{
+            margin-right: 30px;
+        }
+        .video_play{
+            display: flex;
+            position: relative;
+        }
+        .video_play h4{
+            color: #444;
+        }
+        .video_play svg{
+            /* position: absolute; */
+            right: 0;
+        }
+        .video_play a{
+            font-size: 15px;
+            margin-left: 5px;
+        }
+
+        .video_item{
+            display: flex;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .video_item>article{
+            width: 16.66%;
+            padding-right: 5px;
+        }
+        .video_item>article>a>img{
+            width: 210px;
+        }
+
+        .video_item_text{
+            padding: 5px 15px 0 0;
+        }
+        .item_title{
+            font-size: 15px;
+            color: black;
+            font-weight: 400;
+            position: relative;
+        }
+        .item_title>span{
+            font-weight: 600;
+        }
+        .item_menu{
+            position: absolute;
+            top: 0;
+            right: -10px;
+            width: 10px;
+            height: 50px;
+        }
+        .item_menu>svg{
+            padding-top: -20px;
+        }
+        .video_item_text>div>a{
+            font-size: 14px;
+        }
+        .item_msg{
+            margin-top: 10px;
+        }
+        .item_msg a{
+            color: rgb(54, 54, 54);
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+    <div class="images">
+        <img src="1.png">
+    </div>
+
+    <div class="box">
+
+        <div class="work">
+
+            <section class="video">
+
+                <article class="video_title">
+                    <a href="#前端新手技能樹">前端新手技能樹</a>
+                    <div class="video_play">
+                        <a href="#全部播放">
+                        <svg width="20" height="20" >
+                            <polygon x="50" y="50" points="0,0 15,10 , 0,20" fill="#444">
+                        </svg>
+                        全部播放</a>
+                    </div>
+                </article>
+
+                <section class="video_item">
+                    <a href="#[ 前端新手技能樹 ] #0 新單元討論與M1 Mac mini">
+                        <article>
+                            <a href="#[ 前端新手技能樹 ] #0 新單元討論與M1 Mac mini">
+                                <img src="images/item.webp"> <!-- 圖片採一致 -->
+                                <div class="video_item_text">
+                                    <div class="item_title">
+                                        [ 前端新手技能樹 ] <span>#0</span> 新單元討論與 <span>M1 Mac mini</span>
+                                        <div class="item_menu">
+                                            <svg viewBox="0 0 50 100" >
+                                                <circle cx="40" cy="10" r="8" fill="black"></circle>
+                                                <circle cx="40" cy="35" r="8" fill="black"></circle>
+                                                <circle cx="40" cy="60" r="8" fill="black"></circle>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="item_msg">
+                                        <a href="#Alex宅幹嘛" title="Alex 宅幹嘛">Alex 宅幹嘛</a>
+                                        <br>
+                                        <a href="#">觀看次數 : <span>4437</span>次</a>
+                                        <br>
+                                        <a href="#">直播時間 : <span>1個月前</span></a>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                    </a>
+                    <article>
+                        <a href="#[ 前端新手技能樹 ]#1 VS Code、Docker 與開發環境建置">
+                            <img src="images/item.webp">
+                            <div class="video_item_text">
+                                <div class="item_title">
+                                    [ 前端新手技能樹 ]<span>#1 VS Code、Docker</span> 與開發環境...
+                                    <div class="item_menu">
+                                        <svg viewBox="0 0 50 100" >
+                                            <circle cx="40" cy="10" r="8" fill="black"></circle>
+                                            <circle cx="40" cy="35" r="8" fill="black"></circle>
+                                            <circle cx="40" cy="60" r="8" fill="black"></circle>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="item_msg">
+                                    <a href="#Alex宅幹嘛" title="Alex 宅幹嘛">Alex 宅幹嘛</a>
+                                    <br>
+                                    <a href="#">觀看次數 : <span>4192</span>次</a>
+                                    <br>
+                                    <a href="#">直播時間 : <span>1個月前</span></a>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    <article>
+                        <a href="#[ 前端新手技能樹 ] #2 Compiler、Bundler、CLI 那些重要的開發工具">
+                            <img src="images/item.webp">
+                            <div class="video_item_text">
+                                <div class="item_title">
+                                    [ 前端新手技能樹 ] <span>#2 Compiler、Bundler、CLI</span> ...
+                                    <div class="item_menu">
+                                        <svg viewBox="0 0 50 100" >
+                                            <circle cx="40" cy="10" r="8" fill="black"></circle>
+                                            <circle cx="40" cy="35" r="8" fill="black"></circle>
+                                            <circle cx="40" cy="60" r="8" fill="black"></circle>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="item_msg">
+                                    <a href="#Alex宅幹嘛" title="Alex 宅幹嘛">Alex 宅幹嘛</a>
+                                    <br>
+                                    <a href="#">觀看次數 : <span>2343</span>次</a>
+                                    <br>
+                                    <a href="#">直播時間 : <span>3 週前</span></a>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    <article>
+                        <a href="#[ 前端新手技能樹 ] #3 HTML、CSS、JS 前端開發鐵三角">
+                            <img src="images/item.webp">
+                            <div class="video_item_text">
+                                <div class="item_title">
+                                    [ 前端新手技能樹 ] <span>#3</span> <span>HTML、CSS、JS</span> 前端開發...
+                                    <div class="item_menu">
+                                        <svg viewBox="0 0 50 100" >
+                                            <circle cx="40" cy="10" r="8" fill="black"></circle>
+                                            <circle cx="40" cy="35" r="8" fill="black"></circle>
+                                            <circle cx="40" cy="60" r="8" fill="black"></circle>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="item_msg">
+                                    <a href="#Alex宅幹嘛" title="Alex 宅幹嘛">Alex 宅幹嘛</a>
+                                    <br>
+                                    <a href="#">觀看次數 : <span>3020</span>次</a>
+                                    <br>
+                                    <a href="#">直播時間 : <span>2週前</span></a>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    <article>
+                        <a href="#[ 前端新手技能樹 ] #4 Git與GitHub版本控制的重要性">
+                            <img src="images/item.webp">
+                            <div class="video_item_text">
+                                <div class="item_title">
+                                    [ 前端新手技能樹 ] <span>#4 Git</span> 與 <span>GitHub</span> 版本控制的重要性
+                                    <div class="item_menu">
+                                        <svg viewBox="0 0 50 100" >
+                                            <circle cx="40" cy="10" r="8" fill="black"></circle>
+                                            <circle cx="40" cy="35" r="8" fill="black"></circle>
+                                            <circle cx="40" cy="60" r="8" fill="black"></circle>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="item_msg">
+                                    <a href="#Alex宅幹嘛" title="Alex 宅幹嘛">Alex 宅幹嘛</a>
+                                    <br>
+                                    <a href="#">觀看次數 : <span>1611</span>次</a>
+                                    <br>
+                                    <a href="#">直播時間 : <span>1週前</span></a>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    <article>
+                        <a href="#[ 前端新手技能樹 ] #4-1 Learn Git Branching 從基礎開始">
+                            <img src="images/item.webp">
+                            <div class="video_item_text">
+                                <div class="item_title">
+                                    [ 前端新手技能樹 ] <span>#4-1 Learn Git Branching</span>- 從基 ...
+                                    <div class="item_menu">
+                                        <svg viewBox="0 0 50 100" >
+                                            <circle cx="40" cy="10" r="8" fill="black"></circle>
+                                            <circle cx="40" cy="35" r="8" fill="black"></circle>
+                                            <circle cx="40" cy="60" r="8" fill="black"></circle>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="item_msg">
+                                    <a href="#Alex宅幹嘛" title="Alex 宅幹嘛">Alex 宅幹嘛</a>
+                                    <br>
+                                    <a href="#">觀看次數 : <span>1822</span>次</a>
+                                    <br>
+                                    <a href="#">直播時間 : <span>1週前</span></a>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                </section>
+
+            </section>
+
+
+        </div>
+
+
+    </div>
+</body>
+</html>
