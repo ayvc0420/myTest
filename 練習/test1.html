@@ -383,7 +383,7 @@
         //jQ寫上面遊戲 用建構式
 
         $(function(){
-
+            // ES6建構式
             class player {
                 constructor(name,hp,die,money){
                     this.name = name;
@@ -423,16 +423,16 @@
         })
         
         
-        // ES6建構式
+        // // ES6建構式
         class Player {
             constructor(name,hp,atk,def){
-                this.name = name;
-                this.hp = hp;
-                this.atk = atk;
-                this.def = def;
+                this.名稱 = name;
+                this.HP值 = hp;
+                this.攻擊力 = atk;
+                this.防禦力 = def;
             }
             attack(target){
-                target.hp -= this.atk - target.def;
+                target.HP值 -= this.攻擊力 - target.防禦力;
             }
         }
         const alice2 = new Player('alice2',20,10,6)
@@ -440,6 +440,31 @@
         console.log('攻擊前: ', elise2)
         alice2.attack(elise2)
         console.log('攻擊後: ', elise2)
+        alice2.attack(elise2)
+        console.log('再攻擊一次: ', elise2)
+
+        const player_create = {
+            function1 : function(name,hp,atk,def){
+                let player = {
+                    角色名稱:name,
+                    HP值:hp,
+                    攻擊力:atk,
+                    防禦:def,
+                }
+                return player;
+            },
+            function2 : '進入新手村',
+            function3 : function(target1,target2){
+                target2.HP值 -= target1.攻擊力 - target2.防禦;
+            }
+        }
+        let player1 = player_create.function1('alice',20,10,6)
+        let player2 = player_create.function1('elise',18,12,5)
+
+        console.log('攻擊前:', player2)
+        player_create.function3(player1,player2)
+        console.log('攻擊後:',player2)
+
     </script>
 </head>
 

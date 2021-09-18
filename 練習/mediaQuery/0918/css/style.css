@@ -1,0 +1,50 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+h1{
+    margin: 0;
+}
+.wrap{
+    max-width: 1200px;
+    background-color: chartreuse;
+    color: darkblue;
+    margin: auto;
+    padding-bottom: 70px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.app{
+    border: 1px solid black;
+    width: 800px;
+    margin: 0 30px;
+    padding: 20px;
+}
+
+.app>input{
+    width: 100%;
+}
+.list{
+    border-top: 1px black solid;
+    margin-top: 20px;
+}
+.btn_wrap{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.btn_wrap button{
+    font-size: 24px;
+    /* margin: 0 10px; */
+}
+.add{
+    background-color: indianred;
+}
+.remove1{
+    background-color: blueviolet;
+}
+.remove2{
+    background-color: goldenrod;
+}
