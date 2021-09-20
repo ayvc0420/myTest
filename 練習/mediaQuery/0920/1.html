@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+
+    <style>
+
+        .images{
+            background-color: rgb(255, 215, 215);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .images img{
+            vertical-align: middle;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(230, 255, 192);
+        }
+    </style>
+    <style>
+        .shop{
+            background-color: #fffbe9;
+            border: 1px rgb(211, 211, 211) solid;
+            padding: 1px;
+        }
+        .shop_title{
+            /* width: 170px; */
+            display: flex;
+            margin: 2px;
+            /* margin: auto; */
+            color: white;
+            background:linear-gradient(#ff674d 0% , #ff824d 50% , #ff5d00 51% , #ff8d00 100%);
+            border-radius: 3px;
+            position: relative;
+            margin-bottom: 5px;
+            
+        }
+        .shop_title>div{
+            box-sizing: border-box;
+            padding: 5px;
+            width: 50%;
+        }
+        .shop_title div:nth-of-type(1){
+            letter-spacing: 2px;
+            margin-left: 5px;
+        }
+        .shop_title div:nth-of-type(2) a{
+            position: absolute;
+            color: white;
+            top: 7px;
+            right: 10px;
+            font-size: 12px;
+        }
+        .shop_menu>article{
+            display: flex;
+            padding: 4px;
+            margin-bottom: 5px;
+        }
+        .shop_menu>article ul{
+            display: flex;
+        }
+        .shop_menu>article ul li{
+            margin: 0 2px;
+        }
+        .shop_menu>article>h3>a{
+            color: #006699;
+            margin-right: 5px;
+        }
+        .shop_menu>article>ul{
+            display: flex;
+            font-size: 11px;
+            /* margin-left: 5px; */
+        }
+        .shop_menu>article>ul a{
+            text-decoration: none;
+            color: rgb(160, 160, 160);
+        }
+        .shop_menu>article>ul a:hover{
+            text-decoration:underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="images">
+        <img src="1.png">
+    </div>
+
+    <div class="box">
+        <div class="work">
+            
+            <section class="shop">
+                <div class="shop_title">
+                    <div><h2>商品分類</h2></div>
+                    <div><a href="#">看全部></a></div>
+                </div>
+
+                <section class="shop_menu">
+                    <article>
+                        <h3><a href="#">品牌旗艦</a></h3>
+                        <ul>
+                            <li><a href="#">石頭科技</a></li>
+                            <li><a href="#">Acer</a></li>
+                            <li><a href="#">IRIS</a></li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h 3 Ｃ</a></h3>
+                        <ul>
+                            <li><a href="#">電腦</a></li>
+                            <li><a href="#">硬碟</a></li>
+                            <li><a href="#">網路</a></li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h通訊</a></h3>
+                        <ul>
+                            <li><a href="#">Apple</a></li>
+                            <li><a href="#">三星</a></li>
+                            <li><a href="#">小米</a></li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h周邊</a></h3>
+                        <ul>
+                            <li><a href="#">印表機</a></li>
+                            <li><a href="#">辦公椅</a></li>
+                            <li><a href="#">鍵鼠</a></li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h3><a href="#">24hＮＢ</a></h3>
+                        <ul>
+                            <li><a href="#">大筆電</a></li>
+                            <li><a href="#">Core i</a></li>
+                            <li><a href="#">電競</a></li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h數位</a></h3>
+                        <ul>
+                            <li><a href="#">相機</a></li>
+                            <li><a href="#">單眼</a></li>
+                            <li><a href="#">電玩</a></li>
+                            <li><a href="#">空拍</a></li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h家電</a></h3>
+                        <ul>
+                            <li><a href="#">電視</a></li>
+                            <li><a href="#">廚房</a></li>
+                            <li><a href="#">吸塵器</a></li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h生活</a></h3>
+                        <ul>
+                            <li><a href="#">鍋具</a></li>
+                            <li><a href="#">傢俱</a></li>
+                            <li><a href="#">名寢</a></li>
+                            <li><a href="#">婦幼</a></li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h日用</a></h3>
+                        <ul>
+                            <li><a href="#">衛生紙</a></li>
+                            <li><a href="#">尿布</a></li>
+                            <li><a href="#">洗沐</a></li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h食品</a></h3>
+                        <ul>
+                            <li><a href="#">飲料</a></li>
+                            <li><a href="#">米材</a></li>
+                            <li><a href="#">保健</a></li>
+                            <li><a href="#">有機</a></li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h戶外</a></h3>
+                        <ul>
+                            <li><a href="#">機車</a></li>
+                            <li><a href="#">露營</a></li>
+                            <li><a href="#">寵物</a></li>
+                            <li><a href="#">運動</a></li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h時尚</a></h3>
+                        <ul>
+                            <li><a href="#">珠寶</a></li>
+                            <li><a href="#">包包</a></li>
+                            <li><a href="#">內衣</a></li>
+                            <li><a href="#">內褲</a></li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h美妝</a></h3>
+                        <ul>
+                            <li><a href="#">專櫃</a></li>
+                            <li><a href="#">開架</a></li>
+                            <li><a href="#">彩妝</a></li>
+                            <li><a href="#">髮品</a></li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h書店</a></h3>
+                        <ul>
+                            <li><a href="#">電書</a></li>
+                            <li><a href="#">童書</a></li>
+                            <li><a href="#">財經</a></li>
+                            <li><a href="#">動漫</a></li>
+                        </ul>
+                    </article>
+                </section>
+
+
+            </section>
+
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+
+    <style>
+
+        .images{
+            background-color: rgb(255, 215, 215);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .images img{
+            vertical-align: middle;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(230, 255, 192);
+        }
+    </style>
+    <style>
+        .shop{
+            background-color: #fffbe9;
+            border: 1px rgb(211, 211, 211) solid;
+            padding: 3px;
+        }
+        .shop_title{
+            /* width: 170px; */
+            display: flex;
+            margin: 2px;
+            /* margin: auto; */
+            color: white;
+            background:linear-gradient(#ff674d 0% , #ff824d 50% , #ff5d00 51% , #ff8d00 100%);
+            border-radius: 3px;
+            position: relative;
+            margin-bottom: 5px;
+            
+        }
+        .shop_title>div{
+            box-sizing: border-box;
+            padding: 5px;
+            width: 50%;
+        }
+        .shop_title div:nth-of-type(1){
+            letter-spacing: 2px;
+            margin-left: 5px;
+        }
+        .shop_title div:nth-of-type(2) a{
+            position: absolute;
+            color: white;
+            top: 7px;
+            right: 10px;
+            font-size: 12px;
+        }
+        .shop_menu>article{
+            display: flex;
+            padding: 4px;
+            margin-bottom: 5px;
+        }
+        .shop_menu>article>h3>a{
+            color: #006699;
+        }
+        .shop_menu>article>div{
+            font-size: 11px;
+            margin-left: 5px;
+        }
+        .shop_menu>article>div a{
+            text-decoration: none;
+            color: gray;
+        }
+        .shop_menu>article>div a:hover{
+            text-decoration:underline;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="images">
+        <img src="1.png">
+    </div>
+
+    <div class="box">
+        <div class="work">
+            
+            <section class="shop">
+                <div class="shop_title">
+                    <div><h2>商品分類</h2></div>
+                    <div><a href="#">看全部></a></div>
+                </div>
+
+                <section class="shop_menu">
+                    <article>
+                        <h3><a href="#">品牌旗艦</a></h3>
+                        <div>
+                            <span><a href="#">石頭科技</a></span>
+                            <span><a href="#">acer</a></span>
+                            <span><a href="#">IRIS</a></span>
+                        </div>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h 3 Ｃ</a></h3>
+                        <div>
+                            <span><a href="#">電腦</a></span>
+                            <span><a href="#">硬碟</a></span>
+                            <span><a href="#">網路</a></span>
+                        </div>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h通訊</a></h3>
+                        <div>
+                            <span><a href="#">Apple</a></span>
+                            <span><a href="#">三星</a></span>
+                            <span><a href="#">小米</a></span>
+                        </div>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h周邊</a></h3>
+                        <div>
+                            <span><a href="#">印表機</a></span>
+                            <span><a href="#">辦公椅</a></span>
+                            <span><a href="#">鍵鼠</a></span>
+                        </div>
+                    </article>
+                    <article>
+                        <h3><a href="#">24hＮＢ</a></h3>
+                        <div>
+                            <span><a href="#">大筆電</a></span>
+                            <span><a href="#">Core i</a></span>
+                            <span><a href="#">電競</a></span>
+                        </div>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h數位</a></h3>
+                        <div>
+                            <span><a href="#">相機</a></span>
+                            <span><a href="#">單眼</a></span>
+                            <span><a href="#">電玩</a></span>
+                            <span><a href="#">空拍</a></span>
+                        </div>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h家電</a></h3>
+                        <div>
+                            <span><a href="#">電視</a></span>
+                            <span><a href="#">廚房</a></span>
+                            <span><a href="#">吸塵器</a></span>
+                        </div>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h生活</a></h3>
+                        <div>
+                            <span><a href="#">鍋具</a></span>
+                            <span><a href="#">傢俱</a></span>
+                            <span><a href="#">名寢</a></span>
+                            <span><a href="#">婦幼</a></span>
+                        </div>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h日用</a></h3>
+                        <div>
+                            <span><a href="#">衛生紙</a></span>
+                            <span><a href="#">尿布</a></span>
+                            <span><a href="#">洗沐</a></span>
+                        </div>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h食品</a></h3>
+                        <div>
+                            <span><a href="#">飲料</a></span>
+                            <span><a href="#">米材</a></span>
+                            <span><a href="#">保健</a></span>
+                            <span><a href="#">有機</a></span>
+                        </div>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h戶外</a></h3>
+                        <div>
+                            <span><a href="#">機車</a></span>
+                            <span><a href="#">露營</a></span>
+                            <span><a href="#">寵物</a></span>
+                            <span><a href="#">運動</a></span>
+                        </div>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h時尚</a></h3>
+                        <div>
+                            <span><a href="#">珠寶</a></span>
+                            <span><a href="#">包包</a></span>
+                            <span><a href="#">內衣</a></span>
+                            <span><a href="#">內褲</a></span>
+                        </div>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h美妝</a></h3>
+                        <div>
+                            <span><a href="#">專櫃</a></span>
+                            <span><a href="#">開架</a></span>
+                            <span><a href="#">彩妝</a></span>
+                            <span><a href="#">髮品</a></span>
+                        </div>
+                    </article>
+                    <article>
+                        <h3><a href="#">24h書店</a></h3>
+                        <div>
+                            <span><a href="#">電書</a></span>
+                            <span><a href="#">童書</a></span>
+                            <span><a href="#">財經</a></span>
+                            <span><a href="#">動漫</a></span>
+                        </div>
+                    </article>
+                </section>
+
+
+            </section>
+
+        </div>
+    </div>
+</body>
+</html> -->
