@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+
+    <style>
+
+        .images{
+            background-color: rgb(255, 215, 215);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .images img{
+            vertical-align: middle;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(230, 255, 192);
+        }
+    </style>
+    <style>
+        .sale{
+            /* width: 800px; */
+            
+            background-color: white;
+        }
+        
+        .sale_title{
+            display: flex;
+            background: linear-gradient(white 50% , rgb(255, 218, 229));
+            padding: 5px 15px;
+            position: relative;
+            border-radius: 5px 5px 0 0 ;
+            border-top: 1px rgb(190, 190, 190) solid; 
+            border-left: 1px rgb(190, 190, 190) solid; 
+            border-right: 1px rgb(190, 190, 190) solid; 
+        }
+        .sale_title h3{
+            letter-spacing: 1px;
+            font-size: 13px;
+        }
+        .sale_title div:nth-of-type(2){
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+        .sale_title a{
+            color:rgb(10, 108, 206)
+        }
+        .sale_item{
+            display: flex;
+            padding: 10px 20px;
+            border: 1px rgb(190, 190, 190) solid; 
+            position: relative;
+        }
+        .sale_item a{
+            text-decoration: none;
+            color: gray;
+        }
+        .sale_item>article{
+            width: 150px;
+            /* padding: 10px 15px; */
+            margin-bottom: 30px;
+        }
+        .sale_item_text{
+            font-size: 14px;
+            text-align: center;
+            height: 30px;
+        }
+        .sale_item_img{
+            width: 80%;
+            margin: auto;
+            margin-bottom: 10px;
+        }
+        .sale_item_img img{
+            width: 100%;
+            border: 1px solid rgb(204, 204, 204);
+        }
+        .sale_item_text a:hover{
+            text-decoration: underline;
+        }
+        .sale_item_money{
+            color: rgb(255, 77, 131);
+            font-size: 18px;
+            text-align: center;
+            font-weight: 600;
+            
+        }
+        .sale_item_money::before{
+            content: '$';
+            font-size: 16px;
+        }
+        .sale_item_money span{
+            font-weight: 400;
+            font-size: 11px;
+            color: rgb(113, 169, 206);
+            margin-left: 5px;
+        }
+        .more_item{
+            position: absolute;
+            right: 5px;
+            bottom: 5px;
+            font-size: 13px;
+        }
+        .more_item a{
+            color: rgb(10, 108, 206);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="images">
+        <span style="position: absolute; left: 100px; top: 120px; color: red; font-size:20px;">本次切版因字體不同 影響字體間隔空間換行</span>
+        <img src="2.png">
+    </div>
+
+    <div class="box">
+        <div class="work">
+
+            <section class="sale">
+
+                <article class="sale_title">
+                    <div><h3>最新降價</h3></div>
+                    <div><a href="#">更多降價商品></a></div>
+                </article>
+
+                <section class="sale_item">
+                    <article>
+                        <div class="sale_item_img"><a href="#"><img src="images/000002_1550565871.png" alt=""></a></div>
+                        <div class="sale_item_text"><a href="#">【MAFANS】 HUAWEI Mate 20 X 鋼化玻璃保</a></div>
+                        <div class="sale_item_money">224<span>(已降$5)</span></div>
+                    </article>
+                    <article>
+                        <div class="sale_item_img"><a href="#"><img src="images/000002_1585725760.jpg" alt=""></a></div>
+                        <div class="sale_item_text"><a href="#">【奈森克林】貓砂盆專用消毒酒 精濕巾(一袋1</a></div>
+                        <div class="sale_item_money">800<span>(已降$39)</span></div>
+                    </article>
+                    <article>
+                        <div class="sale_item_img"><a href="#"><img src="images/000002_1584321508.jpg" alt=""></a></div>
+                        <div class="sale_item_text"><a href="#">BENEVO HDMI虛擬螢幕模擬器，可外接螢幕</a></div>
+                        <div class="sale_item_money">830<span>(已降$5)</span></div>
+                    </article>
+                    <article>
+                        <div class="sale_item_img"><a href="#"><img src="images/000002_1553142865.jpg" alt=""></a></div>
+                        <div class="sale_item_text"><a href="#">Michel Mercier專利點點按摩刷毛梳</a></div>
+                        <div class="sale_item_money">538<span>(已降$30)</span></div>
+                    </article>
+                    <article>
+                        <div class="sale_item_img"><a href="#"><img src="images/000002_1598431287.jpg" alt=""></a></div>
+                        <div class="sale_item_text"><a href="#">雪之戀 荔枝凍 300g</a></div>
+                        <div class="sale_item_money">84<span>(已降$5)</span></div>
+                    </article>
+                    <div class="more_item">
+                        <a href="#">更多降價商品></a>
+                    </div>
+                </section>
+            </section>
+
+        </div>
+    </div>
+</body>
+</html>
