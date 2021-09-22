@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+</head>
+<style>
+    body{
+        max-width: 1200px;
+        margin: auto;
+    }
+    .images_text{
+        display: flex;
+        background-color: black;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+    }
+    .item1{
+        background-image: url(images/file_369750.png);
+        background-size: cover;
+        filter: grayscale(1);
+    }
+    .item2{
+        background-image: url(images/file_369819.png);
+        background-size: cover;
+        filter: grayscale(1);
+    }
+    .item3{
+        background-image: url(images/file_369876.png);
+        background-size: cover;
+        filter: grayscale(1);
+    }
+    .item4{
+        background-image: url(images/twitter.png);
+        background-size: cover;
+        filter: grayscale(1);
+    }
+    .images_text>div{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        width: 25%;
+        height: 300px;
+    }
+    .images_text>div:hover{
+        filter:brightness(0.9)
+    }
+    .images_text>div>img{
+        width: 100%;
+    }
+    .images_text>div:nth-of-type(3) img{
+        width: 120%;
+    }
+
+    .item_text{
+        position: absolute;
+        color: blue;
+        top: 35%;
+        left: 5%;
+        width: 100%;
+        font-size: 1.8vw;
+        display: none;
+    }
+    #item2_text{
+        color: red;
+    }
+    #item3_text{
+        color: chartreuse;
+    }
+    #item4_text{
+        color: orchid;
+    }
+</style>
+<script>
+    window.addEventListener('load',function(){
+        // const item1 = document.querySelector('.item1')
+        // const item1_text = document.getElementById('item1_text')
+        document.querySelector('.item1').addEventListener('mouseover', () =>item1_text.style.display = 'block')
+        document.querySelector('.item1').addEventListener('mouseout', () => item1_text.style.display = 'none')
+        document.querySelector('.item2').addEventListener('mouseover', () =>item2_text.style.display = 'block')
+        document.querySelector('.item2').addEventListener('mouseout', () => item2_text.style.display = 'none')
+        document.querySelector('.item3').addEventListener('mouseover', () =>item3_text.style.display = 'block')
+        document.querySelector('.item3').addEventListener('mouseout', () => item3_text.style.display = 'none')
+        document.querySelector('.item4').addEventListener('mouseover', () =>item4_text.style.display = 'block')
+        document.querySelector('.item4').addEventListener('mouseout', () => item4_text.style.display = 'none')
+
+})
+
+</script>
+
+<body>
+    <section class="box">
+        <article class="images_text">
+        <div class="item1">
+            <div class="item_text" id="item1_text">
+                <h1>名稱:兔田佩克拉</h1>
+                <p>年齡:111歲</p>
+                <p>特徵:愛吃胡蘿蔔</p>
+            </div>
+        </div>
+        <div class="item2">
+            <div class="item_text" id="item2_text">
+                <h1>名稱:寶鐘馬琳</h1>
+                <p>年齡:身體年齡45歲</p>
+                <p>特徵:Ahoy~</p>
+            </div>
+        </div>
+        <div class="item3">
+            <div class="item_text" id="item3_text">
+                <h1>名稱:潤羽露西婭</h1>
+                <p>年齡:16歲</p>
+                <p>特徵:<del>砧板</del></p>
+            </div>
+        </div>
+        <div class="item4">
+            <div class="item_text" id="item4_text">
+                <h1>名稱:潤羽露西婭</h1>
+                <p>年齡:16歲</p>
+                <p>特徵:拿小刀刺粉屍</p>
+            </div>
+        </div>   
+        </article>
+
+    </section>
+</body>
+</html>
