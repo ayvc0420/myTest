@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+
+    <style>
+        
+        body{
+            margin: 0;
+        }
+        .images{
+            background-color: rgb(255, 215, 215);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .images::after{
+            content: '';
+            background-color: rgb(255, 215, 215);
+            position: absolute; 
+            bottom: 50px;
+            width: 100%;
+            height: 30px;
+        }
+        .images img{
+            vertical-align: middle;
+        }
+        .box{
+            background-color: rgb(230, 255, 192);
+        }
+        .consumption{
+            margin: 0 12px;
+            background-color: gainsboro;
+            height: 100vh;
+        }
+        nav{
+            background-color: white;
+            /* width: 100%; */
+            display: flex;
+            position: relative;
+        }
+        .logo{
+            padding: 20px;
+        }
+        nav .menu{
+            display: flex;
+            position: absolute;
+            right: 20px;
+            margin-top: 20px;
+        }
+        nav .menu ul{
+            font-size: 26px;
+            margin: 0 15px;
+            position: relative;
+        }
+        nav .menu ul:hover{
+            font-weight:700;
+        }
+        .menu .language{
+            background-color: gainsboro;
+            font-size: 18px;
+            font-weight: 900;
+            padding: 3px;
+            margin-left: 5px;
+        }
+        .menu a {
+            text-decoration: none;
+            color: #444;
+        }
+        .menu_1{
+            position: relative;
+        }
+        .menu_2{
+            position: relative;
+        }
+        .menu ul div{
+            box-shadow: 0px 0px 10px gainsboro;
+            border: 1px solid gainsboro;
+            background-color: white;
+            width: 280px;
+            position: absolute;
+            left: -20px;
+            display: none;
+        }
+        .menu ul:not(.language):hover:before{
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgb(255, 58, 123);
+            position: absolute;
+            top: -12px;
+            left: 47%;
+        }
+
+        .menu li{
+            padding: 10px
+        }
+
+        .query{
+            display: inline-block;
+            padding: 30px 40px;
+            font-size: 48px;
+            font-weight: 900;
+            background:rgb(255, 29, 97) ;
+            border-radius: 20px;
+            margin: 50px 0 0 450px;
+            cursor: pointer;
+        }
+        .query a{
+            text-decoration: none;
+            color: white;
+        }
+        .query:hover{
+            margin-top: 40px;
+            transition: all 0.3s;
+        }
+    </style>
+    <script>
+
+        window.addEventListener('load' , function(){
+
+            const menu_1 = document.getElementById('menu_1')
+            const menu_1_div = document.getElementById('menu_1_div')
+            const menu_2 = document.getElementById('menu_2')
+            const menu_2_div = document.getElementById('menu_2_div')
+
+            menu_1.addEventListener('mouseover' ,function(){
+                menu_1_div.style.display = 'block';
+            })
+            menu_1.addEventListener('mouseout', function(){
+                menu_1_div.style.display = 'none';
+            })
+            menu_2.addEventListener('mouseover' ,function(){
+                menu_2_div.style.display = 'block';
+            })
+            menu_2.addEventListener('mouseout', function(){
+                menu_2_div.style.display = 'none';
+            })
+
+        })
+
+    </script>
+</head>
+<body>
+    <div class="images">
+        <img src="1.png">
+    </div>
+    <div class="box">
+        <div class="work">
+            <div class="consumption">
+
+                <nav>
+                    <div class="logo"><img src="images/074f916d.png" alt=""></div>
+
+                    <div class="menu">
+                        <a href="#">
+                            <ul class="menu_1" id="menu_1">
+                                <a href="#" title="數位綁定目前次選單開啟">數位綁定</a>
+                                <div id="menu_1_div">
+                                    <a href="#" title="信用卡"><li>信用卡</li></a>
+                                    <a href="#" title="電子票證"><li>電子票證</li></a>
+                                    <a href="#" title="行動支付"><li>行動支付</li></a>
+                                </div>
+                            </ul>
+
+                        </a>
+                        <a href="#">
+                            <ul class="menu_2" id="menu_2">
+                                <a href="#" title="八大部會加碼目前次選單開啟">八大部會加碼</a>
+                                <div id="menu_2_div">
+                                    <a href="#" title="總覽">
+                                        <li>總覽</li>
+                                    </a><a href="#" title="好食券">
+                                        <li>好食券</li>
+                                    </a><a href="#" title="國旅券">
+                                        <li>國旅券</li>
+                                    </a><a href="#" title="i原券">
+                                        <li>i原券</li>
+                                    </a><a href="#" title="農遊券">
+                                        <li>農遊券</li>
+                                    </a><a href="#" title="藝FUN券">
+                                        <li>藝FUN券</li>
+                                    </a><a href="#" title="動滋券">
+                                        <li>動滋券</li>
+                                    </a><a href="#" title="客庄券">
+                                        <li>客庄券</li>
+                                    </a><a href="#" title="地方創生券">
+                                        <li>地方創生券</li>
+                                    </a>
+                                </div>
+                            </ul>
+
+                        </a>
+                        <a href="#" title="開始預訂與查詢目前次選單開啟"><ul>開始預訂與查詢</ul></a>
+                        <a href="#" title="影音教學目前次選單開啟"><ul>影音教學</ul></a>
+                        <a href="#" title="常見問答目前次選單開啟"><ul>常見問答</ul></a>
+                        <a href="#" title="[另開新視窗]EN[另開新視窗]"><ul class="language">EN</ul></a>
+                    </div>
+
+                </nav>
+
+                <div class="query"><a href="https://5000.gov.tw/Default.aspx" title="預定與查詢">預定與查詢</a></div>
+                <style>
+                    .content{
+                        font-size: 40px;
+                        margin: 500px 0 0 500px;
+                    }
+                </style>
+                <div class="content">剩下的區塊不刻了 避免有抄襲國家網站的問題</div>
+
+            </div>
+        </div>
+
+        
+
+    </div>
+</body>
+</html>
