@@ -51,7 +51,8 @@
         height: 300px;
     }
     .images_text>div:hover{
-        filter:brightness(0.9)
+        filter: grayscale(0);
+        transition: filter 0.3s;
     }
     .images_text>div>img{
         width: 100%;
@@ -68,6 +69,7 @@
         width: 100%;
         font-size: 1.8vw;
         display: none;
+        cursor: context-menu;
     }
     #item2_text{
         color: red;
