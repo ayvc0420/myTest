@@ -6,11 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>regex</title>
 
+    <style>
+    #wrap{
+        width:100px;
+        height: 100px;
+        background-color: yellow;
+        color:red;
+    }
+    </style>
 </head>
 <body>
+    <div id="wrap"></div>
     <input type="text" id="text">
     <button id = "btn">按鈕</button>
     <script>
+
         const text = document.getElementById('text');
         const btn = document.getElementById('btn');
         //加上$ = 最後一個 加上^ = 首個
@@ -24,6 +34,11 @@
             console.log(res)
         })
 
+        let wrap = document.getElementById('wrap');
+        let wrap_width = window.getComputedStyle(wrap,null).width
+        console.log(wrap_width) //100px
+        wrap_width = wrap_width.replace('px','')
+        console.log(wrap_width)
 
     </script>
 </body>
