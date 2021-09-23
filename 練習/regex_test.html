@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regex</title>
+
+</head>
+<body>
+    <input type="text" id="text">
+    <button id = "btn">按鈕</button>
+    <script>
+        const text = document.getElementById('text');
+        const btn = document.getElementById('btn');
+        //加上$ = 最後一個 加上^ = 首個
+        //例如:const reg_eu_tw_number = /^[a-zA-Z]+[\u4e00-\u9fa5]*[0-9]$/ 首個字元必須為英文中間為中文最後一個字元為數字
+        const reg_eu_tw_number = /[a-zA-Z]+[\u4e00-\u9fa5]*[0-9]/
+        const reg_eu_tw = /[a-zA-Z]|[\u4e00-\u9fa5]/ 
+        const reg_eu = /[a-zA-Z]/
+        const reg_eu_number = /[\w]$/  //條件最後一個字元為a-zA-Z0-9
+        btn.addEventListener('click' , function (){
+            let res = reg_eu_number.test(text.value);
+            console.log(res)
+        })
+
+
+    </script>
+</body>
+</html>
