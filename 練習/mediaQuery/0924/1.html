@@ -17,6 +17,7 @@
         display: flex;
         position: relative;
         margin: auto;
+        font-size: 2rem;
     }
     .box{
         width: 70%;
@@ -36,15 +37,10 @@
     .aside_right{
         position:absolute;
         position:fixed;
-        top:5vw;
-        right: 10vw;
-    }
-    .aside_right2{
-        position:absolute;
-        position:fixed;
         top:10vw;
         right: 10vw;
     }
+
     .box::after{
         content: attr(data-content);
         color: white;
@@ -64,8 +60,6 @@
         <div class="aside_pos" id="aside_pos">
             <aside id="aside" >
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae accusantium fugiat est sequi deserunt libero et adipisci assumenda possimus doloribus, veritatis commodi, iste nihil ad! Corrupti possimus itaque ullam impedit.
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae accusantium fugiat est sequi deserunt libero et adipisci assumenda possimus doloribus, veritatis commodi, iste nihil ad! Corrupti possimus itaque ullam impedit.
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae accusantium fugiat est sequi deserunt libero et adipisci assumenda possimus doloribus, veritatis commodi, iste nihil ad! Corrupti possimus itaque ullam impedit.
             </aside>
         </div>
     </div>
@@ -80,12 +74,10 @@
             if(aside_pos < -150){
                 // document.getElementById('aside').style.position = 'fixed'; position = 'absolute'; top = 0; right = 0;
                 document.getElementById('aside').classList.add('aside_right');
-                document.getElementById('aside').classList.remove('aside_right2');
             }
             if(aside_pos >= 0){
                 // document.getElementById('aside').style.position = 'fixed'; position = 'absolute'; top = 0; right = 0;
                 document.getElementById('aside').classList.remove('aside_right');
-                document.getElementById('aside').classList.remove('aside_right2');
             }
         })
 
