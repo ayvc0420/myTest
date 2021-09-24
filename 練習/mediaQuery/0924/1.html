@@ -12,8 +12,8 @@
     }
     .wrap{
         width: 80vw;
-        /* max-width: 100%; */
-        background-color: black;
+        max-width: 100%;
+        /* background-color: black; */
         display: flex;
         position: relative;
         margin: auto;
@@ -71,7 +71,7 @@
         window.addEventListener('scroll', function(){
             let aside_pos = document.getElementById('aside_pos').getBoundingClientRect().top
             // console.log(aside_top)
-            if(aside_pos < -150){
+            if(aside_pos < -300){
                 // document.getElementById('aside').style.position = 'fixed'; position = 'absolute'; top = 0; right = 0;
                 document.getElementById('aside').classList.add('aside_right');
             }

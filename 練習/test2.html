@@ -206,7 +206,7 @@
             height: 600px;
         }
     </style>
-    <style>
+    <style> /* rgb三原色 */
 
         .rgb{
             background-color: black;
@@ -253,6 +253,16 @@
             opacity:0.7;
         }
     
+    </style> 
+    <style> /* focus */
+    input{
+        width: 200px;
+    }
+    .connection_email:focus{
+        width: 300px;
+        transition: width .5s;
+        background-color : orange;
+    }
     </style>
 </head>
 <body>
@@ -487,5 +497,11 @@
             <div class="rgb_box_3"></div>
         </div>
     </div>
+
+    <hr>
+    <div style="display: flex; justify-content: center;">
+        <input type="text" class="connection_email" placeholder="輸入您的email">
+    </div>
+    <hr>
 </body>
 </html>

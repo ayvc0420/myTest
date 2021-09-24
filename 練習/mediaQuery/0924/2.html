@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin: 0;
+    }
+    li{
+        list-style: none;
+        padding: 0;
+    }
+    .wrap{
+        margin: auto;
+        height: 100vh;
+        background: rgb(154, 205, 50,0.8);
+        display: flex;
+        justify-content: center;
+    }
+    .wrap>ul{
+        position: relative;
+        height: 20px;
+        cursor: pointer;
+    }
+    .wrap>ul>div{
+        background: white;
+        width: 200px;
+        position: absolute;
+        top: 25px;
+        left: 20px;
+        display: none;
+        box-shadow: 0 10px 10px rgb(0, 0, 0,0.5);
+        line-height: 40px;
+    }
+    .wrap>ul>div>a{
+        padding:5px 0 0 30px;
+        box-sizing: border-box;
+        text-decoration: none;
+        display: inline-block;
+        width: 100%;
+        color: blue;
+    }
+    .wrap>ul>div>a:hover{
+        background: rgb(255, 255, 0,0.5);
+    }
+</style>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+    window.addEventListener('load',function(){
+
+        const wrap_1 = document.getElementById('wrap_1')
+        const wrap_2 = document.getElementById('wrap_2')
+        
+        const wrap_1_div = document.querySelector('#wrap_1 div');
+        const wrap_2_div = document.querySelector('#wrap_2 div');
+        
+        // 監控呼叫函式
+        wrap_1.addEventListener('click',function(){
+            const wrap_1_div = document.querySelector('#wrap_1 div');
+            const div_display = window.getComputedStyle(wrap_1_div,null).display
+            if(div_display == 'none'){
+                wrap_1_div.style.display = 'block';
+            }else{
+                wrap_1_div.style.display = 'none';
+            }
+        })
+        // bind綁定參數
+        wrap_2.addEventListener('click', wrap_toggle.bind(wrap_2_div))
+        
+        function wrap_toggle(event){
+            const div_display = window.getComputedStyle(wrap_2_div,null).display
+            if(div_display === 'none'){
+                wrap_2_div.style.display = 'block';
+            }else{
+                wrap_2_div.style.display = 'none';
+            }
+        }
+        // jQ寫法
+        $('#wrap_3').click(function(){
+            $('#wrap_3 div').toggle();
+        })
+
+    })
+</script>
+<body>
+    <section class="wrap">
+
+        <ul id="wrap_1">聯絡資訊
+            <div>
+                <a href="#line"><li>LINE</li></a>
+                <a href="#telephone"><li>電話</li></a>
+                <a href="#fax"><li>傳真</li></a>
+            </div>
+        </ul>
+        <ul id="wrap_2">關注我們
+            <div>
+                <a href="#facebook"><li>Facebook</li></a>
+                <a href="#lineofficial"><li>LINE官方</li></a>
+            </div>
+        </ul>
+        <ul id="wrap_3">投資人專區
+            <div>
+                <a href="#AGM"><li>股東會</li></a>
+                <a href="#dividend"><li>股利資料</li></a>
+                <a href="#FinancialReport"><li>財務資訊</li></a>
+                <a href="#Events"><li>投資人活動</li></a>
+                <a href="#importantMessage"><li>近期重大資訊</li></a>
+                <a href="#download"><li>文件下載</li></a>
+            </div>
+        </ul>
+    </section>
+</body>
+</html>
