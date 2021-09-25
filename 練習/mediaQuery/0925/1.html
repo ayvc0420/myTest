@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin: 0;
+    }
+    li{
+        list-style: none;
+        padding: 0;
+    }
+    .main{
+        background: rgb(154, 205, 50,0.8);
+        height: 100vh;
+    }
+    .wrap{
+        font-size: 0;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+    .wrap>ul{
+        font-size: 18px;
+        background: rgb(255, 255, 0,0.8);
+        display: inline-block;
+        position: relative;
+        height: 20px;
+        margin: 0;
+        padding: 10px;
+        cursor: pointer;
+        color: brown;
+    }
+    .wrap>ul>div{
+        background: white;
+        width: 200px;
+        position: absolute;
+        top: 40px;
+        left: -20px;
+        display: none;
+        /* opacity: 0; */
+        box-shadow: 0 10px 10px rgb(0, 0, 0,0.5);
+        line-height: 40px;
+    }
+    .wrap>ul>div>a{
+        padding:5px 0 0 30px;
+        box-sizing: border-box;
+        text-decoration: none;
+        display: inline-block;
+        width: 100%;
+        color: blue;
+    }
+    .wrap>ul>div>a:hover{
+        background: rgb(255, 255, 0,0.5);
+    }
+    .wrap>ul:hover div{
+        display: block;
+        /* opacity: 1; */
+    }
+    .content{
+        max-width: 1000px;
+        padding:20px 50px;
+        color: cornflowerblue;
+        margin: auto;
+    }
+</style>
+<script src="js/jquery-3.6.0.min.js"></script>
+<!-- <script>
+    window.addEventListener('load',function(){
+
+        const wrap_1 = document.getElementById('wrap_1')
+        const wrap_2 = document.getElementById('wrap_2')
+        
+        const wrap_1_div = document.querySelector('#wrap_1 div');
+        const wrap_2_div = document.querySelector('#wrap_2 div');
+        
+        // // 傳統監控呼叫函式
+        // wrap_1.addEventListener('click',function(){
+        //     const wrap_1_div = document.querySelector('#wrap_1 div');
+        //     const div_display = window.getComputedStyle(wrap_1_div,null).display
+        //     if(div_display == 'none'){
+        //         wrap_1_div.style.display = 'block';
+        //     }else{
+        //         wrap_1_div.style.display = 'none';
+        //     }
+        // })
+
+        // bind綁定參數
+        wrap_1.addEventListener('click',wrap_toggle.bind(null,wrap_1_div))
+        wrap_2.addEventListener('click', wrap_toggle.bind(null,wrap_2_div))
+        
+        function wrap_toggle(event){
+            const div_display = window.getComputedStyle(event,null).display
+            if(window.getComputedStyle(event,null).display === 'block'){
+                event.style.display = 'none';
+            }else{
+                event.style.display = 'block';
+            }
+        }
+        // jQ寫法
+        $('#wrap_3').click(function(){
+            $('#wrap_3 div').toggle();
+        })
+
+    })
+</script> -->
+<body>
+    <div class="main">
+        <section class="wrap">
+            <ul id="wrap_1">聯絡資訊
+                <div>
+                    <a href="#line"><li>LINE</li></a>
+                    <a href="#telephone"><li>電話</li></a>
+                    <a href="#fax"><li>傳真</li></a>
+                </div>
+            </ul>
+            <ul id="wrap_2">關注我們
+                <div>
+                    <a href="#facebook"><li>Facebook</li></a>
+                    <a href="#lineofficial"><li>LINE官方</li></a>
+                </div>
+            </ul>
+            <ul id="wrap_3">投資人專區
+                <div>
+                    <a href="#AGM"><li>股東會</li></a>
+                    <a href="#dividend"><li>股利資料</li></a>
+                    <a href="#FinancialReport"><li>財務資訊</li></a>
+                    <a href="#Events"><li>投資人活動</li></a>
+                    <a href="#importantMessage"><li>近期重大資訊</li></a>
+                    <a href="#download"><li>文件下載</li></a>
+                </div>
+            </ul>
+        </section>
+        <div class="content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit minima obcaecati nesciunt temporibus. Tempore alias inventore, amet dolorem natus ad laborum, voluptatum eaque minima veritatis, quis quidem enim. Atque officia voluptatum exercitationem, nihil sint earum sunt ipsam itaque quasi dolores minus nulla, assumenda harum quas excepturi commodi iusto repudiandae possimus?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus est at excepturi neque facilis! Nobis earum laborum officia! Placeat doloremque delectus ipsum eaque. Maiores ad rerum quisquam molestias esse quibusdam, obcaecati maxime corporis tempora. Eos molestias deleniti at aspernatur obcaecati possimus quibusdam quaerat pariatur accusantium nesciunt! Impedit reprehenderit, nisi praesentium incidunt corporis iste officiis delectus error inventore aliquam? Ipsa, odio reiciendis? Dolore non, ducimus ipsa maxime placeat quis beatae accusantium maiores cumque vel officiis delectus facilis veniam modi. Nostrum ratione, impedit saepe tenetur fugit sapiente consequuntur pariatur culpa similique, quod adipisci minus voluptatem totam ab numquam officia? Dolore consequatur voluptatem sed ut, praesentium a adipisci ipsum, aspernatur nostrum inventore accusamus ipsam exercitationem alias iure, odit sequi tempore omnis earum modi illum cumque voluptas aperiam! Voluptatum veritatis, laborum autem placeat repellendus ipsam nisi harum consequuntur quod sed asperiores, eius dolorem eaque soluta optio quo rem veniam saepe alias! Soluta quos ullam atque quae iste, tempora deleniti mollitia animi vero rerum debitis doloribus voluptatem, corrupti, consequuntur sunt non incidunt. Harum voluptates odio nam quas neque veniam consequatur quod impedit nihil reprehenderit. Praesentium aperiam ut ducimus odit saepe velit officiis. Recusandae porro consequatur laboriosam harum odio delectus nisi iusto, sapiente voluptate quae, quam nemo optio iste enim libero ratione distinctio rem quisquam beatae. Ullam eius aspernatur sunt odit aperiam, dicta deleniti reiciendis vero eaque labore ea, omnis earum at laborum a illo repellendus mollitia adipisci hic nemo eos in. Eveniet laudantium dignissimos nihil, odit nam error incidunt libero ipsum ab quibusdam. Veritatis, eveniet necessitatibus ullam voluptatum voluptatem voluptatibus numquam perferendis iusto laborum nostrum quibusdam aspernatur ea libero dolor minus culpa animi laudantium aliquid fuga nemo id. Tenetur expedita debitis, corrupti distinctio, dolorem iste assumenda repellendus numquam nemo at eveniet cumque quos minima ut officia odit itaque eos pariatur est sit adipisci veniam quia. Quod officiis natus enim laudantium repellat repellendus est laborum saepe aliquam! Ducimus distinctio, hic optio placeat, voluptas fugiat commodi dicta eligendi nam quam atque esse tempora nihil pariatur cumque corrupti dolorum ullam exercitationem facilis molestias neque nostrum quos illo ipsam! Vitae et adipisci, deserunt mollitia doloremque modi autem omnis, consequuntur cupiditate eum pariatur quidem officiis voluptas dicta a fuga corrupti, ab dolorum quod odio natus fugit inventore quos! Optio illum voluptas, adipisci eveniet labore recusandae sit et nihil inventore sapiente reprehenderit similique aut, rem ex tenetur quod explicabo dicta porro odio? Facilis corporis aut libero ducimus adipisci, voluptates odio accusantium quibusdam cum debitis aperiam, in veritatis, nam vel ut voluptatem nemo dolorem a modi corrupti possimus harum rem quidem aliquam? Eveniet quam, libero corporis assumenda incidunt nulla est laboriosam aspernatur excepturi error earum aliquid at totam fugiat ullam sequi praesentium laudantium quos deserunt quas in et pariatur sunt? Sequi aliquid architecto quia nemo est explicabo numquam ex quidem officia reprehenderit eius recusandae molestias, sint odio veritatis tenetur dolorum nulla ducimus nihil. Adipisci quisquam id deleniti quam inventore repellat consectetur sequi pariatur accusantium tenetur? Odio suscipit similique amet, debitis asperiores soluta et repellat vel dignissimos laborum possimus quisquam, nobis quam! Magni.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus est at excepturi neque facilis! Nobis earum laborum officia! Placeat doloremque delectus ipsum eaque. Maiores ad rerum quisquam molestias esse quibusdam, obcaecati maxime corporis tempora. Eos molestias deleniti at aspernatur obcaecati possimus quibusdam quaerat pariatur accusantium nesciunt! Impedit reprehenderit, nisi praesentium incidunt corporis iste officiis delectus error inventore aliquam? Ipsa, odio reiciendis? Dolore non, ducimus ipsa maxime placeat quis beatae accusantium maiores cumque vel officiis delectus facilis veniam modi. Nostrum ratione, impedit saepe tenetur fugit sapiente consequuntur pariatur culpa similique, quod adipisci minus voluptatem totam ab numquam officia? Dolore consequatur voluptatem sed ut, praesentium a adipisci ipsum, aspernatur nostrum inventore accusamus ipsam exercitationem alias iure, odit sequi tempore omnis earum modi illum cumque voluptas aperiam! Voluptatum veritatis, laborum autem placeat repellendus ipsam nisi harum consequuntur quod sed asperiores, eius dolorem eaque soluta optio quo rem veniam saepe alias! Soluta quos ullam atque quae iste, tempora deleniti mollitia animi vero rerum debitis doloribus voluptatem, corrupti, consequuntur sunt non incidunt. Harum voluptates odio nam quas neque veniam consequatur quod impedit nihil reprehenderit. Praesentium aperiam ut ducimus odit saepe velit officiis. Recusandae porro consequatur laboriosam harum odio delectus nisi iusto, sapiente voluptate quae, quam nemo optio iste enim libero ratione distinctio rem quisquam beatae. Ullam eius aspernatur sunt odit aperiam, dicta deleniti reiciendis vero eaque labore ea, omnis earum at laborum a illo repellendus mollitia adipisci hic nemo eos in. Eveniet laudantium dignissimos nihil, odit nam error incidunt libero ipsum ab quibusdam. Veritatis, eveniet necessitatibus ullam voluptatum voluptatem voluptatibus numquam perferendis iusto laborum nostrum quibusdam aspernatur ea libero dolor minus culpa animi laudantium aliquid fuga nemo id. Tenetur expedita debitis, corrupti distinctio, dolorem iste assumenda repellendus numquam nemo at eveniet cumque quos minima ut officia odit itaque eos pariatur est sit adipisci veniam quia. Quod officiis natus enim laudantium repellat repellendus est laborum saepe aliquam! Ducimus distinctio, hic optio placeat, voluptas fugiat commodi dicta eligendi nam quam atque esse tempora nihil pariatur cumque corrupti dolorum ullam exercitationem facilis molestias neque nostrum quos illo ipsam! Vitae et adipisci, deserunt mollitia doloremque modi autem omnis, consequuntur cupiditate eum pariatur quidem officiis voluptas dicta a fuga corrupti, ab dolorum quod odio natus fugit inventore quos! Optio illum voluptas, adipisci eveniet labore recusandae sit et nihil inventore sapiente reprehenderit similique aut, rem ex tenetur quod explicabo dicta porro odio? Facilis corporis aut libero ducimus adipisci, voluptates odio 
+        </div>
+    </div>
+</body>
+</html>

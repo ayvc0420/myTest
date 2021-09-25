@@ -1,0 +1,5 @@
+1.html
+測試離上方一定的距離時將側邊攔改為position:fixed;
+
+2.html
+將區塊用js偵測目前狀態用以觸發隱藏或開啟 類似jQuery的toggle功能
