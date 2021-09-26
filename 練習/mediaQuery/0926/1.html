@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>/* item */
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .item{
+        margin: 10px;
+        transition:  0.3s;
+        width: 300px;
+        border: 1px solid rgb(168, 168, 168);
+        box-shadow: 1px 1px 10px rgb(168, 168, 168);
+    }
+    .item img{
+        width: 100%;
+        vertical-align: bottom;
+    }
+    
+    .item .item_text::before{
+        content: '';
+        border-top: 50px solid transparent;
+        border-left: 150px solid rgb(209, 169, 255);
+        border-right: 150px solid rgb(209, 169, 255);
+        top: -50px;
+        left: 0;
+        position: absolute;
+    }
+    .item .item_text{
+        position: relative;
+        line-height: 1.5rem;
+        text-align: center;
+        background: linear-gradient(0deg,rgb(255, 202, 202),rgb(209, 169, 255));
+        padding: 10px 20px;
+    }
+    .item .item_text h2{
+        border-bottom: 1px solid gray;
+        padding-bottom: 10px;
+    }
+    .item:hover{
+        transform: translateY(-55px);
+    }
+    .item_text:hover{
+        color: palevioletred;
+    }
+</style>
+<style> /* item2 */
+    .item2{
+        margin: 10px;
+        transition:  0.3s;
+        width: 300px;
+        border: 1px solid rgb(168, 168, 168);
+        box-shadow: 1px 1px 10px rgb(168, 168, 168);
+    }
+    .item2 img{
+        width: 100%;
+        vertical-align: bottom;
+    }
+    
+    .item2 .item2_text::before{
+        content: '';
+        border-top: 50px solid transparent;
+        border-left: 150px solid rgb(209, 169, 255);
+        border-right: 150px solid rgb(209, 169, 255);
+        top: -50px;
+        left: 0;
+        position: absolute;
+    }
+    .item2 .item2_text{
+        position: relative;
+        line-height: 1.5rem;
+        text-align: center;
+        background: linear-gradient(0deg,rgb(255, 202, 202),rgb(209, 169, 255));
+        padding: 10px 20px;
+    }
+    .item2 .item2_text h2{
+        border-bottom: 1px solid gray;
+        padding-bottom: 10px;
+    }
+    .item2:hover{
+        transform: translateY(-10%);
+    }
+    .item2_text:hover{
+        color:palevioletred;
+    }
+</style>
+<body>
+    <div class="item">
+        <img src="images/file_370012.png" alt="">
+        <div class="item_text">
+            <h2>lorem標題</h2>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea hic accusamus, quod soluta labore explicabo assumenda iure. Unde nemo aliquam qui illo ipsum in quam omnis pariatur fugit, ex perspiciatis?
+        </div>
+    </div>
+    <div class="item2">
+        <img src="images/file_370012.png" alt="">
+        <div class="item2_text">
+            <h2>lorem標題</h2>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea hic accusamus, quod soluta labore explicabo assumenda iure. Unde nemo aliquam qui illo ipsum in quam omnis pariatur fugit, ex perspiciatis?
+        </div>
+    </div>
+</body>
+</html>
