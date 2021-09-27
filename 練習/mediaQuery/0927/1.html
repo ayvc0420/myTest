@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="js/jquery-3.6.0.min.js"></script>
+<style>
+
+    .test1{
+        transition: all 1s;
+        color: yellow;
+        font-size: 3rem;
+        padding: 20px 0;
+        background-color: red;
+    }
+</style>
+<script>
+    $(function(){
+        
+        window.addEventListener('scroll',function(){
+            let dom_test1_top = $('#test1').offset().top
+            // console.log('元素離頂部高度',dom_test1_top)
+            let height_test = document.documentElement.scrollTop;
+            // console.log('現在高度:',height_test)
+            const width_player = window.innerWidth
+            // console.log('使用者的寬度:',width_player)
+            bb = dom_test1_top - height_test;
+            // console.log('相減高度:',bb)
+            if(width_player >= 1920){
+                if(bb <= 800){
+                    document.getElementById('test1').classList.add('test1')
+                }
+                if(height_test >= dom_test1_top || bb >= 1140){
+                    document.getElementById('test1').classList.remove('test1')
+                }
+            }
+            if(width_player <= 1910 && width_player >= 1280){                
+                if(bb <= 600){
+                    document.getElementById('test1').classList.add('test1')
+                }
+                if(height_test >= dom_test1_top || bb >= 1140){
+                    document.getElementById('test1').classList.remove('test1')
+                }
+            }
+            if(width_player <= 1279){
+                if(bb <= 550){
+                    document.getElementById('test1').classList.add('test1')
+                }
+                if(height_test >= dom_test1_top || bb >= 900){
+                    document.getElementById('test1').classList.remove('test1')
+                }
+            }
+
+        })
+    })
+</script>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p id="test1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, assumenda?</p>
+</body>
+</html>

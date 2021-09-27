@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: linear-gradient(rgb(54, 231, 18),rgba(190,190,10));
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .main{
+            max-width: 1200px;
+            margin: auto;
+        }
+        .item{
+            width: 1200px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin: 50px 0;
+        }
+        img{
+            border-radius: 8px;
+        }
+        .item:nth-of-type(odd)>img{
+            width: 50%;
+            position: absolute;
+            left: 50px;
+            top: 0;
+        }
+        .item:nth-of-type(even)>img{
+            width: 50%;
+            position: absolute;
+            right: 50px;
+            top: 0;
+        }
+        .item:nth-of-type(odd) .txt{
+            width: 50%;
+            position: absolute;
+            top: 100px;
+            right: 50px;
+            background-color: rgba(255, 188, 188, 0.7);
+        }
+        .item:nth-of-type(even) .txt{
+            width: 50%;
+            position: absolute;
+            top: 100px;
+            left: 50px;
+            background-color: rgba(255, 188, 188, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="main">
+            <section class="item">
+                <img src="images/600x300.png" alt="">
+                <article class="txt">
+                    <h3>標題標題標題標題</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem blanditiis officia impedit commodi nam quis eaque quasi officiis, laboriosam esse dignissimos fuga deserunt? Exercitationem fuga fugiat veritatis debitis possimus alias?</p>
+                </article>
+            </section>
+            <section class="item">
+                <img src="images/600x300.png" alt="">
+                <article class="txt">
+                    <h3>標題標題標題標題</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem blanditiis officia impedit commodi nam quis eaque quasi officiis, laboriosam esse dignissimos fuga deserunt? Exercitationem fuga fugiat veritatis debitis possimus alias?</p>
+                </article>
+            </section>
+            <section class="item">
+                <img src="images/600x300.png" alt="">
+                <article class="txt">
+                    <h3>標題標題標題標題</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem blanditiis officia impedit commodi nam quis eaque quasi officiis, laboriosam esse dignissimos fuga deserunt? Exercitationem fuga fugiat veritatis debitis possimus alias?</p>
+                </article>
+            </section>
+            <section class="item">
+                <img src="images/600x300.png" alt="">
+                <article class="txt">
+                    <h3>標題標題標題標題</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem blanditiis officia impedit commodi nam quis eaque quasi officiis, laboriosam esse dignissimos fuga deserunt? Exercitationem fuga fugiat veritatis debitis possimus alias?</p>
+                </article>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

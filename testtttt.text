@@ -18,3 +18,14 @@ http://ftp.tku.edu.tw/Linux/LinuxMint/linuxmint-iso/stable/20.2/linuxmint-20.2-c
 
 linux test 0912 pm11:28
 測試 add commit push 
+
+
+0927
+
+Font Awesome
+<script src="https://use.fontawesome.com/e60baf10f6.js"></script>
+link rel="stylesheet" href="fontawesome/css/all.css">
+<i class="fas fa-chevron-up"></i>
+<i class="fas fa-chevron-right"></i>
+<i class="fas fa-chevron-down"></i>
+<i class="fas fa-chevron-left"></i>

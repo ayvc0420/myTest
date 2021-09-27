@@ -643,7 +643,9 @@
 }
 .my_ig img{
     width:110px;
+    height: 110px;
     position: relative;
+    /* object-fit: cover; */
 }
 .my_ig_img_1 , .my_ig_img_2 , .my_ig_img_3{
     display: flex;

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <style>
+        body{
+            margin: 0;
+        }
+        nav{
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+            background: chocolate;
+        }
+        main{
+            background: cornflowerblue;
+            height: 100vh;
+            display: flex;
+        }
+        section{
+            margin: auto;
+        }
+        footer{
+            background: rgb(0, 0, 0);
+            color: turquoise;
+            font-size: 18px;
+        }
+        .copyright{
+            color: white;
+            text-align: center;
+            border-top: 1px solid #444;
+            padding: 15px 0;
+        }
+        footer a{
+            text-decoration: none;
+            color: white;
+            display: inline-block;
+            padding: 8px 8px 8px 0;
+        }
+        .footer_item{
+            max-width: 1400px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+        .item,.email{
+            margin: 0 20px;
+            /* width: 300px; */
+            width: 25%;
+        }
+        .item div h3{
+            border-bottom: 1px dotted white;
+            padding-bottom: 10px;
+            font-size: 22px;
+        }
+        .footer_item a:hover{
+            background: darkkhaki;
+        }
+        .email_subscription{
+            display: flex;
+            align-items: flex-start;
+        }
+        .email_subscription button{
+            margin-left: 10px;
+            background: transparent;
+            color: white;
+        }
+        @media screen and (max-width:1200px) {
+            .footer_item{
+                flex-wrap: wrap;
+            }
+            .email_subscription button{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        頂部
+    </nav>
+    <main>
+        <section>
+            內容
+        </section>
+    </main>
+    <footer>
+        <div class="footer_item">
+            <div class="item">
+                <div>
+                    <h3>標題標題</h3>
+                </div>
+                <div>
+                    <a href="#1"><i class="fas fa-chevron-right"></i> 連結1</a>
+                    <br>
+                    <a href="#2"><i class="fas fa-chevron-right"></i> 連結2</a>
+                    <br>
+                    <a href="#3"><i class="fas fa-chevron-right"></i> 連結3</a>
+                </div>
+            </div>
+            <div class="item">
+                <div>
+                    <h3>標題標題</h3>
+                </div>
+                <div>
+                    <a href="#4"><i class="fas fa-chevron-right"></i> 連結4</a>
+                    <br>
+                    <a href="#5"><i class="fas fa-chevron-right"></i> 連結5</a>
+                    <br>
+                    <a href="#6"><i class="fas fa-chevron-right"></i> 連結6</a>
+                </div>
+            </div>
+            <div class="item">
+                <div>
+                    <h3>標題標題</h3>
+                </div>
+                <div>
+                    <!-- <img src="fontawesome/svgs/solid/chevron-down.svg" alt=""> -->
+                    <a href="#7"><i class="fas fa-chevron-right"></i> 連結7</a>
+                    <br>
+                    <a href="#8"><i class="fas fa-chevron-right"></i> 連結8</a>
+                    <br>
+                    <a href="#9"><i class="fas fa-chevron-right"></i> 連結9</a>
+                </div>
+            </div>
+            <div class="email">
+                <div>
+                    <h3>電子報</h3>
+                </div>
+                <div class="email_subscription">
+                    <input type="text" name="" id="">
+                    <button id="btn">訂閱</button>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            Copyright &copy; 2021 ayvc0420
+        </div>
+    </footer>
+<script>
+    document.getElementById('btn').addEventListener('click',email_no);
+    function email_no(){
+        alert('不要再按了，沒有電子報')
+    }
+</script>
+</body>
+</html>
