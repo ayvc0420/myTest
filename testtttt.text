@@ -24,8 +24,14 @@ linux test 0912 pm11:28
 
 Font Awesome
 <script src="https://use.fontawesome.com/e60baf10f6.js"></script>
-link rel="stylesheet" href="fontawesome/css/all.css">
+<link rel="stylesheet" href="fontawesome/css/all.css">
 <i class="fas fa-chevron-up"></i>
 <i class="fas fa-chevron-right"></i>
 <i class="fas fa-chevron-down"></i>
 <i class="fas fa-chevron-left"></i>
+
+導入CND的把class的s去掉 class="fa"
+
+<button type="submit">
+    <i class="fa fa-arrow-right" title="Submit My Tax Return"></i>
+</button>
