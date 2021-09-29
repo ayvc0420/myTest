@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        header{
+            background: linear-gradient(cadetblue,chartreuse);
+        }
+        .header_main{
+            display: flex;
+            height: 10vh;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo{
+            width: 10vh;
+            margin-left: 15px;
+        }
+        .logo img{
+            width: 100%;
+            vertical-align: middle;
+        }
+        .nav_menu{
+            display: flex;
+        }
+        .nav_menu li>a{
+            text-decoration: none;
+            padding: 20px;
+            display: inline-block;
+        }
+        .nav_menu li>a:hover{
+            color: rgb(63, 98, 255);
+            background: rgba(255, 246, 164, 0.3);
+        }
+        .nav_menu_2{
+            position: relative;
+        }
+        .nav_menu_2_ul{
+            position: absolute;
+            top: 55px;
+            background: linear-gradient(0deg,cadetblue,chartreuse);
+            width: 200px;
+            box-shadow: 0 5px 15px rgb(134, 134, 134);
+            display: none;
+        }
+        .nav_menu_2_ul>li>a{
+            display: inline-block;
+            padding: 15px 10px;
+            width: calc(100% - 20px);
+        }
+        .nav_menu_2:hover ul{
+            display: block;
+        }
+        #nav_search{
+            border-radius: 5px;
+            border: 1px solid #444;
+        }
+        #nav_search:focus{
+            background: rgb(238, 255, 0);
+        }
+        @media screen and (max-width:1024px) {
+            .header_main{
+                flex-wrap: wrap;
+            }
+        }
+        @media screen and (max-width:805px){
+            .header_main{
+                justify-content: center;
+            }
+            .search{
+                display: none;
+            }
+        }@media screen and (max-width:600px){
+            .logo{
+                display: none;
+            }
+        }
+    </style>
+    <!-- <script>
+        window.addEventListener('load',function(){
+            const nav_search = document.getElementById('nav_search')
+        })
+    </script> -->
+</head>
+
+<body>
+    <header>
+        <div class="header_main">
+            <div class="logo">
+                <img src="images/file_369789.png" alt="pekora">
+            </div>
+            <nav>
+                <ul class="nav_menu">
+                    <li><a href="#1">關於我們</a></li>
+                    <li class="nav_menu_2">
+                        <a href="#2">成員介紹<i class="fas fa-chevron-down"></i></a>
+                        <ul class="nav_menu_2_ul">
+                            <li><a href="#2-1">兔田佩克拉</a></li>
+                            <li><a href="#2-2">櫻巫女</a></li>
+                            <li><a href="#2-3">夏色祭</a></li>
+                            <li><a href="#2-4">雪花菈米</a></li>
+                            <li><a href="#2-5">露西婭</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#3">公告訊息</a></li>
+                    <li><a href="#4">聯絡我們</a></li>
+                </ul>
+            </nav>
+            <div class="search">
+                <input type="text" name="" id="nav_search"><button><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+</body>
+</html>
