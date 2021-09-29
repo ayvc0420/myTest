@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="button">1</div>
+    <script>
+        document.querySelector('#button').addEventListener('click',function(){
+            
+            console.log(this)
+
+            //setTimeout是window的物件 此處this指window
+            setTimeout(function() {
+                console.log(this)
+            }, 2000);
+
+            //箭頭函式綁定 上方監聽對象#button 因此這邊的this是#button
+            setTimeout( ()=> {
+                console.log(this)
+            }, 2000);
+
+        })
+        //用意給參數預設值 但沒有太大必要
+        function test1 (a = 'aa',b = 'bb',c = 'cc') {
+            console.log(a,b,c)
+        }
+        test1('aaare','qerqe')
+
+    </script>
+</body>
+</html>

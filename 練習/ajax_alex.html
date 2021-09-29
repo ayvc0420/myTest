@@ -36,7 +36,7 @@
 
             function log1(){
                 let def = $.Deferred()
-                console.log('第一');
+                console.log('第一個console');
                 def.resolve('成功1')          //正常結束
                 //def.reject()               //不正常結束 只能選一個用  如果沒用jQ就一直等 等到天荒地老~~~
                 return def.promise()         //把resolve或者是reject傳回去
@@ -46,25 +46,28 @@
                 let def = $.Deferred()
                 console.log(res)
 
+                document.getElementById('menu').addEventListener('click',function(){
 
-                $.ajax({
-                    url:'api/stations.json',
-                    type: 'get',        //get,post,put,path,delete
-                    dataType: 'json',   //html,xml,text,jsonp
-                    date: {}
-                }).then(function(res){
-                    //response request  --> 請求、要求
-                    console.log(res)    //資料
-                    for(let i = 0; i < res.length; i++){
-                        $('#menu').append(res[i].Station+' | ')
-                        $('#menu').append(res[i].Destination+' <br>')
+                    $.ajax({
+                        url:'api/stations.json',
+                        type: 'get',        //get,post,put,path,delete
+                        dataType: 'json',   //html,xml,text,jsonp
+                        date: {}
+                    }).then(function(res){
+                        //response request  --> 請求、要求
+                        //console.log(res)    //資料
+                        $('#menu').append(`<br><br>`)
+                        for(let i = 0; i < res.length; i++){
+                            $('#menu').append(res[i].Station+' | ')
+                            $('#menu').append(res[i].Destination+' <br>')
 
-                    }
-                    return def.resolve('成功2')
-                },function(err){
-                    console.log(err)
-                    // return def.resolve('第二個成功了')
-                    return def.reject('第二個失敗了')
+                        }
+                        return def.resolve('成功2')
+                    },function(err){
+                        console.log(err)
+                        return def.resolve('第二個成功了')
+                        // return def.reject('第二個失敗了')
+                    })
                 })
                 
 
@@ -78,7 +81,7 @@
             }
             function log3(){
                 let def = $.Deferred()
-                console.log('第三');
+                console.log('第三個console');
                 def.resolve('成功3')
                 return def.promise()
             }
@@ -128,6 +131,6 @@
 
 </head>
 <body>
-    <div id="menu"></div>
+    <div id="menu">點我開始</div>
 </body>
 </html>

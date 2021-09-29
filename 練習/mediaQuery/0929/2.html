@@ -13,7 +13,7 @@
         }
         .header_main{
             display: flex;
-            height: 10vh;
+            /* height: 10vh; */
             justify-content: space-around;
             align-items: center;
         }
@@ -21,6 +21,7 @@
         .logo{
             width: 10vh;
             margin-left: 15px;
+            cursor: pointer;
         }
         .logo img{
             width: 100%;
@@ -34,10 +35,26 @@
             padding: 20px;
             display: inline-block;
             color: rgb(37, 0, 247);
+            position: relative;
         }
-        .nav_menu li>a:hover{
+        .nav_menu_2_ul li>a:hover{
             color: rgb(63, 98, 255);
-            background: rgba(255, 246, 164, 0.3);
+            background: rgba(255, 246, 164, 0.4);
+        }
+        .nav_menu li:not(.nav_menu_2)>a:not(.nav_menu_2_ul li a)::after{
+            content: '';
+            border-bottom: 1px solid white;
+            width: 0%;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            position: absolute;
+        }   
+        .nav_menu li:not(.nav_menu_2)>a:not(.nav_menu_2_ul li a):hover::after{
+            content: '';
+            width: 70%;
+            transition: all 0.3s;
         }
         .nav_menu_2{
             position: relative;
@@ -55,7 +72,7 @@
             padding: 15px 10px;
             width: calc(100% - 20px);
         }
-        .nav_menu_2:hover ul{
+        .nav_menu_2:hover>ul{
             display: block;
         }
 
@@ -75,23 +92,37 @@
             background: rgb(238, 255, 0);
         }
 
-
+        .miko_li{
+            position: relative;
+        }
+        .miko_ul{
+            display: none;
+            position: absolute;
+            right: -150px;
+            top: 0;
+            width: 150px;
+            background: linear-gradient(0deg,cadetblue,chartreuse);
+            box-shadow: 0 5px 15px rgb(134, 134, 134);
+        }
+        .miko_li:hover>ul{
+            display: block;
+        }
+        .miko_li>ul>li a{
+            width: calc(100% - 40px);
+        }
         @media screen and (max-width:1024px) {
             .header_main{
-                flex-wrap: wrap;
+                flex-direction: column;
+            }
+            .search{
+                display: none;
             }
         }
         @media screen and (max-width:805px){
             .header_main{
                 justify-content: center;
             }
-            .search{
-                display: none;
-            }
-        }@media screen and (max-width:600px){
-            .logo{
-                display: none;
-            }
+
         }
     </style>
     <!-- <script>
@@ -111,10 +142,17 @@
                 <ul class="nav_menu">
                     <li><a href="#1">關於我們</a></li>
                     <li class="nav_menu_2">
-                        <a href="#2">成員介紹<i class="fas fa-chevron-down"></i></a>
+                        <a href="#2">成員介紹<i class="fa fa-chevron-down"></i></a>
                         <ul class="nav_menu_2_ul">
                             <li><a href="#2-1">兔田佩克拉</a></li>
-                            <li><a href="#2-2">櫻巫女</a></li>
+                            <li class="miko_li">
+                                <a href="#2-2">櫻巫女 <i class="fa fa-chevron-right"></i></a>
+                                <ul class="miko_ul">
+                                    <li><a href="#">35P</a></li>
+                                    <li><a href="#">35P之友</a></li>
+                                    <li><a href="#">櫻污女</a></li>
+                                </ul>
+                            </li>
                             <li><a href="#2-3">夏色祭</a></li>
                             <li><a href="#2-4">雪花菈米</a></li>
                             <li><a href="#2-5">露西婭</a></li>
