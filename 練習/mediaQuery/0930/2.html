@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>svg畫布</title>
+    <style>
+        body{
+            display: flex;
+            flex-wrap: wrap;
+            background: cornsilk;
+            margin: 0;
+        }
+        .svg_set{
+            width: 100%;
+            padding: 10px;
+            background: chartreuse;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+            justify-content: center;
+        }
+
+        .svg_set>div{
+            display: flex;
+            width: auto;
+            align-items: flex-start;
+            padding: 10px 0;
+        }
+        .svg_set>div>input{
+            width: 80px;
+        }
+        /* .svg_set>div:nth-of-type(odd){
+            background: rgb(255, 203, 169);
+        }
+        .svg_set>div:nth-of-type(even){
+            background: rgb(255, 189, 209);
+        } */
+        #svg{
+            margin: auto;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="svg_set">
+        長方形&nbsp;:&nbsp; 
+        <div><span>X軸</span><input type="text" id="svg_x">&nbsp;</div>
+        <div><span>Y軸</span><input type="text" id="svg_y">&nbsp;</div>
+        <div><span>長度</span><input type="text" id="svg_width">&nbsp;</div>
+        <div><span>寬度</span><input type="text" id="svg_height">&nbsp;</div>
+        <div><span>顏色填滿</span><input type="text" id="svg_fill">&nbsp;</div>
+        <div><span>外框線顏色</span><input type="text" id="svg_stroke">&nbsp;</div>
+        <div><span>外框線粗度</span><input type="text" id="svg_stroke-width">&nbsp;</div>
+        <button onclick="svg_start()" id="svg_btn">確定</button>
+    </div>
+    
+    <svg id="svg" width="800" height="800">
+        
+        
+    </svg>
+    <script>
+        const svg_btn = document.getElementById('svg_btn')
+        
+        svg_btn.addEventListener('click',function(){
+            
+        })
+        function svg_start (){
+            const svg = document.getElementById('svg');
+            const svg_x = document.getElementById('svg_x').value;
+            const svg_y = document.getElementById('svg_y').value;
+            const svg_width = document.getElementById('svg_width').value;
+            const svg_height = document.getElementById('svg_height').value;
+            const svg_fill = document.getElementById('svg_fill').value;
+            const svg_stroke = document.getElementById('svg_stroke').value;
+            const svg_stroke_width = document.getElementById('svg_stroke-width').value;
+            
+            svg.innerHTML = `<rect x="${svg_x}" y="${svg_y}"width="${svg_width}" height="${svg_height}" fill="${svg_fill}" stroke="${svg_stroke}" stroke-width="${svg_stroke_width}"> </rect>`
+            }
+    </script>
+</body>
+</html>

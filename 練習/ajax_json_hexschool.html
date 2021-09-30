@@ -77,12 +77,11 @@
                                 // console.log(food_type)   //查看屬性
                                 if(food_type === "yes"){
                                     // 分開來 比較好看
-                                    $('#name').append("<li>店家:"+store[i].name+"</li>");    //印store[i].name
-                                    $('#thing').append("<li>物品:"+store[i].thing+"</li>");  //印store[i].thing
-                                    $('#money').append("<li>金額:"+store[i].money+"</li>");  //印store[i].money
+                                    $('#name').append(`<li>店家:${store[i].name}</li>`);    //印store[i].name
+                                    $('#thing').append(`<li>物品:${store[i].thing}</li>`);  //印store[i].thing
+                                    $('#money').append(`<li>金額:${store[i].money}</li>`);  //印store[i].money
 
-                                    //一橫式 比較難閱讀 還得另外再切div
-                                    $('#test ol').append("<li>店家:"+""+store[i].name+"&nbsp&nbsp&nbsp"+"物品:"+store[i].thing+"&nbsp&nbsp&nbsp"+"金額:"+store[i].money+"</li>")
+
                                 }else{
                                     $('#nofood').append("<li>商家:"+store[i].name+"</li>");
                                 }
@@ -124,35 +123,32 @@
         body{
             font-size: 24px;
         }
-        #menu{
+        .menu{
             list-style:none;
+            display: flex;
         }
-        #menu div{
-            /* width: 33%; */
-            display: inline-block;
 
-        }
-        #menu div:nth-of-type(odd){
+        .menu div:nth-of-type(odd){
             background-color: rgb(255, 195, 255);
 
         }
-        #menu div:nth-of-type(even){
+        .menu div:nth-of-type(even){
             background-color: rgb(209, 255, 215);
         }
 
     </style>
 
 </head>
+
 <body>
-    <section id="menu">
+    <section class="menu">
         <div id="name"></div>
         <div id="thing"></div>
         <div id="money"></div>
         <div id="nofood">不是食物的</div>
-        <br>
     </section>
     <br>
-    <div id="test">
+    <div id="menu">
         <ol></ol>
     </div>
 

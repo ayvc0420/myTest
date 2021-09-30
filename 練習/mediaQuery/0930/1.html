@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black
+        }
+        .img1>img{
+            filter: grayscale(1);
+        }
+        .img1{
+            display: inline-block;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(255, 255, 255);
+        }
+        .img1_border{
+            position: absolute;
+            /* border: 1px solid rgb(255, 255, 255); */
+            border-top: 0px solid rgb(255, 255, 255);
+            border-bottom: 0px solid rgb(255, 255, 255);
+            border-left:  0px solid rgb(255, 255, 255);
+            border-right: 0px solid rgb(255, 255, 255);
+            padding: 0px;
+            width: 100px;
+            height: 100px;
+            /* top: -100%; */
+            transform: rotate(0);
+            opacity: 0;
+        }
+        .img1:hover .img1_border{
+            transition: border-top 0.3s 0.3s , border-left 0.3s 0.6s , border-bottom 0.3s 0.9s, border-right 0.3s 0.6s ,transform 1s 1.2s,width 1s 1.2s ,height 1s 1.2s;
+            /* transition: width 0.3s .3s ,border-top 0.3s 0.2s , border-left 0.3s 0.2s , border-bottom 0.3s 0.2s, border-right 0.3s 0.2s ; */
+            /* width: 500px;
+            height: 500px; */
+            /* top: 20px;
+            bottom: 10px; */
+            width: 75%;
+            height: 75%;
+            border-top: 1px solid rgb(234, 0, 255);
+            border-bottom: 1px solid rgb(234, 0, 255);
+            border-left:  1px solid rgb(234, 0, 255);
+            border-right: 1px solid rgb(234, 0, 255);
+            transform: rotate(360deg);
+            opacity: 1;
+            /* padding: 230px; */
+        }
+        .img1:hover img{
+            transition: filter 0.5s 1s;
+            filter: grayscale(0);
+            /* transform: translateY(-15px); */
+        }
+        .img1:hover::before{
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="img1"><img src="images/file_370018.png" alt="miko"><div class="img1_border"></div></div> -->
+    <div class="img1"><img src="images/file_369980.png" alt="miko"><div class="img1_border"></div></div>
+</body>
+</html>
