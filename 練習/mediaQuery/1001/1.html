@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手動輪播圖</title>
+    <style>
+        .img_div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .slides{
+            position: relative;
+            width: 500px;
+            height: 50vh;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background: rgb(218, 218, 218);
+            overflow: hidden;
+        }
+        .slides>li{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: 0.3s;
+        }
+
+        .slides .slide_1{
+            background-image: url(images/file_369876.png);
+            left: -100%;
+        }
+        .slides .slide_2{
+            background-image: url(images/file_369878.png);
+            left: 100%;
+        }
+        .slides .slide_3{
+            background-image: url(images/file_369879.png);
+            left: 200%;
+        }
+
+        input[type="radio"]{
+            display: none;
+        }
+
+        .controls_img{
+            position: absolute;
+            width: 100%;
+            bottom: 10px;
+            text-align: center;
+        }
+        .controls_img label{
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 5px;
+            border: 3px solid white;
+            z-index: 65535;
+        }
+
+        #switch_1:checked ~ .controls_img label:nth-of-type(1){
+            background: rgb(0, 0, 255);
+        }
+        #switch_2:checked ~ .controls_img label:nth-of-type(2){
+            background: rgb(0, 0, 255);
+        }
+        #switch_3:checked ~ .controls_img label:nth-of-type(3){
+            background: rgb(0, 0, 255);
+        }
+
+        #switch_1:checked ~ .slide_1{
+            /* transform: translateX(0%); */
+            left: 0%;
+        }
+        #switch_2:checked ~ .slide_2{
+            /* transform: translateX(-100%); */
+            left: 0;
+        }
+        #switch_3:checked ~ .slide_3{
+            /* transform: translateX(-200%); */
+            left: 0;
+        }
+    </style>
+</head>
+    
+<body>
+    <div class="img_div">
+        <ul class="slides">
+
+            <input type="radio" name="switch" id="switch_1" checked>
+            <input type="radio" name="switch" id="switch_2">
+            <input type="radio" name="switch" id="switch_3">
+
+
+
+            <li class="slide_1"></li>
+            <li class="slide_2"></li>
+            <li class="slide_3"></li>
+
+            <div class="controls_img">
+                <label for="switch_1"></label>
+                <label for="switch_2"></label>
+                <label for="switch_3"></label>
+            </div>
+        </ul>
+    </div>
+</body>
+</html>

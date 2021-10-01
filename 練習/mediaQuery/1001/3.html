@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>svg畫布</title>
+    <style>
+        body{
+            display: flex;
+            flex-wrap: wrap;
+            background: cornsilk;
+            margin: 0;
+            position: relative;
+        }
+        .svg_set,.svg_shape{
+            width: 100%;
+            padding: 10px;
+            background: chartreuse;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+            justify-content: center;
+        }
+
+        .svg_shape>div{
+            display: flex;
+            width: auto;
+            align-items: flex-start;
+            padding: 10px 0;
+        }
+        .svg_shape>div>input{
+            width: 80px;
+        }
+        #svg_points{
+            width: 200px;
+        }
+        /* .svg_set>div:nth-of-type(odd){
+            background: rgb(255, 203, 169);
+        }
+        .svg_set>div:nth-of-type(even){
+            background: rgb(255, 189, 209);
+        } */
+        #svg{
+            margin: auto;
+            border: 1px solid black;
+        }
+        .svg_shape .shape2,.svg_shape .shape4,.svg_shape .shape5,.svg_shape .shape8{
+            display: none;
+        }
+        footer{
+            position: absolute;
+            bottom: -80px;
+            width: 100%;
+            background: black;
+            color: white;
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="svg_set">
+        <span>選擇形狀&nbsp;:&nbsp;</span>
+        <select name="type" id="svg_menu">
+            <option value="1">長方形</option>
+            <option value="2">圓形</option>
+            <option value="3">多邊型</option>
+            <option value="4">線段</option>
+        </select>
+        <div class="svg_shape">
+            <div class="shape1"><span>X軸</span><input type="text" id="svg_x" placeholder="50">&nbsp;</div>
+            <div class="shape2"><span>X2軸</span><input type="text" id="svg_x2" placeholder="100">&nbsp;</div>
+            <div class="shape3"><span>Y軸</span><input type="text" id="svg_y" placeholder="150">&nbsp;</div>
+            <div class="shape4"><span>Y2軸</span><input type="text" id="svg_y2" placeholder="200">&nbsp;</div>
+            <div class="shape5"><span>多邊形座標點(一個X,一個Y為一組輸入多個視為多邊)</span><input type="text" id="svg_points" placeholder="210,210,300,400,150,400" >&nbsp;</div>
+            <div class="shape6"><span>長度</span><input type="text" id="svg_width" placeholder="100">&nbsp;</div>
+            <div class="shape7"><span>寬度</span><input type="text" id="svg_height" placeholder="100">&nbsp;</div>
+            <div class="shape8"><span>半徑</span><input type="text" id="svg_r" placeholder="20">&nbsp;</div>
+            <div class="shape9"><span>顏色填滿</span><input type="text" id="svg_fill" placeholder="red">&nbsp;</div>
+            <div class="shape10"><span>外框線顏色</span><input type="text" id="svg_stroke" placeholder="black">&nbsp;</div>
+            <div class="shape11"><span>外框線粗度</span><input type="text" id="svg_stroke_width" placeholder="2">&nbsp;</div>
+            
+            <button id="svg_btn">確定</button>
+        </div>
+
+    </div>
+
+    
+    <svg id="svg" width="1500" height="790">
+
+    </svg>
+
+    <footer><span>Copyright&copy; ayvc0420<span></footer>
+    <script>
+        const svg_btn = document.getElementById('svg_btn');
+        const svg = document.getElementById('svg');
+        const svg_menu = document.getElementById('svg_menu');
+
+        const shape1 = document.getElementsByClassName('shape1')[0];
+        const shape2 = document.getElementsByClassName('shape2')[0];
+        const shape3 = document.getElementsByClassName('shape3')[0];
+        const shape4 = document.getElementsByClassName('shape4')[0];
+        const shape5 = document.getElementsByClassName('shape5')[0];
+        const shape6 = document.getElementsByClassName('shape6')[0];
+        const shape7 = document.getElementsByClassName('shape7')[0];
+        const shape8 = document.getElementsByClassName('shape8')[0];
+        const shape9 = document.getElementsByClassName('shape9')[0];
+        const shape10 = document.getElementsByClassName('shape10')[0];
+        const shape11 = document.getElementsByClassName('shape11')[0];
+
+        class Svg_control{
+            reset(){
+                document.getElementById('svg_x').value = '';
+                document.getElementById('svg_x2').value = '';
+                document.getElementById('svg_y').value = '';
+                document.getElementById('svg_y2').value = '';
+                document.getElementById('svg_points').value = '';
+                document.getElementById('svg_width').value = '';
+                document.getElementById('svg_height').value = '';
+                document.getElementById('svg_r').value = '';
+                document.getElementById('svg_fill').value = '';
+                document.getElementById('svg_stroke').value = '';
+                document.getElementById('svg_stroke_width').value = '';
+            }
+        }
+
+        svg_menu.addEventListener('change',function(){
+
+            let s1 = new Svg_control;
+
+            s1.reset();
+            if(svg_menu.value === '1'){
+                shape1.style.display = 'block';
+                shape2.style.display = 'none';
+                shape3.style.display = 'block';
+                shape4.style.display = 'none';
+                shape5.style.display = 'none';
+                shape6.style.display = 'block';
+                shape7.style.display = 'block';
+                shape8.style.display = 'none';
+                shape9.style.display = 'block';
+                shape10.style.display = 'block';
+                shape11.style.display = 'block';
+
+            }else if(svg_menu.value === '2'){
+                shape1.style.display = 'block';
+                shape2.style.display = 'none';
+                shape3.style.display = 'block';
+                shape4.style.display = 'none';
+                shape5.style.display = 'none';
+                shape6.style.display = 'none';
+                shape7.style.display = 'none';
+                shape8.style.display = 'block';
+                shape9.style.display = 'block';
+                shape10.style.display = 'block';
+                shape11.style.display = 'block';
+            }else if(svg_menu.value === '3'){
+                shape1.style.display = 'none';
+                shape2.style.display = 'none';
+                shape3.style.display = 'none';
+                shape4.style.display = 'none';
+                shape5.style.display = 'block';
+                shape6.style.display = 'none';
+                shape7.style.display = 'none';
+                shape8.style.display = 'none';
+                shape9.style.display = 'block';
+                shape10.style.display = 'block';
+                shape11.style.display = 'block';
+            }else{
+                shape1.style.display = 'block';
+                shape2.style.display = 'block';
+                shape3.style.display = 'block';
+                shape4.style.display = 'block';
+                shape5.style.display = 'none';
+                shape6.style.display = 'none';
+                shape7.style.display = 'none';
+                shape8.style.display = 'none';
+                shape9.style.display = 'none';
+                shape10.style.display = 'block';
+                shape11.style.display = 'block';
+                
+            }
+        })
+
+
+        
+        svg_btn.addEventListener('click',function(){
+            const svg_x = document.getElementById('svg_x').value;
+            const svg_x2 = document.getElementById('svg_x2').value;
+            const svg_y = document.getElementById('svg_y').value;
+            const svg_y2 = document.getElementById('svg_y2').value;
+            const svg_r = document.getElementById('svg_r').value;
+            const svg_width = document.getElementById('svg_width').value;
+            const svg_height = document.getElementById('svg_height').value;
+            const svg_fill = document.getElementById('svg_fill').value;
+            const svg_stroke = document.getElementById('svg_stroke').value;
+            const svg_stroke_width = document.getElementById('svg_stroke_width').value;
+            const svg_points = document.getElementById('svg_points').value;
+
+            // console.log(svg_menu.value)
+
+            if(svg_menu.value === '1'){
+                svg.innerHTML = `<rect x="${svg_x}" y="${svg_y} "width="${svg_width}" height="${svg_height}" fill="${svg_fill}" stroke="${svg_stroke}" stroke-width="${svg_stroke_width}"> </rect>`;
+            }else if(svg_menu.value === '2'){
+                svg.innerHTML = `<circle cx="${svg_x}" cy="${svg_y}" r="${svg_r}" fill="${svg_fill}" stroke="${svg_stroke}" stroke-width="${svg_stroke_width}"> </circle>`;
+            }else if(svg_menu.value === '3'){
+                svg.innerHTML = `<polygon points="${svg_points}" fill="${svg_fill}" stroke="${svg_stroke}" stroke-width="${svg_stroke_width}"> </polygon>`;
+            }else if(svg_menu.value === '4'){
+                svg.innerHTML = `<line x1="${svg_x}" y1="${svg_y}" x2="${svg_x2}" y2="${svg_y2}" stroke="${svg_stroke}" stroke-width="${svg_stroke_width}"> </line>`;
+            }else{
+                alert('error!');
+            }
+
+        })
+    </script>
+</body>
+</html>

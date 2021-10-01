@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .box{
+            width: 1000px;
+            height: 600px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+        .box>button{
+            padding: 5px;
+            border-radius: 5px;
+            margin: 5px;
+            background: chartreuse;
+            color: orchid;
+            display: inline-block;
+        }
+        .box .btn_1{
+            align-self: flex-start;
+            order: -2;
+        }
+        .box .btn_2{
+            align-self: center;
+            order: 0;
+        }
+        .box .btn_3{
+            align-self: flex-end;
+            order: 2;
+        }
+        .box .btn_4{
+            position: absolute;
+            right: 0;
+            top: 0;
+            order: -1;
+        }
+        .box .btn_5{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            order: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <button class="btn_1" onclick="alert('menu1')">menu1</button>
+        <button class="btn_2" onclick="alert('menu2')">menu2</button>
+        <button class="btn_3" onclick="alert('menu3')">menu3</button>
+        <button class="btn_4" onclick="alert('menu4')">menu4</button>
+        <button class="btn_5" onclick="alert('menu5')">menu5</button>
+    </div>
+</body>
+</html>

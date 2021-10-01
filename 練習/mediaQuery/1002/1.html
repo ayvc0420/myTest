@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            background: olive;
+            width: 1000px;
+            margin: auto;
+            font-size: 24px;
+            color: white;
+            text-align: center;
+        }
+        .title{
+            font-size: 50px;
+            color: red;
+        }
+        .container{
+            display: none;
+        }
+        input[type="checkbox"]{
+            display: none;
+        }
+        input[type="checkbox"]:checked ~ .container{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="title"><label for="box_title">標題</label></div>
+        <input type="checkbox" id="box_title">
+        <div class="container">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores corporis perspiciatis harum sed? Natus ipsa pariatur ipsum maiores fugit voluptatum.
+        </div>
+    </div>
+</body>
+</html>
