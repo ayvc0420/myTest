@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        nav{
+            width: 100%;
+            display: flex;
+            background-color: chartreuse;
+            margin-bottom: 20px;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        nav>.logo{
+            position: relative;
+            margin-left: 50px;
+        }
+        nav>.logo>img{
+            width: 100px;
+            vertical-align: middle;
+        }
+        nav>.nav_menu ul{
+            display: flex;
+            position: absolute;
+            right: 10%;
+            top: 0;
+            line-height: 100px;
+        }
+        nav>.nav_menu ul a{
+            text-decoration: none;
+            display: inline-block;
+            padding: 0 20px;
+            background-color: chartreuse;
+            color: blue;
+        }
+        nav>.nav_menu ul a:hover{
+            filter: brightness(150%)
+        }
+        main{
+            display: flex;
+        }
+        main aside{
+            width: 15%;
+            background-color: rgb(255, 182, 130);
+            display: flex;
+            position: fixed;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            height: 70vh;
+            text-align: center;
+        }
+        main .container{
+            margin-left: 20%;
+            width: 70%;
+            border: 1px solid black;
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+        main .container>div{
+            width: 45%;
+            margin: auto;
+            padding: 30px 0;
+            text-align: center;
+        }
+        .container>div>img{
+            width: 100%;
+            /* margin-bottom: 50px; */
+        }
+
+        /* 特效 */
+        @keyframes item_ani {
+            0%{
+                opacity: 0;
+                left: -100%;
+            }
+            40%{
+                left: 5%;
+            }
+            60%{
+                left: -5%;
+            }
+
+            100%{
+                opacity: 1;
+                left: 0;
+            }
+        }
+        .item_ani{
+            animation: item_ani 1s;
+        }
+        .item7 , .item8 , .item19 , .item20{
+            opacity: 0;
+            position: relative;
+            background: red;
+            filter: brightness(110%);
+            /* left: -100%; */
+            /* transition: 0.5s; */
+        }
+        .item_js_ani{
+            animation: item_ani 1s;
+            opacity:1;
+            left:0;
+        }
+        @media screen and (max-width:768px) {
+            nav{
+                flex-direction: column;
+                justify-content: center;
+                align-content: center;
+            }
+            nav>.logo{
+                margin: 0;
+            }
+            nav>.nav_menu ul{
+                position: relative;
+                right: 0;
+                line-height: 50px;
+                flex-wrap: wrap;
+            }
+            nav>.nav_menu ul a{
+                padding: 0 10px;
+            }
+            main .container>div{
+                width: 80%;
+                margin: auto;
+            }
+            main aside{
+                display: none;
+            }
+            main .container{
+                margin: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><img src="Akua/file_370008.png" alt=""></div>
+        <div class="nav_menu">
+            <ul>
+                <li><a href="#">ホロライブ</a></li>
+                <li><a href="#">湊あくあ</a></li>
+                <li><a href="#">もっとメンバー</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <aside>
+            <span>固定側邊<p>廣告或書籤等</p></span>
+        </aside>
+
+        <div class="container">
+            <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe quaerat voluptatem sed officiis hic autem tempora pariatur nisi velit qui ex fugiat commodi repudiandae, omnis debitis dolorum eos quos. Debitis!</div>
+            <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe quaerat voluptatem sed officiis hic autem tempora pariatur nisi velit qui ex fugiat commodi repudiandae, omnis debitis dolorum eos quos. Debitis!</div>
+            <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe quaerat voluptatem sed officiis hic autem tempora pariatur nisi velit qui ex fugiat commodi repudiandae, omnis debitis dolorum eos quos. Debitis!</div>
+            <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe quaerat voluptatem sed officiis hic autem tempora pariatur nisi velit qui ex fugiat commodi repudiandae, omnis debitis dolorum eos quos. Debitis!</div>
+            <div class="item1"><img src="Akua/file_369961.png" alt=""></div>
+            <div class="item2"><img src="Akua/file_369962.png" alt=""></div>
+            <div class="item3"><img src="Akua/file_369963.png" alt=""></div>
+            <div class="item4"><img src="Akua/file_369964.png" alt=""></div>
+            <div class="item5"><img src="Akua/file_369965.png" alt=""></div>
+            <div class="item6"><img src="Akua/file_369966.png" alt=""></div>
+            <div class="item7">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam facere officia minus, quos provident quo dolorem. Sequi incidunt repudiandae cupiditate sit dolore soluta aspernatur culpa, sunt impedit voluptates tenetur nesciunt ex eius eaque reprehenderit dolorum? Id eius quos assumenda reiciendis cum nesciunt ipsum perferendis animi. Nam maxime aliquid dolorum asperiores sequi iure nostrum enim, magnam numquam et ut laudantium maiores aspernatur eos rerum! Repellendus vel, labore error deserunt dolor magnam sit non, dolore modi illo reprehenderit. Quaerat harum laborum, inventore libero in suscipit quia consectetur recusandae tempore provident dicta nesciunt placeat, iure possimus quae quam? Saepe itaque rem ipsa laboriosam ipsam a aliquam delectus impedit quam, sit, necessitatibus officiis iste cum dolorum ullam, deleniti accusamus ducimus! Eos nostrum omnis autem quo distinctio rem nobis minima at fugiat consequuntur, ipsum sed cumque incidunt eius quia temporibus aliquam quasi vitae doloribus cupiditate ad quas rerum. A deleniti repellendus fugiat debitis hic ex, vel maxime corrupti ipsam ut rem, itaque nemo minima quos deserunt dolorem libero assumenda voluptatibus autem eum quas accusantium doloremque. Quibusdam excepturi qui, eligendi, hic quaerat iste quae accusamus accusantium debitis deserunt aliquid expedita. Odio cumque labore recusandae sequi pariatur harum amet at commodi excepturi, consequatur unde aliquam accusantium. Odit, eius hic quis mollitia modi in delectus natus rerum aliquam corporis architecto ratione rem possimus consectetur dolor odio vitae harum temporibus! Harum laudantium nam est inventore autem sed sunt recusandae eveniet, illum perspiciatis saepe voluptatum maiores. Inventore corrupti, dolorem temporibus eaque accusamus nostrum deleniti sequi modi quo vel quasi quos officia omnis consequuntur doloremque magni reprehenderit, dicta totam fuga nemo ex! Nam consequuntur fugit eveniet ratione laboriosam molestias mollitia dolor! Tempora ut asperiores consequatur laudantium nulla dolores possimus minus fugiat incidunt, saepe repellendus mollitia laboriosam aliquid ipsa! Et, dolor aliquid? Harum blanditiis sunt quod ad fugit ducimus provident vitae sint.</div>
+            <div class="item8"><img src="Akua/file_369968.png" alt=""></div>
+            <div class="item9"><img src="Akua/file_369969.png" alt=""></div>
+            <div class="item10"><img src="Akua/file_369970.png" alt=""></div>
+            <div class="item11"><img src="Akua/file_369971.png" alt=""></div>
+            <div class="item12"><img src="Akua/file_369999.png" alt=""></div>
+            <div class="item13"><img src="Akua/file_370000.png" alt=""></div>
+            <div class="item14"><img src="Akua/file_370001.png" alt=""></div>
+            <div class="item15"><img src="Akua/file_370002.png" alt=""></div>
+            <div class="item16"><img src="Akua/file_370003.png" alt=""></div>
+            <div class="item17"><img src="Akua/file_370004.png" alt=""></div>
+            <div class="item18"><img src="Akua/file_370005.png" alt=""></div>
+            <div class="item19"><img src="Akua/file_370006.png" alt=""></div>
+            <div class="item20"><img src="Akua/file_370007.png" alt=""></div>
+        </div>
+    </main>
+    <script>
+
+        window.addEventListener('scroll',function(){
+            //查看當前狀態
+            const now_height = document.documentElement.scrollTop;
+            console.log('目前網頁高度',now_height)
+            const now_width = document.documentElement.scrollWidth;
+            console.log('目前網頁寬度',now_width)
+            const height = document.documentElement.clientHeight;
+            console.log('目前網頁可視高度',height)
+
+            //取得元素離頂部位置
+            let item7_top = document.querySelector('.item7').offsetTop;
+            let item8_top = document.querySelector('.item8').offsetTop;
+            let item19_top = document.querySelector('.item19').offsetTop;
+            let item20_top = document.querySelector('.item20').offsetTop;
+
+            const item7 = document.getElementsByClassName('item7')[0]
+            const item8 = document.getElementsByClassName('item8')[0]
+            const item19 = document.getElementsByClassName('item19')[0]
+            const item20 = document.getElementsByClassName('item20')[0]
+
+            //1920~1440px與1921px以上主流解析度
+            const control7_pc_ani_enter = (item7_top - now_height) <= height;
+            const control19_pc_ani_enter = (item7_top - now_height) <= height;
+
+
+            console.log('元素離頂高度1920~1440',item7_top)
+            console.log('最底元素離頂高度1920~1440',item19_top)
+
+            const control7_pc_ani_leave = (now_height - item7_top) >= height;
+            const control19_pc_ani_leave = (item19_top - now_height) <= height;
+            console.log('leave',control7_pc_ani_leave)
+            console.log('leave19',control19_pc_ani_leave)
+
+            if(now_width >= 768){
+
+                if(control7_pc_ani_enter === true ){
+                    // Object.assign(document.querySelector('.item7').style,{opacity:1,left:"0"})
+                    // Object.assign(document.querySelector('.item8').style,{opacity:1,left:"0"})
+                    item7.classList.add('item_js_ani')
+                    item8.classList.add('item_js_ani')
+                    // document.querySelector('.item7').style.cssText = `
+                    //     animation: item_ani 1s;
+                    //     opacity:1;
+                    //     left:0;
+                    // `
+                    // document.querySelector('.item8').style.cssText = `
+                    //     animation: item_ani 1s;
+                    //     opacity:1;
+                    //     left:0;
+                    // `
+                }else{
+                    item7.classList.remove('item_js_ani')
+                    item8.classList.remove('item_js_ani')
+                }
+                if (control7_pc_ani_leave === true){
+                    item7.classList.remove('item_js_ani')
+                    item8.classList.remove('item_js_ani')
+                }
+    
+                if(control19_pc_ani_enter === true){
+                    item19.classList.add('item_js_ani')
+                    item20.classList.add('item_js_ani')
+                }
+                if(control19_pc_ani_leave !== true){
+                    item19.classList.remove('item_js_ani')
+                    item20.classList.remove('item_js_ani')
+                }
+            }
+            if(now_width <= 767){
+
+                const control7 = (item7_top - now_height)  <= height;
+                const control7_mob_ani_leave = (now_height - item7_top) >= height;
+                const control8 = (item8_top - now_height)  <= height;
+                const control8_mob_ani_leave = (now_height - item7_top) >= height;
+                const control19 = (item19_top - now_height)  <= height;
+                const control20 = (item20_top - now_height)  <= height;
+    
+
+                if(control7 === true){
+                    item7.classList.add('item_js_ani')
+                }else{
+                    //元素之上刪除動畫
+                    item7.classList.remove('item_js_ani')
+                }
+                //滑到元素以下刪除動畫
+                if(control7_mob_ani_leave === true){
+                    item7.classList.remove('item_js_ani')
+                }
+                if(control8 === true){
+                    item8.classList.add('item_js_ani')
+                }else{
+                    //元素之上刪除動畫
+                    item8.classList.remove('item_js_ani')
+                }
+                //滑到元素以下刪除動畫
+                if(control8_mob_ani_leave === true){
+                    item8.classList.remove('item_js_ani')
+                }
+                if(control19 === true){
+                    item19.classList.add('item_js_ani')
+                }else{
+                    item19.classList.remove('item_js_ani')
+                }
+                if(control20 === true){
+                    item20.classList.add('item_js_ani')
+                }else{
+                    item20.classList.remove('item_js_ani')
+                }
+            }
+
+            })
+
+
+
+    </script>
+    <script> //用不到了
+                let add_ani = now_height + height - item7_top;
+                //目前捲軸的高度加可視高度-元素離頂距離
+                let re_ani = now_height - item7_top;
+                //目前的捲軸高度-元素離頂距離
+                // console.log('add_ani',add_ani)
+                // console.log('re_ani',re_ani)
+            //1439~1025px 舊式電腦
+            if(now_width <= 1439 && now_width >= 1025){
+                console.log('元素離頂高度1439~1025',item7_top)
+                let add_ani = now_height + height - item7_top;
+                let re_ani = now_height - item7_top;
+                // console.log('add_ani',add_ani)
+                // console.log('re_ani',re_ani)
+                if(add_ani >= 150 && re_ani <= 300 ){
+                    item7.classList.add('item_js_ani')
+                    item8.classList.add('item_js_ani')
+                }else if (re_ani >= 550 && add_ani >= 1100 || add_ani <= 50){
+                    item7.classList.remove('item_js_ani')
+                    item8.classList.remove('item_js_ani')
+                }
+            }
+
+
+            //1024~768px 平板模式
+            if(now_width <= 1024 && now_width >= 768){
+                // item7_top = item7_top-300;
+                console.log('元素離頂高度1024~768',item7_top)
+                let add_ani = now_height + height - item7_top;
+                let re_ani = now_height - item7_top;
+                // console.log('add_ani',add_ani)
+                // console.log('re_ani',re_ani)
+                if(add_ani >= 150 && re_ani <= 200 ){
+                    item7.classList.add('item_js_ani')
+                    item8.classList.add('item_js_ani')
+                }else if (re_ani >= 380 && add_ani >= 950 || add_ani <= 50){
+                    item7.classList.remove('item_js_ani')
+                    item8.classList.remove('item_js_ani')
+                }
+            }
+
+
+            // 767px以下
+            if(now_width <= 767){
+
+                console.log('元素離頂高度767',item7_top)
+                let add_ani = now_height + height - item7_top;
+                let re_ani = now_height - item7_top;
+                // console.log('add_ani',add_ani);
+                // console.log('re_ani',re_ani);
+                if(add_ani >= 130 && re_ani <= 150 ){
+                    item7.classList.add('item_js_ani');
+                }else if (re_ani >= 420 && add_ani >= 1000 || add_ani <= 50){
+                    item7.classList.remove('item_js_ani');
+                }
+                if(add_ani >= 350 && re_ani <= 550){
+                    item8.classList.add('item_js_ani');
+                }else if(re_ani >= 580 || re_ani <= -550){
+                    item8.classList.remove('item_js_ani');
+                }
+                let control20_767 = (item19_top - now_height) <= height-300;
+                if(control19 === true){
+                    item19.classList.add('item_js_ani')
+                }
+                if(control20_767 === true){
+                    item20.classList.add('item_js_ani')
+                }
+            }
+    </script>
+</body>
+</html>
