@@ -181,6 +181,7 @@ body{
 .itemTop , .itemBottom{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .item1 , .item2 , .item3 , .item4 , .item5 , .item6{
     display: flex;

@@ -68,7 +68,6 @@
         main .container>div{
             width: 45%;
             margin: auto;
-            padding: 30px 0;
             text-align: center;
         }
         .container>div>img{
@@ -131,6 +130,8 @@
             main .container>div{
                 width: 80%;
                 margin: auto;
+                margin-top: 15px;
+                margin-bottom: 15px;
             }
             main aside{
                 display: none;
@@ -168,8 +169,8 @@
             <div class="item3"><img src="Akua/file_369963.png" alt=""></div>
             <div class="item4"><img src="Akua/file_369964.png" alt=""></div>
             <div class="item5"><img src="Akua/file_369965.png" alt=""></div>
+            <div class="item7">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam facere officia minus, quos provident quo dolorem. Sequi incidunt repudiandae cupiditate sit dolore soluta aspernatur culpa, sunt impedit voluptates tenetur nesciunt ex eius eaque reprehenderit dolorum? Id eius quos assumenda reiciendis cum nesciunt ipsum perferendis animi. Nam maxime aliquid dolorum asperiores sequi iure nostrum enim, magnam numquam et ut laudantium maiores aspernatur eos rerum! Repellendus vel, labore error deserunt dolor magnam sit non, dolore modi illo reprehenderit. Quaerat harum laborum, inventore libero in suscipit quia consectetur recusandae tempore provident dicta nesciunt placeat</div>
             <div class="item6"><img src="Akua/file_369966.png" alt=""></div>
-            <div class="item7">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam facere officia minus, quos provident quo dolorem. Sequi incidunt repudiandae cupiditate sit dolore soluta aspernatur culpa, sunt impedit voluptates tenetur nesciunt ex eius eaque reprehenderit dolorum? Id eius quos assumenda reiciendis cum nesciunt ipsum perferendis animi. Nam maxime aliquid dolorum asperiores sequi iure nostrum enim, magnam numquam et ut laudantium maiores aspernatur eos rerum! Repellendus vel, labore error deserunt dolor magnam sit non, dolore modi illo reprehenderit. Quaerat harum laborum, inventore libero in suscipit quia consectetur recusandae tempore provident dicta nesciunt placeat, iure possimus quae quam? Saepe itaque rem ipsa laboriosam ipsam a aliquam delectus impedit quam, sit, necessitatibus officiis iste cum dolorum ullam, deleniti accusamus ducimus! Eos nostrum omnis autem quo distinctio rem nobis minima at fugiat consequuntur, ipsum sed cumque incidunt eius quia temporibus aliquam quasi vitae doloribus cupiditate ad quas rerum. A deleniti repellendus fugiat debitis hic ex, vel maxime corrupti ipsam ut rem, itaque nemo minima quos deserunt dolorem libero assumenda voluptatibus autem eum quas accusantium doloremque. Quibusdam excepturi qui, eligendi, hic quaerat iste quae accusamus accusantium debitis deserunt aliquid expedita. Odio cumque labore recusandae sequi pariatur harum amet at commodi excepturi, consequatur unde aliquam accusantium. Odit, eius hic quis mollitia modi in delectus natus rerum aliquam corporis architecto ratione rem possimus consectetur dolor odio vitae harum temporibus! Harum laudantium nam est inventore autem sed sunt recusandae eveniet, illum perspiciatis saepe voluptatum maiores. Inventore corrupti, dolorem temporibus eaque accusamus nostrum deleniti sequi modi quo vel quasi quos officia omnis consequuntur doloremque magni reprehenderit, dicta totam fuga nemo ex! Nam consequuntur fugit eveniet ratione laboriosam molestias mollitia dolor! Tempora ut asperiores consequatur laudantium nulla dolores possimus minus fugiat incidunt, saepe repellendus mollitia laboriosam aliquid ipsa! Et, dolor aliquid? Harum blanditiis sunt quod ad fugit ducimus provident vitae sint.</div>
             <div class="item8"><img src="Akua/file_369968.png" alt=""></div>
             <div class="item9"><img src="Akua/file_369969.png" alt=""></div>
             <div class="item10"><img src="Akua/file_369970.png" alt=""></div>
@@ -190,11 +191,11 @@
         window.addEventListener('scroll',function(){
             //查看當前狀態
             const now_height = document.documentElement.scrollTop;
-            console.log('目前網頁高度',now_height)
+            // console.log('目前網頁高度',now_height)
             const now_width = document.documentElement.scrollWidth;
-            console.log('目前網頁寬度',now_width)
+            // console.log('目前網頁寬度',now_width)
             const height = document.documentElement.clientHeight;
-            console.log('目前網頁可視高度',height)
+            // console.log('目前網頁可視高度',height)
 
             //取得元素離頂部位置
             let item7_top = document.querySelector('.item7').offsetTop;
@@ -212,13 +213,13 @@
             const control19_pc_ani_enter = (item7_top - now_height) <= height;
 
 
-            console.log('元素離頂高度1920~1440',item7_top)
-            console.log('最底元素離頂高度1920~1440',item19_top)
+            // console.log('元素離頂高度1920~1440',item7_top)
+            // console.log('最底元素離頂高度1920~1440',item19_top)
 
             const control7_pc_ani_leave = (now_height - item7_top) >= height;
             const control19_pc_ani_leave = (item19_top - now_height) <= height;
-            console.log('leave',control7_pc_ani_leave)
-            console.log('leave19',control19_pc_ani_leave)
+            // console.log('leave',control7_pc_ani_leave)
+            // console.log('leave19',control19_pc_ani_leave)
 
             if(now_width >= 768){
 
