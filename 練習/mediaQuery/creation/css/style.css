@@ -19,6 +19,19 @@ h1,h2,h3,span,p {font-family: 'Lato', sans-serif;
         opacity: 0;
     }
 }
+@keyframes body {
+    0%{
+        /* transform: translateY(-100%); */
+        opacity: 0;
+    }   
+    100%{
+        /* transform: translateY(0%); */
+        opacity: 1;
+    }
+}
+body{
+    animation : body 1s
+}
 
 .mob_menu_control,#mob_menu{
     display: none;
@@ -53,10 +66,13 @@ header .slideshow_img .img0{
     
 }
 header .slideshow_img{
-    /* width: 100%; */
-    max-width: 1000px;
-    margin: 20px 0;
+    max-width: 95%;
+    /* margin: 20px 0; */
+    position: relative;
+    display: flex;
+    margin: 20px auto;
 }
+
 header .slideshow_img div:not(.img0) img{
     width: 100%;
     position: absolute;
@@ -82,11 +98,11 @@ header .slideshow_img div:nth-of-type(5){
     animation-iteration-count: 0;
 } */
 .header_label_div{
-    width: 100px;
     position: absolute;
     left: 0;
     right: 0;
     bottom: -30px;
+    width: 100px;
     margin: auto;
     z-index: 10;
 }
@@ -98,9 +114,6 @@ header .slideshow_img div:nth-of-type(5){
     border: 2px solid rgb(0, 0, 0);
     border-radius: 100%;
     cursor: pointer;
-}
-.slideshow_img{
-    position: relative;
 }
 .slideshow_img>div:not(.header_label_div,.img0){
     z-index: 2;
@@ -119,7 +132,9 @@ header .slideshow_img div:nth-of-type(5){
     background: rgb(255, 106, 143);
 }
 #control_header_img1:checked ~ .img2 , .img3 , .img4{
-    transition: all 0.7s;
+    /* 左邊轉場動畫 */
+    /* transition: all 0.7s; */
+    transition: opacity 0.7s;
     transform: translateX(-200%);
     opacity: 0;
 }
@@ -133,7 +148,9 @@ header .slideshow_img div:nth-of-type(5){
     opacity: 1;
 }
 #control_header_img2:checked ~ .img1 , .img3 , .img4{
-    transition: all 0.7s;
+    /* 左邊轉場動畫 */
+    /* transition: all 0.7s; */
+    transition: opacity 0.7s;
     transform: translateX(-200%);
     opacity: 0;
 }
@@ -147,7 +164,9 @@ header .slideshow_img div:nth-of-type(5){
     background: rgb(255, 106, 143);
 }
 #control_header_img3:checked ~ .img1 , .img2 , .img4{
-    transition: all 0.7s;
+    /* 左邊轉場動畫 */
+    /* transition: all 0.7s; */
+    transition: opacity 0.7s;
     transform: translateX(-200%);
     opacity: 0;
 }
@@ -161,14 +180,14 @@ header .slideshow_img div:nth-of-type(5){
     background: rgb(255, 106, 143);
 }
 #control_header_img4:checked ~ .img1 , .img2 , .img3{
-    transition: all 0.7s;
+    /* 左邊轉場動畫 */
+    /* transition: all 0.7s; */
+    transition: opacity 0.7s;
     transform: translateX(-200%);
     opacity: 0;
 }
 
-.mob_hr{
-    display: none;
-}
+
 
 /* pc跟mob header結束 */
 
@@ -444,16 +463,31 @@ footer .footer_top_text{
     }
     .content1{
         position: relative;
+        margin-top: 70px;
     }
-    .content1::before{
-        content:'';
-        position: absolute;
-        top: 20px;
+    header .slideshow_img{
+        max-width: 90%;
+        margin: 100px auto;
+    }
+    .slideshow_img::before{
+        content: '';
         border-top: 1px solid rgb(212, 212, 212);
+        top: -20px;
         width: 90%;
         left: 0;
         right: 0;
         margin: auto;
+        position: absolute;
+    }
+    .slideshow_img::after{
+        content: '';
+        border-top: 1px solid rgb(212, 212, 212);
+        bottom: -50px;
+        width: 90%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        position: absolute;
     }
     main>section{
         padding: 40px;
