@@ -14,6 +14,33 @@
         $('html').animate({scrollTop: 0,},1000);
     })
 
+    const control_header_img1 = document.getElementById('control_header_img1')
+    const control_header_img2 = document.getElementById('control_header_img2')
+    const control_header_img3 = document.getElementById('control_header_img3')
+    // header_label
+    function header1(){
+        control_header_img1.checked = true
+
+    }
+    function header2(){
+        control_header_img2.checked = true
+    }
+    function header3(){
+        control_header_img3.checked = true
+    }
+    setInterval(() => {
+        setTimeout(() => {
+            header1()
+        }, 0);
+        setTimeout(() => {
+            header2()
+        }, 3000);
+        setTimeout(() => {
+            header3()
+        }, 6000);
+    }, 9000);
+
+
     const svg1 = document.getElementById('svg1')
     const svg2 = document.getElementById('svg2')
     const mob_menu_control = document.querySelector('.mob_menu_control')

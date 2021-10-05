@@ -11,7 +11,42 @@
     const mob_menu_div = document.getElementById('mob_menu_div')
     const mob_top = document.getElementById('mob_top')
 
-
+    const control_header_img1 = document.getElementById('control_header_img1')
+    const control_header_img2 = document.getElementById('control_header_img2')
+    const control_header_img3 = document.getElementById('control_header_img3')
+    const control_header_img4 = document.getElementById('control_header_img4')
+    const header_div1 = document.querySelector('.img1')
+    const header_div2 = document.querySelector('.img2')
+    const header_div3 = document.querySelector('.img3')
+    const header_div4 = document.querySelector('.img4')
+    console.log(header_div1) 
+    console.log(header_div2) 
+    function header1(){
+        control_header_img1.checked = true
+    }
+    function header2(){
+        control_header_img2.checked = true
+    }
+    function header3(){
+        control_header_img3.checked = true
+    }
+    function header4(){
+        control_header_img4.checked = true
+    }
+    setInterval(() => {
+        setTimeout(() => {
+            header1()
+        }, 0);
+        setTimeout(() => {
+            header2()
+        }, 5000);
+        setTimeout(() => {
+            header3()
+        }, 10000);
+        setTimeout(() => {
+            header4()
+        }, 15000);
+    }, 20000);
 
 
     $('.go_top img,#mob_top').on("click",function(){

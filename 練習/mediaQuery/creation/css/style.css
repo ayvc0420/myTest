@@ -53,7 +53,8 @@ header .slideshow_img .img0{
     
 }
 header .slideshow_img{
-    width: 100%;
+    /* width: 100%; */
+    max-width: 1000px;
     margin: 20px 0;
 }
 header .slideshow_img div:not(.img0) img{
@@ -61,6 +62,7 @@ header .slideshow_img div:not(.img0) img{
     position: absolute;
     border-radius: 10px;
     top: 0;
+    z-index: 0;
 }
 input[type="radio"]{
     display: none;
@@ -97,15 +99,28 @@ header .slideshow_img div:nth-of-type(5){
     border-radius: 100%;
     cursor: pointer;
 }
+.slideshow_img{
+    position: relative;
+}
+.slideshow_img>div:not(.header_label_div,.img0){
+    z-index: 2;
+    /* bottom: 420px; */
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
 #control_header_img1:checked ~ .img1{
     transition: opacity 0.7s;
+    top: 0;
+    transform: translateX(0%);
     opacity: 1;
 }
 #control_header_img1:checked ~ .header_label_div label:nth-of-type(1){
     background: rgb(255, 106, 143);
 }
 #control_header_img1:checked ~ .img2 , .img3 , .img4{
-    transition: opacity 0.7s;
+    transition: all 0.7s;
+    transform: translateX(-200%);
     opacity: 0;
 }
 #control_header_img2:checked ~ .header_label_div label:nth-of-type(2){
@@ -113,32 +128,41 @@ header .slideshow_img div:nth-of-type(5){
 }
 #control_header_img2:checked ~ .img2{
     transition: opacity 0.7s;
+    top: 0;
+    transform: translateX(0%);
     opacity: 1;
 }
 #control_header_img2:checked ~ .img1 , .img3 , .img4{
-    transition: opacity 0.7s;
+    transition: all 0.7s;
+    transform: translateX(-200%);
     opacity: 0;
 }
 #control_header_img3:checked ~ .img3{
     transition: opacity 0.7s;
+    top: 0;
+    transform: translateX(0%);
     opacity: 1;
 }
 #control_header_img3:checked ~ .header_label_div label:nth-of-type(3){
     background: rgb(255, 106, 143);
 }
 #control_header_img3:checked ~ .img1 , .img2 , .img4{
-    transition: opacity 0.7s;
+    transition: all 0.7s;
+    transform: translateX(-200%);
     opacity: 0;
 }
 #control_header_img4:checked ~ .img4{
     transition: opacity 0.7s;
+    top: 0;
+    transform: translateX(0%);
     opacity: 1;
 }
 #control_header_img4:checked ~ .header_label_div label:nth-of-type(4){
     background: rgb(255, 106, 143);
 }
 #control_header_img4:checked ~ .img1 , .img2 , .img3{
-    transition: opacity 0.7s;
+    transition: all 0.7s;
+    transform: translateX(-200%);
     opacity: 0;
 }
 

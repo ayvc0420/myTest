@@ -53,5 +53,9 @@ pekora.html重寫動畫及html結構
 優化css處理 js優化及rwd設定
 花費時間4hr左右
 
-撰寫header部分自動輪播動畫 沒有設定按鈕跟隨切換 註解禁用
-花費20分
+撰寫js自動輪播切圖功能 利用checked true及setTimeout非同步製作
+花費時間5分鐘 構思時間: 1天
+
+1006
+header圖片連結bug 處理連結異常 新增其他轉場動畫
+花費時間 1.5hr 
