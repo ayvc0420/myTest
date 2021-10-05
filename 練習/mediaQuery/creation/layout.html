@@ -7,10 +7,39 @@
     <title>帶你快速了解hololive|現今最紅的VTuber</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
 
 </head>
 <body style="background-color: #d7f6ff;">
-
+    <section class="mob_header">
+        <label for="mob_menu" class="mob_menu_control">
+            <svg width="50" height="40" class="svg1" id="svg1">
+                <line x1="10" y1="10" x2="40" y2="10" stroke="black" stroke-width="4"> </line>
+                <line x1="10" y1="20" x2="40" y2="20" stroke="black" stroke-width="4"> </line>
+                <line x1="10" y1="30" x2="40" y2="30" stroke="black" stroke-width="4"> </line>
+            </svg>
+            <svg width="50" height="40" class="svg2" id="svg2">
+                <line x1="10" y1="30" x2="40" y2="10" stroke="black" stroke-width="4"> </line>
+                <line x1="10" y1="10" x2="40" y2="30" stroke="black" stroke-width="4"> </line>
+            </svg>
+        </label>
+        <input type="checkbox" name="" id="mob_menu">
+        <div class="mob_menu">
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="vtuber.html">快速了解VTuber</a></li>
+                <li class="mob_menu3">
+                    <label for="menu3"><a href="#">介紹成員&nbsp;<img src="images/chevron-down.svg" class="nav_down"></a></label>
+                    <ul>
+                        <li><a href="pekora.html">兔田佩克拉</a></li>
+                        <li><a href="miko.html">櫻巫女</a></li>
+                        <li><a href="rushia.html">潤羽露西婭</a></li>
+                    </ul>
+                </li>
+                <li><a href="recommendYoutube.html">推薦的YouTube中文翻譯頻道</a></li>
+            </ul>
+        </div>
+    </section>
     <header>
         <div class="slideshow_img">
             <input type="radio" name="control_header_img" id="control_header_img1" checked>
@@ -34,18 +63,19 @@
         <div class="nav_menu">
             <ul>
                 <li><a href="index.html">首頁</a></li>
-                <li><a href="index.html">快速了解VTuber</a></li>
+                <li><a href="vtuber.html">快速了解VTuber</a></li>
                 <li class="nav_menu3">
                     <a href="#">介紹成員&nbsp;<img src="images/chevron-down.svg" class="nav_down"></a>
                     <ul>
-                        <li><a href="#">兔田佩克拉</a></li>
-                        <li><a href="#">櫻巫女</a></li>
-                        <li><a href="#">潤羽露西婭</a></li>
+                        <li><a href="pekora.html">兔田佩克拉</a></li>
+                        <li><a href="miko.html">櫻巫女</a></li>
+                        <li><a href="rushia.html">潤羽露西婭</a></li>
                     </ul>
                 </li>
-                <li><a href="index.html">推薦的YouTube中文翻譯頻道</a></li>
+                <li><a href="recommendYoutube.html">推薦的YouTube中文翻譯頻道</a></li>
             </ul>
         </div>
+    </nav>
     </nav>
 
 
@@ -79,5 +109,9 @@
 
     </footer>
 
+
+    <script src="js/javascript.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>    
 </body>
 </html>
