@@ -70,7 +70,7 @@ header .slideshow_img{
     /* margin: 20px 0; */
     position: relative;
     display: flex;
-    margin: 20px auto;
+    margin:20px auto 70px auto;
 }
 
 header .slideshow_img div:not(.img0) img{
@@ -101,7 +101,7 @@ header .slideshow_img div:nth-of-type(5){
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -30px;
+    bottom: -40px;
     width: 100px;
     margin: auto;
     z-index: 10;
@@ -253,10 +253,10 @@ nav{
 }
 .nav_menu3 ul a:hover{
     background: rgb(243, 216, 255);
+    transition: background 0.3s;
 }
 .nav_down{
     width: 10px;
-    color: rgb(174, 0, 255);
 }
 
 /* nav結束 */
@@ -460,6 +460,9 @@ footer .footer_top_text{
     }
     nav{
         display: none;
+    }
+    .header_label_div{
+        bottom: -25px;
     }
     .content1{
         position: relative;

@@ -1,3 +1,4 @@
+
 .icon{
     width: 30px;
 }
@@ -9,7 +10,8 @@
     text-align: center;
 }
 .vt_content img{
-    border-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
     max-width: 100%;
 }
 .vt_main>section{
@@ -17,12 +19,12 @@
     padding: 60px 0;
     box-sizing: border-box;
 }
-.vt_main>section:nth-of-type(odd){
+/* .vt_main>section:nth-of-type(odd){
     background: rgb(180, 255, 255);
 }
 .vt_main>section:nth-of-type(even){
     background: rgba(91, 91, 255, 0.1);
-}
+} */
 
 .vt_content1 img{
     margin: 30px 0;
@@ -39,13 +41,18 @@
     text-decoration: none;
     color: rgba(25, 0, 255,0.7);
     display: inline-block;
-    padding: 20px 20px 0 20px;
+    padding: 30px 20px 0 20px;
 }
-.vt_content2 a:hover{
+.content_text a{
+    text-decoration: none;
+    color: rgba(25, 0, 255,0.6);
+}
+.vt_content2 a:hover  ,.content_text a:hover{
     color : rgb(25, 0, 255);
+    transition: color 0.4s
 }
 .vt_content2 .content_text{
-    padding: 70px 0 30px 0;
+    padding: 70px 30px 30px 30px;
 }
 .vt_content .content_text h2{
     font-size: 36px;
@@ -76,7 +83,7 @@
 .vt_content_ani{
     transform: translateY(0%) !important;
     opacity: 1 !important;
-    transition: transform 0.8s , opacity 0.8s;
+    transition: transform 1s , opacity 1s;
 }
 .vt_content_ani_h1{
     transform: translateY(0%) !important;
@@ -108,6 +115,7 @@
 .vt_content3 article{
     margin-top: 80px;
 }
+
 .c1 , .c2  .c3{
     margin-top: 50px;
 }
@@ -119,6 +127,124 @@
 .footer_pc{
     padding: 30px 0;
 }
+
+
+/*miko c1*/
+
+.vt_content1{
+    position: relative;
+}
+
+.vt_content1 .c1_miko2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateX(-100%);
+    opacity: 0;
+}
+.c1_label_div{
+    position: absolute;
+    width: 500px;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.c1_label_div label{
+    border: 2px solid black;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 2px;
+    border-radius: 50%;
+}
+#control_c1_img1:checked ~ .c1_label_div label:nth-of-type(1){
+    background: rgb(255, 106, 143);
+}
+#control_c1_img1:checked ~ .c1_miko1{
+    transform: translateX(0%);
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+#control_c1_img1:checked ~ .c1_miko2{
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+
+#control_c1_img2:checked ~ .c1_label_div label:nth-of-type(2){
+    background: rgb(255, 106, 143);
+}
+#control_c1_img2:checked ~ .c1_miko1{
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+#control_c1_img2:checked ~ .c1_miko2{
+    transform: translateX(0%);
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+
+
+/*miko c1 end*/
+
+.vt_video_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    opacity: 0;
+    transform: translateY(60%);
+}
+.vt_video_div h1{
+    color: red;
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+.vt_video_div>video{
+    width: 700px;
+    border-radius: 10px;
+}
+.vt_audio_div{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    padding: 40px 20px 0;
+    opacity: 0;
+    transform: translateY(60%);
+}
+.vt_audio_div::before{
+    content: 'music'url(../images/music.svg);
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 40px;
+    color: red;
+    font-size: 22px;
+}
+.vt_audio_div>div{
+    display: flex;
+    flex-direction: column;
+    margin: 0 8px;
+
+}
+.vt_audio_div h4{
+    margin: 10px 0;
+    color: red;
+    font-size: 20px;
+}
+
 @media screen and (min-width:810px) {
     .vt_content3 article:hover{
         transform: translateY(-5%) !important;
@@ -160,5 +286,14 @@
     }
     .vt_main>.vt_content1{
         padding: 10px 0;
+    }
+    .vt_video_div>video{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width:670px) {
+    .vt_audio_div{
+        padding-top: 60px;
     }
 }

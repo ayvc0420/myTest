@@ -6,6 +6,9 @@
     const vt_content3_c2 = document.querySelector('.c2')
     const vt_content3_c3 = document.querySelector('.c3')
     const vt_content3_h1 = document.querySelector('.vt_content3 h1')
+    const vt_video_div = document.querySelector('.vt_video_div')
+    const vt_audio_div = document.querySelector('.vt_audio_div')
+
 
     const mob_menu_div = document.getElementById('mob_menu_div')
     const mob_top = document.getElementById('mob_top')
@@ -69,6 +72,13 @@
         const vt_content3_c1_top = document.querySelector('.c1').offsetTop;
         const vt_content3_c2_top = document.querySelector('.c2').offsetTop;
         const vt_content3_c3_top = document.querySelector('.c3').offsetTop;
+
+        const vt_video_div_top = document.querySelector('.vt_video_div').offsetTop;
+        const vt_audio_div_top = document.querySelector('.vt_audio_div').offsetTop;
+
+
+
+
         // console.log('top2',content2_top)
         // console.log('top3',content3_top)
         const now_height = document.documentElement.scrollTop;
@@ -89,12 +99,16 @@
             mob_top.style.transform = `translateX(1000%)`
         }
 
-
-        const vt_control1 = vt_content1_top - height <= now_height;
-        const vt_control2 = vt_content2_top - height <= now_height;
+        //元素-可視高度比較現在捲軸高度
+        const vt_control1 = vt_content1_top - height <= now_height-100;
+        const vt_control2 = vt_content2_top - height <= now_height-100;
         const vt_control3_c1 = vt_content3_c1_top - height <= now_height;
         const vt_control3_c2 = vt_content3_c2_top - height <= now_height;
         const vt_control3_c3 = vt_content3_c3_top - height <= now_height;
+        const vt_control_video_div = vt_video_div_top - height <= now_height-100;
+        const vt_control_audio_div = vt_audio_div_top - height <= now_height-100;
+
+
         if(vt_control1 === true){
             vt_content1.classList.add('vt_content_ani')
         }
@@ -119,13 +133,17 @@
         if(vt_control3_c2 === true){
             setTimeout(() => {
                 vt_content3_c2.classList.add('vt_content_ani')
-            }, 550);
+            }, 500);
         }
         if(vt_control3_c3 === true){
             setTimeout(() => {
                 vt_content3_c3.classList.add('vt_content_ani')
-            }, 700);
+            }, 600);
         }
-
-
+        if(vt_control_video_div === true){
+            vt_video_div.classList.add('vt_content_ani')
+        }
+        if(vt_control_audio_div === true){
+            vt_audio_div.classList.add('vt_content_ani')
+        }
     })
