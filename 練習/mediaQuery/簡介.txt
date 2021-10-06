@@ -59,3 +59,7 @@ pekora.html重寫動畫及html結構
 1006
 header圖片連結bug 處理連結異常 新增其他轉場動畫
 花費時間 1.5hr 
+
+miko.html套用動畫與html結構 修復部分bug及追加影片及音樂區塊套用動畫效果 修補vt_style.css部分BUG 
+花費時間5hr
+

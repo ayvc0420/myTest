@@ -106,6 +106,9 @@ header .slideshow_img div:nth-of-type(5){
     margin: auto;
     z-index: 10;
 }
+label{
+    cursor: pointer;
+}
 .header_label_div label{
     display: inline-block;
     width: 12px;
@@ -113,7 +116,6 @@ header .slideshow_img div:nth-of-type(5){
     margin: 0 3px;
     border: 2px solid rgb(0, 0, 0);
     border-radius: 100%;
-    cursor: pointer;
 }
 .slideshow_img>div:not(.header_label_div,.img0){
     z-index: 2;

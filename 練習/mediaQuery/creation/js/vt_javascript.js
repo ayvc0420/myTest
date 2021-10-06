@@ -23,7 +23,6 @@
     // header_label
     function header1(){
         control_header_img1.checked = true
-
     }
     function header2(){
         control_header_img2.checked = true
@@ -31,6 +30,8 @@
     function header3(){
         control_header_img3.checked = true
     }
+
+    
     setInterval(() => {
         setTimeout(() => {
             header1()
@@ -43,6 +44,11 @@
         }, 6000);
     }, 9000);
 
+    window.addEventListener('load',function(){
+        $('[data-fancybox="vt_c3"]').fancybox({
+            loop : true
+        })
+    })
 
     const svg1 = document.getElementById('svg1')
     const svg2 = document.getElementById('svg2')
@@ -73,14 +79,7 @@
         const vt_content3_c2_top = document.querySelector('.c2').offsetTop;
         const vt_content3_c3_top = document.querySelector('.c3').offsetTop;
 
-        const vt_video_div_top = document.querySelector('.vt_video_div').offsetTop;
-        const vt_audio_div_top = document.querySelector('.vt_audio_div').offsetTop;
 
-
-
-
-        // console.log('top2',content2_top)
-        // console.log('top3',content3_top)
         const now_height = document.documentElement.scrollTop;
         // console.log('目前網頁高度',now_height)
         const now_width = document.documentElement.scrollWidth;
@@ -105,8 +104,6 @@
         const vt_control3_c1 = vt_content3_c1_top - height <= now_height;
         const vt_control3_c2 = vt_content3_c2_top - height <= now_height;
         const vt_control3_c3 = vt_content3_c3_top - height <= now_height;
-        const vt_control_video_div = vt_video_div_top - height <= now_height-100;
-        const vt_control_audio_div = vt_audio_div_top - height <= now_height-100;
 
 
         if(vt_control1 === true){
@@ -140,10 +137,7 @@
                 vt_content3_c3.classList.add('vt_content_ani')
             }, 600);
         }
-        if(vt_control_video_div === true){
-            vt_video_div.classList.add('vt_content_ani')
-        }
-        if(vt_control_audio_div === true){
-            vt_audio_div.classList.add('vt_content_ani')
-        }
+
+
+
     })

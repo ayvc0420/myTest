@@ -5,11 +5,15 @@
 .header_label_div{
     width: 80px;
 }
-.vt_content{
+.vt_content1,.vt_content2{
     line-height: 2;
     text-align: center;
 }
-.vt_content img{
+.vt_content1 img{
+    border-radius: 10px;
+    max-width: 100%;
+}
+.vt_content3 img{
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     max-width: 100%;
@@ -42,6 +46,12 @@
     color: rgba(25, 0, 255,0.7);
     display: inline-block;
     padding: 30px 20px 0 20px;
+}
+.content_text{
+    line-height: 2;
+}
+.content_text h3{
+    text-align: center;
 }
 .content_text a{
     text-decoration: none;
@@ -124,6 +134,9 @@
     position: relative;
     width: 100%;
 }
+.content_pos h1{
+    text-align: center;
+}
 .footer_pc{
     padding: 30px 0;
 }
@@ -135,7 +148,7 @@
     position: relative;
 }
 
-.vt_content1 .c1_miko2{
+.vt_content1 .c1_title2{
     position: absolute;
     top: 0;
     left: 0;
@@ -146,7 +159,7 @@
 }
 .c1_label_div{
     position: absolute;
-    width: 500px;
+    width: 50px;
     bottom: -20px;
     left: 0;
     right: 0;
@@ -163,12 +176,12 @@
 #control_c1_img1:checked ~ .c1_label_div label:nth-of-type(1){
     background: rgb(255, 106, 143);
 }
-#control_c1_img1:checked ~ .c1_miko1{
+#control_c1_img1:checked ~ .c1_title1{
     transform: translateX(0%);
     opacity: 1;
     transition: opacity 0.3s;
 }
-#control_c1_img1:checked ~ .c1_miko2{
+#control_c1_img1:checked ~ .c1_title2{
     transform: translateX(-100%);
     opacity: 0;
     transition: opacity 0.3s;
@@ -178,21 +191,21 @@
 #control_c1_img2:checked ~ .c1_label_div label:nth-of-type(2){
     background: rgb(255, 106, 143);
 }
-#control_c1_img2:checked ~ .c1_miko1{
+#control_c1_img2:checked ~ .c1_title1{
     transform: translateX(-100%);
     opacity: 0;
     transition: opacity 0.3s;
 }
-#control_c1_img2:checked ~ .c1_miko2{
+#control_c1_img2:checked ~ .c1_title2{
     transform: translateX(0%);
     opacity: 1;
     transition: opacity 0.3s;
 }
 
-
-
 /*miko c1 end*/
 
+
+/* vt影片音樂 */
 .vt_video_div{
     display: flex;
     flex-direction: column;
@@ -213,19 +226,21 @@
 }
 .vt_audio_div{
     display: flex;
-    position: relative;
+    /* position: relative; */
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-wrap: wrap;
-    padding: 40px 20px 0;
-    opacity: 0;
-    transform: translateY(60%);
+    padding: 50px 20px 0;
+    /* opacity: 0; */
+    /* transform: translateY(-60%); */
 }
+
+
 .vt_audio_div::before{
-    content: 'music'url(../images/music.svg);
+    content: ''url(../images/music.svg);
     position: absolute;
-    top: -10px;
+    top: 20px;
     left: 0;
     right: 0;
     margin: auto;
@@ -236,15 +251,23 @@
 .vt_audio_div>div{
     display: flex;
     flex-direction: column;
-    margin: 0 8px;
-
+    margin: 30px 0 8px;
+}
+.vt_audio_div>div>div{
+    transform: translateY(60%);
+    opacity: 0;
 }
 .vt_audio_div h4{
     margin: 10px 0;
     color: red;
     font-size: 20px;
 }
+.vt_audio_div audio{
+    margin: 0 5px;
+}
 
+
+/* @media */
 @media screen and (min-width:810px) {
     .vt_content3 article:hover{
         transform: translateY(-5%) !important;
@@ -284,16 +307,20 @@
     .vt_content1 h3{
         margin-top: 20px;
     }
-    .vt_main>.vt_content1{
-        padding: 10px 0;
+    .c1_label_div{
+        bottom: -40px;
     }
     .vt_video_div>video{
         width: 70%;
     }
-}
-
-@media screen and (max-width:670px) {
+    .vt_audio_div>div{
+        margin: 0;
+    }
+    .vt_audio_div>div>audio{
+        padding: 20px 0;
+    }
     .vt_audio_div{
-        padding-top: 60px;
+        padding-top: 80px;
     }
 }
+
