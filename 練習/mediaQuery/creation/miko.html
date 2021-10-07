@@ -16,8 +16,12 @@
         .vt_main>section:nth-of-type(even){
             background: rgb(255, 223, 228);
         }
+        .vt_audio_div{
+            opacity: 0;
+            transform: translateY(60%);
+        }
         .vt_audio_div::after{
-            content: '櫻巫女經典音檔';
+            content: '櫻巫女-菁英櫻語音檔';
             position: absolute;
             top: 0;
             left: 0;
@@ -28,6 +32,7 @@
             width: 50vw;
             border-bottom: 1px solid rgba(114, 114, 114, 0.2); 
         }
+
     </style>
 
 </head>
@@ -49,13 +54,14 @@
         <div class="mob_menu" id="mob_menu_div">
             <ul>
                 <li><a href="index.html">首頁</a></li>
-                <li><a href="vtuber.html">快速了解VTuber</a></li>
+                <li><a href="vtuber.html">速覽VTuber</a></li>
                 <li class="mob_menu3">
-                    <label for="menu3"><a href="#">介紹成員&nbsp;<img src="images/chevron-down.svg" class="nav_down"></a></label>
-                    <ul>
+                    <a href="#" class="menu3_control">介紹成員&nbsp;<img src="images/chevron-down.svg" class="nav_down"></a>
+                    <ul class="menu3">
                         <li><a href="pekora.html">兔田佩克拉</a></li>
                         <li><a href="miko.html">櫻巫女</a></li>
                         <li><a href="rushia.html">潤羽露西婭</a></li>
+                        <li><a href="korone.html">戌神沁音</a></li>
                     </ul>
                 </li>
                 <li><a href="recommendYoutube.html">推薦的YouTube中文翻譯頻道</a></li>
@@ -72,23 +78,24 @@
                 <label for="control_header_img2" class="header_label"></label>
                 <label for="control_header_img3" class="header_label"></label>
             </div>
-            <div class="img0"><a href="https://www.pixiv.net/artworks/90697958" target="new"><img src="images/miko_header.jpg" alt="" ></a></div>
-            <div class="img1"><a href="https://www.pixiv.net/artworks/90697958" target="new"><img src="images/miko_header.jpg" alt=""></a></div>
-            <div class="img2"><a href="https://www.pixiv.net/artworks/89707884" target="new"><img src="images/miko_header_1.jpg" alt=""></a></div>
-            <div class="img3"><a href="https://twitter.com/sakuramiko35/status/1388738206443610117/photo/1" target="new"><img src="images/miko_header_2.jpg" alt=""></a></div>
+            <div class="img0"><a href="https://www.pixiv.net/artworks/90697958" target="new"><img src="images/miko_header.jpg" alt="sakuramiko_pixiv90697958" ></a></div>
+            <div class="img1"><a href="https://www.pixiv.net/artworks/90697958" target="new"><img src="images/miko_header.jpg" alt="sakuramiko_pixiv90697958"></a></div>
+            <div class="img2"><a href="https://www.pixiv.net/artworks/89707884" target="new"><img src="images/miko_header_1.jpg" alt="sakuramiko_pixiv89707884"></a></div>
+            <div class="img3"><a href="https://twitter.com/sakuramiko35/status/1388738206443610117/photo/1" target="new"><img src="images/miko_header_2.jpg" alt="sakuramiko_twitter1388738206443610117"></a></div>
         </div>
     </header>
     <nav>
         <div class="nav_menu">
             <ul>
                 <li><a href="index.html">首頁</a></li>
-                <li><a href="vtuber.html">快速了解VTuber</a></li>
+                <li><a href="vtuber.html">速覽VTuber</a></li>
                 <li class="nav_menu3">
                     <a href="#">介紹成員&nbsp;<img src="images/chevron-down.svg" class="nav_down"></a>
                     <ul>
                         <li><a href="pekora.html">兔田佩克拉</a></li>
                         <li><a href="miko.html">櫻巫女</a></li>
                         <li><a href="rushia.html">潤羽露西婭</a></li>
+                        <li><a href="korone.html">戌神沁音</a></li>
                     </ul>
                 </li>
                 <li><a href="recommendYoutube.html">推薦的YouTube中文翻譯頻道</a></li>

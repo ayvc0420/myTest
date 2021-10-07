@@ -48,6 +48,15 @@
         $('[data-fancybox="vt_c3"]').fancybox({
             loop : true
         })
+        document.querySelector('.menu3_control').addEventListener('click',function(){
+            const menu3 = document.querySelector('.menu3');
+            const menu3_display = window.getComputedStyle(menu3,null).display;
+            if(menu3_display === 'none'){
+                menu3.style.display = 'block';
+            }else{
+                menu3.style.display = 'none';
+            }
+        })
     })
 
     const svg1 = document.getElementById('svg1')

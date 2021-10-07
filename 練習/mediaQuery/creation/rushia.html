@@ -16,7 +16,6 @@
         .vt_main>section:nth-of-type(even){
             background: rgba(253, 234, 255, 0.7);
         }
-
         .vt_audio_title{
             text-align: center;
             font-size: 30px;
@@ -25,12 +24,25 @@
             color: rgb(255, 0, 0);
             font-weight: 700;
             padding-bottom: 60px;
-            width: 50vh;
+            width: 70vw;
             border-bottom: 1px solid rgba(114, 114, 114, 0.2); 
             opacity: 0;
             transform: translateX(-100%);
         }
-
+        /* rushia不放svg */
+        .vt_audio_div::before{
+            opacity: 0;
+        }
+        .rushia_audio_img{
+            width: 100px;
+            height: 100px;
+            margin: 30px auto 0;
+            background-image: url(images/rushia_audio.jpg);
+            background-size: cover;
+            border-radius: 50%;
+            opacity: 0;
+            transform: translateY(50%);
+        }
     </style>
 
 </head>
@@ -52,13 +64,14 @@
         <div class="mob_menu" id="mob_menu_div">
             <ul>
                 <li><a href="index.html">首頁</a></li>
-                <li><a href="vtuber.html">快速了解VTuber</a></li>
+                <li><a href="vtuber.html">速覽VTuber</a></li>
                 <li class="mob_menu3">
-                    <label for="menu3"><a href="#">介紹成員&nbsp;<img src="images/chevron-down.svg" class="nav_down"></a></label>
-                    <ul>
+                    <a href="#" class="menu3_control">介紹成員&nbsp;<img src="images/chevron-down.svg" class="nav_down"></a>
+                    <ul class="menu3">
                         <li><a href="pekora.html">兔田佩克拉</a></li>
                         <li><a href="miko.html">櫻巫女</a></li>
                         <li><a href="rushia.html">潤羽露西婭</a></li>
+                        <li><a href="korone.html">戌神沁音</a></li>
                     </ul>
                 </li>
                 <li><a href="recommendYoutube.html">推薦的YouTube中文翻譯頻道</a></li>
@@ -75,23 +88,24 @@
                 <label for="control_header_img2" class="header_label"></label>
                 <label for="control_header_img3" class="header_label"></label>
             </div>
-            <div class="img0"><a href="https://www.pixiv.net/artworks/81489548" target="new"><img src="images/81489548_header.jpg" alt=""></a></div>
-            <div class="img1"><a href="https://www.pixiv.net/artworks/81489548" target="new"><img src="images/81489548_header.jpg" alt=""></a></div>
-            <div class="img2"><a href="https://www.pixiv.net/artworks/81489548" target="new"><img src="images/81489548_header_1.jpg" alt=""></a></div>
-            <div class="img3"><a href="https://www.pixiv.net/artworks/85978281" target="new"><img src="images/85978281_header.jpg" alt=""></a></div>
+            <div class="img0"><a href="https://www.pixiv.net/artworks/81489548" target="new"><img src="images/81489548_header.jpg" alt="rushia_pixiv81489548"></a></div>
+            <div class="img1"><a href="https://www.pixiv.net/artworks/81489548" target="new"><img src="images/81489548_header.jpg" alt="rushia_pixiv81489548"></a></div>
+            <div class="img2"><a href="https://www.pixiv.net/artworks/81489548" target="new"><img src="images/81489548_header_1.jpg" alt="rushia_pixiv81489548"></a></div>
+            <div class="img3"><a href="https://www.pixiv.net/artworks/85978281" target="new"><img src="images/85978281_header.jpg" alt="rushia_pixiv85978281"></a></div>
         </div>
     </header>
     <nav>
         <div class="nav_menu">
             <ul>
                 <li><a href="index.html">首頁</a></li>
-                <li><a href="vtuber.html">快速了解VTuber</a></li>
+                <li><a href="vtuber.html">速覽VTuber</a></li>
                 <li class="nav_menu3">
                     <a href="#">介紹成員&nbsp;<img src="images/chevron-down.svg" class="nav_down"></a>
                     <ul>
                         <li><a href="pekora.html">兔田佩克拉</a></li>
                         <li><a href="miko.html">櫻巫女</a></li>
                         <li><a href="rushia.html">潤羽露西婭</a></li>
+                        <li><a href="korone.html">戌神沁音</a></li>
                     </ul>
                 </li>
                 <li><a href="recommendYoutube.html">推薦的YouTube中文翻譯頻道</a></li>
@@ -118,7 +132,7 @@
                 <div class="c1_title2">
                     <h2>黑暗露西婭</h2>
                     <div>
-                        <div><a href="images/1273069461403131904_rushia_title.png" data-fancybox="vt_c1" data-caption="黑暗露西婭 |圖片取自於twitter推文1273069461403131904 繪師 : @shirubetokiwa"><img src="images/1273069461403131904_rushia_title.jpg" alt="露西婭" title="黑暗露西婭"></a></div>
+                        <div><a href="images/1273069461403131904_rushia_title.png" data-fancybox="vt_c1" data-caption="黑暗露西婭 | 圖片取自於twitter推文1273069461403131904 繪師 : @shirubetokiwa"><img src="images/1273069461403131904_rushia_title.jpg" alt="露西婭" title="黑暗露西婭"></a></div>
                     </div>
                 </div>
             </article>
@@ -166,35 +180,35 @@
                 <h1>露西婭洗腦YO~YO~YO~</h1>
                 <video muted src="video/rushia_c4.mp4" controls loop></video>
             </div>
-            <div class="vt_audio_title"><h2>露西婭經典音檔-耳膜注意</h2></div>
-            <section class="vt_audio_div"> <!-- bug 裡面所有標籤位置異常-->
+            <div class="vt_audio_title"><h2>露西婭經典音檔<br>以下部分音檔播放時注意耳膜</h2></div>
+            <section class="vt_audio_div">
                 <div>
                     <div class="audio1">
-                        <h4>1</h4>
+                        <h4>Rushia Boing Boing</h4>
                         <audio src="audio/rushia01.mp3" controls></audio>
                     </div>
                     <div class="audio2">
-                        <h4>2</h4>
+                        <h4>初號機之吼</h4>
                         <audio src="audio/rushia02.mp3" controls></audio>
                     </div>
                 </div>
                 <div>
                     <div class="audio3">
-                        <h4>3</h4>
+                        <h4>垃圾遊戲</h4>
                         <audio src="audio/rushia03.mp3" controls></audio>
                     </div>
                     <div class="audio4">
-                        <h4>4</h4>
+                        <h4>何で???</h4>
                         <audio src="audio/rushia04.mp3" controls></audio>
                     </div>
                 </div>
                 <div>
                     <div class="audio5">
-                        <h4>5</h4>
+                        <h4>露西婭的鑽石</h4>
                         <audio src="audio/rushia05.mp3" controls></audio>
                     </div>
                     <div class="audio6">
-                        <h4>6</h4>
+                        <h4>yabai!!!</h4>
                         <audio src="audio/rushia06.mp3" controls></audio>
                     </div>
                 </div>
@@ -204,7 +218,7 @@
                         <audio src="audio/rushia07.mp3" controls></audio>
                     </div>
                     <div class="audio8">
-                        <h4>空~露西婭</h4>
+                        <h4>空~露西婭~~~~</h4>
                         <audio src="audio/rushia08.mp3" controls></audio>
                     </div>
                 </div>
@@ -214,11 +228,12 @@
                         <audio src="audio/rushia09.mp3" controls></audio>
                     </div>
                     <div class="audio10">
-                        <h4>為什麼露西婭要受這種苦?</h4>
+                        <h4 title="取於hololive3D動畫 弱肉強食">為什麼露西婭要受這種苦?</h4>
                         <audio src="audio/rushia10.mp3" controls></audio>
                     </div>
                 </div>
             </section>
+            <div class="rushia_audio_img"></div>
         </section>
     </div>
 

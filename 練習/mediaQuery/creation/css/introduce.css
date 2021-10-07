@@ -1,0 +1,51 @@
+.main{
+    max-width: 1200px;
+    margin:50px auto;
+}
+.main>div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.main .vt_player{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 400px;
+}
+.main .vt_player img{
+    border-radius: 50%;
+}
+.main .vt_player h3{
+    padding: 10px 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: red;
+}
+.main .vt_player p{
+    line-height: 2;
+    letter-spacing: 1.2;
+    color: peru;
+}
+.main .vt_player p:hover{
+    color: rgb(255, 125, 0);
+}
+.main .vt_player a{
+    text-decoration: none;
+}
+.main .player_href{
+    display: inline-block;
+    border: 1px solid rgb(255, 209, 123);
+    background: rgb(255, 235, 219);
+    color: rgb(255, 73, 134);
+    border-radius: 15px;
+    margin-top: 10px;
+    padding: 10px;
+}
+.main .player_href:hover{
+    filter: brightness(105%);
+    color: rgb(255, 0, 85);
+    transition: all 0.4s;
+}

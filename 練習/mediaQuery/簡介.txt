@@ -60,6 +60,22 @@ pekora.html重寫動畫及html結構
 header圖片連結bug 處理連結異常 新增其他轉場動畫
 花費時間 1.5hr 
 
-miko.html套用動畫與html結構 修復部分bug及追加影片及音樂區塊套用動畫效果 修補vt_style.css部分BUG 
+miko.html套用動畫與html結構 修復部分bug及追加影片及音檔區塊套用動畫效果 修補vt_style.css部分BUG 
+花費時間5hr
+
+1007
+rushia套用動畫與html結構 新增更多音檔區塊 修改部分vt_style.css 解決衝突 另外獨立製作rushia.audio.js檔 音檔區塊動畫變更
+花費時間6hr
+
+vt_audio_div元素內所有標籤動畫無法正確觸發 debug後為兩層相對定位
+花費時間1.2hr
+
+miko.html pekora.html 修復audio區域動畫異常 修改pc及mobile的menu3字體顏色
+花費時間30分
+
+新增rushia_audio_img區塊 套用動畫 修改部分bug js檔宣告位置變更減少更多效能消耗
+花費時間10分+1hr
+
+新增korone.html套用動畫與html結構 蒐集影音資料及註明來源 處理圖片
 花費時間5hr
 

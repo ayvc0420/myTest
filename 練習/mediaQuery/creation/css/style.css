@@ -29,8 +29,13 @@ h1,h2,h3,span,p {font-family: 'Lato', sans-serif;
         opacity: 1;
     }
 }
+
 body{
     animation : body 1s
+}
+::selection{
+    background-color: rgb(0, 0, 255,0.1);
+    color: rgb(0, 0, 255)
 }
 
 .mob_menu_control,#mob_menu{
@@ -257,9 +262,25 @@ nav{
     background: rgb(243, 216, 255);
     transition: background 0.3s;
 }
+.nav_menu3 ul li:nth-of-type(1) a ,.mob_menu3 ul li:nth-of-type(1) a{
+    color: blue;
+}
+.nav_menu3 ul li:nth-of-type(2) a ,.mob_menu3 ul li:nth-of-type(2) a{
+    color: rgb(255, 0, 100);
+}
+.nav_menu3 ul li:nth-of-type(3) a ,.mob_menu3 ul li:nth-of-type(3) a{
+    color: rgb(0, 197, 0)
+}
+.nav_menu3 ul li:nth-of-type(4) a ,.mob_menu3 ul li:nth-of-type(4) a{
+    color: orange;
+}
+
+
 .nav_down{
     width: 10px;
+    vertical-align: baseline;
 }
+
 
 /* nav結束 */
 
@@ -280,9 +301,9 @@ main section:not(.content1) article{
 main .content2{
     background: rgb(255, 255, 255);
 }
-.content2 img{
-    width: 80% !important;
-    padding: 0 10%;
+.content2 article div:nth-of-type(1){
+    width: 45%;
+    margin: auto;
 }
 .content_ani{
     transform: translateX(0%) !important;
@@ -409,6 +430,12 @@ footer .footer_top_text{
         display: inline-block;
         width: calc(100% - 20px);
         padding: 20px 0 20px 20px;
+    }
+    #menu3{
+        display: none;
+    }
+    .mob_menu3>ul{
+        display: none;
     }
     .mob_menu3 ul a{
         width: calc(100% - 40px);
