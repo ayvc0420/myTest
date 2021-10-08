@@ -38,6 +38,9 @@
 
 
 ---------------
+以下紀錄為當日結束後印象留下紀錄 詳細修改差異查看git
+
+
 1004
 creation
 index.html 重寫css輪播圖以及動畫
@@ -79,3 +82,12 @@ miko.html pekora.html 修復audio區域動畫異常 修改pc及mobile的menu3字
 新增korone.html套用動畫與html結構 蒐集影音資料及註明來源 處理圖片
 花費時間5hr
 
+1008
+新增vtuber.html 修改原內容變更為VTuber頻道 資料蒐集 圖片等
+花費時間3hr
+補完vtuber.html剩餘部分 撰寫獨立js與css檔 動畫 
+花費時間5hr
+
+1009
+4個介紹成員mob_menu選單新增logo圖 新增recommendYoutube.html 修改原內容變更為術語及日翻中頻道 獨立js.css檔
+花費時間2.5~3hr
