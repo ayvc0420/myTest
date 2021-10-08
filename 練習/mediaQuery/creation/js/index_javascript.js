@@ -19,8 +19,7 @@
     const header_div2 = document.querySelector('.img2')
     const header_div3 = document.querySelector('.img3')
     const header_div4 = document.querySelector('.img4')
-    console.log(header_div1) 
-    console.log(header_div2) 
+    
     function header1(){
         control_header_img1.checked = true
     }
@@ -33,6 +32,15 @@
     function header4(){
         control_header_img4.checked = true
     }
+    setTimeout(() => {
+        header2()
+    }, 5000);
+    setTimeout(() => {
+        header3()
+    }, 10000);
+    setTimeout(() => {
+        header4()
+    }, 15000);
     setInterval(() => {
         setTimeout(() => {
             header1()
@@ -73,14 +81,10 @@
         const content5_top = document.querySelector('.content5 article').offsetTop;
         const content6_top = document.querySelector('.content6 article').offsetTop;
         const content7_top = document.querySelector('.content7 article').offsetTop;
-        // console.log('top2',content2_top)
-        // console.log('top3',content3_top)
         const now_height = document.documentElement.scrollTop;
-        console.log('目前網頁高度',now_height)
         const now_width = document.documentElement.scrollWidth;
-        console.log('目前網頁寬度',now_width)
         const height = document.documentElement.clientHeight;
-        console.log('目前網頁可視高度',height)
+
         
         if(now_width >= 1024){
             mob_top.style.display = 'none';
@@ -99,8 +103,6 @@
         const control5 = content5_top - height <= now_height;
         const control6 = content6_top - height <= now_height;
         const control7 = content7_top - height <= now_height;
-        // console.log('2',control2)
-        // console.log('3',control3)
 
         if(control2 === true){
             content2.classList.add('content_ani')

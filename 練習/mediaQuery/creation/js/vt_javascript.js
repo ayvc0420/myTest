@@ -31,7 +31,7 @@
         control_header_img3.checked = true
     }
 
-    
+
     setInterval(() => {
         setTimeout(() => {
             header1()
@@ -83,18 +83,13 @@
 
         const vt_content1_top = document.querySelector('.vt_content1 article').offsetTop;
         const vt_content2_top = document.querySelector('.vt_content2 article').offsetTop;
-        
-        const vt_content3_c1_top = document.querySelector('.c1').offsetTop;
-        const vt_content3_c2_top = document.querySelector('.c2').offsetTop;
-        const vt_content3_c3_top = document.querySelector('.c3').offsetTop;
-
+        const vt_content3_c1_top = vt_content3_c1.offsetTop;
+        const vt_content3_c2_top = vt_content3_c2.offsetTop;
+        const vt_content3_c3_top = vt_content3_c3.offsetTop;
 
         const now_height = document.documentElement.scrollTop;
-        // console.log('目前網頁高度',now_height)
         const now_width = document.documentElement.scrollWidth;
-        // console.log('目前網頁寬度',now_width)
         const height = document.documentElement.clientHeight;
-        // console.log('目前網頁可視高度',height)
 
         if(now_width >= 1024){
             mob_top.style.display = 'none';
@@ -107,7 +102,6 @@
             mob_top.style.transform = `translateX(1000%)`
         }
 
-        //元素-可視高度比較現在捲軸高度
         const vt_control1 = vt_content1_top - height <= now_height-100;
         const vt_control2 = vt_content2_top - height <= now_height-100;
         const vt_control3_c1 = vt_content3_c1_top - height <= now_height;
