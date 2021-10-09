@@ -97,3 +97,9 @@ miko.html pekora.html 修復audio區域動畫異常 修改pc及mobile的menu3字
 
 修改全部.html部分設定 標籤 加上註明與"為確保效能消耗最低，本網頁有異常顯示請重新整理頁面。" 除vtuber.htlm以外 
 花費時間1hr
+
+取消註明"為確保效能消耗最低，本網頁有異常顯示請重新整理頁面。" 經測試後實際消耗效能微乎其微 recommendYoutube.html動畫撰寫 補完剩餘部分
+花費時間3~4hr
+
+檢查-遺漏rushia.html header圖片少1
+花費時間1hr

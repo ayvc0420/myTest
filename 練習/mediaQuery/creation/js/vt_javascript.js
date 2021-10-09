@@ -17,15 +17,18 @@ window.addEventListener('load',function(){
     const vt_audio_div = document.getElementById('vt_audio_div')
 
     
-    const vt_content1_top = vt_content1.offsetTop;
-    const vt_content2_top = vt_content2.offsetTop;
-    const vt_content3_c1_top = vt_content3_c1.offsetTop;
-    const vt_content3_c2_top = vt_content3_c2.offsetTop;
-    const vt_content3_c3_top = vt_content3_c3.offsetTop;
-    const vt_video_div_top = vt_video_div.offsetTop;
-    const vt_audio_div_top = vt_audio_div.offsetTop;
     
     window.addEventListener('scroll',function(){
+
+        const vt_content1_top = vt_content1.offsetTop;
+        const vt_content2_top = vt_content2.offsetTop;
+        const vt_content3_c1_top = vt_content3_c1.offsetTop;
+        const vt_content3_c2_top = vt_content3_c2.offsetTop;
+        const vt_content3_c3_top = vt_content3_c3.offsetTop;
+        const vt_video_div_top = vt_video_div.offsetTop;
+        const vt_audio_div_top = vt_audio_div.offsetTop;
+
+        
         const body_height = document.body.scrollHeight;
         mob_menu_div.style.height = `${body_height}px`;
     

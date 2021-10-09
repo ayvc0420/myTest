@@ -1,4 +1,4 @@
-const mob_menu_div = document.getElementById('mob_menu_div')
+// const mob_menu_div = document.getElementById('mob_menu_div')
 const mob_top = document.getElementById('mob_top')
 
 //svg切換

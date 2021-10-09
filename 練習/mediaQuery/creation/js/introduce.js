@@ -5,6 +5,7 @@ window.addEventListener('load',function(){
     // const vt_player_all = Array.from(document.querySelectorAll('.vt_player'))
     // const vt_player_top = vt_player_all.map(item => item.offsetTop)
 
+    const mob_menu_div = document.getElementById('mob_menu_div')
     const vt_player1 = document.getElementById('vt_player1')
     const vt_player2 = document.getElementById('vt_player2')
     const vt_player3 = document.getElementById('vt_player3')
