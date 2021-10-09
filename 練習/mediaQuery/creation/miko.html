@@ -44,7 +44,7 @@
 <body style="background-color: #d7f6ff;">
     <img src="images/mob_top.png" alt="go_top" id="mob_top" class="mob_btn_anim" title="回去頂部囉">
     <section class="mob_header">
-        <label for="mob_menu" class="mob_menu_control">
+        <label for="mob_menu" class="mob_menu_control" id="mob_menu_control">
             <svg width="50" height="40" class="svg1" id="svg1">
                 <line x1="10" y1="10" x2="40" y2="10" stroke="black" stroke-width="4"> </line>
                 <line x1="10" y1="20" x2="40" y2="20" stroke="black" stroke-width="4"> </line>
@@ -78,15 +78,19 @@
             <input type="radio" name="control_header_img" id="control_header_img1" checked>
             <input type="radio" name="control_header_img" id="control_header_img2">
             <input type="radio" name="control_header_img" id="control_header_img3">
+            <input type="radio" name="control_header_img" id="control_header_img4">
             <div class="header_label_div">
                 <label for="control_header_img1" class="header_label"></label>
                 <label for="control_header_img2" class="header_label"></label>
                 <label for="control_header_img3" class="header_label"></label>
+                <label for="control_header_img4" class="header_label"></label>
             </div>
             <div class="img0"><a href="https://www.pixiv.net/artworks/90697958" target="new"><img src="images/miko_header.jpg" alt="sakuramiko_pixiv90697958" ></a></div>
             <div class="img1"><a href="https://www.pixiv.net/artworks/90697958" target="new"><img src="images/miko_header.jpg" alt="sakuramiko_pixiv90697958"></a></div>
             <div class="img2"><a href="https://www.pixiv.net/artworks/89707884" target="new"><img src="images/miko_header_1.jpg" alt="sakuramiko_pixiv89707884"></a></div>
             <div class="img3"><a href="https://twitter.com/sakuramiko35/status/1388738206443610117/photo/1" target="new"><img src="images/miko_header_2.jpg" alt="sakuramiko_twitter1388738206443610117"></a></div>
+            <div class="img4"><a href="https://www.pixiv.net/artworks/86239985" target="new"><img src="images/miko_header_3.jpg" alt="sakuramiko_pixiv86239985"></a></div>
+            <!-- <div class="img5"><a href="https://www.pixiv.net/artworks/90375174" target="new"><img src="images/miko_header_4.jpg" alt="sakuramiko_pixiv90375174"></a></div> -->
         </div>
     </header>
     <nav>
@@ -111,7 +115,7 @@
 
     <div class="vt_main">
         <section class="vt_content1 vt_content">
-            <article>
+            <article id="c1_1">
                 <input type="radio" name="control_c1" id="control_c1_img1" checked>
                 <input type="radio" name="control_c1" id="control_c1_img2">
                 <div class="c1_label_div">
@@ -134,7 +138,7 @@
         </section>
         <section class="vt_content2 vt_content">
             <div class="content_pos"><h1>人物介紹</h1></div>
-            <article>
+            <article id="c2_1">
                 <div class="content_text">
                     <h3>中文名稱 : 櫻巫女</h3>
                     <h3>日文名稱 : 桜巫女 | さくらみこ</h3>
@@ -147,21 +151,21 @@
         </section>
         <section class="vt_content3 vt_content">
             <div class="content_pos"><h1>VTuber事蹟</h1></div> 
-            <article class="c1">
+            <article id="c3_1">
                 <a href="images/sakuramiko_card_1.jpg" data-fancybox="vt_c3" data-caption="圖片取自於pixiv 85484845 繪師 : @ririimon" ><img src="images/sakuramiko_card_01.jpg"alt="櫻巫女" title="嬰兒巫女"></a>
                 <div class="content_text">
                     <h3>櫻語的由來</h3>
                     <p>因天生自帶奶音有口齒不清的屬性因此以<span title="櫻巫女語言">櫻語</span>(嬰兒)得名，與<span title="畢業了">桐生可可</span>聯播互動時因獨特風格產生了<span title="分為日式櫻語及英式櫻語">菁英櫻(英)語</span>一詞。</p>
                 </div>
             </article>
-            <article class="c2">
+            <article id="c3_2">
                 <a href="images/sakuramiko_card_2.jpg" data-fancybox="vt_c3" data-caption="圖片取自於【35P Project 2020】〓🌸さくらみこ2周年記念企画🌸〓 影片截圖" ><img src="images/sakuramiko_card_02.jpg" alt="櫻巫女" title="35P與櫻巫女在一起"></a>
                 <div class="content_text">
                     <h3>35P的由來</h3>
                     <p>養病期間櫻巫女將粉絲圖像化並稱呼為<span title="日文中諧音3(Mi)5(Ko)與製作人(Producer)組合成35p">35P</span>，在直播中經常可以看見35P作為吉祥物登場，同時35P也被櫻巫女用來稱呼粉絲們。</p>
                 </div>
             </article>
-            <article class="c3">
+            <article id="c3_3">
                 <a href="images/sakuramiko_card_3.jpg" data-fancybox="vt_c3" data-caption="圖片取自於pixiv 84720803 繪師 : @suhiyoru_isu15" ><img src="images/sakuramiko_card_03.jpg"  alt="櫻巫女與佩克拉" title="pekora&miko股民眾所期待的一天"></a>
                 <div class="content_text">
                     <h3>巫女與佩克拉股</h3>
@@ -171,11 +175,11 @@
         </section>
 
         <section class="vt_content4">
-            <div class="vt_video_div">
+            <div class="vt_video_div" id="vt_video_div">
                 <h1>櫻巫女開場動畫</h1>
                 <video muted src="video/miko_c4.mp4" controls loop></video>
             </div>
-            <section class="vt_audio_div">
+            <section class="vt_audio_div" id="vt_audio_div">
                 <div>
                     <h4>help miko</h4>
                     <audio src="audio/miko01.mp3" controls></audio>
@@ -197,38 +201,20 @@
         <p>Miko是治癒型VTuber</p>
         <div class="footer_top_text"><a href="#" class="go_top go_top1"><img src="images/top.png" title="回去頂部囉"></a>你也想學菁英櫻語嗎?還不馬上加入會員<a href="#" class="go_top go_top2"><img src="images/top.png" title="回去頂部囉"></a></div>
         <p title="還不快加入">＼( ＾∀＾）／</p>
+        <p>為確保效能消耗最低，本網頁有異常顯示請重新整理頁面。</p>
         <p class="footer_pc">本網站使用flex佈局，請使用firefox或chrome瀏覽器等主流瀏覽器獲得最佳體驗</p>
 
     </footer>
 
 
     <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/layout.js"></script>
     <script src="js/vt_javascript.js"></script>
     <script src="js/jquery.fancybox.min.js"></script>   
     <script>
-        $('[data-fancybox="vt_c1"]').fancybox({
-            loop : true
-        })
-        window.addEventListener('scroll',function(){
-            const now_height = document.documentElement.scrollTop;
-            const height = document.documentElement.clientHeight;
-            const vt_video_div = document.querySelector('.vt_video_div')
-            const vt_audio_div = document.querySelector('.vt_audio_div')
-    
-            const vt_video_div_top = document.querySelector('.vt_video_div').offsetTop;
-            const vt_audio_div_top = document.querySelector('.vt_audio_div').offsetTop;
-    
-            const vt_control_video_div = vt_video_div_top - height <= now_height-100;
-            const vt_control_audio_div = vt_audio_div_top - height <= now_height-100;
-    
-            if(vt_control_video_div === true){
-                vt_video_div.classList.add('vt_content_ani')
-            }
-            if(vt_control_audio_div === true){
-                vt_audio_div.classList.add('vt_content_ani')
-            }
-        })
-    </script> 
-
+    $('[data-fancybox="vt_c1"]').fancybox({
+        loop : true
+    })
+    </script>
 </body>
 </html>

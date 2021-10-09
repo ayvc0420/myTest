@@ -21,7 +21,7 @@
         .vt_main>section:nth-of-type(even){
             background: rgba(253, 234, 255, 0.7);
         }
-        .vt_audio_title{
+        #vt_audio_title{
             text-align: center;
             font-size: 30px;
             padding-top: 20px;
@@ -39,7 +39,7 @@
         .vt_audio_div::before{
             opacity: 0;
         }
-        .rushia_audio_img{
+        #rushia_audio_img{
             width: 100px;
             height: 100px;
             margin: 30px auto 0;
@@ -55,7 +55,7 @@
 <body style="background-color: #f4fff8;">
     <img src="images/mob_top.png" alt="go_top" id="mob_top" class="mob_btn_anim" title="回去頂部囉">
     <section class="mob_header">
-        <label for="mob_menu" class="mob_menu_control">
+        <label for="mob_menu" class="mob_menu_control" id="mob_menu_control">
             <svg width="50" height="40" class="svg1" id="svg1">
                 <line x1="10" y1="10" x2="40" y2="10" stroke="black" stroke-width="4"> </line>
                 <line x1="10" y1="20" x2="40" y2="20" stroke="black" stroke-width="4"> </line>
@@ -122,7 +122,7 @@
 
     <div class="vt_main">
         <section class="vt_content1 vt_content">
-            <article>
+            <article id="c1_1">
                 <input type="radio" name="control_c1" id="control_c1_img1" checked>
                 <input type="radio" name="control_c1" id="control_c1_img2">
                 <div class="c1_label_div">
@@ -144,8 +144,8 @@
             </article>
         </section>
         <section class="vt_content2 vt_content">
-            <div class="content_pos"><h1>人物介紹</h1></div>
-            <article>
+            <div class="content_pos"><h1 id="c2_h1">人物介紹</h1></div>
+            <article id="c2_1">
                 <div class="content_text">
                     <h3>中文名稱 : 潤羽露西婭</h3>
                     <h3>日文名稱 : 潤羽るしあ | うるはるしあ</h3>
@@ -157,22 +157,22 @@
             </article>
         </section>
         <section class="vt_content3 vt_content">
-            <div class="content_pos"><h1>VTuber事蹟</h1></div> 
-            <article class="c1">
+            <div class="content_pos"><h1 id="c3_h1">VTuber事蹟</h1></div> 
+            <article id="c3_1">
                 <a href="images/Osakilo_rushia.jpg" data-fancybox="vt_c3" data-caption="圖片取自於巴哈Osakilo [繪圖] 插圖回顧 - 潤羽露西婭初號機篇" ><img src="images/Osakilo_card.jpg" alt="露西婭" title="初號機露西婭"></a>
                 <div class="content_text">
                     <h3>初號機稱呼</h3>
                     <p>初號機為新世紀福音戰士登場的角色，因露西婭直播時經常突然暴吼與暴走的初號機樣子非常相似，因此有<a href="https://youtu.be/xb64No_JSCU">露西婭初號機</a>的稱呼。</p>
                 </div>
             </article>
-            <article class="c2">
+            <article id="c3_2">
                 <a href="images/hololive_rushia.png" data-fancybox="vt_c3" data-caption="圖片取自於hololive官網 人物設定" ><img src="images/hololive_card_rushia.jpg" alt="露西婭" title="平胸露西婭"></a>
                 <div class="content_text">
                     <h3>牆壁的外號</h3>
                     <p>hololive官方將一週年紀念的露西婭的滑鼠墊造型設計為平面。<span title="只要你在露西婭影片留下平、貧相關字眼，馬上就會有一群信徒為你上香">至此開始的外號逐漸傳出名氣...。</span>平時<span title="露西婭粉絲的稱呼">粉屍</span>會在直播中嘲諷露西婭平胸。</p>
                 </div>
             </article>
-            <article class="c3">
+            <article id="c3_3">
                 <a href="images/destroy_card.jpg" data-fancybox="vt_c3" data-caption="圖片取自於hololive 3D動畫 【アニメ】弱肉強食 影片截圖" ><img src="images/destroy_card_1.jpg"  alt="露西婭" title="戰鬥力破表的露西婭"></a>
                 <div class="content_text">
                     <h3>戰鬥力破表</h3>
@@ -182,64 +182,64 @@
         </section>
 
         <section class="vt_content4">
-            <div class="vt_video_div">
+            <div class="vt_video_div" id="vt_video_div">
                 <h1>露西婭洗腦YO~YO~YO~</h1>
                 <video muted src="video/rushia_c4.mp4" controls loop></video>
             </div>
-            <div class="vt_audio_title"><h2>露西婭經典音檔<br>以下部分音檔播放時注意耳膜</h2></div>
-            <section class="vt_audio_div">
+            <div id="vt_audio_title"><h2>露西婭經典音檔<br>以下部分音檔播放時注意耳膜</h2></div>
+            <section class="vt_audio_div" id="vt_audio_div">
                 <div>
-                    <div class="audio1">
+                    <div id="audio1">
                         <h4>Rushia Boing Boing</h4>
                         <audio src="audio/rushia01.mp3" controls></audio>
                     </div>
-                    <div class="audio2">
+                    <div id="audio2">
                         <h4>初號機之吼</h4>
                         <audio src="audio/rushia02.mp3" controls></audio>
                     </div>
                 </div>
                 <div>
-                    <div class="audio3">
+                    <div id="audio3">
                         <h4>垃圾遊戲</h4>
                         <audio src="audio/rushia03.mp3" controls></audio>
                     </div>
-                    <div class="audio4">
+                    <div id="audio4">
                         <h4>何で???</h4>
                         <audio src="audio/rushia04.mp3" controls></audio>
                     </div>
                 </div>
                 <div>
-                    <div class="audio5">
+                    <div id="audio5">
                         <h4>露西婭的鑽石</h4>
                         <audio src="audio/rushia05.mp3" controls></audio>
                     </div>
-                    <div class="audio6">
+                    <div id="audio6">
                         <h4>yabai!!!</h4>
                         <audio src="audio/rushia06.mp3" controls></audio>
                     </div>
                 </div>
                 <div>
-                    <div class="audio7">
+                    <div id="audio7">
                         <h4>好痛</h4>
                         <audio src="audio/rushia07.mp3" controls></audio>
                     </div>
-                    <div class="audio8">
+                    <div id="audio8">
                         <h4>空~露西婭~~~~</h4>
                         <audio src="audio/rushia08.mp3" controls></audio>
                     </div>
                 </div>
                 <div>
-                    <div class="audio9">
+                    <div id="audio9">
                         <h4>hi honey</h4>
                         <audio src="audio/rushia09.mp3" controls></audio>
                     </div>
-                    <div class="audio10">
+                    <div id="audio10">
                         <h4 title="取於hololive3D動畫 弱肉強食">為什麼露西婭要受這種苦?</h4>
                         <audio src="audio/rushia10.mp3" controls></audio>
                     </div>
                 </div>
             </section>
-            <div class="rushia_audio_img"></div>
+            <div id="rushia_audio_img"></div>
         </section>
     </div>
 
@@ -248,19 +248,17 @@
         <p>在露西婭相關影片下方留言平、壁等字眼</p>
         <div class="footer_top_text"><a href="#" class="go_top go_top1"><img src="images/top.png" title="回去頂部囉"></a>就算你是邊緣人也會有一堆信徒幫你上香<a href="#" class="go_top go_top2"><img src="images/top.png" title="回去頂部囉"></a></div>
         <p title="上香">\|/ __ (ಠ_ಠ) __ \|/</p>
+        <p>為確保效能消耗最低，本網頁有異常顯示請重新整理頁面。</p>
         <p class="footer_pc">本網站使用flex佈局，請使用firefox或chrome瀏覽器等主流瀏覽器獲得最佳體驗</p>
 
     </footer>
 
 
     <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/layout.js"></script>
     <script src="js/vt_rushia.js"></script>
     <script src="js/rushia_audio.js"></script>
     <script src="js/jquery.fancybox.min.js"></script>   
-    <script>
-        $('[data-fancybox="vt_c1"]').fancybox({
-            loop : true
-        })
-    </script> 
+
 </body>
 </html>

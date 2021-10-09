@@ -1,94 +1,39 @@
-    /* vt */
-    const vt_content1 = document.querySelector('.vt_content1 article')
-    const vt_content2 = document.querySelector('.vt_content2 article')
-    const vt_content2_h1 = document.querySelector('.vt_content2 h1')
-    const vt_content3_c1 = document.querySelector('.c1')
-    const vt_content3_c2 = document.querySelector('.c2')
-    const vt_content3_c3 = document.querySelector('.c3')
-    const vt_content3_h1 = document.querySelector('.vt_content3 h1')
-    const vt_video_div = document.querySelector('.vt_video_div')
-    const vt_audio_div = document.querySelector('.vt_audio_div')
-    const vt_audio_title = document.querySelector('.vt_audio_title')
-    const rushia_audio_img = document.querySelector('.rushia_audio_img')
-
-
-    const mob_menu_div = document.getElementById('mob_menu_div')
-    const mob_top = document.getElementById('mob_top')
-
-    const vt_content1_top = document.querySelector('.vt_content1 article').offsetTop;
-    const vt_content2_top = document.querySelector('.vt_content2 article').offsetTop;
+ 
+window.addEventListener('load',function(){
     
+    $('[data-fancybox="vt_c1"]').fancybox({
+        loop : true
+    })
+    $('[data-fancybox="vt_c3"]').fancybox({
+        loop : true
+    })
+
+
+    /* vt */
+    const vt_content1 = document.getElementById('c1_1')
+    const vt_content2 = document.getElementById('c2_1')
+    const vt_content2_h1 = document.getElementById('c2_h1')
+    const vt_content3_c1 = document.getElementById('c3_1')
+    const vt_content3_c2 = document.getElementById('c3_2')
+    const vt_content3_c3 = document.getElementById('c3_3')
+    const vt_content3_h1 = document.getElementById('c3_h1')
+    const vt_video_div = document.getElementById('vt_video_div')
+    const vt_audio_title = document.getElementById('vt_audio_title')
+    /* 最底頭像圖貼 */
+    const rushia_audio_img = document.getElementById('rushia_audio_img')
+
+    
+    const vt_content1_top =vt_content1.offsetTop;
+    const vt_content2_top = vt_content2.offsetTop;
     const vt_content3_c1_top = vt_content3_c1.offsetTop;
     const vt_content3_c2_top = vt_content3_c2.offsetTop;
     const vt_content3_c3_top = vt_content3_c3.offsetTop;
-
+    
     const vt_video_div_top = vt_video_div.offsetTop;
     const vt_audio_title_top = vt_audio_title.offsetTop;
     const rushia_audio_img_top = rushia_audio_img.offsetTop;
 
 
-    $('.go_top img,#mob_top').on("click",function(){
-        $('html').animate({scrollTop: 0,},1000);
-    })
-    document.querySelector('.menu3_control').addEventListener('click',function(){
-        const menu3 = document.querySelector('.menu3');
-        const menu3_display = window.getComputedStyle(menu3,null).display;
-        if(menu3_display === 'none'){
-            menu3.style.display = 'block';
-        }else{
-            menu3.style.display = 'none';
-        }
-    })
-
-    
-    const control_header_img1 = document.getElementById('control_header_img1')
-    const control_header_img2 = document.getElementById('control_header_img2')
-    const control_header_img3 = document.getElementById('control_header_img3')
-    
-    // header_label
-    function header1(){
-        control_header_img1.checked = true
-    }
-    function header2(){
-        control_header_img2.checked = true
-    }
-    function header3(){
-        control_header_img3.checked = true
-    }
-
-    
-    setInterval(() => {
-        setTimeout(() => {
-            header1()
-        }, 0);
-        setTimeout(() => {
-            header2()
-        }, 3000);
-        setTimeout(() => {
-            header3()
-        }, 6000);
-    }, 9000);
-
-    window.addEventListener('load',function(){
-        $('[data-fancybox="vt_c3"]').fancybox({
-            loop : true
-        })
-    })
-
-    const svg1 = document.getElementById('svg1')
-    const svg2 = document.getElementById('svg2')
-    const mob_menu_control = document.querySelector('.mob_menu_control')
-    mob_menu_control.addEventListener('click',function(){
-        const svg1_view = window.getComputedStyle(svg1,null).opacity
-        const svg2_view = window.getComputedStyle(svg2,null).opacity
-        if(svg1_view === '1'){
-            svg1.style.opacity = '0';
-            svg2.style.opacity = '1';
-        }else if(svg2_view === '1'){
-            svg1.style.opacity = '1';
-            svg2.style.opacity = '0';
-        }
-    })
 
 
 
@@ -170,3 +115,4 @@
         }
         
     })
+})

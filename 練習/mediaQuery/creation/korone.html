@@ -26,7 +26,7 @@
             transform: translateY(60%);
         }
         .vt_audio_div::after{
-            content: '戌神沁音-毒品音檔';
+            content: '沁音毒品音檔-謹慎點擊預設循環容易上癮';
             position: absolute;
             top: 0;
             left: 0;
@@ -43,7 +43,7 @@
 <body style="background-color: #d7f6ff;">
     <img src="images/mob_top.png" alt="go_top" id="mob_top" class="mob_btn_anim" title="回去頂部囉">
     <section class="mob_header">
-        <label for="mob_menu" class="mob_menu_control">
+        <label for="mob_menu" class="mob_menu_control" id="mob_menu_control">
             <svg width="50" height="40" class="svg1" id="svg1">
                 <line x1="10" y1="10" x2="40" y2="10" stroke="black" stroke-width="4"> </line>
                 <line x1="10" y1="20" x2="40" y2="20" stroke="black" stroke-width="4"> </line>
@@ -77,15 +77,18 @@
             <input type="radio" name="control_header_img" id="control_header_img1" checked>
             <input type="radio" name="control_header_img" id="control_header_img2">
             <input type="radio" name="control_header_img" id="control_header_img3">
+            <input type="radio" name="control_header_img" id="control_header_img4">
             <div class="header_label_div">
                 <label for="control_header_img1" class="header_label"></label>
                 <label for="control_header_img2" class="header_label"></label>
                 <label for="control_header_img3" class="header_label"></label>
+                <label for="control_header_img4" class="header_label"></label>
             </div>
             <div class="img0"><a href="https://www.pixiv.net/artworks/92686622" target="new"><img src="images/92686622_korone_header.jpg" alt="korone_pixiv92686622" ></a></div>
             <div class="img1"><a href="https://www.pixiv.net/artworks/92686622" target="new"><img src="images/92686622_korone_header.jpg" alt="korone_pixiv92686622"></a></div>
             <div class="img2"><a href="https://www.pixiv.net/artworks/92838286" target="new"><img src="images/92838286_korone_header.jpg" alt="korone_pixiv92838286"></a></div>
-            <div class="img3"><a href="https://www.pixiv.net/artworks/93132546" target="new"><img src="images/93132546_korone_header.jpg" alt="korone_pixiv93132546"></a></div>
+            <div class="img3"><a href="https://twitter.com/fuka_hire/status/1381973482099990534/photo/1" target="new"><img src="images/1381973482099990534_korone_header.jpg" alt="korone_twitter1381973482099990534"></a></div>
+            <div class="img4"><a href="https://www.pixiv.net/artworks/93132546" target="new"><img src="images/93132546_korone_header.jpg" alt="korone_pixiv93132546"></a></div>
         </div>
     </header>
     <nav>
@@ -110,7 +113,7 @@
 
     <div class="vt_main">
         <section class="vt_content1 vt_content">
-            <article>
+            <article id="c1_1">
                 <h2>麵包狗</h2>
                 <div>
                     <div><a href="images/76909869_koronne.jpg" data-fancybox data-caption="圖片取自於pixiv 76909869 繪師 : @kurumi_tsuchi"><img src="images/76909869_koronne_title.jpg" alt="戌神沁音" title="麵包狗"></a></div>
@@ -120,7 +123,7 @@
         </section>
         <section class="vt_content2 vt_content">
             <div class="content_pos"><h1>人物介紹</h1></div>
-            <article>
+            <article id="c2_1">
                 <div class="content_text">
                     <h3>中文名稱 : 戌神沁音</h3>
                     <h3>日文名稱 : 戌神沁音 | いぬがみ ころね</h3>
@@ -133,21 +136,21 @@
         </section>
         <section class="vt_content3 vt_content">
             <div class="content_pos"><h1>VTuber事蹟</h1></div> 
-            <article class="c1">
+            <article id="c3_1">
                 <a href="images/korone_card_1.gif" data-fancybox="vt_c3" data-caption="困惑沁音 | 圖片取自於tenor.com Inugami Korone Hololive GIF" ><img src="images/korone_card_1.jpg" alt="問號沁音" title="問號沁音"></a>
                 <div class="content_text">
                     <h3>困惑沁音</h3>
                     <p><a href="https://www.youtube.com/watch?v=KA8kdtQ-m5g#t=3610s" target="new">直播中</a>戌神沁音表現出一臉困惑。<br><a href="https://www.youtube.com/watch?v=QVtaMwDqs3k" target="new">國外網友</a>將沁音的表情加上數學背景做成謎因動畫圖。</p>
                 </div>
             </article>
-            <article class="c2">
+            <article id="c3_2">
                 <a href="images/korone_card_02.jpg" data-fancybox="vt_c3" data-caption="圖片取自於 ころね 實況勇者が弱すぎるRPG！？！？ 影片截圖" ><img src="images/korone_card_2.jpg" alt="戌神沁音" title="沁音笑"></a>
                 <div class="content_text">
                     <h3>狗狗遊戲</h3>
                     <p>戌神沁音經常實況各種遊戲，因此有網友將一系列實況製作成<a href="https://www.youtube.com/watch?v=v7DHfUXhqgQ&list=PLg7v2jGH_QmjuPxgpfG228eZaFW3ttxQM&index=15" target="new">精華</a>，可以看見沁音在玩遊戲時的獨特笑聲。</p>
                 </div>
             </article>
-            <article class="c3">
+            <article id="c3_3">
                 <a href="images/79108022_card_3.jpg" data-fancybox="vt_c3" data-caption="圖片取自於pixiv : 79108022 繪師 : @Ta1_murata" ><img src="images/79108022_card_03.jpg" alt="戌神沁音" title="齁拉唷"></a>
                 <div class="content_text">
                     <h3>ほらよ～齁拉唷</h3>
@@ -158,22 +161,22 @@
         </section>
 
         <section class="vt_content4">
-            <div class="vt_video_div">
+            <div class="vt_video_div" id="vt_video_div">
                 <h1>狗狗念英文</h1>
                 <video muted src="video/korone_c4.mp4" controls loop></video>
             </div>
-            <section class="vt_audio_div">
+            <section class="vt_audio_div" id="vt_audio_div">
                 <div>
                     <h4>齁拉唷~ほらよ～</h4>
-                    <audio src="audio/korone01.mp3" controls></audio>
+                    <audio src="audio/korone01.mp3" controls loop></audio>
                     <h4>沁音學佩克拉笑聲</h4>
-                    <audio src="audio/korone02.mp3" controls></audio>
+                    <audio src="audio/korone02.mp3" controls loop></audio>
                 </div>
                 <div>
                     <h4>繩文土器土器</h4>
-                    <audio src="audio/korone03.mp3" controls></audio>
+                    <audio src="audio/korone03.mp3" controls loop></audio>
                     <h4>狗狗狂笑</h4>
-                    <audio src="audio/korone04.mp3" controls></audio>
+                    <audio src="audio/korone04.mp3" controls loop></audio>
                 </div>
             </section>
         </section>
@@ -185,34 +188,16 @@
         <p>經常看狗狗直播的你</p>
         <div class="footer_top_text"><a href="#" class="go_top go_top1"><img src="images/top.png" title="回去頂部囉"></a>千萬不要被傳染了<span title="根據萌娘百科資料顯示是來自奶奶的口音，具有非常強的傳染性">「沁音口音」</span><a href="#" class="go_top go_top2"><img src="images/top.png" title="回去頂部囉"></a></div>
         <p title="擊掌的顏文字">ヽ(∀゜ )人( ゜∀)ノ</p>
+        <p>為確保效能消耗最低，本網頁有異常顯示請重新整理頁面。</p>
         <p class="footer_pc">本網站使用flex佈局，請使用firefox或chrome瀏覽器等主流瀏覽器獲得最佳體驗</p>
 
     </footer>
 
 
     <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/layout.js"></script>
     <script src="js/vt_javascript.js"></script>
-    <script src="js/jquery.fancybox.min.js"></script>   
-    <script>
-            window.addEventListener('scroll',function(){
-                const now_height = document.documentElement.scrollTop;
-                const height = document.documentElement.clientHeight;
-                const vt_video_div = document.querySelector('.vt_video_div')
-                const vt_audio_div = document.querySelector('.vt_audio_div')
-    
-                const vt_video_div_top = document.querySelector('.vt_video_div').offsetTop;
-                const vt_audio_div_top = document.querySelector('.vt_audio_div').offsetTop;
-    
-                const vt_control_video_div = vt_video_div_top - height <= now_height-100;
-                const vt_control_audio_div = vt_audio_div_top - height <= now_height-100;
-    
-                if(vt_control_video_div === true){
-                vt_video_div.classList.add('vt_content_ani')
-                }
-                if(vt_control_audio_div === true){
-                    vt_audio_div.classList.add('vt_content_ani')
-                }
-            })
-    </script>
+    <script src="js/jquery.fancybox.min.js"></script>
+
 </body>
 </html>

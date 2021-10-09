@@ -1,190 +1,107 @@
 
-
-
-    const mob_menu_div = document.getElementById('mob_menu_div')
-    const mob_top = document.getElementById('mob_top')
-
-    const control_header_img1 = document.getElementById('control_header_img1')
-    const control_header_img2 = document.getElementById('control_header_img2')
-    const control_header_img3 = document.getElementById('control_header_img3')
-    const control_header_img4 = document.getElementById('control_header_img4')
-    const header_div1 = document.querySelector('.img1')
-    const header_div2 = document.querySelector('.img2')
-    const header_div3 = document.querySelector('.img3')
-    const header_div4 = document.querySelector('.img4')
+window.addEventListener('load',function(){
 
     //以下動畫不可用迴圈 消耗效能過大
     // const vt_player_all = Array.from(document.querySelectorAll('.vt_player'))
     // const vt_player_top = vt_player_all.map(item => item.offsetTop)
+
+    const vt_player1 = document.getElementById('vt_player1')
+    const vt_player2 = document.getElementById('vt_player2')
+    const vt_player3 = document.getElementById('vt_player3')
+    const vt_player4 = document.getElementById('vt_player4')
+    const vt_player5 = document.getElementById('vt_player5')
+    const vt_player6 = document.getElementById('vt_player6')
+    const vt_player7 = document.getElementById('vt_player7')
+    const vt_player8 = document.getElementById('vt_player8')
+    const vt_player9 = document.getElementById('vt_player9')
+    const vt_player10 = document.getElementById('vt_player10')
+    const vt_player11 = document.getElementById('vt_player11')
+    const vt_player12 = document.getElementById('vt_player12')
+    const vt_player13 = document.getElementById('vt_player13')
+    const vt_player14 = document.getElementById('vt_player14')
+    const vt_player15 = document.getElementById('vt_player15')
+    const vt_player16 = document.getElementById('vt_player16')
+    const vt_player17 = document.getElementById('vt_player17')
+    const vt_player18 = document.getElementById('vt_player18')
+    const vt_player19 = document.getElementById('vt_player19')
+    const vt_player20 = document.getElementById('vt_player20')
+    const vt_player21 = document.getElementById('vt_player21')
+    const vt_player22 = document.getElementById('vt_player22')
+    const vt_player23 = document.getElementById('vt_player23')
+    const vt_player24 = document.getElementById('vt_player24')
+    const vt_player25 = document.getElementById('vt_player25')
+    const vt_player26 = document.getElementById('vt_player26')
+    const vt_player27 = document.getElementById('vt_player27')
+    const vt_player28 = document.getElementById('vt_player28')
+    const vt_player29 = document.getElementById('vt_player29')
+    const vt_player30 = document.getElementById('vt_player30')
+    const vt_player31 = document.getElementById('vt_player31')
+    const vt_player32 = document.getElementById('vt_player32')
+    const vt_player33 = document.getElementById('vt_player33')
+    const vt_player34 = document.getElementById('vt_player34')
+    const vt_player35 = document.getElementById('vt_player35')
+    const vt_player36 = document.getElementById('vt_player36')
+    const vt_player37 = document.getElementById('vt_player37')
+    const vt_player38 = document.getElementById('vt_player38')
+    const vt_player39 = document.getElementById('vt_player39')
+    const vt_player40 = document.getElementById('vt_player40')
+
+
     
-    const vt_player1 = document.querySelector('.vt_player1')
-    const vt_player2 = document.querySelector('.vt_player2')
-    const vt_player3 = document.querySelector('.vt_player3')
-    const vt_player4 = document.querySelector('.vt_player4')
-    const vt_player5 = document.querySelector('.vt_player5')
-    const vt_player6 = document.querySelector('.vt_player6')
-    const vt_player7 = document.querySelector('.vt_player7')
-    const vt_player8 = document.querySelector('.vt_player8')
-    const vt_player9 = document.querySelector('.vt_player9')
-    const vt_player10 = document.querySelector('.vt_player10')
-    const vt_player11 = document.querySelector('.vt_player11')
-    const vt_player12 = document.querySelector('.vt_player12')
-    const vt_player13 = document.querySelector('.vt_player13')
-    const vt_player14 = document.querySelector('.vt_player14')
-    const vt_player15 = document.querySelector('.vt_player15')
-    const vt_player16 = document.querySelector('.vt_player16')
-    const vt_player17 = document.querySelector('.vt_player17')
-    const vt_player18 = document.querySelector('.vt_player18')
-    const vt_player19 = document.querySelector('.vt_player19')
-    const vt_player20 = document.querySelector('.vt_player20')
-    const vt_player21 = document.querySelector('.vt_player21')
-    const vt_player22 = document.querySelector('.vt_player22')
-    const vt_player23 = document.querySelector('.vt_player23')
-    const vt_player24 = document.querySelector('.vt_player24')
-    const vt_player25 = document.querySelector('.vt_player25')
-    const vt_player26 = document.querySelector('.vt_player26')
-    const vt_player27 = document.querySelector('.vt_player27')
-    const vt_player28 = document.querySelector('.vt_player28')
-    const vt_player29 = document.querySelector('.vt_player29')
-    const vt_player30 = document.querySelector('.vt_player30')
-    const vt_player31 = document.querySelector('.vt_player31')
-    const vt_player32 = document.querySelector('.vt_player32')
-    const vt_player33 = document.querySelector('.vt_player33')
-    const vt_player34 = document.querySelector('.vt_player34')
-    const vt_player35 = document.querySelector('.vt_player35')
-    const vt_player36 = document.querySelector('.vt_player36')
-    const vt_player37 = document.querySelector('.vt_player37')
-    const vt_player38 = document.querySelector('.vt_player38')
-    const vt_player39 = document.querySelector('.vt_player39')
-    const vt_player40 = document.querySelector('.vt_player40')
-
-
-    const vt_player_1_top = vt_player1.offsetTop
-    const vt_player2_top = vt_player2.offsetTop
-    const vt_player3_top = vt_player3.offsetTop
-    const vt_player4_top = vt_player4.offsetTop
-    const vt_player5_top = vt_player5.offsetTop
-    const vt_player6_top = vt_player6.offsetTop
-    const vt_player7_top = vt_player7.offsetTop
-    const vt_player8_top = vt_player8.offsetTop
-    const vt_player9_top = vt_player9.offsetTop
-    const vt_player10_top = vt_player10.offsetTop
-    const vt_player11_top = vt_player11.offsetTop
-    const vt_player12_top = vt_player12.offsetTop
-    const vt_player13_top = vt_player13.offsetTop
-    const vt_player14_top = vt_player14.offsetTop
-    const vt_player15_top = vt_player15.offsetTop
-    const vt_player16_top = vt_player16.offsetTop
-    const vt_player17_top = vt_player17.offsetTop
-    const vt_player18_top = vt_player18.offsetTop
-    const vt_player19_top = vt_player19.offsetTop
-    const vt_player20_top = vt_player20.offsetTop
-    const vt_player21_top = vt_player21.offsetTop
-    const vt_player22_top = vt_player22.offsetTop
-    const vt_player23_top = vt_player23.offsetTop
-    const vt_player24_top = vt_player24.offsetTop
-    const vt_player25_top = vt_player25.offsetTop
-    const vt_player26_top = vt_player26.offsetTop
-    const vt_player27_top = vt_player27.offsetTop
-    const vt_player28_top = vt_player28.offsetTop
-    const vt_player29_top = vt_player29.offsetTop
-    const vt_player30_top = vt_player30.offsetTop
-    const vt_player31_top = vt_player31.offsetTop
-    const vt_player32_top = vt_player32.offsetTop
-    const vt_player33_top = vt_player33.offsetTop
-    const vt_player34_top = vt_player34.offsetTop
-    const vt_player35_top = vt_player35.offsetTop
-    const vt_player36_top = vt_player36.offsetTop
-    const vt_player37_top = vt_player37.offsetTop
-    const vt_player38_top = vt_player38.offsetTop
-    const vt_player39_top = vt_player39.offsetTop
-    const vt_player40_top = vt_player40.offsetTop
-
-
-    //svg切換
-    const svg1 = document.getElementById('svg1')
-    const svg2 = document.getElementById('svg2')
-    const mob_menu_control = document.querySelector('.mob_menu_control')
-    mob_menu_control.addEventListener('click',function(){
-        const svg1_view = window.getComputedStyle(svg1,null).opacity
-        const svg2_view = window.getComputedStyle(svg2,null).opacity
-        if(svg1_view === '1'){
-            svg1.style.opacity = '0';
-            svg2.style.opacity = '1';
-        }else if(svg2_view === '1'){
-            svg1.style.opacity = '1';
-            svg2.style.opacity = '0';
-        }
-    })
-
-    //輪播圖切換固定順序圖片
-    function header1(){
-        control_header_img1.checked = true
-    }
-    function header2(){
-        control_header_img2.checked = true
-    }
-    function header3(){
-        control_header_img3.checked = true
-    }
-    function header4(){
-        control_header_img4.checked = true
-    }
-    
-    setTimeout(() => {
-        header2()
-    }, 5000);
-    setTimeout(() => {
-        header3()
-    }, 10000);
-    setTimeout(() => {
-        header4()
-    }, 15000);
-    setInterval(() => {
-        setTimeout(() => {
-            header1()
-        }, 0);
-        setTimeout(() => {
-            header2()
-        }, 5000);
-        setTimeout(() => {
-            header3()
-        }, 10000);
-        setTimeout(() => {
-            header4()
-        }, 15000);
-    }, 20000);
-
-
-    //top_btn按鈕效果
-    $('.go_top img,#mob_top').on("click",function(){
-        $('html').animate({scrollTop: 0,},1000);
-    })
-
-    //mob的menu3開關
-    document.querySelector('.menu3_control').addEventListener('click',function(){
-        const menu3 = document.querySelector('.menu3');
-        const menu3_display = window.getComputedStyle(menu3,null).display;
-        if(menu3_display === 'none'){
-            menu3.style.display = 'block';
-        }else{
-            menu3.style.display = 'none';
-        }
-    })
-
-
     // 以下建構子函式效能比原來消耗更大
     // class Player_ani{
-    //     add_ani(event){
-    //         event.classList.add('vt_player_ani')
-    //     }
-    //     remove_ani(event){
-    //         event.classList.remove('vt_player_ani')
-    //     }
-    // }
-
-
+        //     add_ani(event){
+            //         event.classList.add('vt_player_ani')
+            //     }
+            //     remove_ani(event){
+                //         event.classList.remove('vt_player_ani')
+                //     }
+                // }
+                
+                
     window.addEventListener('scroll',function(){
+        //確保使用者拉縮畫面導致取頂距離不準確 不重整畫面顯示異常因此將取頂放入scroll監控內
+        const vt_player_1_top = vt_player1.offsetTop
+        const vt_player2_top = vt_player2.offsetTop
+        const vt_player3_top = vt_player3.offsetTop
+        const vt_player4_top = vt_player4.offsetTop
+        const vt_player5_top = vt_player5.offsetTop
+        const vt_player6_top = vt_player6.offsetTop
+        const vt_player7_top = vt_player7.offsetTop
+        const vt_player8_top = vt_player8.offsetTop
+        const vt_player9_top = vt_player9.offsetTop
+        const vt_player10_top = vt_player10.offsetTop
+        const vt_player11_top = vt_player11.offsetTop
+        const vt_player12_top = vt_player12.offsetTop
+        const vt_player13_top = vt_player13.offsetTop
+        const vt_player14_top = vt_player14.offsetTop
+        const vt_player15_top = vt_player15.offsetTop
+        const vt_player16_top = vt_player16.offsetTop
+        const vt_player17_top = vt_player17.offsetTop
+        const vt_player18_top = vt_player18.offsetTop
+        const vt_player19_top = vt_player19.offsetTop
+        const vt_player20_top = vt_player20.offsetTop
+        const vt_player21_top = vt_player21.offsetTop
+        const vt_player22_top = vt_player22.offsetTop
+        const vt_player23_top = vt_player23.offsetTop
+        const vt_player24_top = vt_player24.offsetTop
+        const vt_player25_top = vt_player25.offsetTop
+        const vt_player26_top = vt_player26.offsetTop
+        const vt_player27_top = vt_player27.offsetTop
+        const vt_player28_top = vt_player28.offsetTop
+        const vt_player29_top = vt_player29.offsetTop
+        const vt_player30_top = vt_player30.offsetTop
+        const vt_player31_top = vt_player31.offsetTop
+        const vt_player32_top = vt_player32.offsetTop
+        const vt_player33_top = vt_player33.offsetTop
+        const vt_player34_top = vt_player34.offsetTop
+        const vt_player35_top = vt_player35.offsetTop
+        const vt_player36_top = vt_player36.offsetTop
+        const vt_player37_top = vt_player37.offsetTop
+        const vt_player38_top = vt_player38.offsetTop
+        const vt_player39_top = vt_player39.offsetTop
+        const vt_player40_top = vt_player40.offsetTop
+    
 
         const body_height = document.body.scrollHeight;
         mob_menu_div.style.height = `${body_height}px`;
@@ -447,3 +364,5 @@
         }
     })
 
+
+})

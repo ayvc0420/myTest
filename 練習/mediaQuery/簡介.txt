@@ -91,3 +91,9 @@ miko.html pekora.html 修復audio區域動畫異常 修改pc及mobile的menu3字
 1009
 4個介紹成員mob_menu選單新增logo圖 新增recommendYoutube.html 修改原內容變更為術語及日翻中頻道 獨立js.css檔
 花費時間2.5~3hr
+
+修改大部分querySelector變更為getElementById 降低效能消耗 共用layout.js設定 debug vt_rushia.js重整離頂元素異常動畫觸發條件持續為true
+花費時間1.5hr
+
+修改全部.html部分設定 標籤 加上註明與"為確保效能消耗最低，本網頁有異常顯示請重新整理頁面。" 除vtuber.htlm以外 
+花費時間1hr

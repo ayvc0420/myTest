@@ -43,7 +43,7 @@
 <body style="background-color: #d7f6ff;">
     <img src="images/mob_top.png" alt="go_top" id="mob_top" class="mob_btn_anim" title="回去頂部囉">
     <section class="mob_header">
-        <label for="mob_menu" class="mob_menu_control">
+        <label for="mob_menu" class="mob_menu_control" id="mob_menu_control">
             <svg width="50" height="40" class="svg1" id="svg1">
                 <line x1="10" y1="10" x2="40" y2="10" stroke="black" stroke-width="4"> </line>
                 <line x1="10" y1="20" x2="40" y2="20" stroke="black" stroke-width="4"> </line>
@@ -77,15 +77,18 @@
             <input type="radio" name="control_header_img" id="control_header_img1" checked>
             <input type="radio" name="control_header_img" id="control_header_img2">
             <input type="radio" name="control_header_img" id="control_header_img3">
+            <input type="radio" name="control_header_img" id="control_header_img4">
             <div class="header_label_div">
                 <label for="control_header_img1" class="header_label"></label>
                 <label for="control_header_img2" class="header_label"></label>
                 <label for="control_header_img3" class="header_label"></label>
+                <label for="control_header_img4" class="header_label"></label>
             </div>
             <div class="img0"><a href="https://www.pixiv.net/artworks/87000012" target="new"><img src="images/87000012_pekora_header.jpg" alt="pekora_pixiv87000012" ></a></div>
             <div class="img1"><a href="https://www.pixiv.net/artworks/87000012" target="new"><img src="images/87000012_pekora_header.jpg" alt="pekora_pixiv87000012"></a></div>
             <div class="img2"><a href="https://www.pixiv.net/artworks/78720872" target="new"><img src="images/78720872_pekora_header.jpg" alt="pekora_pixiv78720872"></a></div>
             <div class="img3"><a href="https://www.pixiv.net/artworks/84438656" target="new"><img src="images/84438656_pekora_header.jpg" alt="pekora_pixiv84438656"></a></div>
+            <div class="img4"><a href="https://www.pixiv.net/artworks/86614544" target="new"><img src="images/86614544_pekora_header.jpg" alt="pekora_pixiv84438656"></a></div>
         </div>
     </header>
     <nav>
@@ -110,7 +113,7 @@
 
     <div class="vt_main">
         <section class="vt_content1 vt_content">
-            <article>
+            <article id="c1_1">
                 <h2>兔田建設社長</h2>
                 <div>
                     <div><a href="images/usadapekora.jpg" data-fancybox data-caption="圖片取自於pixiv 86162773 繪師 : @TorinoAqua"><img src="images/usadapekora_title.jpg" alt="兔田佩克拉" title="兔田建設社長"></a></div>
@@ -120,7 +123,7 @@
         </section>
         <section class="vt_content2 vt_content">
             <div class="content_pos"><h1>人物介紹</h1></div>
-            <article>
+            <article id="c2_1">
                 <div class="content_text">
                     <h3>中文名稱 : 兔田佩克拉</h3>
                     <h3>日文名稱 : 兎田ぺこら | うさだぺこら</h3>
@@ -133,7 +136,7 @@
         </section>
         <section class="vt_content3 vt_content">
             <div class="content_pos"><h1>VTuber事蹟</h1></div> 
-            <article class="c1">
+            <article id="c3_1">
                 <a href="images/usadapekora_card_1.jpg" data-fancybox="vt_c3" data-caption="圖片取自於pixiv : 86905748 繪師 : @pikao_s" ><img src="images/usadapekora_card_01.jpg" alt="兔子與族長" title="一群兔子和族長"></a>
                 <div class="content_text">
                     <h3>族長的稱呼</h3>
@@ -141,14 +144,14 @@
                         直播中經常可以看到野兔們想盡各種辦法<span title="欺負兔田佩克拉感到快樂">虐兔</span>。</p>
                 </div>
             </article>
-            <article class="c2">
+            <article id="c3_2">
                 <a href="images/usadapekora_card_2.jpg" data-fancybox="vt_c3" data-caption="圖片取自於pixiv : 85609251 繪師 : @usachan0827" ><img src="images/usadapekora_card_02.jpg" alt="佩克拉與咚醬" title="咚醬纏繞在佩克拉脖子上"></a>
                 <div class="content_text">
                     <h3>咚醬吉祥物</h3>
                     <p>圍繞在脖子上的圍巾其實是兔子，名字是咚醬，是佩克拉的好夥伴，2021年4月1日愚人節<span title="咚醬因紅蘿蔔而纏住佩克拉的腳導致負重">佩克拉遭到咚醬的背叛無法逃離監牢</span>。</p>
                 </div>
             </article>
-            <article class="c3">
+            <article id="c3_3">
                 <a href="images/usadapekora_card_3.jpg" data-fancybox="vt_c3" data-caption="圖片取自於pixiv : 81343610 繪師 : @Seic_Oh" ><img src="images/usadapekora_card_03.jpg" alt="屑兔繪圖照" title="充滿賤屬性的佩克拉"></a>
                 <div class="content_text">
                     <h3>屑兔</h3>
@@ -158,11 +161,11 @@
         </section>
 
         <section class="vt_content4">
-            <div class="vt_video_div">
+            <div class="vt_video_div" id="vt_video_div">
                 <h1>洗腦的佩克拉</h1>
                 <video muted src="video/pekora_c4.mp4" controls loop></video>
             </div>
-            <section class="vt_audio_div">
+            <section class="vt_audio_div" id="vt_audio_div">
                 <div>
                     <h4>kitira兔語</h4>
                     <audio src="audio/pekora01.mp3" controls></audio>
@@ -185,34 +188,16 @@
         <p>族長的屬性非常的屑又賤</p>
         <div class="footer_top_text"><a href="#" class="go_top go_top1"><img src="images/top.png" title="回去頂部囉"></a>歡迎你加入野兔聯盟想盡辦法虐兔<a href="#" class="go_top go_top2"><img src="images/top.png" title="回去頂部囉"></a></div>
         <p title="尷尬的顏文字">ー (*￣∀￣*) ー</p>
+        <p>為確保效能消耗最低，本網頁有異常顯示請重新整理頁面。</p>
         <p class="footer_pc">本網站使用flex佈局，請使用firefox或chrome瀏覽器等主流瀏覽器獲得最佳體驗</p>
 
     </footer>
 
 
     <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/layout.js"></script>
     <script src="js/vt_javascript.js"></script>
     <script src="js/jquery.fancybox.min.js"></script>   
-    <script>
-            window.addEventListener('scroll',function(){
-                const now_height = document.documentElement.scrollTop;
-                const height = document.documentElement.clientHeight;
-                const vt_video_div = document.querySelector('.vt_video_div')
-                const vt_audio_div = document.querySelector('.vt_audio_div')
-    
-                const vt_video_div_top = document.querySelector('.vt_video_div').offsetTop;
-                const vt_audio_div_top = document.querySelector('.vt_audio_div').offsetTop;
-    
-                const vt_control_video_div = vt_video_div_top - height <= now_height-100;
-                const vt_control_audio_div = vt_audio_div_top - height <= now_height-100;
-    
-                if(vt_control_video_div === true){
-                vt_video_div.classList.add('vt_content_ani')
-                }
-                if(vt_control_audio_div === true){
-                    vt_audio_div.classList.add('vt_content_ani')
-                }
-            })
-    </script>
+
 </body>
 </html>

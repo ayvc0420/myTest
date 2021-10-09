@@ -1,6 +1,23 @@
 const mob_menu_div = document.getElementById('mob_menu_div')
 const mob_top = document.getElementById('mob_top')
 
+//svg切換
+const svg1 = document.getElementById('svg1')
+const svg2 = document.getElementById('svg2')
+const mob_menu_control = document.getElementById('mob_menu_control')
+mob_menu_control.addEventListener('click',function(){
+    const svg1_view = window.getComputedStyle(svg1,null).opacity
+    // const svg2_view = window.getComputedStyle(svg2,null).opacity
+    if(svg1_view === '1'){
+        svg1.style.opacity = '0';
+        svg2.style.opacity = '1';
+    }else{
+        svg1.style.opacity = '1';
+        svg2.style.opacity = '0';
+    }
+})
+
+//輪播圖
 const control_header_img1 = document.getElementById('control_header_img1')
 const control_header_img2 = document.getElementById('control_header_img2')
 const control_header_img3 = document.getElementById('control_header_img3')
@@ -9,22 +26,6 @@ const header_div1 = document.querySelector('.img1')
 const header_div2 = document.querySelector('.img2')
 const header_div3 = document.querySelector('.img3')
 const header_div4 = document.querySelector('.img4')
-//svg切換
-const svg1 = document.getElementById('svg1')
-const svg2 = document.getElementById('svg2')
-const mob_menu_control = document.querySelector('.mob_menu_control')
-mob_menu_control.addEventListener('click',function(){
-    const svg1_view = window.getComputedStyle(svg1,null).opacity
-    const svg2_view = window.getComputedStyle(svg2,null).opacity
-    if(svg1_view === '1'){
-        svg1.style.opacity = '0';
-        svg2.style.opacity = '1';
-    }else if(svg2_view === '1'){
-        svg1.style.opacity = '1';
-        svg2.style.opacity = '0';
-    }
-})
-
 //輪播圖切換固定順序圖片
 function header1(){
     control_header_img1.checked = true
@@ -41,27 +42,27 @@ function header4(){
 
 setTimeout(() => {
     header2()
-}, 5000);
+}, 4000);
 setTimeout(() => {
     header3()
-}, 10000);
+}, 8000);
 setTimeout(() => {
     header4()
-}, 15000);
+}, 12000);
 setInterval(() => {
     setTimeout(() => {
         header1()
     }, 0);
     setTimeout(() => {
         header2()
-    }, 5000);
+    }, 4000);
     setTimeout(() => {
         header3()
-    }, 10000);
+    }, 8000);
     setTimeout(() => {
         header4()
-    }, 15000);
-}, 20000);
+    }, 12000);
+}, 16000);
 
 
 //top_btn按鈕效果
