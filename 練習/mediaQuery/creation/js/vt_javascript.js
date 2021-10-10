@@ -54,9 +54,9 @@ window.addEventListener('load',function(){
     
         const vt_control1 = vt_content1_top - height <= now_height-100;
         const vt_control2 = vt_content2_top - height <= now_height-100;
-        const vt_control3_c1 = vt_content3_c1_top - height <= now_height;
-        const vt_control3_c2 = vt_content3_c2_top - height <= now_height;
-        const vt_control3_c3 = vt_content3_c3_top - height <= now_height;
+        const vt_control3_c1 = vt_content3_c1_top - height <= now_height-30;
+        const vt_control3_c2 = vt_content3_c2_top - height <= now_height-30;
+        const vt_control3_c3 = vt_content3_c3_top - height <= now_height-30;
     
         if(vt_control_video_div === true){
             vt_video_div.classList.add('vt_content_ani')
