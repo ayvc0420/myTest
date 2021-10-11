@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-size: 2rem;
+        }
+        div{
+            display: inline-block;
+        }
+        #check1:checked ~ div{
+            color: blue;
+        }
+        #check2:checked + span{
+            color: red;
+        }
+        #check3:checked ~ span{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <label for="check1">1</label>
+    <input type="checkbox" name="" id="check1">
+    
+    <label for="check2">2</label>
+    <input type="checkbox" name="" id="check2">
+    <span>span1</span>
+    <div>div1</div>
+    <label for="check3">3</label>
+    <input type="checkbox" name="" id="check3">
+    <br>
+    <div>div2</div>
+    <div>div3</div>
+    <span>span2</span>
+    <div>div4</div>
+    <span>span3</span>
+    <div>div5</div>
+    <div>div6</div>
+    <div>div7</div>
+    <div>div8</div>
+    <div>div9</div>
+    <div>div10</div>
+</body>
+</html>

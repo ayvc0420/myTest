@@ -1,0 +1,14 @@
+1.html 
+checked +號 ~號實測
+
+花費時間10分鐘
+
+2.html
+checked選擇器
+
+花費時間5分鐘
+
+3.html
+簡單做一個頁籤式切換 不使用javascript
+
+花費時間30分鐘

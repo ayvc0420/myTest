@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+        .test1{
+            width: 800px;
+            margin: auto;
+            border: 1px solid #444;
+        }
+        .test1 input[type="radio"]{
+            display: none;
+        }
+        .test1 .test1_label{
+            display: flex;
+            justify-content: space-around;
+            position: relative;
+            padding-top: 20px;
+            background-color: orange;
+            /* border-bottom: 1px solid #444; */
+        }
+        .test1 .test1_label div{
+            padding: 30px 0;
+            width: 100%;
+            border-bottom: 1px solid #444;
+            position: absolute;
+            z-index: 1;
+        }
+        .test1 .test1_label label{
+            padding: 20px 30px;
+            cursor: pointer;
+            background-color: salmon;
+            border: 2px solid #444;
+            /* border-bottom: none; */
+            z-index: 5;
+        }
+        .test1_container{
+            position: relative;
+            padding: 30px;
+        }
+        .test1_container div{
+            /* position: absolute; */
+            display: none;
+        }
+        .test1_container img{
+            vertical-align: middle;
+            width: 100%;
+            margin: auto;
+        }
+        #c1:checked ~ .test1_container .content1{
+            display: block;
+        }
+        #c1:checked ~ .test1_label label:nth-of-type(1){
+            background-color: white;
+            border-bottom: 2px solid white;
+        }
+        #c2:checked ~ .test1_container .content2{
+            display: block;
+        }
+        #c2:checked ~ .test1_label label:nth-of-type(2){
+            background-color: white;
+            border-bottom: 2px solid white;
+        }
+        #c3:checked ~ .test1_container .content3{
+            display: block;
+        }
+        #c3:checked ~ .test1_label label:nth-of-type(3){
+            background-color: white;
+            border-bottom: 2px solid white;
+        }
+        #c4:checked ~ .test1_container .content4{
+            display: block;
+        }
+        #c4:checked ~ .test1_label label:nth-of-type(4){
+            background-color: white;
+            border-bottom: 2px solid white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <section class="test1">
+        <input type="radio" name="test1_r1" id="c1" checked>
+        <input type="radio" name="test1_r1" id="c2">
+        <input type="radio" name="test1_r1" id="c3">
+        <input type="radio" name="test1_r1" id="c4">
+
+        <div class="test1_label">
+            <div></div>
+            <label for="c1">bookmark1</label>
+            <label for="c2">bookmark2</label>
+            <label for="c3">bookmark3</label>
+            <label for="c4">bookmark4</label>
+        </div>
+
+        <article class="test1_container">
+            <div class="content1">
+                <img src="images/file_369949.png" alt="">
+                <p>Lorem1 ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, necessitatibus error suscipit iste quos quae repudiandae beatae rem esse harum?</p>
+            </div>
+            <div class="content2">
+                <img src="images/file_369950.png" alt="">
+                <p>Lorem2 ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, necessitatibus error suscipit iste quos quae repudiandae beatae rem esse harum?</p>
+            </div>
+            <div class="content3">
+                <img src="images/file_369951.png" alt="">
+                <p>Lorem3 ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, necessitatibus error suscipit iste quos quae repudiandae beatae rem esse harum?</p>
+            </div>
+            <div class="content4">
+                <img src="images/file_369952.png" alt="">
+                <p>Lorem4 ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, necessitatibus error suscipit iste quos quae repudiandae beatae rem esse harum?</p>
+            </div>
+        </article>
+
+    </section>
+    <script>
+        
+        console.log(typeof(document.querySelector('.test1_label table')))
+    </script>
+</body>
+</html>
