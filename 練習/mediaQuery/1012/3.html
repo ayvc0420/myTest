@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            height: 100vh;
+            font-size: 30vh;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @keyframes box {
+            10%{
+                color: yellow;
+                background-color: thistle;
+            }
+            20%{
+                color: rgb(255, 71, 71);
+                background-color: rgb(255, 158, 255);
+            }
+            30%{
+                color: rgb(0, 255, 13);
+                background-color: rgb(100, 255, 178);
+            }
+            40%{
+                color: rgb(0, 17, 255);
+                background-color: rgb(108, 135, 255);
+            }
+            50%{
+                color: rgb(0, 238, 255);
+                background-color: rgb(255, 59, 134);
+            }
+            60%{
+                color: rgb(255, 0, 221);
+                background-color: rgb(227, 255, 70);
+            }
+            70%{
+                color: rgb(255, 0, 0);
+                background-color: rgb(255, 21, 21);
+            }
+            80%{
+                color: rgb(0, 255, 13);
+                background-color: rgb(85, 255, 127);
+            }
+            90%{
+                color: rgb(0, 110, 255);
+                background-color: rgb(51, 28, 255);
+            }
+            100%{
+                color: rgb(55, 0, 255);
+                background-color: rgb(247, 0, 255);
+            }
+            
+        }
+        .box:hover{
+            animation: box 0.3s ;
+            animation-iteration-count: infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        閃爍效果
+    </div>
+</body>
+</html>

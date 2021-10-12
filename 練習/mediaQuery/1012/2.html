@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+
+    <style>/* layout */
+
+        .images{
+            background-color: rgb(255, 215, 215);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .images img{
+            vertical-align: middle;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(230, 255, 192);
+        }
+    </style>
+    <style> /* box work */
+    .work{
+        font-size: 14px;
+    }
+    .work ul,.box li{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .work a{
+        text-decoration: none;
+        color: rgb(114, 114, 114);
+        padding: 5px;
+        border-radius: 5px 5px 0 0;
+        border: 1px solid rgb(197, 197, 197);
+        background: linear-gradient(rgb(255,255,255) 60%,rgb(255, 248, 206))
+    }
+    .work a:hover{
+        color: white;
+        text-decoration: underline;
+        background: linear-gradient(360deg,rgb(255, 180, 109),rgb(255, 143, 39));
+        font-weight: 700;
+    }
+    .work .work_container li{
+        display: inline-block;
+        margin: -1.5px;
+    }
+    .work .work_container{
+        position: relative;
+        top: 5px;
+        border: 1px solid rgb(202, 202, 202);
+    }
+    .work .work_container>div{
+        /* position: absolute; */
+        top: 5px;
+    }
+    .work .work_container img{
+        width: 457.5px;
+        padding: 20px 15px;
+    }
+    .work .work_container>div:not(.c1) img{
+        display: none;
+    }
+    .work .header2:hover ~ .c2 img{
+        display: block;
+    }
+    .work .header2:hover ~ .c1 img{
+        display: none;
+    }
+
+    .work .header3:hover ~ .c3 img{
+        display: block;
+    }
+    .work .header3:hover ~ .c1 img{
+        display: none;
+    }
+    .work .header4:hover ~ .c4 img{
+        display: block;
+    }
+    .work .header4:hover ~ .c1 img{
+        display: none;
+    }
+    .work .header5:hover ~ .c5 img{
+        display: block;
+    }
+    .work .header5:hover ~ .c1 img{
+        display: none;
+    }
+    .work .header6:hover ~ .c6 img{
+        display: block;
+    }
+    .work .header6:hover ~ .c1 img{
+        display: none;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="images">
+        <img src="2.png">
+    </div>
+    <div class="box">
+        <div class="work">
+
+
+            <div class="work_container">
+                <li class="header1"><a href="#">最高回饋11%</a></li>
+                <li class="header2"><a href="#">買就抽萬元</a></li>
+                <li class="header3"><a href="#">抽5千P幣</a></li>
+                <li class="header4"><a href="#">全場35折起</a></li>
+                <li class="header5"><a href="#">抽平板跑步機</a></li>
+                <li class="header6"><a href="#">★送5000</a></li>
+                <div class="c1">
+                    <img src="images/work1.jpg" alt="">
+                </div>
+                <div class="c2">
+                    <img src="images/work2.jpg" alt="">
+                </div>
+                <div class="c3">
+                    <img src="images/work3.jpg" alt="">
+                </div>
+                <div class="c4">
+                    <img src="images/work4.jpg" alt="">
+                </div>
+                <div class="c5">
+                    <img src="images/work5.jpg" alt="">
+                </div>
+                <div class="c6">
+                    <img src="images/work6.jpg" alt="">
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+</body>
+</html>

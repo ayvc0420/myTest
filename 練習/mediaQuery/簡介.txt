@@ -38,71 +38,10 @@
 
 
 ---------------
-以下紀錄為當日結束後印象留下紀錄 詳細修改差異查看git
+1004~1011紀錄詳細查看該資料夾內說明
+---------------
 
 
-1004
-creation
-index.html 重寫css輪播圖以及動畫
-約花費4小時完成
+1011 checked +號練習 / ~號練習 / checked頁籤切換製作 自評78分 滿分100 
 
-1005
-將index.html除自動輪播以外處理完畢
-花費時間1hr
-將原vtuber.html加入至index.html後優化及動畫設置及rwd設定
-花費時間2~2.5hr
-
-pekora.html重寫動畫及html結構
-優化css處理 js優化及rwd設定
-花費時間4hr左右
-
-撰寫js自動輪播切圖功能 利用checked true及setTimeout非同步製作
-花費時間5分鐘 構思時間: 1天
-
-1006
-header圖片連結bug 處理連結異常 新增其他轉場動畫
-花費時間 1.5hr 
-
-miko.html套用動畫與html結構 修復部分bug及追加影片及音檔區塊套用動畫效果 修補vt_style.css部分BUG 
-花費時間5hr
-
-1007
-rushia套用動畫與html結構 新增更多音檔區塊 修改部分vt_style.css 解決衝突 另外獨立製作rushia.audio.js檔 音檔區塊動畫變更
-花費時間6hr
-
-vt_audio_div元素內所有標籤動畫無法正確觸發 debug後為兩層相對定位
-花費時間1.2hr
-
-miko.html pekora.html 修復audio區域動畫異常 修改pc及mobile的menu3字體顏色
-花費時間30分
-
-新增rushia_audio_img區塊 套用動畫 修改部分bug js檔宣告位置變更減少更多效能消耗
-花費時間10分+1hr
-
-新增korone.html套用動畫與html結構 蒐集影音資料及註明來源 處理圖片
-花費時間5hr
-
-1008
-新增vtuber.html 修改原內容變更為VTuber頻道 資料蒐集 圖片等
-花費時間3hr
-補完vtuber.html剩餘部分 撰寫獨立js與css檔 動畫 
-花費時間5hr
-
-1009
-4個介紹成員mob_menu選單新增logo圖 新增recommendYoutube.html 修改原內容變更為術語及日翻中頻道 獨立js.css檔
-花費時間2.5~3hr
-
-修改大部分querySelector變更為getElementById 降低效能消耗 共用layout.js設定 debug vt_rushia.js重整離頂元素異常動畫觸發條件持續為true
-花費時間1.5hr
-
-修改全部.html部分設定 標籤 加上註明與"為確保效能消耗最低，本網頁有異常顯示請重新整理頁面。" 除vtuber.htlm以外 
-花費時間1hr
-
-取消註明"為確保效能消耗最低，本網頁有異常顯示請重新整理頁面。" 經測試後實際消耗效能微乎其微 recommendYoutube.html動畫撰寫 補完剩餘部分
-花費時間3~4hr
-
-檢查-遺漏rushia.html header圖片少1
-花費時間1hr
-
-檢查-pekora.html c3_1繪師資訊註明錯誤 四個成員的c3區域觸發動畫困難增加些微
-花費時間 20分
+1012 基本圖片+標題+文字排版 / pchome切版練習 / hover閃爍效果 / hover圖片互動效果 / hover圖片互動效果2 自評76分 滿分100 (皆為基本項練習 pchome需額外花更多時間製作選取中效果)
