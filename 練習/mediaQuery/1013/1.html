@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 200px;
+            background-color: cadetblue;
+        }
+        .table table{
+            border: 3px double rgb(255, 142, 14);
+            font-size: 2rem;
+            padding: 5px;
+            text-align: center;
+            color: rgb(4, 0, 255);
+            border-radius: 5px;
+            background-color: wheat;
+        }
+        .table th{
+            border: 1px solid rgb(170, 79, 255);
+            background-color: crimson;
+        }
+        .table th:nth-of-type(1){
+            border-radius: 5px 0 0 0;
+        }
+        .table th:nth-of-type(3){
+            border-radius: 0 5px 0 0;
+        }
+        .table td{
+            border: 1px solid rgb(172, 255, 147);
+            padding: 10px 20px;
+        }
+
+        .table table tbody tr:nth-of-type(odd){
+            background-color: rgb(174, 239, 255);
+        }
+        .table table tbody tr:nth-of-type(even){
+            background-color: rgb(220, 255, 185);
+        }
+        .table tfoot{
+            background-color: rgb(197, 231, 130);
+        }
+        .table tfoot td:first-child{
+            border-radius: 0 0 0 5px ;
+        }
+        .table tfoot td:last-child{
+            border-radius: 0 0 5px 0 ;
+        }
+        .table table caption{
+            caption-side: bottom;
+            text-align: left;
+            padding: 10px;
+            font-size: 1.3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="table">
+
+        <table>
+            <caption>
+                &copy;avyc0420
+            </caption>
+            <thead>
+                <tr>
+                    <th scope="col">標題</th>
+                    <th scope="col">標題</th>
+                    <th scope="col">標題</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>內文內文內文內文</td>
+                    <td >內文內文內文內文</td>
+                    <td>內文內文內文內文</td>
+                </tr>
+                <tr>
+                    <td>內文內文內文內文</td>
+                    <td>內文內文內文內文</td>
+                    <td>內文內文內文內文</td>
+                </tr>
+                <tr>
+                    <td>內文內文內文內文</td>
+                    <td>內文內文內文內文</td>
+                    <td>內文內文內文內文</td>
+                </tr>
+                <tr>
+                    <td>內文內文內文內文</td>
+                    <td>內文內文內文內文</td>
+                    <td>內文內文內文內文</td>
+                </tr>
+                <tr>
+                    <td>內文內文內文內文</td>
+                    <td>內文內文內文內文</td>
+                    <td>內文內文內文內文</td>
+                </tr>
+                <tr>
+                    <td>內文內文內文內文</td>
+                    <td>內文內文內文內文</td>
+                    <td>內文內文內文內文</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>備註</td>
+                    <td colspan="2">結束</td>
+                </tr>
+            </tfoot>
+        </table>
+
+    </div>
+</body>
+</html>

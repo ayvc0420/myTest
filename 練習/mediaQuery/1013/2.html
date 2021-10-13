@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 10px;
+        }
+        .wrap{
+            background: red;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    
+    
+</head>
+<body>
+    
+    <button onclick="append()">btn</button>
+
+    <script>
+        function append(){
+        let wrap = document.createElement('div')
+        wrap.id = "wrap"
+        wrap.className = "wrap"
+        let wrap_text = document.createTextNode('lorem')
+        wrap.appendChild(wrap_text);
+            document.body.appendChild(wrap)
+        }
+        // document.getElementById('box').innerHTML = wrap
+        // document.write(wrap)
+    </script>
+</body>
+</html>
