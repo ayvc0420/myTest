@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <svg width="200" height="200">
+        <text x="50" y="50" fill="red">jQuery</text>
+    </svg>    
+    <div class="box">
+
+        <div class="img">
+            <img src="images/file_369750.png" class="img1">
+            <img src="images/file_369752.png" class="img2">
+            <img src="images/file_369780.png" class="img3">
+            <img src="images/file_369781.png" class="img4">
+            <img src="images/file_369782.png" class="img5">
+            <img src="images/file_369783.png" class="img6">
+            <img src="images/file_369784.png" class="img7">
+            <img src="images/file_369785.png" class="img8">
+            <img src="images/file_369913.png" class="img9">
+        </div>
+
+        <div class="btn">
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+        </div>
+
+        <div class="order">
+            <div id="order_prev">＜</div>
+            <div id="order_next">＞</div>
+        </div>
+    </div>
+
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        ;(function($){
+            let boxImg =  $('.img img');
+            let boxImgLength = boxImg.length;
+            let btn = $('.btn button');
+            let orderPrev = $('#order_prev');
+            let orderNext = $('#order_next');
+            let number = 0;
+
+            boxImg.hide();
+            $('.img1').show()
+            btn.eq(number).addClass('btn_switch');
+            // console.log(boxImg[0])
+            function imgSwitch(){
+                btn.removeClass('btn_switch').eq(number).addClass('btn_switch');
+                boxImg.fadeOut(200).eq(number).fadeIn(200);
+            }
+            
+            orderPrev.on('click',function(){
+                if(number > 0){
+                    number--;
+                }else{
+                    number = boxImgLength-1;
+                }
+                imgSwitch()
+            })
+
+            orderNext.on('click',function(){
+                if(number < boxImgLength-1){
+                    number++;
+                }else{
+                    number=0;
+                }
+                imgSwitch()
+            })
+
+            btn.on('click',function(){
+                number = $(this).index();
+                imgSwitch()
+            })
+
+        })($)
+    
+    </script>
+
+</body>
+</html>

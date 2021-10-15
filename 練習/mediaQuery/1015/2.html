@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <svg width="200" height="200">
+        <text x="50" y="50" fill="red">Vue</text>
+    </svg>
+
+    <div class="box">
+    
+        <transition-group tag="section" name="slide" class="img">
+            <img v-for="(src,index) in imgList" :src="src" :key="src" v-show="index === number">
+        </transition-group>
+
+        <div class="btn">
+            <button v-for="(src,index) in imgList" :class="{btn_switch:index === number}"></button>
+        </div>
+
+        <div class="order">
+            <div id="order_prev" @click="imgSwitch(number-1)">＜</div>
+            <div id="order_next" @click="imgSwitch(number+1)">＞</div>
+        </div>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        (function(Vue){
+
+            let vm = new Vue({
+                el: '.box',
+                data:{
+                    number : 0,
+                    imgList :[
+                        'images/file_369750.png',
+                        'images/file_369752.png',
+                        'images/file_369780.png',
+                        'images/file_369781.png',
+                        'images/file_369782.png',
+                        'images/file_369783.png',
+                        'images/file_369784.png',
+                        'images/file_369785.png',
+                        'images/file_369913.png'
+                    ]
+                },
+                computed:{
+                    imgLength(){
+                        return this.imgList.length;
+                    }
+                },
+                methods:{
+                    imgSwitch(index){
+                        this.number = (index + this.imgLength) % this.imgLength
+                    }
+                }
+    
+    
+    
+            })
+        })(Vue)
+    </script>
+</body>
+</html>
