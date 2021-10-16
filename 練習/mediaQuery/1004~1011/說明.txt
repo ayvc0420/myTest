@@ -1,4 +1,6 @@
 原資料夾:creation
+網站網址https://ayvc0420.github.io/
+舊網站網址https://ayvc0420.github.io/old
 
 
 以下紀錄為當日結束後印象留下紀錄 詳細修改差異查看git

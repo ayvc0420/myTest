@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .calc{
+            width: 1000px;
+            padding-bottom: 50px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        .calc span{
+            display: block;
+        }
+        .refer{
+            margin: auto;
+            width: 1000px;
+        }
+        img{
+        width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="calc" id="calc">
+        <div class="usd">
+            <h2>{{ usdTitle }}</h2>
+            <input type="text" v-model="usdCalc">
+            <span v-on="usd">{{ usdResult }}</span>
+        </div>
+        <div class="hkd">
+            <h2>{{ khdTitle }}</h2>
+            <input type="text" v-model="hkdCalc">
+            <span v-on="hkd">{{ hkdResult }}</span>
+        </div>
+        <div class="gbp">
+            <!-- 更簡潔寫法 -->
+            <h2>{{ gbpTitle }}</h2>
+            <input type="text" v-model="gbpCalc">
+            <span>換算成台幣有{{ gbpCalc*37.36 }}元</span>
+        </div>
+    </div>
+    <div class="refer">
+        
+        <img src="2.png" alt="">
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        document.querySelector
+        ;(function(Vue){
+
+            let calc = new Vue({
+                el: '#calc',
+                computed:{
+                    usd: function(){
+                        this.usdResult = '換算成台幣有'+this.usdCalc*27.63+'元';
+                    },
+                    hkd: function(){
+                        this.hkdResult = '換算成台幣有'+this.hkdCalc*3.449+'元';
+                    },
+                    gbp: function(){
+                        this.gbpResult = '換算成台幣有'+this.gbpCalc*37.36+'元';
+                    },
+                },
+                data:{
+                    usdTitle:'美金計算機',
+                    usdResult:null,
+                    usdCalc:'',
+                    khdTitle:'港幣計算機',
+                    hkdResult:null,
+                    hkdCalc:'',
+                    gbpTitle:'英鎊計算機',
+                    gbpResult:null,
+                    gbpCalc:'',
+
+                }
+            })
+
+        })(Vue)
+    </script>
+</body>
+</html>

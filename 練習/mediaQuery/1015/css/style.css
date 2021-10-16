@@ -68,7 +68,7 @@ body{
 }
 
 .slide-enter-active,.slide-leave-active{
-    transition: left 0.2s;
+    transition: left 0.1s;
     
 }
 .slide-enter{

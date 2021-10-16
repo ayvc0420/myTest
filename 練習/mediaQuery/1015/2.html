@@ -20,7 +20,7 @@
         </transition-group>
 
         <div class="btn">
-            <button v-for="(src,index) in imgList" :class="{btn_switch:index === number}"></button>
+            <button v-for="(src,index) in imgList" :class="{btn_switch:index === number}" @click="imgSwitch(index)"></button>
         </div>
 
         <div class="order">
@@ -33,7 +33,7 @@
     <script>
         (function(Vue){
 
-            let vm = new Vue({
+            let boxImgSwitch = new Vue({
                 el: '.box',
                 data:{
                     number : 0,
