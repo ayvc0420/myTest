@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <input type="text" @keyup.enter="inputAlert" v-model="inputContent" placeholder="輸入中文後按下Enter">
+        <button @click="inputAlert">送出</button>
+        <br>
+        <br>
+        <h3>my father</h3>
+        <span v-for="bo in fatherNickName">{{ bo }}</span>
+    </div>
+
+    <script src="js/vue.js"></script>
+
+    <script>
+        ;(function(Vue){
+
+            let wrapVm = new Vue({
+                el:'.wrap',
+                data:{
+                    fatherNickName:['jack,','handsome,','strong,'],
+                    inputContent:'',
+                },
+                computed:{
+
+                },
+                methods:{
+                    inputAlert(){
+                        var chineseReg = /^[\u4e00-\u9fa5]+$/
+                        if(chineseReg.test(this.inputContent)){
+                            alert(this.inputContent+' input!')
+                        }else{
+                            console.log(chineseReg)
+                            alert('請輸入中文!')
+                        }
+                    }
+                },
+
+            })
+
+
+        })(Vue)
+    </script>
+</body>
+</html>
