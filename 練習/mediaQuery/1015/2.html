@@ -15,7 +15,7 @@
 
     <div class="box">
     
-        <transition-group tag="section" name="slide" class="img">
+        <transition-group tag="div" name="slide" class="img">
             <img v-for="(src,index) in imgList" :src="src" :key="src" v-show="index === number">
         </transition-group>
 
