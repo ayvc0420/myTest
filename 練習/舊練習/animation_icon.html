@@ -13,20 +13,23 @@
             transform: translate(-50%, -50%) rotate(360deg);
         }
     }
+    body{
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .icon {
-        width: 200px;
-        height: 200px;
-        border: 5px solid rgba(255, 0, 0, 0.5);
-        border-top-color: rgb(255, 0, 0);
-        margin: 25% 0% 0% 50%;
+        width: 30vh;
+        height: 30vh;
+        border: 5px solid rgba(255, 0, 0,0.5);
+        border-top-color: rgba(255, 0, 0);
+        /* margin: 25% auto; */
         transform: translate(-50%, -50%) rotate(0deg);
         border-radius: 50%; 
         box-sizing: border-box;
-
-        animation-name: loading_animation;
-        animation-duration: 1s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
+        animation: loading_animation 1s linear infinite;
     }
 
     

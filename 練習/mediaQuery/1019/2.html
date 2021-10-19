@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .icon2{
+            position: relative;
+        }
+        .icon2_content{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: rgba(255,0,0,0.4);
+            z-index: 1;
+        }
+        .icon2_top{
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 2;
+            width: 198px;
+            height: 198px;
+            border-radius: 50%;
+            border-top: 5px solid rgba(255,0,0);
+            animation: top_ani 1s linear infinite;
+            transform: rotate(0deg);
+        }
+        .icon2_bottom{
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            width: 190px;
+            height: 190px;
+            border-radius: 50%;
+            background-color: white;
+            z-index: 3;
+        }
+        @keyframes top_ani {
+            100%{transform: rotate(360deg);}
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="icon2">
+        <div class="icon2_content"></div>
+        <div class="icon2_top"></div>
+        <div class="icon2_bottom"></div>
+    </div>
+</body>
+</html>

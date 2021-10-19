@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        [v-cloak]{
+            display: none;
+        }
+        .ajax1019{
+            width: 1000px;
+        }
+        .ajax1019 table{
+            width: 1000px;
+            border-collapse: collapse;
+        }
+        .ajax1019 table tr{
+            text-align: left;
+        }
+        .ajax1019 table td{
+            border: 1px solid black;
+        }
+        .ajax1019 thead tr{
+            background-color: khaki;
+        }
+        .ajax1019 caption{
+            background-color: black;
+            color: white;
+            text-align: center;
+            /* padding: 10px 0; */
+        }
+        .ajax1019 tfoot th{
+            padding-top: 20px;
+            /* caption-side: bottom; */
+        }
+        .ajax1019 tbody tr:nth-of-type(odd){
+            background-color: lightblue;
+        }
+        .ajax1019 tbody tr:nth-of-type(even){
+            background-color: lightpink;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="ajax1019" id="ajax1019">
+        <!-- 使用mounted直接展示的話將下面button註解掉 -->
+        <button @click="tsmcVm">點擊顯示資料</button>
+        <table v-cloak>
+            <caption colspan="9" class="tsmc_title">{{ title }}</caption>
+            <tbody scope="tsmc">
+                <!-- <tr>
+                    <td colspan="9" class="tsmc_title">{{ title }}</td>
+                </tr> -->
+                <tr>
+                    <td v-for="item in fields">{{item}}</td>
+                </tr>
+                <tr v-for="item in data">
+                    <td v-for="item in item">{{item}}</td>
+                </tr>
+                <tfoot>
+                    <th colspan="9">{{notes}}</th>
+                </tfoot>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="js/axios.js"></script>
+    <script src="js/vue.js"></script>
+    <script>
+
+        ;(function(Vue){
+            let tsmcVm = new Vue({
+                el:'#ajax1019',
+                data:{
+                    title:'',
+                    notes:'',
+                    fields:'',
+                    data:'',
+                },
+                methods:{
+                    async tsmcVm(){
+                    try{
+                        const tsmc = await axios.get('./api/tsmc.json')
+                        // console.log(tsmc)
+                        this.title = tsmc.data.title;
+                        this.notes = tsmc.data.notes.join('');
+                        this.fields = tsmc.data.fields;
+                        this.data = tsmc.data.data;
+                    }catch{
+                        alert('資料讀取失敗!請確認連線或路徑。')
+                        // console.error('資料讀取失敗!請確認連線或路徑。')
+                    }
+                }},
+                // 直接執行
+                // mounted: async function(){
+                //     try{
+                //         const tsmc = await axios.get('./api/tsmc.json')
+                //         // console.log(tsmc)
+                //         this.title = tsmc.data.title;
+                //         this.notes = tsmc.data.notes.join('');
+                //         this.fields = tsmc.data.fields;
+                //         this.data = tsmc.data.data;
+                //     }catch(err){
+                //         alert('資料讀取失敗!請確認連線或路徑。')
+                //         // console.error('資料讀取失敗!請確認連線或路徑。')
+                //     }
+                // },
+            })
+
+        })(Vue)
+
+    </script>
+</body>
+</html>
