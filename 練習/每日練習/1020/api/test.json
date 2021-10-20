@@ -1,0 +1,16 @@
+{
+    "get":[
+        {
+            "id":1,
+            "title":"json-test",
+            "player":"System"
+        }
+    ],
+    "post":[
+        {
+            "id":2,
+            "title":"第二篇訊息",
+            "player":"1號"
+        }
+    ]
+}

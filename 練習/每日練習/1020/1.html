@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            height: 100vh;
+        }
+        [v-cloak]{
+            display: none;
+        }
+        #akua{
+            width: 1000px;
+            margin: auto;
+            text-align: center;
+            opacity: 1;
+        }
+        @keyframes akua_ani {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+        .akuaAnimation{
+            animation: akua_ani 0.5s ;
+        }
+        #akua img{
+            width: 50vh;
+        }
+        #akua h2{
+            font-size: 30px;
+            color: red;
+        }
+        #akua p{
+            font-size: 18px;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    
+    <section id="akua" v-cloak>
+
+        <img v-for="(imgUrl,index) in akua" :src="akua[number].imgUrl" v-show="number === index" :class="{akuaAnimation:number===index}">
+        <h2>{{akua[number].title}}</h2>
+        <p><span>第{{ number+1 }}張-</span>{{akua[number].text}}</p>
+
+        
+        <button v-if="number > 0 "@click="akuaSwitch(number-1)" >上一張</button>
+        <button v-if="number < akua.length-1 " @click="akuaSwitch(number+1)">下一張</button>
+
+    </section>
+
+
+    <script src="js/vue.js"></script>
+    <script>
+        ;(function(Vue){
+
+        let data = {
+            number:0,
+            akua:[
+            {imgUrl:'images/file_369961.png', title:'錨',text:'這是一個像錨的圖片'},
+            {imgUrl:'./images/file_369962.png', title:'緞帶',text:'藍色的緞帶圖片'},
+            {imgUrl:'./images/file_369963.png', title:'憤怒',text:'憤怒的あくあ'},
+            {imgUrl:'./images/file_369968.png', title:'天使',text:'開心的天使あくあ'},
+            {imgUrl:'./images/file_369979.png', title:'重傷',text:'受重創的あくあ'},
+            {imgUrl:'./images/file_369980.png', title:'OK',text:'OK的あくあ'},
+            {imgUrl:'./images/file_369998.png', title:'光劍',text:'這是一把拉拉隊的光劍'},
+            {imgUrl:'./images/file_369999.png', title:'哭泣',text:'哭泣的あくあ'},
+            {imgUrl:'./images/file_370000.png', title:'亮眼',text:'發現酷東西的あくあ'},
+            {imgUrl:'./images/file_370002.png', title:'暴怒',text:'暴怒的あくあ'},
+            {imgUrl:'./images/file_370006.png', title:'智商',text:'IQ50000!!!'},
+            {imgUrl:'./images/file_370007.png', title:'傻眼',text:'瞪大眼睛的あくあ'},
+            {imgUrl:'./images/file_370008.png', title:'好險',text:'好險的あくあ'},
+            {imgUrl:'./images/file_370009.png', title:'眨眼',text:'眨眼的あくあ'},
+            {imgUrl:'./images/file_370010.png', title:'GOOD',text:'比讚的あくあ'},
+            {imgUrl:'./images/file_370011.png', title:'思考',text:'思考冒汗的あくあ'},
+        ]}
+            
+        let akua = new Vue({
+
+            el:'#akua',
+            data: data,
+            computed:{
+                    akuaLength(){
+                        return this.akua.length;
+                    }
+                },
+            methods:{
+                akuaSwitch(index){
+                    if(index === this.akua.length){
+                        alert('最後一張了!')
+                        this.number = this.akua.length-1;
+                    }else if(index === -1){
+                        alert('已經是第一張了!')
+                        this.number = 0;
+                    }else{
+                        this.number = (index + this.akuaLength ) % this.akuaLength;
+                    }
+                },
+
+            },
+
+        })
+        })(Vue)
+    </script>
+
+</body>
+</html>

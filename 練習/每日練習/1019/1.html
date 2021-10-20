@@ -87,7 +87,8 @@
                 methods:{
                     async tsmcVm(){
                     try{
-                        const tsmc = await axios.get('./api/tsmc.json')
+                        const tsmc = await axios.get('./api/tsmc.json?results=10')
+                        console.log(tsmc)
                         // console.log(tsmc)
                         this.title = tsmc.data.title;
                         this.notes = tsmc.data.notes.join('');
