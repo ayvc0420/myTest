@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+        .box2{
+            height: 100%;
+        }
+        .box2_li_text{
+            padding: 10px;
+            margin: 5px 0;
+            background-color: cadetblue;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <div>
+            <input type="text"placeholder="輸入任意資料Enter送出"@keyup.enter="inputEnter"v-model.trim="boxText">
+            <button @click="inputEnter">送出</button>
+        </div>
+        <div class="box2">
+            <ol>
+                <li v-for="content in inputTextView" :class="{box2_li_text:inputTextView}">{{content}}</li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        ;(function(Vue){
+            new Vue({
+                el:'#box',
+                data:{
+                    boxText:'',
+                    inputTextView:[],
+                },
+                methods: {
+                    inputEnter(){
+                        if(this.boxText){
+                            this.inputTextView.push(this.boxText)
+                        }
+                        this.boxText='';
+                    },
+                },
+            })
+        })(Vue)
+    </script>
+</body>
+</html>
