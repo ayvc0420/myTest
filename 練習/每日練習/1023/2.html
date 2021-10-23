@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .hololive{
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgb(0, 195, 255);
+        }
+        .hololive .menu{
+            display: flex;
+        }
+        .hololive .menu select:nth-of-type(1){
+            width: 30%;
+        }
+        .hololive .menu select:nth-of-type(2){
+            width: 70%;
+        }
+        .hololive .list{
+            width: 80%;
+            margin: auto;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 20px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="hololive" id="hololive">
+        <div class="menu">
+            <select v-model="titleKey">
+                <option v-for="(item,index) in hololiveMenu.jp" :value="index" id="menu">{{item.title}}</option>
+            </select>
+            <select v-model="playerKey">
+                <option v-for="(item,index) in hololiveMenu.jp[hololiveMenu.jp[0].key].player" :value="index" >{{item}}</option>
+            </select>
+        </div>
+        <div :class="{list:playerKey}">
+            {{hololiveMenu.jp[titleKey].playerList[playerKey]}}
+        </div>
+    </div>
+
+
+    <script src="js/vue.js"></script>
+    <script>
+        ;(function(Vue){
+            let hololiveMenu= {
+                jp:[
+                    {key:0,title:'選擇',player:[''], playerList:['']},
+                    {
+                        title:'零期生',
+                        player:['選擇','時乃空','蘿蔔子','櫻巫女','星街彗星'],
+                        playerList:['','中文:時乃空；日文:ときのそら','中文:蘿蔔子；日文:ロボ子さん','中文櫻巫女；日文:桜巫女','中文:星街彗星；日文:星街すいせい'],
+                    },
+                    {
+                        title:'一期生',
+                        player:['選擇','夜空梅露','亞綺·羅森塔爾','赤井心','夏色祭','白上吹雪'],
+                        playerList:['','中文名稱:夜空梅露；日文名稱:夜空メル','中文名稱:亞綺·羅森塔爾；日文名稱:アキ・ローゼンタール','中文名稱:赤井心；日文名稱:赤井はあと','中文名稱:夏色祭；日文名稱:夏色まつり','中文名稱:白上吹雪；日文名稱:白上フブキ'],
+                    },
+                    {
+                        title:'二期生',
+                        player:['選擇','湊阿庫婭','紫咲詩音','百鬼綾目','癒月巧可','大空昴'],
+                        playerList:['','中文名稱:湊阿庫婭；日文名稱:湊あくあ ','中文名稱:紫咲詩音；日文名稱:紫咲シオン','中文名稱:百鬼綾目；日文名稱:百鬼あやめ','中文名稱:癒月巧可；日文名稱:癒月ちょこ','中文名稱:大空昴；日文名稱:大空スバル'],
+                    },
+                    {
+                        title:'三期生',
+                        player:['選擇','兔田佩克拉','潤羽露西婭','不知火芙蕾雅','白銀諾艾爾','寶鐘瑪琳'],
+                        playerList:['','中文名稱:兔田佩克拉；日文名稱:兎田ぺこら','中文名稱:潤羽露西婭；日文名稱:潤羽るしあ','中文名稱:不知火芙蕾雅；日文名稱:不知火フレア','中文名稱:白銀諾艾爾；日文名稱:白銀ノエル','中文名稱:寶鐘瑪琳；日文名稱:宝鍾マリン'],
+                    },
+                    {
+                        title:'四期生',
+                        player:['選擇','天音彼方','桐生可可','角卷綿芽','常闇永遠','姬森璐娜'],
+                        playerList:['','中文名稱:天音彼方；日文名稱:天音かなた','中文名稱:桐生可可；日文名稱:桐生ココ','中文名稱:角卷綿芽；日文名稱:角巻わため','中文名稱:常闇永遠；日文名稱:常闇トワ','中文名稱:姬森璐娜；日文名稱:姫森ルーナ'],
+                    },
+                    {
+                        title:'五期生',
+                        player:['選擇','雪花菈米','桃鈴音音','獅白牡丹','魔乃阿蘿耶','尾丸波爾卡'],
+                        playerList:['','中文名稱:雪花菈米；日文名稱:雪花ラミィ','中文名稱:桃鈴音音；日文名稱:桃鈴ねね','中文名稱:獅白牡丹；日文名稱:獅白ぼたん','中文名稱:魔乃阿蘿耶；日文名稱:魔乃アロエ','中文名稱:尾丸波爾卡；日文名稱:尾丸ポルカ'],
+                    },
+            ]}
+            let hololive = new Vue({
+                el:'#hololive',
+                data:{
+                    hololiveMenu,
+                    // 標題key
+                    titleKey:0,
+                    // 使用者key
+                    playerKey:0
+                },
+                watch:{
+                    titleKey: function(){
+                            this.hololiveMenu.jp[0].key = this.titleKey;
+                            this.playerKey = 0
+                        }
+                    },
+                    // methods: {},
+                }
+            )
+
+        })(Vue)
+
+    </script>
+</body>
+</html>

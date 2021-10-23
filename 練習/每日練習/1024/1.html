@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #app{
+            width: 400px;
+            margin: auto;
+            margin-top: 100px;
+        }
+        #app>input{
+            width: 90%;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        打折<input type="text" v-model="discountText" placeholder="5">
+        價格<input type="text" v-model="inputText" placeholder="10000">
+        打折後價格 {{discount()}}
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        ;(function(Vue){
+            new Vue({
+                el:'#app',
+                data:{
+                    inputText:'',discountText:'',
+                },
+                methods:{
+                    discount(){
+                        return this.inputText * this.discountText/10
+                    }
+                }
+            })
+        })(Vue)
+    </script>
+</body>
+</html>

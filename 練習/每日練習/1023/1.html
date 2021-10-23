@@ -5,8 +5,90 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        [v-cloak]{
+            display: none;
+        }
+        .app{
+            max-width: 500px;
+            margin: 10px auto;
+            padding:10px;
+            background-color: rgb(25, 0, 255);
+            border-radius: 10px;
+            color: rgb(255, 255, 0);
+            line-height: 1.5;
+        }
+        .app div:not(.app_title){
+            display: flex;
+            width: 100%;
+        }
+        .app .app_title{
+            text-align: center;
+            color: orange
+        }
+        .search{
+            width: 90%;
+        }
+        .search_btn{
+            width: 10%;
+        }
+    </style>
 </head>
 <body>
-    
+
+    <div class="app" id="app">
+        <div class="app_title">
+            <h2>{{apprisalTitle}}</h2>
+            <h3>共{{apprisal.length}}個項目</h3>
+        </div>
+        <div>
+            <input type="text" placeholder="搜尋名稱-按下Enter或搜尋按鈕" class="search" v-model="searchText" @keyup.enter="searchApprisal">
+            <button @click="searchApprisal" class="search_btn">搜尋</button>
+        </div>
+
+        <div>
+            <ol>
+                <li v-for="item in apprisqlView" v-cloak>{{item}}</li>
+            </ol>
+        </div>
+    </div>
+
+
+    <script src="js/vue.js"></script>
+    <script>
+        ;(function(Vue){
+            const sql ='Oracle , MySQL , Microsoft SQL Server , PostgreSQL , MongoDB , Redis , IBM Db2, Elasticsearch, SQLite , Microsoft Access, Cassandra , MariaDB , Splunk, Hive, Microsoft Azure SQL Database, Amazon DynamoDB , Teradata, Neo4j , SAP HANA , Solr, FileMaker, SAP Adaptive Server, Snowflake , HBase  , Google BigQuery , Microsoft Azure Cosmos DB , PostGIS, InfluxDB , Couchbase , Memcached, Firebird, Informix, Amazon Redshift , Spark SQL, Vertica , Netezza, Impala, Firebase Realtime Database, Microsoft Azure Synapse Analytics, CouchDB, dBASE, Greenplum, Presto, Amazon Aurora, ClickHouse, etcd, H2, MarkLogic , Hazelcast , Realm , Kdb+ , Datastax Enterprise , Google Cloud Firestore, Sphinx, Oracle Essbase, Algolia, Ehcache, CockroachDB , Interbase, Prometheus, Microsoft Azure Search, Jackrabbit, SAP SQL Anywhere, OpenEdge, Ingres, Riak KV, SingleStore , Microsoft Azure Table Storage, Aerospike , SAP IQ, Ignite, Graphite, Microsoft Azure Data Explorer , HyperSQL, MaxDB, Derby, Google Cloud Datastore, Adabas, EXASOL, ArangoDB , Virtuoso , SAP Advantage Database Server, OrientDB, Accumulo, Oracle NoSQL, UniData,UniVerse, RocksDB, ScyllaDB , TimescaleDB , IBM Cloudant, Google Cloud Bigtable, RavenDB , Google Cloud Spanner, RethinkDB, Apache Druid, InterSystems Caché, Apache Jena - TDB, LevelDB, Infinispan, Oracle Berkeley DB, PouchDB, Apache Phoenix , IMS, Oracle Coherence, 4D, GraphDB , Apache Drill, RRDtool, JanusGraph, Percona Server for MySQL, Amazon Neptune, TiDB , Amazon CloudSearch, Amazon SimpleDB, LMDB, Tibero, EDB Postgres , CloudKit, MonetDB , TigerGraph , TimesTen, Trino, OpenTSDB, Datomic, SpatiaLite, Dgraph , InterSystems IRIS , VoltDB, Db4o, jBASE, Stardog , Geode, mSQL, IBM Db2 warehouse, GridGain, Fauna , BaseX, Tarantool , ObjectStore, Citus, 1010data, GT.M, Actian NoSQL Database, GridDB , Empress, SQLBase, Datameer, Mnesia, FoundationDB, AllegroGraph , Cubrid, Oracle Rdb, Amazon DocumentDB, Model 204, HFSQL, Giraph, Infobright, OmniSci , Apache Kylin , YugabyteDB, D3, DataEase, SQL.JS, LiteDB, NonStop SQL, Altibase, NuoDB, IDMS, Nebula Graph , DolphinDB, Sedna, Matisse, GBase, HAWQ, ZODB, Objectivity/DB, Datacom/DB, Kognitio, NCache , HPE Ezmeral Data Fabric, FrontBase, Actian Vector, GemStone/S, ObjectBox, Alibaba Cloud MaxCompute, solidDB, EventStoreDB , DBISAM, Blazegraph, BigchainDB, eXist-db, Alibaba Cloud AnalyticDB for MySQL , Xapian, CrateDB , Yellowbrick, KairosDB, HarperDB , TypeDB , WebSphere eXtreme Scale, Graph Engine, OpenBase, ScaleArc, eXtremeDB , SciDB, R:BASE, Splice Machine, Amazon Timestream, Alibaba Cloud ApsaraDB for PolarDB , SQream DB, Kinetica, ObjectDB, GeoMesa, AlaSQL, Alibaba Cloud AnalyticDB for PostgreSQL, QuestDB , RDF4J, Postgres-XL, NexusDB, VistaDB, Tokyo Tyrant, Percona Server for MongoDB, Elassandra, Perst, BoltDB, GigaSpaces InsightEdge , OpenInsight, LokiJS, Jade, Rockset, MapDB, Trafodion, Raima Database Manager, VictoriaMetrics, Scalaris, Rasdaman, Redland, Alibaba Cloud Log Service , Yandex Database, InfiniteGraph, Hibari, Amazon Keyspaces, Lovefield, Sequoiadb, Faircom DB , ModeShape, Brytlyt, Mimer SQL, IBM Db2 Event Store, Starcounter, OpenQM, atoti, 4store, Axibase, Tibco ComputeDB, Northgate Reality, SearchBlox, Tajo, Alibaba Cloud Table Store, Project Voldemort, AnzoGraph DB, PipelineDB, Fluree, Kyligence Enterprise , Alibaba Cloud TSDB, Riak TS, FlockDB, TDengine , EsgynDB, LeanXcale , KeyDB, GeoSpock, Actian FastObjects, Transbase, Memgraph , EJDB, Comdb2, ElevateDB, Quasardb , M3DB, Faircom EDGE , HyperGraphDB, Valentina Server, Milvus, Cloudflare Workers KV, XtremeData, Weaviate, TinkerGraph, HugeGraph, TerminusDB, TransLattice, DuckDB, ITTIA, Strabon, Apache IoTDB, Blueflood, STSdb, NEventStore, Warp 10, CubicWeb, Actian PSQL, H2GIS, VelocityDB, Mulgara, Sparksee, Badger, Machbase , Linter, SenseiDB, Heroic, ToroDB, SwayDB, InfinityDB, Dydra, BrightstarDB, Crux, BigObject, TerarkDB, Bangdb, GraphBase, SiriDB, Elliptics, WhiteDB, Kyoto Tycoon, RaptorDB, Hawkular Metrics, Upscaledb, Exorbyte, DensoDB, Yanza, WakandaDB, OrigoDB, LedisDB, Manticore Search, SmallSQL, AgensGraph, ActorDB, JethroData, SiteWhere, Siaqodb, FinchDB, RedStore, HGraphDB, ScaleOut StateServer, NosDB, SparkleDB, JaguarDB , CovenantSQL, BergDB, Cachelot.io, CortexDB, DaggerDB, Edge Intelligence, Eloquera, Helium, HyperLevelDB, Hyprcubd, iBoxDB, Indica, IRONdb, JasDB, JSqlDb, K-DB, Newts, NSDb, Resin Cache, Rizhiyi, Sadas Engine, searchxml, SpaceTime, SWC-DB, Tkrzw, TomP2P, Yaacomo'.split(/\s*,\s*/)
+
+            const number = '1269.26, 1238.22, 973.35, 577.05, 496.54, 169.88, 165.46, 157.08, 129.81, 114.84, 113.66, 98.98, 90.60, 83.93, 75.15, 74.90, 68.82, 56.95, 55.57, 51.06, 50.28, 47.61, 46.54, 44.64, 42.03, 36.87, 30.22, 29.56, 27.82, 25.98, 25.35, 23.02, 22.86, 20.56, 20.16, 18.84, 18.75, 17.95, 15.71, 15.19, 13.82, 13.09, 12.18, 10.58, 9.81, 9.78, 9.53, 9.15, 9.08, 8.86, 7.99, 7.87, 7.79, 7.75, 7.22, 7.06, 6.81, 6.46, 6.35, 6.20, 6.14, 5.68, 5.53, 5.44, 5.22, 5.11, 5.06, 5.05, 4.94, 4.93, 4.87, 4.86, 4.80, 4.73, 4.53, 4.51, 4.41, 4.27, 4.27, 4.26, 4.23, 4.01, 4.01, 3.91, 3.86, 3.85, 3.72, 3.46, 3.41, 3.41, 3.38, 3.23, 3.20, 3.19, 3.00, 2.99, 2.92, 2.91, 2.80, 2.78, 2.70, 2.69, 2.59, 2.56, 2.54, 2.49, 2.49, 2.43, 2.40, 2.40, 2.22, 2.19, 2.18, 2.16, 2.12, 2.09, 2.08, 2.07, 1.98, 1.93, 1.90, 1.90, 1.90, 1.86, 1.83, 1.72, 1.72, 1.71, 1.69, 1.69, 1.68, 1.67, 1.67, 1.66, 1.64, 1.53, 1.53, 1.50, 1.48, 1.48, 1.47, 1.46, 1.37, 1.37, 1.36, 1.36, 1.34, 1.34, 1.33, 1.30, 1.30, 1.28, 1.28, 1.27, 1.24, 1.23, 1.22, 1.21, 1.20, 1.20, 1.18, 1.16, 1.15, 1.12, 1.12, 1.12, 1.11, 1.10, 1.10, 1.07, 1.05, 1.03, 1.02, 1.01, 0.98, 0.96, 0.96, 0.95, 0.94, 0.94, 0.93, 0.93, 0.92, 0.90, 0.90, 0.90, 0.88, 0.87, 0.87, 0.87, 0.86, 0.85, 0.84, 0.83, 0.83, 0.82, 0.82, 0.81, 0.80, 0.78, 0.75, 0.73, 0.73, 0.72, 0.72, 0.71, 0.71, 0.71, 0.70, 0.70, 0.68, 0.68, 0.68, 0.66, 0.64, 0.64, 0.63, 0.63, 0.63, 0.63, 0.63, 0.62, 0.61, 0.60, 0.59, 0.58, 0.57, 0.57, 0.56, 0.55, 0.55, 0.53, 0.53, 0.52, 0.52, 0.50, 0.50, 0.49, 0.49, 0.47, 0.47, 0.46, 0.46, 0.46, 0.45, 0.44, 0.43, 0.43, 0.43, 0.43, 0.43, 0.41, 0.39, 0.38, 0.38, 0.38, 0.38, 0.37, 0.37, 0.36, 0.35, 0.34, 0.34, 0.32, 0.31, 0.31, 0.30, 0.30, 0.30, 0.29, 0.28, 0.28, 0.28, 0.28, 0.27, 0.26, 0.26, 0.25, 0.24, 0.23, 0.22, 0.22, 0.21, 0.20, 0.20, 0.20, 0.20, 0.19, 0.19, 0.19, 0.19, 0.19, 0.18, 0.17, 0.17, 0.17, 0.16, 0.16, 0.16, 0.15, 0.15, 0.14, 0.14, 0.13, 0.13, 0.12, 0.12, 0.11, 0.11, 0.10, 0.10, 0.10, 0.09, 0.09, 0.09, 0.09, 0.09, 0.08, 0.08, 0.08, 0.07, 0.07, 0.06, 0.06, 0.06, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.04, 0.04, 0.04, 0.04, 0.04, 0.03, 0.02, 0.02, 0.02, 0.02, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00'.split(/,\s/)
+
+
+        const apprisal = [];
+        sql.forEach((item,key) => {
+            apprisal.push(`名稱:${sql[key]}分數:${number[key]}`
+            )
+        })
+
+
+            new Vue({
+                el:'#app',
+                data:{apprisal,apprisalTitle:'2021年8月全球資料庫系統排行',searchText:'',apprisqlView:apprisal},
+                methods: {
+                    searchApprisal(){
+                        if(this.searchText){
+                            this.apprisqlView = this.apprisal.filter(item => {
+                                return item.toLowerCase().indexOf(this.searchText.toLowerCase()) !== -1
+                            })
+                        }else{
+                            this.apprisqlView  = this.apprisal
+                        }
+                    }
+                },
+                
+            })
+        })(Vue)
+    </script>
 </body>
 </html>

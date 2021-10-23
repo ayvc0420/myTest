@@ -80,8 +80,8 @@
     <div class="div1" id="div1" v-cloak>
         
         <div class="content">
-            <div class="c1">姓名:<input type="text" name="" id="" v-model="name"></div>
-            <div class="c2">
+            <div class="c1" :class="{err:name.length===0&&number!=0}">姓名:<input type="text" name="" id="" v-model="name"></div>
+            <div class="c2" :class="{err:age.length===0&&number!=0}">
                 <span>年齡</span>
                 <span>
                     <select v-model="age">
@@ -92,27 +92,27 @@
                     </select>
             </span>
             </div>
-            <div class="c3">性別:
+            <div class="c3" :class="{err:gender.length===0&&number!=0}">性別:
                 <span>男<input type="radio" name="r1" v-model="gender" value="男"></span>
                 <span>女<input type="radio" name="r1" v-model="gender" value="女"></span>
             </div>
-            <div class="c4">
+            <div class="c4" :class="{err:interest.length===0&&number!=0}">
                 興趣:
                 運動<input type="checkbox" name="r2-1" value="運動" v-model="interest">
                 電玩<input type="checkbox" name="r2-2" value="電玩" v-model="interest">
                 外語<input type="checkbox" name="r2-3" value="外語" v-model="interest">
             </div>
-            <div class="c5">是否有前端經驗?
+            <div class="c5" :class="{err:webDesign === null&&number!=0}">是否有前端經驗?
                 <span>是<input type="radio" name="r3" v-bind:value=true v-model="webDesign"></span>
                 <span>否<input type="radio" name="r3" v-bind:value=false v-model="webDesign"></span>
             </div>
         </div>
         <div class="reply" >
-            <span v-if="name.length != 0">{{name}}您好，您輸入的資料為以下:</span>
-            <span v-if="name.length != 0">姓名:{{name}}</span>
-            <span v-if="age.length != 0">年齡:{{age}}</span>
-            <span v-if="gender.length != 0">性別:{{gender}}</span>
-            <span v-if="interest.length != 0">興趣:{{interest.join('、')}}</span>
+            <span v-if="name">{{name}}您好，您輸入的資料為以下:</span>
+            <span v-if="name">姓名:{{name}}</span>
+            <span v-if="age">年齡:{{age}}</span>
+            <span v-if="gender">性別:{{gender}}</span>
+            <span v-if="interest!=0">興趣:{{interest.join('、')}}</span>
             <span v-if="webDesign !== null">{{webDesign ? '我有前端經驗' : '我沒有接觸過前端'}}</span>
             <span v-if="webDesign !== null" >確認無誤後將送出資訊。</span>
         </div>
@@ -125,6 +125,7 @@
     <script>
     ;(function(Vue){
         let divData = {
+            number:0,
             name:'',
             age:'',
             gender:'',
@@ -137,35 +138,36 @@
                 data:divData,
                 methods: {
                     send(){
+                        this.number=1;
                         if(this.name.length === 0 || this.age.length === 0 || this.gender.length === 0 || this.interest.length === 0 || this.webDesign === null){
                             alert('尚有表格未填寫!');
                         }
-                        if(this.name.length === 0 ){
-                            document.querySelector('.c1').classList.add('err')
-                        }else{
-                            document.querySelector('.c1').classList.remove('err')
-                        }
-                        if(this.age.length === 0){
-                            document.querySelector('.c2').classList.add('err')
-                        }else{
-                            document.querySelector('.c2').classList.remove('err')
-                        }
-                        if(this.gender.length === 0 ){
-                            document.querySelector('.c3').classList.add('err')
-                        }else{
-                            document.querySelector('.c3').classList.remove('err')
-                        }
-                        if(this.interest.length === 0){
-                            document.querySelector('.c4').classList.add('err')
-                        }else{
-                            document.querySelector('.c4').classList.remove('err')
-                        }
-                        if(this.webDesign === null){
-                            document.querySelector('.c5').classList.add('err')
-                        }else{
-                            document.querySelector('.c5').classList.remove('err')
+                        // if(this.name.length === 0 ){
+                        //     document.querySelector('.c1').classList.add('err')
+                        // }else{
+                        //     document.querySelector('.c1').classList.remove('err')
+                        // }
+                        // if(this.age.length === 0){
+                        //     document.querySelector('.c2').classList.add('err')
+                        // }else{
+                        //     document.querySelector('.c2').classList.remove('err')
+                        // }
+                        // if(this.gender.length === 0 ){
+                        //     document.querySelector('.c3').classList.add('err')
+                        // }else{
+                        //     document.querySelector('.c3').classList.remove('err')
+                        // }
+                        // if(this.interest.length === 0){
+                        //     document.querySelector('.c4').classList.add('err')
+                        // }else{
+                        //     document.querySelector('.c4').classList.remove('err')
+                        // }
+                        // if(this.webDesign === null){
+                        //     document.querySelector('.c5').classList.add('err')
+                        // }else{
+                        //     document.querySelector('.c5').classList.remove('err')
 
-                        }
+                        // }
                         if(this.name.length !== 0 && this.age.length !== 0 && this.gender.length !== 0 && this.interest.length !== 0 && this.webDesign !== null){
                             alert('資料已送出!感謝您的填寫')
                             location.reload();
