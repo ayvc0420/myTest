@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #app{
+            width: 500px;
+            margin: auto;
+        }
+        .menu>div{
+            width: 100%;
+            background-color: burlywood;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <div>事情:<input type="text"  id="item"></div>
+        <div><input type="datetime-local" id="date"></div>
+        <input type="button" value="送出" id="todoBtn">
+        <div id="menu" >
+
+        </div>
+    </div>
+    <script>
+
+        const item = document.getElementById('item')
+        const date = document.getElementById('date')
+        const menu = document.getElementById('menu')
+
+        const todoItem = [];
+        document.getElementById('todoBtn').addEventListener('click',function(){
+            todoItem.push(
+            `
+                <div>
+                    事情:${item.value}時間${date.value}
+                </div>
+            `)
+            menu.innerHTML = todoItem
+        }) 
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #app{
+            width: 500px;
+            margin: auto;
+        }
+        .menu>div{
+            width: 100%;
+            background-color: burlywood;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        事情<input type="text" v-model="item" @keyup.enter="todoList">
+        <input type="datetime-local" v-model="itemDate">
+        <input type="button" value="送出" @click="todoList">
+        <div class="menu" v-for="item in todoItem">
+            <div>{{item}}</div>
+        </div>
+    </div>
+
+    <script src="js/vue.js"></script>
+
+    <script>
+
+        ;(function(Vue){
+
+            new Vue({
+                el:'#app',
+                data:{
+                    item:'',
+                    itemDate:'',
+                    todoItem:[],
+                },
+                methods:{
+                    todoList(){
+                        this.todoItem.push(`事情:${this.item}時間:${this.itemDate}`)
+                    },
+                }
+            })
+        })(Vue)
+    </script>
+</body>
+</html>
