@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+    <link rel="stylesheet" href="css/all.css">
+    <style>/* layout */
+
+        .images{
+            background-color: rgb(255, 215, 215);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .images img{
+            vertical-align: middle;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(230, 255, 192);
+        }
+    </style>
+    <style> /* box work */
+    .work h2{
+        text-align: center;
+        padding: 20px 0;
+        font-weight: 900;
+        font-size: 40px;
+    }
+    .item{
+        width: 1170px;
+        margin: auto;
+        display: flex;
+        padding: 20px 10px;
+        box-sizing: border-box;
+    }
+    .item>div{
+        margin:0 20px ;
+        border-radius: 10px;
+        background-color: white;
+        overflow: hidden;
+    }
+    .item img{
+        width: 100%;
+        height: 250px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        cursor: pointer;
+        transition:  transform 0.5s;
+    }
+    .item img:hover{
+        transform: scale(1.1);
+    }
+    .fa-calendar,.fa-hand-holding-heart{
+        color:#1FBE9E;
+        padding-right: 10px;
+    }
+    .item span{
+        padding-bottom: 20px;
+        display: inline-block;
+        color: #666;
+    }
+    .item .content{
+        padding: 25px;
+    }
+    .item h3{
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.3;
+    }   
+    .item p{
+        padding: 20px 0;
+        color: #666;
+    }
+    .content>button{
+        background:#26ccab;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <div class="images">
+        <!-- https://www.templatemonsterpreview.com/demo/210164.html -->
+        <img src="4.png">
+    </div>
+    <div class="box">
+        <div class="work">
+            <h2>Get Latest News</h2>
+
+            <div class="item">
+                <div>
+                    <div>
+                        
+                        <img src="images/item1.jpg" alt="">
+                    </div>
+                    <div class="content">
+                        <span><i class="fas fa-calendar"></i>August 4, 2021</span>
+                        <span><i class="fas fa-hand-holding-heart"></i>Donation</span>
+                        <h3>An suas vide quas duo nam alia atqui</h3>
+                        <p>Tota ferri solet eum ne, cum etiam aeterno accommodare at. An vix velit</p>
+                        <button>Read more</button>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <img src="images/item2.jpg" alt="">
+                    </div>
+                    <div class="content">
+                        <span><i class="fas fa-calendar"></i>August 4, 2021</span>
+                        <span><i class="fas fa-hand-holding-heart"></i>Donation</span>
+                        <h3>Vero impetus ne vix ad sit doming voluptua</h3>
+                        <p>Quem vulputate has eu, no nihil partiendo vis. Qui vero quando voluptatibus eu.</p>
+                        <button>Read more</button>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <img src="images/item3.jpg" alt="">
+                    </div>
+                    <div class="content">
+                        <span><i class="fas fa-calendar"></i>August 4, 2021</span>
+                        <span><i class="fas fa-hand-holding-heart"></i>Donation</span>
+                        <h3>Vel te partem urbanitas ut dictas vidisse civibus</h3>
+                        <p>No accusata senserit vim, justo mazim epicuri per te. Mea ne dicant epicuri</p>
+                        <button>Read more</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</body>
+</html>

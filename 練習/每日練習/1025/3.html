@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: burlywood;
+            margin: 300px;
+        }
+        [v-cloak]{
+            display: none;
+        }
+        .div>span{
+            font-size: 10rem;
+        }
+        @keyframes ani {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                color: yellow;
+                opacity: 1;
+            }
+        }
+        .div_ani{
+            animation: ani 1s forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app" v-cloak>
+        
+        <div class="div">
+            <span v-for="(item,index) in divData" v-show="index===key" :class="{div_ani:index===key}">{{item}}</span>
+            
+        </div>
+        <button @click="switchData(1)">下一個</button>
+
+    </div>
+
+
+    <script src="js/vue.js"></script>
+    <script>
+        let divData = ['大雄','哆啦A夢','靜香','胖虎','小夫','出木衫']
+        ;(function(Vue){
+            new Vue({
+                el:'#app',
+                data:{
+                    divData,key:0,
+                },
+                methods: {
+                    switchData(i){
+                        this.key = (this.key + i) % this.divData.length
+                    }
+                },
+            })
+        })(Vue)
+    </script>
+</body>
+</html>

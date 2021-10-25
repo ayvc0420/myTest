@@ -1,4 +1,20 @@
 1.html
 用vue串unsplash api照片
 
-花費時間25分
+花費時間25分鐘
+
+2.html
+將1.html部分修改 改用js串unsplash api照片
+
+花費時間6分鐘
+
+3.html
+用vue做一個文字轉場特效 與前幾次練習類似相似
+
+花費時間10分鐘
+
+4.html
+速做一個切版練習+小動畫 部分細節未調整 此練習講究速度
+參照網站:https://www.templatemonsterpreview.com/demo/210164.html
+
+花費時間20分

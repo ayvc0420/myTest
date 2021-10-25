@@ -36,14 +36,10 @@
                 methods: {
                 },
                 mounted: async function(){
+                    let unsplash
                     try{
-                        const unsplash = await axios.get(Url)
+                        unsplash = await axios.get(Url)
                         // console.log(unsplash)
-                        unsplash.data.forEach(item => {
-                            this.unsplashImgUrl.push(
-                                item.urls.regular
-                            )
-                        })
                         // for(i=0;i<=unsplash.data.length;i++){
                         //     this.unsplashImgUrl.push(
                         //         unsplash.data[i].urls.regular
@@ -53,6 +49,11 @@
                     }catch{
                         alert('資料獲取失敗，請檢查網路連線或查看錯誤訊息')
                     }
+                    unsplash.data.forEach(item => {
+                            this.unsplashImgUrl.push(
+                                item.urls.regular
+                            )
+                    })
                 },
             })
         // })(Vue)

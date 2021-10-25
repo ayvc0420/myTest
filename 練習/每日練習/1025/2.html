@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img img{
+            width: 400px;
+            height: 800px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <div class="img">
+
+        </div>
+    </div>
+
+    
+    <script src="js/axios.js"></script>
+    <script src="js/vue.js"></script>
+
+    <script>
+            const Url = 'https://api.unsplash.com/photos/?client_id=t0YL-hefB8n1GIxtx4rZmz9TJsiCl2XUs32uexmA0e0'
+            const img = document.querySelector('.img')
+            let unsplash
+            async function unsplashImg(){
+                try{
+                    unsplash = await axios.get(Url)
+                }catch{
+                    alert('資料獲取失敗，請檢查網路連線或查看錯誤訊息')
+                }
+                unsplash.data.forEach(item => {
+                        img.innerHTML += 
+                        `
+                            <img src="${item.urls.regular}">
+                        `
+                    })
+                }
+                
+                unsplashImg()
+
+    </script>
+
+</body>
+</html>
