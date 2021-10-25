@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img img{
+            width: 400px;
+            height: 800px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <div class="img">
+            <img v-for="src in unsplashImgUrl" :src="src" >
+        </div>
+    </div>
+
+    
+    <script src="js/axios.js"></script>
+    <script src="js/vue.js"></script>
+
+    <script>
+        // ;(function(Vue){
+            const Url = 'https://api.unsplash.com/photos/?client_id=t0YL-hefB8n1GIxtx4rZmz9TJsiCl2XUs32uexmA0e0'
+            new Vue({
+                el:'#app',
+                data:{
+                    unsplashImgUrl:[],
+
+                },
+                methods: {
+                },
+                mounted: async function(){
+                    try{
+                        const unsplash = await axios.get(Url)
+                        // console.log(unsplash)
+                        unsplash.data.forEach(item => {
+                            this.unsplashImgUrl.push(
+                                item.urls.regular
+                            )
+                        })
+                        // for(i=0;i<=unsplash.data.length;i++){
+                        //     this.unsplashImgUrl.push(
+                        //         unsplash.data[i].urls.regular
+                        //     )
+                        // }
+
+                    }catch{
+                        alert('資料獲取失敗，請檢查網路連線或查看錯誤訊息')
+                    }
+                },
+            })
+        // })(Vue)
+
+    </script>
+
+</body>
+</html>
