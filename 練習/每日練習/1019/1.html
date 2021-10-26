@@ -86,18 +86,17 @@
                 },
                 methods:{
                     async tsmcVm(){
+                        let tsmc
                     try{
-                        const tsmc = await axios.get('./api/tsmc.json?results=10')
-                        console.log(tsmc)
-                        // console.log(tsmc)
-                        this.title = tsmc.data.title;
-                        this.notes = tsmc.data.notes.join('');
-                        this.fields = tsmc.data.fields;
-                        this.data = tsmc.data.data;
+                        tsmc = await axios.get('./api/tsmc.json')
                     }catch{
                         alert('資料讀取失敗!請確認連線或路徑。')
                         // console.error('資料讀取失敗!請確認連線或路徑。')
                     }
+                    this.title = tsmc.data.title;
+                    this.notes = tsmc.data.notes.join('');
+                    this.fields = tsmc.data.fields;
+                    this.data = tsmc.data.data;
                 }},
                 // 直接執行
                 // mounted: async function(){

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        section{
+            width: 1000px;
+            margin: auto;
+            /* display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around; */
+
+        }
+        section>article{
+            margin: 10px 50px;
+            width: 300px;
+            border: 1px solid black;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5);
+            padding: 10px 5px;
+            border-radius: 5px;
+            position: relative;
+        }
+        section>article:nth-of-type(odd){
+            float: left;
+        }
+        section>article:nth-of-type(even){
+            float: right;
+        }
+        section>article:nth-of-type(odd)::before{
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -45%;
+            width: 45%;
+            height: 1px;
+            background-color: black;
+        }
+        section>article:nth-of-type(even)::before{
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -45%;
+            width: 45%;
+            height: 1px;
+            background-color: black;
+        }
+        section>article:nth-of-type(2){
+            margin-top: 40px;
+        }
+        section>article>h3{
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .center{
+            width: 3px;
+            height: 1782px;
+            position: absolute;
+            background-color: black;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        .fix{
+            clear: both;
+        }
+        #title{
+            font-size: 30px;
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h3 id="title"></h3>
+    <section>
+        <div class="center"></div>
+        <article>
+            <h3>0905第一次刻網站</h3>
+            <p>評語:失敗的練習，RWD後非常失敗</p>
+        </article>
+        <article>
+            <h3>0911第二次刻網站 </h3>
+            <p>評語:成功一半的練習，花費的時間過久。</p>
+        </article>
+        <article>
+            <h3>0915練習截圖刻板 </h3>
+            <p>自評70分</p>
+        </article>
+        <article>
+            <h3>0917練習截圖刻板</h3>
+            <p>自評75分</p>
+        </article>
+        <article>
+            <h3>0918影片製作todolist</h3>
+            <p>自評70分</p>
+        </article>
+        <article>
+            <h3>0920練習截圖刻板</h3>
+            <p>自評80分</p>
+        </article>
+        <article>
+            <h3>0921背景角度切版</h3>
+            <p>自評60分</p>
+        </article>
+        <article>
+            <h3>0922練習刻板/圖文顯示製作</h3>
+            <p>自評75分</p>
+        </article>
+        <article>
+            <h3>0924練習js效果/導覽列製作</h3>
+            <p>自評75分</p>
+        </article>
+        <article>
+            <h3>0925改良0924製作</h3>
+            <p>優化後自評85分</p>
+        </article>
+        <article>
+            <h3>0926觀看影片成品及效果後自行製作</h3>
+            <p>自評80分</p>
+        </article>
+        <article>
+            <h3>0927js效果製作/觀看影片成品後自行製作</h3>
+            <p>自評85分</p>
+        </article>
+        <article>
+            <h3>0928普通導覽列/checked效果練習 </h3>
+            <p>自評75分</p>
+        </article>
+        <article>
+            <h3>0929RWD導覽列/js this測試</h3>
+            <p>自評75分</p>
+        </article>
+        <article>
+            <h3>0930css動畫測試製作/使用js製作svg產生器</h3>
+            <p>自評85分</p>
+        </article>
+        <article>
+            <h3>1001範例影片製作css輪播圖效果/測試flex相關設定/優化後的svg產生器</h3>
+            <p>自評88分</p>
+        </article>
+        <article>
+            <h3>1002checked效果練習/練習截圖刻板/上課使用的jQ範例改用js重新操作</h3>
+            <p>自評84分</p>
+        </article>
+        <article>
+            <h3>1003重新思考正確時機觸發動畫</h3>
+            <p>自評優化前78分，優化後86分</p>
+        </article>
+        <article>
+            <h3>1004簡單測試float效果</h3>
+            <p>無自評</p>
+        </article>
+        <article>
+            <h3>1004~1011製作網站</h3>
+            <p>連結:https://ayvc0420.github.io/</p>
+        </article>
+        <article>
+            <h3>1011+號練習/頁籤切換製作</h3>
+            <p>自評78分</p>
+        </article>
+        <article>
+            <h3>1012基本排版/切版練習/hover閃爍效果/hover互動效果</h3>
+            <p>自評76分</p>
+        </article>
+        <article>
+            <h3>1013切表格/jquery、vue</h3>
+            <p>自評75分</p>
+        </article>
+        <article>
+            <h3>1015使用jquery與vue製作非自動輪播圖</h3>
+            <p>自評79分</p>
+        </article>
+        <article>
+            <h3>1016捲動時側邊欄固定/vue單向匯率計算器</h3>
+            <p>自評78分</p>1
+        </article>
+        <article>
+            <h3>1017vue簡單製作表單並設定條件</h3>
+            <p>自評72分</p>
+        </article>
+        <article>
+            <h3>1018vue簡單製作登入畫面並設定條件</h3>
+            <p>自評75分</p>
+        </article>
+        <article>
+            <h3>1019用vue+axios讀取資料並渲染至畫面/簡單製作圓圈動畫</h3>
+            <p>自評78分</p>
+        </article>
+        <article>
+            <h3>1020vue製作非自動輪播圖/優化1.html/ayvc網站修改</h3>
+            <p>自評80分</p>
+        </article>
+        <article>
+            <h3>1021簡單用CSS畫一顆圓球/vue製作表單處理並根據對應輸入資料顯示畫面</h3>
+            <p>自評82分</p>
+        </article>
+        <article>
+            <h3>1021簡單用CSS畫一顆圓球/vue製作表單處理並根據對應輸入資料顯示畫面</h3>
+            <p>自評82分</p>
+        </article>
+        <article>
+            <h3>1022修改網站/vue做一個資料輸入框並顯示右方</h3>
+            <p>自評80分</p>
+        </article>
+        <article>
+            <h3>1023vue建立搜尋功能顯示相關資料/vue建構出下拉式選單畫面選擇後顯示對應內容</h3>
+            <p>自評82分</p>
+        </article>
+        <article>
+            <h3>1024vue簡單做一個打折計算機/vue+js速做todolist/常見透明排版</h3>
+            <p>自評77分</p>
+        </article>
+        <article>
+            <h3>1025vue串api照片並渲染/改用js串api並渲染/vue切換時附加動畫效果/速做切版練習</h3>
+            <p>自評80分</p>
+        </article>
+        <article>
+            <h3>1026刻一個訊息對話的圖/製作本頁面daily.html作為長期紀錄</h3>
+            <p>自評79分</p>
+        </article>
+        <!-- <article>
+            <h3></h3>
+            <p></p>
+        </article> -->
+        <div class="fix"></div>
+    </section>
+
+    
+    <script>
+        ;(function(){
+            const article = document.querySelectorAll('article')
+            const title = document.getElementById('title')
+
+            title.innerText = `目前的總練習有${article.length}個!`
+        })()
+    </script>
+</body>
+</html>

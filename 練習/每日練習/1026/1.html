@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        .msg{
+            transform: scale(1.5);
+            max-width: 500px;
+            margin: 150px auto;
+            background:linear-gradient(115deg,rgb(116, 137, 255),rgb(255, 124, 168));
+            padding-bottom: 20px;
+        }
+        .msg article{
+            display: flex;
+            margin: 5px;
+            align-items: flex-start;
+
+        }
+        .msg article:nth-of-type(even){
+            justify-content: flex-start;
+            flex-direction: row-reverse;
+        }
+        .user{
+            width: 10%;
+        }
+        .user img{
+            width: 100%;
+            border-radius: 50%;
+            margin-bottom: 5px;
+        }
+        .user h4{
+            font-size: 20px;
+            text-align: center;
+            color: white;
+        }
+        .text{
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px 8px;
+            margin:15px 15px 0;
+            position: relative;
+        }
+        .msg article:nth-of-type(odd) .text::before{
+            content:'';
+            position: absolute;
+            top: 8px;
+            left: -3px;
+            width: 10px;
+            height: 10px;
+            transform: rotate(45deg);
+            background-color:white;
+            border-radius: 1px;
+        }
+        .msg article:nth-of-type(even) .text::before{
+            content:'';
+            position: absolute;
+            top: 8px;
+            right: -3px;
+            width: 10px;
+            height: 10px;
+            transform: rotate(45deg);
+            background-color:white;
+            border-radius: 1px;
+        }
+        </style>
+</head>
+<body>
+    <section class="msg">
+        <article>
+            <div class="user">
+                <img src="images/file_369786.png">
+                <h4>pekora</h4>
+            </div>
+            <div class="text">
+                みこち、今日元気ですか？
+            </div>
+        </article>
+        <article>
+            <div class="user">
+                <img src="images/file_370029.png">
+                <h4>miko</h4>
+            </div>
+            <div class="text">
+                元気ですよ！ぺこらわ？
+            </div>
+        </article>
+        <article>
+            <div class="user">
+                <img src="images/file_369752.png">
+                <h4>pekora</h4>
+            </div>
+            <div class="text">
+                最近お腹の調子が悪い...
+            </div>
+        </article>
+        <article>
+            <div class="user">
+                <img src="images/file_370019.png">
+                <h4>miko</h4>
+            </div>
+            <div class="text">
+                それは大変だ！病院へ一緒に行く！
+            </div>
+        </article>
+        <article>
+            <div class="user">
+                <img src="images/file_369752.png">
+                <h4>pekora</h4>
+            </div>
+            <div class="text">
+                じゃお願いね...みこちゃんありがとう
+            </div>
+        </article>
+        <article>
+            <div class="user">
+                <img src="images/file_370022.png">
+                <h4>miko</h4>
+            </div>
+            <div class="text">
+                いえいえ、私たちは最高の友達！<br>これも当然でしょう！
+            </div>
+        </article>
+    </section>
+    <h2 style="text-align:center;font-size: 28px;">本範例適合1920x1080觀看</h2>
+</body>
+</html>

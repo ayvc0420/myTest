@@ -16,12 +16,12 @@
 
             //setTimeout是window的物件 此處this指window
             setTimeout(function() {
-                console.log(this)
+                console.log('set',this)
             }, 2000);
 
             //箭頭函式綁定 上方監聽對象#button 因此這邊的this是#button
             setTimeout( ()=> {
-                console.log(this)
+                console.log('箭頭',this)
             }, 2000);
 
         })

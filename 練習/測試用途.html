@@ -7,11 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <button onclick="test()"></button>
     <script>
-        const test = ()=> {
-            console.log('1')
+        function wtf(argv0, argv1) {
+        console.log(this.v, argv0, argv1);
         }
+        var obj = { v: 'I am v of obj' };
+        obj.func = wtf;
+        obj.func(1,2)
     </script>
 </body>
 </html>
