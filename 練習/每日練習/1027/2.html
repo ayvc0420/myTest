@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            font-size: 60px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+
+        <h4>alert有使用.stop阻止冒泡</h4>
+        <div class="box1" @click="box1">
+            box1
+            <br>
+            <div class="box1_1" @click.stop="box1_1">
+                box1-1
+            </div>
+        </div>
+
+        <h4>alert沒有使用.stop阻止冒泡</h4>
+        <div class="box2" @click="box2">
+            box2
+            <br>
+            <div class="box2_2" @click="box2_2">
+                box2-2
+            </div>
+        </div>
+
+
+    </div>
+    
+    <script src="js/vue.js"></script>
+    <script>
+
+        ;(function(Vue){
+            new Vue({
+                el:'#app',
+                data:{
+
+                },
+                methods:{
+                    box1:function(){
+                        alert('box1被觸發了')
+                    },
+                    box1_1:function(){
+                        alert('box1-1被觸發了')
+                    },
+                    box2:function(){
+                        alert('box2被觸發了')
+                    },
+                    box2_2:function(){
+                        alert('box2-2被觸發了')
+                    },
+                }
+            })
+        })(Vue)
+
+    </script>
+</body>
+</html>
