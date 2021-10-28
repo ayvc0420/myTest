@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .wrap{
+            width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+        .wrap>div{
+            margin: 10px;
+        }
+        .wrap p{
+            padding: 0 20px;
+        }
+        .d1{
+            width: calc(75% - 20px);
+            background-color: chartreuse;
+            float: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 420px;
+            box-sizing: border-box;
+            margin: 10px;
+        }
+        .d2{
+            background-color: cyan;
+        }
+        .d3{
+            background-color: darkcyan;
+        }
+        .wrap>div+div{
+            width: calc(25% - 20px);
+            height: 200px;
+            float: right;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="d1">
+            <h2>五個字標題</h2>
+            <p>四十字內文四十字內文四十字內文四十字內文四十字內文四十字內文四十字內文四十字內文</p>
+        </div>
+        <div class="d2">
+            <h2>五個字標題</h2>
+            <p>二十字內文二十字內文二十字內文二十字內文</p>
+        </div>
+        <div class="d3">
+            <h2>五個字標題</h2>
+            <p>二十字內文二十字內文二十字內文二十字內文</p>
+        </div>
+    </div>
+</body>
+</html>

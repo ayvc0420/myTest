@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        nav{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            background: linear-gradient(100deg,rgb(100,180,100),rgb(90,150,70));
+        }
+        .logo{
+            margin-left: 150px;
+            display: flex;
+            align-items: center;
+        }
+        .logo img{
+            width: 100px;
+        }
+        .menu{
+            display: flex;
+            align-items: center;
+            margin-right: 150px;
+        }
+        .menu a{
+            color: rgb(108, 255, 218);
+            text-decoration: none;
+        }
+        .menu>li>a{
+            padding: 50px 30px;
+            display: inline-block;
+        }
+        .menu>li>a:hover{
+            background-color: rgba(255, 174, 145,0.5);
+        }
+        .shop{
+            display: none;
+            position: absolute;
+            width: 100%;
+            top: 115px;
+            left: 0;
+            border: 1px solid #999;
+            box-shadow: 0 0 5px #777;
+        }
+        .menu2{
+            position: relative;
+        }
+        .menu2:hover .shop{
+            display: block;
+        }
+        .shop a{
+            display: inline-block;
+            padding: 30px 10px;
+            width: calc(100% - 20px);
+            background-color: rgb(30, 185, 38);
+        }
+        .shop a:hover{
+            background-color: rgb(255, 144, 104);
+        }
+        .title_img{
+            width: 100%;
+        }
+        .title_img img{
+            width: 100%;
+        }
+        .main{
+            margin-top: 100px;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+        }
+        .main::before{
+            content: '';
+            position: absolute;
+            top: -40px;
+            width: 80%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            height: 1px;
+            border-top: 1px solid #444;
+        }
+        .main aside{
+            list-style: none;
+            background-color: cornsilk;
+            width: 15%;
+            margin-top: 30px;
+            margin-left: 10%;
+            align-items: flex-start;
+            box-sizing: border-box;
+            padding: 30px;
+            position: relative;
+        }
+        .main aside::before{
+            content: '';
+            position: absolute;
+            top: -15px;
+            right: -70px;
+            width: 1px;
+            height: calc(100% + 20px);
+            border-right: 1px solid #444;
+        }
+        .main aside>ul{
+            border: 1px solid #777;
+        }
+        .main>aside li{
+            width: 100%;
+            text-align: center;
+
+        }
+        .main aside a{
+            display: inline-block;
+            text-decoration: none;
+            padding: 20px 0;
+            width: 100%;
+            color: darkgoldenrod
+        }
+        .main aside a:hover{
+            background-color: rgb(0,0,0,0.7);
+        }
+        .main aside li+li{
+            border-top: 1px solid #777;
+        }
+        .content{
+            width: 60%;
+            margin: auto;
+            padding: 10px 30px;
+            box-sizing: border-box;
+        }
+        .content h3{
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .content p{
+            font-size: 18px;
+            line-height: 1.3;
+        }
+        footer{
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            background-color: black;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="#"><img src="images/file_369819.png"></a>
+        </div>
+        <ul class="menu">
+            <li><a href="#">首頁</a></li>
+            <li class="menu2">
+                <a href="#">商品介紹</a>
+                <ul class="shop">
+                    <li><a href="#">商品A</a></li>
+                    <li><a href="#">商品B</a></li>
+                    <li><a href="#">商品C</a></li>
+                </ul>
+            </li>
+            <li><a href="#">聯絡我們</a></li>
+            <li><a href="#">關於更多</a></li>
+        </ul>
+    </nav>
+
+    <div class="title_img">
+        <img src="images/600x200.png">
+    </div>
+
+    <div class="main">
+        <aside>
+            <ul>
+                <li><a href="#">連結1</a></li>
+                <li><a href="#">連結2</a></li>
+                <li><a href="#">連結3</a></li>
+                <li><a href="#">連結4</a></li>
+                <li><a href="#">連結5</a></li>
+            </ul>
+        </aside>
+        <div class="content">
+            <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat, reprehenderit!</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus exercitationem, adipisci est, voluptatem nemo amet aliquam ut explicabo dignissimos corrupti eius sit iusto expedita vitae? Expedita beatae tempore officiis, aspernatur magnam nam non autem modi quia pariatur perspiciatis similique provident magni ut, facere velit! Eius provident dicta tempore reiciendis non?</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis pariatur dignissimos dolores sint veritatis vitae aliquid ut enim ratione minus.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore recusandae porro temporibus quia alias quidem cum explicabo iste, consequuntur, ratione accusantium ex voluptas sequi culpa nemo nulla hic praesentium voluptatibus? Optio, error! Distinctio magnam, laborum expedita esse neque dicta ut laboriosam porro iste eligendi nobis ipsum enim possimus, quas consequuntur provident voluptatem cupiditate in illum omnis officiis unde! Sequi, atque eum a facilis ratione voluptatibus perferendis ad dolorem ipsa nihil illo impedit, repudiandae quaerat, iste quo blanditiis magni ea vitae!</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio veritatis voluptas quia culpa vero optio minima, corporis maxime voluptatum laudantium?</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus exercitationem, adipisci est, voluptatem nemo amet aliquam ut explicabo dignissimos corrupti eius sit iusto expedita vitae? Expedita beatae tempore officiis, aspernatur magnam nam non autem modi quia pariatur perspiciatis similique provident magni ut, facere velit! Eius provident dicta tempore reiciendis non?</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis pariatur dignissimos dolores sint veritatis vitae aliquid ut enim ratione minus.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore recusandae porro temporibus quia alias quidem cum explicabo iste, consequuntur, ratione accusantium ex voluptas sequi culpa nemo nulla hic praesentium voluptatibus? Optio, error! Distinctio magnam, laborum expedita esse neque dicta ut laboriosam porro iste eligendi nobis ipsum enim possimus, quas consequuntur provident voluptatem cupiditate in illum omnis officiis unde! Sequi, atque eum a facilis ratione voluptatibus perferendis ad dolorem ipsa nihil illo impedit, repudiandae quaerat, iste quo blanditiis magni ea vitae!</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio veritatis voluptas quia culpa vero optio minima, corporis maxime voluptatum laudantium?</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus exercitationem, adipisci est, voluptatem nemo amet aliquam ut explicabo dignissimos corrupti eius sit iusto expedita vitae? Expedita beatae tempore officiis, aspernatur magnam nam non autem modi quia pariatur perspiciatis similique provident magni ut, facere velit! Eius provident dicta tempore reiciendis non?</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis pariatur dignissimos dolores sint veritatis vitae aliquid ut enim ratione minus.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore recusandae porro temporibus quia alias quidem cum explicabo iste, consequuntur, ratione accusantium ex voluptas sequi culpa nemo nulla hic praesentium voluptatibus? Optio, error! Distinctio magnam, laborum expedita esse neque dicta ut laboriosam porro iste eligendi nobis ipsum enim possimus, quas consequuntur provident voluptatem cupiditate in illum omnis officiis unde! Sequi, atque eum a facilis ratione voluptatibus perferendis ad dolorem ipsa nihil illo impedit, repudiandae quaerat, iste quo blanditiis magni ea vitae!</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio veritatis voluptas quia culpa vero optio minima, corporis maxime voluptatum laudantium?</p>
+        </div>
+    </div>
+
+
+    <footer>
+        &copy;ayvc0420
+    </footer>
+</body>
+</html>

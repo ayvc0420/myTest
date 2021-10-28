@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 1000px;
+            margin: 0 auto;
+
+        }
+        .wrap>h2{
+            width: 380px;
+            float: left;
+            line-height: 240px;
+            background-color: brown;
+            margin: 20px 0 10px;
+            text-align: center;
+            position: relative;
+        }
+        .wrap>h2::before{
+            content:'';
+            width: 21%;
+            height: 3px;
+            background-color: black;
+            position: absolute;
+            top: 130px;
+            right: 50px;
+        }
+        .text{
+            width: 600px;
+            float: right;
+            font-size: 0;
+        }
+        .text>p{
+            font-size: 16px;
+            box-sizing: border-box;
+            width: 250px;
+            display: inline-block;
+        }
+        .text>p::first-letter{
+            font-size: calc(16px *2 );
+            padding: 5px ;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <!-- 偏失敗的範例 html結構層次不夠 -->
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <div class="text">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati quisquam, consequuntur quibusdam minima dolor officiis veniam facilis dolores nulla reprehenderit laborum possimus deserunt molestiae, aperiam reiciendis beatae fugit molestias, minus ratione modi. Neque similique, minus dolores sequi obcaecati aliquam deserunt fugiat atque, tempore saepe aperiam cum cumque perferendis quisquam suscipit?</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati quisquam, consequuntur quibusdam minima dolor officiis veniam facilis dolores nulla reprehenderit laborum possimus deserunt molestiae, aperiam reiciendis beatae fugit molestias, minus ratione modi. Neque similique, minus dolores sequi obcaecati aliquam deserunt fugiat atque, tempore saepe aperiam cum cumque perferendis quisquam suscipit?</p>
+        </div>
+
+    </div>
+</body>
+</html>
