@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+
+    <style>/* layout */
+
+        .images{
+            background-color: rgb(255, 215, 215);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .images img{
+            vertical-align: middle;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(230, 255, 192);
+        }
+    </style>
+    <style> /* box work */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200&display=swap');        .item{
+            width: 1200px;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: rgb(243, 243, 243);
+            z-index: 1;
+        }
+        .item>article{
+            width: 45%;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            padding: 50px 20px;
+            line-height: 1.5;
+            background-color: white;
+            margin: 20px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Roboto Slab', serif;
+        }
+        .item>article::after{
+            content:'';
+            width:9px;
+            height: 100%;
+            border: 20px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            left: -3px;
+            background-color: green;
+            transition: height 0.5s ,border 0.5s;
+
+        }
+        .item>article:hover::after{
+            height: 50%;
+            border: 0;
+        }
+        .text{
+            width: 70%;
+            padding:0 30px;
+        }
+        .text p{
+            font-size: 16px;
+            font-weight: 500;
+            color: rgb(53, 53, 53);
+        }
+        .text h3{
+            font-size: 22px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+        .text a{
+            display: inline-block;
+            margin-top: 30px;
+            color: green;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+        .text a:hover span{
+            padding-left: 10px;
+        }
+        .text a span{
+            transition: padding-left 0.5s;
+            font-size: 18px;
+        }
+        .text h3 span{
+            color: green;
+        }
+        .logo{
+            display: inline-block;
+            background-color: #7ab103;
+            box-shadow: 5px 5px 0 rgb(190, 190, 190);
+            border-radius: 15px;
+            width: 80px;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 30px;
+            padding: 10px 5px;
+        }
+        .logo img{
+        }
+
+    </style>
+</head>
+<body>
+    <div class="images">
+        <img src="1.png">
+    </div>
+    <div class="box">
+        <div class="work">
+            
+            <section class="item">
+                <article>
+                    <div class="logo">
+                        <img src="images/icon1.png">
+                    </div>
+                    <div class="text">
+                        <h3><span>Planting</span> Assimilation</h3>
+                        <p>Vivamus nec purus non velit iaculis dapibus. Duis rhoncus metus a tortor fermentum, eget placerat enim placerat.</p>
+                        <a href="#">View Details<span>→</span></a>
+                    </div>
+                </article>
+                <article>
+                    <div class="logo">
+                        <img src="images/icon2.png">
+                    </div>
+                    <div class="text">
+                        <h3><span>Relaxing</span> Environment Space</h3>
+                        <p>Vivamus nec purus non velit iaculis dapibus. Duis rhoncus metus a tortor fermentum, eget placerat enim placerat.</p>
+                        <a href="#">View Details<span>→</span></a>
+                    </div>
+                </article>
+                <article>
+                    <div class="logo">
+                        <img src="images/icon3.png">
+                    </div>
+                    <div class="text">
+                        <h3><span>Guaranteed</span> Tool Repairs</h3>
+                        <p>Vivamus nec purus non velit iaculis dapibus. Duis rhoncus metus a tortor fermentum, eget placerat enim placerat.</p>
+                        <a href="#">View Details<span>→</span></a>
+                    </div>
+                </article>
+                <article>
+                    <div class="logo">
+                        <img src="images/icon4.png">
+                    </div>
+                    <div class="text">
+                        <h3><span>Micro-Managing</span> Cleanup</h3>
+                        <p>Vivamus nec purus non velit iaculis dapibus. Duis rhoncus metus a tortor fermentum, eget placerat enim placerat.</p>
+                        <a href="#">View Details<span>→</span></a>
+                    </div>
+                </article>
+            </section>
+
+
+        </div>
+
+
+
+    </div>
+</body>
+</html>

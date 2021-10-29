@@ -241,9 +241,7 @@
     <script>
         ;(function(){
             const article = document.querySelectorAll('article')
-            const title = document.getElementById('title')
-
-            title.innerText = `目前的總練習有${article.length}個!`
+            document.getElementById('title').innerText = `目前的總練習有${article.length}個!`
             article.forEach(item => {
                 item.addEventListener('click',function(){
                     alert('更詳細查看每日練習簡介.txt')
