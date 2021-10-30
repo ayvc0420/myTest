@@ -61,7 +61,6 @@
         }
         .center{
             width: 3px;
-            height: calc(66px * 33);
             position: absolute;
             background-color: black;
             left: 0;
@@ -230,6 +229,14 @@
             <h3>1028觀看影片成品後自行切版練習/左大右兩小排版/速做一個常見頁面版型</h3>
             <p>自評79分</p>
         </article>
+        <article>
+            <h3>速切一個切版練習</h3>
+            <p>自評81分</p>
+        </article>
+        <article>
+            <h3>用vue做一個li清單/fetch兩種方法串api資料讀取渲染</h3>
+            <p>自評84分</p>
+        </article>
         <!-- <article>
             <h3></h3>
             <p></p>
@@ -247,6 +254,10 @@
                     alert('更詳細查看每日練習簡介.txt')
                 })
             })
+            let centerHeight = 66 * (article.length-3)
+            const center = document.querySelector('.center')
+            // window.getComputedStyle(center,null).height
+            center.style.height = `${centerHeight}px`
         })()
     </script>
 </body>

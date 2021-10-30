@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+
+    </div>
+
+    <script>
+        const url = 'https://api.unsplash.com/photos/?client_id=t0YL-hefB8n1GIxtx4rZmz9TJsiCl2XUs32uexmA0e0'
+        async function ajax (){
+            let unsplashData;
+            try{
+                unsplashData = await fetch(url)
+            }catch{
+                console.error('error!!!')
+            }
+            unsplashData.json().then((data)=>{
+                data.forEach(item =>{
+                        document.getElementById('app').innerHTML +=
+                        `
+                            <img src="${item.urls.small}">
+                        `
+
+                })
+            })
+        }
+        ajax()
+        // fetch(url,{})
+        // .then((res) => {
+        //     console.log(res)
+        //     return res.json()
+        // }).then((json)=>{
+        //     json.forEach(item => {
+        //         document.getElementById('app').innerHTML += 
+        //         `
+        //             <img src="${item.urls.small}">
+        //         `
+        //     })
+        // }).catch((err)=>{
+        //     console.error('error!!')
+        // })
+    </script>
+</body>
+</html>

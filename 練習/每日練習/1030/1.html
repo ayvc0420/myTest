@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+
+    <style>/* layout */
+
+        .images{
+            background-color: rgb(255, 215, 215);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .images img{
+            vertical-align: middle;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(230, 255, 192);
+        }
+    </style>
+    <style> /* box work */
+        .work>ul{
+            display: flex;
+        }
+        .work>ul>li a{
+            display: inline-block;
+            background-color: rgb(60, 115, 117);
+            font-size: 15px;
+            padding: 15px 10px;
+        }
+        .work>ul>li{
+            position: relative;
+        }
+        .work a{
+            text-decoration: none;
+            color: rgb(87, 236, 241);
+            transition: all 0.2s;
+        }
+        .work>ul>li:first-child,.work>ul>li:first-child a{
+            background-color: rgb(51, 166, 168);
+            color: white;
+            font-weight: 900;
+        }
+        .work li:hover a{
+            color: white;
+        }
+        .work li::before{
+            content: '';
+            width: 0%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            transition: width 0.3s;
+        }
+        .work li:hover::before{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 5px;
+            background-color: rgb(59, 190, 192);
+        }
+    </style>
+</head>
+<body>
+    <div class="images">
+        <img src="1.png">
+    </div>
+    <div class="box">
+        <div class="work">
+            <ul>
+                <li v-for="item in menuData" ><a href="#">{{item}}</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        // ;(function(Vue){
+            let menuData = ['會員中心','勇者榜','身分認證','查帳號','查密碼','兩步驟驗證','勇者重置','違規檢舉','停權名單','議事堂']
+            new Vue({
+                el:'.work',
+                data:{menuData,current:'0'},
+            })
+        // })(Vue)
+    </script>
+</body>
+</html>
