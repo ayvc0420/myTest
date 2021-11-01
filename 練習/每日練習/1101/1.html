@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+
+    <style>/* layout */
+
+        .images{
+            background-color: rgb(255, 215, 215);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .images img{
+            vertical-align: middle;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(230, 255, 192);
+        }
+    </style>
+    <style> /* box work */
+    .commodity{
+        max-width: 1400px;
+        margin: auto;
+        display: flex;
+        background-color: white;
+        justify-content: space-around;
+    }
+    .commodity img{
+        width: 100%;
+    }
+    .commodity>div{
+        flex: 1;
+        margin: 40px;
+    }
+    .item_title{
+        letter-spacing: 1.5px;
+        line-height: 1.5;
+    }
+    .item_title>h4{
+        font-size: 16px;
+    }
+    .item_title>h4>span{
+        font-size: 36px;
+        color: rgb(255, 196, 0);
+        margin-left: 5px;
+    }
+    .item_title>h4>span::after{
+        content: '$';
+        font-size: 20px;
+    }
+    .item_title>h3{
+        font-size: 30px;
+    }
+    .item_title>h2{
+        font-size: 60px;
+    }
+    .item>p{
+        color: rgb(194, 194, 194);
+        line-height: 1.5;
+        margin-bottom: 40px;
+        font-size: 22px;
+    }
+    .item>a{
+        display: inline-block;
+        color: white;
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        border-radius: 50%;
+        background-color: rgb(255, 190, 13);
+        text-decoration: none;
+        transition: background-color 0.4s,color 0.4s;
+    }
+    .item>a:hover{
+        background-color: rgb(44, 44, 44);
+        color: rgb(255, 190, 13);
+    }
+    .item2{
+        display: flex;
+        flex-direction: column;
+    }
+    .item2>img{
+        order: -1;
+    }
+    @media screen and (max-width:768px) {
+        .images{
+            display: none;
+        }
+        .commodity{
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .commodity>div{
+            display: flex;
+            flex: auto;
+            flex-direction: column;
+            width: 100%;
+        }
+        .commodity>div img{
+            width: 100%;
+            order: -1;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="images">
+        <img src="1.png">
+    </div>
+    <div class="box">
+        <div class="work">
+            
+            <div class="commodity">
+                <div class="item">
+                    <div class="item_title">
+                        <h4>From<span>17</span></h4>
+                        <h3>BEEF CLASSIC</h3>
+                        <h2>BURGERS</h2>
+                    </div>
+                    <p>Try this delicious burger containing of two fried parts of a whole-grain bun, a juicy piece of beef, cheese and lettuce</p>
+                    <a href="#">+</a>
+                    <img src="images/item1.png" alt="hamburger">
+                </div>
+                <div class="item item2">
+                    <div class="item_title">
+                        <h4>From<span>12.00</span></h4>
+                        <h3>THE BEST PASTA</h3>
+                    </div>
+                    <p>Our pasta with seafood is mixed perfectly with a glass of white wine</p>
+                    <a href="#">+</a>
+                    <img src="images/item2.png" alt="pasta">
+                </div>
+                <div class="item">
+                    <div class="item_title">
+                        <h4>From<span>13.50</span></h4>
+                        <h3>SEASON SOUP</h3>
+                    </div>
+                    <p>We offer you a special dish – our season soup containing season vegetables</p>
+                    <a href="#">+</a>
+                    <img src="images/item3.png" alt="Soup Tom Yam">
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+</body>
+</html>
