@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .vt{
+            width: 400px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .vt h3{
+            margin: 0 0 10px 0;
+        }
+        .vt>div{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 10px;
+        }
+        .vt>div>input{
+            width: 350px;
+        }
+        .vt>div>input:focus{
+            background-color: bisque;
+        }
+        .vt button{
+            margin-right:10px;
+        }
+        .err{
+            padding: 10px;
+            border: 1px solid red;
+            position: relative;
+            margin: 10px 0;
+        }
+        .err::before{
+            position: absolute;
+            content:'格式錯誤-'attr(errMsg);
+            top: 8px;
+            left: 110px;
+            font-size: 20px;
+            color: red;
+        }
+
+        .vt_view{
+            width: 1000px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+        }
+        .vt_view>div{
+            display: flex;
+            margin: 10px 0;
+        }
+        .vt_view>div:nth-of-type(odd){
+            background-color: rgb(255, 207, 148);
+        }
+        .vt_view>div:nth-of-type(even){
+            background-color: rgb(138, 196, 255);
+        }
+        .vt_view span{
+            padding: 8px;
+        }
+        .vt_view>div>div{
+            border-radius: 15px;
+            padding: 5px 10px;
+        }
+        .vt_view>div>a{
+            display: inline-block;
+            padding: 5px 10px;
+            color: blue;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="vt">
+        <div class="son1" errMsg="需為完整中文"><h3>中文名稱</h3><input type="text" id="chineseName"></div>
+        <div class="son2" errMsg="需為完整日文"><h3>日文拼音</h3><input type="text" id="hiraganaName"></div>
+        <div class="son3" errMsg="需包含twitter.com"><h3>推特連結</h3><input type="text" id="twitter"></div>
+        <div style="flex-direction:row;">
+            <button id="send">送出</button>
+            <button id="remove">重填</button>
+        </div>
+    </div>
+
+    <h2 style="text-align:center">已儲存清單:</h2>
+    <div class="vt_view">
+
+    </div>
+    
+    <script src="js/axios.js"></script>
+    <script>
+        window.addEventListener('load',function(){
+
+            const send = document.getElementById('send')
+            const remove = document.getElementById('remove')
+            const son1 = document.querySelector('.son1')
+            const son2 = document.querySelector('.son2')
+            const son3 = document.querySelector('.son3')
+            const chineseTest = /^[\u4e00-\u9fa5]+$/
+            const jsTest = /^[\u0800-\u4e00]+$/
+            const twitterTest = /.*twitter\.com.*/
+            
+            
+            send.addEventListener('click',async function(){
+                const chineseName =document.getElementById('chineseName')
+                const hiraganaName =document.getElementById('hiraganaName')
+                const twitter =document.getElementById('twitter')
+                if(!chineseTest.test(chineseName.value)){
+                    son1.classList.add('err')
+                }else{
+                    son1.classList.remove('err')
+                }
+                if(!jsTest.test(hiraganaName.value)){
+                    son2.classList.add('err')
+                }else{
+                    son2.classList.remove('err')
+                }
+                if(twitterTest.test(twitter.value)){
+                    son3.classList.remove('err')
+                    let recordData = {
+                        "chineseName":chineseName.value,
+                        "hiraganaName":hiraganaName.value,
+                        "twitter":twitter.value}
+                    await reMsg()
+                    await vtEdit(recordData)
+                    await vtShow()
+                }else{
+                    son3.classList.add('err')
+                }
+                
+            })
+            remove.addEventListener('click',reMsg)
+
+            function reMsg(){
+                chineseName.value='';
+                hiraganaName.value='';
+                twitter.value='';
+            }
+
+            const url = 'http://localhost:8080/record'
+            async function vtEdit(recordData){
+                try{
+                    await axios.post(url,recordData)
+                }catch{
+                    console.error('error')
+                }
+
+            }
+            async function vtShow(){
+                let res;
+                const vt_view = document.querySelector('.vt_view')
+                vt_view.innerHTML = ''
+                try{
+                    res = await fetch(url)
+                }catch{
+                    console.error('error!!!')
+                }
+                vt_view.innerHTML = '';
+                res.json().then((data) => {
+                    data.forEach((item,index) => {
+                        vt_view.innerHTML +=
+                        `
+                            <div><span>${data[index].id}</span>
+                                <div>中文名稱:${data[index].chineseName}</div>
+                                <div>日文名稱:${data[index].hiraganaName}</div>
+                                <a href="${data[index].twitter}" target="new">推特連結</a>
+                            </div>
+                        ` 
+                    })
+                })
+            }
+            vtShow()
+        })
+    </script>
+</body>
+</html>

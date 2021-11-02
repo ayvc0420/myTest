@@ -1,0 +1,14 @@
+{
+  "name": "1102",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "json":"json-server --watch test.json --port 8080"
+  },
+  "author": "ayvc0420",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}
