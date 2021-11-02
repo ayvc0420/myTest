@@ -1,0 +1,5 @@
+1.html
+建立node環境 運行json-server 使用axios post寫入 fetch get讀取並渲染
+
+原使用fetch post寫入 debug2小時未完成改用axios
+花費時間3hr
