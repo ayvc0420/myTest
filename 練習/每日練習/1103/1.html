@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/f845922ddd.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        nav{
+            width: 300px;
+            height: 100vh;
+            background: linear-gradient(70deg,rgb(180,150,255),rgb(175,190,240));
+        }
+        nav i{
+            font-size: 14px;
+        }
+        nav a{
+            text-decoration: none;
+            display: inline-block;
+            font-size: 24px;
+            color: blue;
+            padding: 20px 0 20px 10px;
+            width: calc(100% - 10px);
+        }
+        nav li:hover > a{
+            background-color: rgba(0,0,0,0.5);
+        }
+        /*主選單*/
+        nav>ul>li:hover>ul{
+            display: block;
+        }
+        nav>ul>li{
+            position: relative;
+        }
+        nav>ul>li>a{
+            padding: 20px 0;
+            width: 100%;
+        }
+        nav>ul ul{
+            display: none;
+        }
+        /*次選單*/
+        nav>ul>li ul{
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 250px;
+            background: linear-gradient(170deg,rgb(180,150,255),rgb(175,190,240));
+        }
+        nav>ul>li>ul>li{
+            position: relative;
+        }
+        /*次次選單*/
+        /* nav>ul>li>ul>li>ul{
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 250px;
+            background: linear-gradient(280deg,rgb(180,150,255),rgb(175,190,240));
+        } */
+        nav>ul>li>ul>li:hover>ul{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="#">主選單1</a>
+            </li>
+            <li>
+                <a href="#">主選單2-更多<i class="fas fa-chevron-right"></i></a>
+                <ul>
+                    <li>
+                        <a href="#">次選單2-1-更多</a>
+                        <ul>
+                            <li><a href="#">次次選單2-1-1</a></li>
+                            <li><a href="#">次次選單2-1-2</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">次選單2-2-更多</a>
+                        <ul>
+                            <li><a href="#">次次選單2-2-1</a></li>
+                            <li><a href="#">次次選單2-2-2</a></li>
+                            <li><a href="#">次次選單2-2-3</a></li>
+                            <li><a href="#">次次選單2-2-4</a></li>
+                            <li><a href="#">次次選單2-2-5</a></li>
+                            <li><a href="#">次次選單2-2-6</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">次選單2-3-更多</a>
+                        <ul>
+                            <li><a href="#">次次選單2-3-1</a></li>
+                            <li><a href="#">次次選單2-3-2</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">主選單3-更多<i class="fas fa-chevron-right"></i></a>
+                <ul>
+                    <li>
+                        <a href="#">次選單3-1-更多<i class="fas fa-chevron-right"></i></a>
+                        <ul>
+                            <li><a href="#">次次選單3-1-1</a></li>
+                            <li><a href="#">次次選單3-2-2</a></li>
+                            <li><a href="#">次次選單3-3-3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">主選單4-更多<i class="fas fa-chevron-right"></i></a>
+                <ul>
+                    <li>
+                        <a href="#">次選單4-1-更多<i class="fas fa-chevron-right"></i></a>
+                        <ul>
+                            <li><a href="#">次次選單4-1-1</a></li>
+                            <li><a href="#">次次選單4-2-2</a></li>
+                            <li><a href="#">次次選單4-3-3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">主選單5</a>
+            </li>
+        </ul>
+
+    </nav>
+
+</body>
+</html>
