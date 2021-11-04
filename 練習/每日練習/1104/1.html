@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/f845922ddd.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        nav{
+            max-width: 100%;
+            display: flex;
+            background: linear-gradient(25deg,rgb(0,70,244),rgb(117, 93, 255));
+        }
+        .mob_menu{
+            display: none;
+        }
+        .index{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 56px;
+            font-size: 36px;
+            font-weight: 900;
+        }
+        .index a{
+            text-decoration: none;
+            color: black;
+        }
+        .mob_menu_control{
+            display: none;
+        }
+        nav>div:nth-of-type(1){
+            width: 55%;
+        }
+        nav>div:nth-of-type(2){
+            width: 45%;
+        }
+        .menu a{
+            color: brown;
+            text-decoration: none;
+            display: inline-block;
+            background-color: rosybrown;
+        }
+        .menu>ul>li>ul a{
+            padding: 20px;
+        }
+        .menu ul ul{
+            display: none;
+            width: 120px;
+        }
+        .menu>ul li:hover>ul{
+            display: block;
+        }
+        .menu li:hover>a{
+            color: white;
+            background-color: rgb(103, 138, 255);
+        }
+        .menu>ul{
+            display: flex;
+        }
+        .menu>ul>li{
+            position: relative;
+        }
+        .menu>ul>li>a{
+            padding: 20px 15px;
+        }
+        .menu>ul>li>ul{
+            position: absolute;
+            top: 100%;
+        }
+        .menu>ul>li>ul>li{
+            position: relative;
+        }
+        .menu>ul>li>ul>li>ul{
+            position: absolute;
+            top: 0;
+            left: 90%;
+            width: 200px;
+        }
+        
+        @media screen and (max-width:1024px) {
+            .menu>ul{
+                display: none;
+            }
+            .menu{
+                position: relative;
+            }
+            .mob_menu_control{
+                display: block;
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                width: 50px;
+                height: 40px;
+            }
+            .svg1{
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                opacity: 1;
+                margin: auto;
+                cursor: pointer;
+                transition: opacity 0.3s;
+            }
+            .svg2{
+                position: absolute;
+                top: -200%;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                opacity: 0;
+                cursor: pointer;
+                transition: opacity 0.3s;
+            }
+
+
+            /*手機menu*/
+            .mob_menu{
+                width: 33.3vw;
+                height: 100vh;
+                display: block;
+                position: fixed;
+                top: 0;
+                left: -100%;
+                transition: left 0.3s;
+                background: linear-gradient(70deg,rgb(180,150,255),rgb(175,190,240));
+            }
+            .mob_menu ul{
+                width: 33.3vw;
+            }
+            .mob_menu i{
+                font-size: 14px;
+            }
+            .mob_menu a{
+                text-decoration: none;
+                display: inline-block;
+                font-size: 20px;
+                color: blue;
+                padding: 20px 0 20px 10px;
+                width: calc(100% - 10px);
+            }
+            .mob_menu li:hover > a{
+                background-color: rgba(0,0,0,0.5);
+            }
+            /*主選單*/
+            .mob_menu>ul>li:hover>ul{
+                display: block;
+            }
+            .mob_menu>ul>li{
+                position: relative;
+            }
+            .mob_menu>ul>li>a{
+                padding: 20px 0;
+                width: 100%;
+            }
+            .mob_menu>ul ul{
+                display: none;
+            }
+            /*次選單*/
+            .mob_menu>ul>li ul{
+                position: absolute;
+                top: 0;
+                left: 100%;
+                background: linear-gradient(170deg,rgb(180,150,255),rgb(175,190,240));
+            }
+            .mob_menu>ul>li>ul>li{
+                position: relative;
+            }
+            .mob_menu>ul>li>ul>li:hover>ul{
+                display: block;
+            }
+            /*手機menu end*/
+        }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <div class="index">
+            <h4><a href="index.html">標題文字</a></h4>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="#">主選單1</a></li>
+                <li>
+                    <a href="#">主選單2</a>
+                    <ul>
+                        <li><a href="#">次選單2-1</a></li>
+                        <li><a href="#">次選單2-2</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">主選單3</a>
+                    <ul>
+                        <li><a href="#">次選單3-1</a></li>
+                        <li>
+                            <a href="#">次選單3-2</a>
+                            <ul>
+                                <li><a href="#">次次選單3-2-1</a></li>
+                                <li><a href="#">次次選單3-2-2</a></li>
+                                <li><a href="#">次次選單3-2-3</a></li>
+                                <li><a href="#">次次選單3-2-4</a></li>
+                                <li><a href="#">次次選單3-2-5</a></li>
+                                <li><a href="#">次次選單3-2-6</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">次選單3-3</a></li>
+                        <li><a href="#">次選單3-4</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">主選單4</a>
+                    <ul>
+                        <li><a href="#">次選單4-1</a></li>
+                        <li><a href="#">次選單4-2</a></li>
+                        <li><a href="#">次選單4-3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">主選單5</a></li>
+            </ul>
+            <div class="mob_menu_control">
+                <svg width="50" height="40" class="svg1" id="svg1">
+                    <line x1="10" y1="10" x2="40" y2="10" stroke="black" stroke-width="4"> </line>
+                    <line x1="10" y1="20" x2="40" y2="20" stroke="black" stroke-width="4"> </line>
+                    <line x1="10" y1="30" x2="40" y2="30" stroke="black" stroke-width="4"> </line>
+                </svg>
+                <svg width="50" height="40" class="svg2" id="svg2">
+                    <line x1="10" y1="30" x2="40" y2="10" stroke="black" stroke-width="4"> </line>
+                    <line x1="10" y1="10" x2="40" y2="30" stroke="black" stroke-width="4"> </line>
+                </svg>
+            </div>
+        </div>
+        
+        <div class="mob_menu">
+            <ul>
+                <li>
+                    <a href="#">主選單1</a>
+                </li>
+                <li>
+                    <a href="#">主選單2-更多<i class="fas fa-chevron-right"></i></a>
+                    <ul>
+                        <li>
+                            <a href="#">次選單2-1-更多</a>
+                            <ul>
+                                <li><a href="#">次次選單2-1-1</a></li>
+                                <li><a href="#">次次選單2-1-2</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">次選單2-2-更多</a>
+                            <ul>
+                                <li><a href="#">次次選單2-2-1</a></li>
+                                <li><a href="#">次次選單2-2-2</a></li>
+                                <li><a href="#">次次選單2-2-3</a></li>
+                                <li><a href="#">次次選單2-2-4</a></li>
+                                <li><a href="#">次次選單2-2-5</a></li>
+                                <li><a href="#">次次選單2-2-6</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">次選單2-3-更多</a>
+                            <ul>
+                                <li><a href="#">次次選單2-3-1</a></li>
+                                <li><a href="#">次次選單2-3-2</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">主選單3-更多<i class="fas fa-chevron-right"></i></a>
+                    <ul>
+                        <li>
+                            <a href="#">次選單3-1-更多<i class="fas fa-chevron-right"></i></a>
+                            <ul>
+                                <li><a href="#">次次選單3-1-1</a></li>
+                                <li><a href="#">次次選單3-2-2</a></li>
+                                <li><a href="#">次次選單3-3-3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">主選單4-更多<i class="fas fa-chevron-right"></i></a>
+                    <ul>
+                        <li>
+                            <a href="#">次選單4-1-更多<i class="fas fa-chevron-right"></i></a>
+                            <ul>
+                                <li><a href="#">次次選單4-1-1</a></li>
+                                <li><a href="#">次次選單4-2-2</a></li>
+                                <li><a href="#">次次選單4-3-3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">主選單5</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <script>
+        const mob_menu = document.querySelector('.mob_menu')
+        const svg1 = document.getElementById('svg1')
+        const svg2 = document.getElementById('svg2')
+
+        svg1.addEventListener('click',function(){
+            svg2.style = `top:0%;opacity:1`
+            svg1.style = `top:-200%;opacity:0`
+            mob_menu.style= `left:0%`
+        })
+        svg2.addEventListener('click',function(){
+            svg2.style = `top:-200%;opacity:0`
+            svg1.style = `top:0%;opacity:1`
+            mob_menu.style = `left:-100%`
+            
+        })
+
+    </script>
+</body>
+</html>
