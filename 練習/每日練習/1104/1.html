@@ -9,18 +9,19 @@
     <link rel="stylesheet" href="css/reset.css">
     <style>
         nav{
-            max-width: 100%;
-            display: flex;
             background: linear-gradient(25deg,rgb(0,70,244),rgb(117, 93, 255));
+        }
+        nav>section{
+            max-width: 1600px;
+            margin: auto;
+            display: flex;
         }
         .mob_menu{
             display: none;
         }
         .index{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 56px;
+            padding: 10px 0;
+            text-align: center;
             font-size: 36px;
             font-weight: 900;
         }
@@ -28,14 +29,18 @@
             text-decoration: none;
             color: black;
         }
+        .fas{
+                font-size: 14px;
+        }
         .mob_menu_control{
             display: none;
         }
-        nav>div:nth-of-type(1){
-            width: 55%;
+        nav>section>div:nth-of-type(1){
+            width: 50%;
         }
-        nav>div:nth-of-type(2){
-            width: 45%;
+        nav>section>div:nth-of-type(2){
+            width: 50%;
+            vertical-align: middle;
         }
         .menu a{
             color: brown;
@@ -45,10 +50,10 @@
         }
         .menu>ul>li>ul a{
             padding: 20px;
+            width: 120px;
         }
         .menu ul ul{
             display: none;
-            width: 120px;
         }
         .menu>ul li:hover>ul{
             display: block;
@@ -68,6 +73,7 @@
         }
         .menu>ul>li>ul{
             position: absolute;
+            left: -10px;
             top: 100%;
         }
         .menu>ul>li>ul>li{
@@ -75,8 +81,8 @@
         }
         .menu>ul>li>ul>li>ul{
             position: absolute;
-            top: 0;
-            left: 90%;
+            top: 10px;
+            left: 100%;
             width: 200px;
         }
         
@@ -84,7 +90,7 @@
             .menu>ul{
                 display: none;
             }
-            .menu{
+            nav>section{
                 position: relative;
             }
             .mob_menu_control{
@@ -125,16 +131,13 @@
                 height: 100vh;
                 display: block;
                 position: fixed;
-                top: 0;
+                top: 56px;
                 left: -100%;
                 transition: left 0.3s;
                 background: linear-gradient(70deg,rgb(180,150,255),rgb(175,190,240));
             }
             .mob_menu ul{
                 width: 33.3vw;
-            }
-            .mob_menu i{
-                font-size: 14px;
             }
             .mob_menu a{
                 text-decoration: none;
@@ -174,6 +177,7 @@
             .mob_menu>ul>li>ul>li:hover>ul{
                 display: block;
             }
+            
             /*手機menu end*/
         }
     </style>
@@ -181,128 +185,120 @@
 <body>
     
     <nav>
-        <div class="index">
-            <h4><a href="index.html">標題文字</a></h4>
-        </div>
-        <div class="menu">
-            <ul>
-                <li><a href="#">主選單1</a></li>
-                <li>
-                    <a href="#">主選單2</a>
-                    <ul>
-                        <li><a href="#">次選單2-1</a></li>
-                        <li><a href="#">次選單2-2</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">主選單3</a>
-                    <ul>
-                        <li><a href="#">次選單3-1</a></li>
-                        <li>
-                            <a href="#">次選單3-2</a>
-                            <ul>
-                                <li><a href="#">次次選單3-2-1</a></li>
-                                <li><a href="#">次次選單3-2-2</a></li>
-                                <li><a href="#">次次選單3-2-3</a></li>
-                                <li><a href="#">次次選單3-2-4</a></li>
-                                <li><a href="#">次次選單3-2-5</a></li>
-                                <li><a href="#">次次選單3-2-6</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">次選單3-3</a></li>
-                        <li><a href="#">次選單3-4</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">主選單4</a>
-                    <ul>
-                        <li><a href="#">次選單4-1</a></li>
-                        <li><a href="#">次選單4-2</a></li>
-                        <li><a href="#">次選單4-3</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">主選單5</a></li>
-            </ul>
-            <div class="mob_menu_control">
-                <svg width="50" height="40" class="svg1" id="svg1">
-                    <line x1="10" y1="10" x2="40" y2="10" stroke="black" stroke-width="4"> </line>
-                    <line x1="10" y1="20" x2="40" y2="20" stroke="black" stroke-width="4"> </line>
-                    <line x1="10" y1="30" x2="40" y2="30" stroke="black" stroke-width="4"> </line>
-                </svg>
-                <svg width="50" height="40" class="svg2" id="svg2">
-                    <line x1="10" y1="30" x2="40" y2="10" stroke="black" stroke-width="4"> </line>
-                    <line x1="10" y1="10" x2="40" y2="30" stroke="black" stroke-width="4"> </line>
-                </svg>
+        <section>
+            <div class="index">
+                <h4><a href="index.html">標題文字</a></h4>
             </div>
-        </div>
-        
-        <div class="mob_menu">
-            <ul>
-                <li>
-                    <a href="#">主選單1</a>
-                </li>
-                <li>
-                    <a href="#">主選單2-更多<i class="fas fa-chevron-right"></i></a>
-                    <ul>
-                        <li>
-                            <a href="#">次選單2-1-更多</a>
-                            <ul>
-                                <li><a href="#">次次選單2-1-1</a></li>
-                                <li><a href="#">次次選單2-1-2</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">次選單2-2-更多</a>
-                            <ul>
-                                <li><a href="#">次次選單2-2-1</a></li>
-                                <li><a href="#">次次選單2-2-2</a></li>
-                                <li><a href="#">次次選單2-2-3</a></li>
-                                <li><a href="#">次次選單2-2-4</a></li>
-                                <li><a href="#">次次選單2-2-5</a></li>
-                                <li><a href="#">次次選單2-2-6</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">次選單2-3-更多</a>
-                            <ul>
-                                <li><a href="#">次次選單2-3-1</a></li>
-                                <li><a href="#">次次選單2-3-2</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">主選單3-更多<i class="fas fa-chevron-right"></i></a>
-                    <ul>
-                        <li>
-                            <a href="#">次選單3-1-更多<i class="fas fa-chevron-right"></i></a>
-                            <ul>
-                                <li><a href="#">次次選單3-1-1</a></li>
-                                <li><a href="#">次次選單3-2-2</a></li>
-                                <li><a href="#">次次選單3-3-3</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">主選單4-更多<i class="fas fa-chevron-right"></i></a>
-                    <ul>
-                        <li>
-                            <a href="#">次選單4-1-更多<i class="fas fa-chevron-right"></i></a>
-                            <ul>
-                                <li><a href="#">次次選單4-1-1</a></li>
-                                <li><a href="#">次次選單4-2-2</a></li>
-                                <li><a href="#">次次選單4-3-3</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">主選單5</a>
-                </li>
-            </ul>
-
-        </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">主選單1</a></li>
+                    <li>
+                        <a href="#">主選單2<i class="fas fa-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="#">次選單2-1</a></li>
+                            <li><a href="#">次選單2-2</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">主選單3<i class="fas fa-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="#">次選單3-1</a></li>
+                            <li>
+                                <a href="#">次選單3-2<i class="fas fa-chevron-right"></i></a>
+                                <ul>
+                                    <li><a href="#">次次選單3-2-1</a></li>
+                                    <li><a href="#">次次選單3-2-2</a></li>
+                                    <li><a href="#">次次選單3-2-3</a></li>
+                                    <li><a href="#">次次選單3-2-4</a></li>
+                                    <li><a href="#">次次選單3-2-5</a></li>
+                                    <li><a href="#">次次選單3-2-6</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">次選單3-3<i class="fas fa-chevron-right"></i></a>
+                                <ul>
+                                    <li><a href="#">次次選單3-3-1</a></li>
+                                    <li><a href="#">次次選單3-3-2</a></li>
+                                    <li><a href="#">次次選單3-3-3</a></li>
+                                    <li><a href="#">次次選單3-3-4</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">次選單3-4</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">主選單4<i class="fas fa-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="#">次選單4-1</a></li>
+                            <li><a href="#">次選單4-2</a></li>
+                            <li><a href="#">次選單4-3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">主選單5</a></li>
+                </ul>
+                <div class="mob_menu_control">
+                    <svg width="50" height="40" class="svg1" id="svg1">
+                        <line x1="10" y1="10" x2="40" y2="10" stroke="black" stroke-width="4"> </line>
+                        <line x1="10" y1="20" x2="40" y2="20" stroke="black" stroke-width="4"> </line>
+                        <line x1="10" y1="30" x2="40" y2="30" stroke="black" stroke-width="4"> </line>
+                    </svg>
+                    <svg width="50" height="40" class="svg2" id="svg2">
+                        <line x1="10" y1="30" x2="40" y2="10" stroke="black" stroke-width="4"> </line>
+                        <line x1="10" y1="10" x2="40" y2="30" stroke="black" stroke-width="4"> </line>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="mob_menu">
+                <ul>
+                    <li><a href="#">主選單1</a></li>
+                    <li>
+                        <a href="#">主選單2<i class="fas fa-chevron-right"></i></a>
+                        <ul>
+                            <li><a href="#">次選單2-1</a></li>
+                            <li><a href="#">次選單2-2</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">主選單3<i class="fas fa-chevron-right"></i></a>
+                        <ul>
+                            <li><a href="#">次選單3-1</a></li>
+                            <li>
+                                <a href="#">次選單3-2<i class="fas fa-chevron-right"></i></a>
+                                <ul>
+                                    <li><a href="#">次次選單3-2-1</a></li>
+                                    <li><a href="#">次次選單3-2-2</a></li>
+                                    <li><a href="#">次次選單3-2-3</a></li>
+                                    <li><a href="#">次次選單3-2-4</a></li>
+                                    <li><a href="#">次次選單3-2-5</a></li>
+                                    <li><a href="#">次次選單3-2-6</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">次選單3-3<i class="fas fa-chevron-right"></i></a>
+                                <ul>
+                                    <li><a href="#">次次選單3-3-1</a></li>
+                                    <li><a href="#">次次選單3-3-2</a></li>
+                                    <li><a href="#">次次選單3-3-3</a></li>
+                                    <li><a href="#">次次選單3-3-4</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">次選單3-4</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">主選單4<i class="fas fa-chevron-right"></i></a>
+                        <ul>
+                            <li><a href="#">次選單4-1</a></li>
+                            <li><a href="#">次選單4-2</a></li>
+                            <li><a href="#">次選單4-3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">主選單5</a></li>
+                </ul>
+    
+            </div>
+        </section>
     </nav>
 
     <script>
