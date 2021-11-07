@@ -1,0 +1,5 @@
+1.html
+用vue實現側邊欄資訊+切版 切換顯示資訊動畫效果等狀態
+
+參照網站:http://www.templatemonsterpreview.com/demo/213516.html
+花費時間2小時-手受傷code時間延長

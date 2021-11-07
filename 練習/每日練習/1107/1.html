@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+
+    <style>/* layout */
+
+        .images{
+            background-color: rgb(255, 215, 215);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .images img{
+            vertical-align: middle;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(230, 255, 192);
+        }
+    </style>
+    <style> /* box work */
+        .news{
+            width: 500px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            box-sizing: border-box;
+            background-color: white;
+        }
+        @keyframes opacity_ani {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+        .hd_ani{
+            animation: opacity_ani .3s ease-in;
+        }
+        .news header{
+            display: flex;
+        }
+        .news_content{
+            padding: 5px 0 5px 10px;
+        }
+        .hd_active{
+            border-top: 3px solid rgb(167, 0, 0);
+            background-color: white !important;
+            transition: background-color .3s
+        }
+        .news header>div{
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            background-color: rgb(231, 231, 231);
+            cursor: pointer;
+            font-size: 22px;
+        }
+        .news_content{
+            height: 211px;
+            overflow: auto;
+            border: 1px solid rgb(241, 241, 241);
+            border-top: none;
+        }
+        .news_content>ul{
+            width: 100%;
+        }
+        
+        .news_content>ul>li{
+            display: flex;
+            align-items: center;
+        }
+        .news_content>ul>li>div{
+            width: 95%;
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding-top: 5px;
+            margin-left: auto;
+        }
+        .news_content>ul>li+li>div{
+            /* background-color: black; */
+            border-top: 1px dashed rgb(209, 209, 209)
+        }
+        .news_content>ul>li>div>p{
+            padding-left: 15px;
+            line-height: 1.5;
+            box-sizing: border-box;
+            font-size: 18px;
+        }
+        .news_content>ul>li>span{
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(219, 219, 219);
+            box-shadow: 3px 0 0 1px white;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .news>footer{
+            text-align: center;
+            padding: 10px 0;
+            font-size: 20px;
+            background-color: rgb(250, 250, 250);
+        }
+    </style>
+</head>
+<body>
+    <div class="images">
+        <img src="1.png">
+    </div>
+    <div class="box">
+        <div class="work">
+            
+            <div class="news" id="news">
+                <header>
+                    <div :class="{hd_active:headerKey}" @click="hd1">{{header[0]}}</div>
+                    <div :class="{hd_active:!headerKey}" @click="hd2">{{header[1]}}</div>
+                </header>
+
+                <section class="news_content">
+                    <ul>
+                        <li v-for="item,index in newsData1" v-show="headerKey" :class="{hd_ani:headerKey}">
+                            <span>{{index+1}}</span>
+                            <div>
+                                <img :src="item.imgSrc" alt="">
+                                <p>{{item.text}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li v-for="item,index in newsData2" v-show="!headerKey" :class="{hd_ani:!headerKey}">
+                            <span>{{index+1}}</span>
+                            <div>
+                                <img :src="item.imgSrc" alt="">
+                                <p>{{item.text}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+                <footer>{{footer}}</footer>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        ;(function(Vue){
+            new Vue({
+                el:'#news',
+                data:{
+                    header:['Latest Post','Populr Post'],
+                    headerKey:true,
+                    newsData1:[
+                        {
+                            //latest post
+                            text:'Germany fears thousands got saline, not vaccine from nurse',
+                            imgSrc:'images/1.jpg'
+                        },
+                        {
+                            text:'Tottenham to face Pacos de Ferreira or Larne FC in Europa Conference League',
+                            imgSrc:'images/2.jpg'
+                        },
+                        {
+                            text:'New elite colleges for underprivileged Londoners announced by top headteacher',
+                            imgSrc:'images/3.jpg'
+                        },
+                        {
+                            text:'Tube strikes called off after ‘last ditch’ talks',
+                            imgSrc:'images/4.jpg',
+                        },
+                        {
+                            text:'What are the rules for Britons travelling to Spain? Plus the latest on the amber-plus',
+                            imgSrc:'images/5.jpg',
+                        },
+                        {
+                            text:'All over 50s ‘to be offered Pfizer booster third jab by winter’ to protect against',
+                            imgSrc:'images/6.jpg',
+                        },
+                        {
+                            text:'Sadiq Khan U-turns on £15-a-day congestion charge',
+                            imgSrc:'images/7.jpg',
+                        },
+                        {
+                            text:'Drivers action to go ahead with chaos expected on TfL Network',
+                            imgSrc:'images/8.jpg',
+                        },
+                        {
+                            text:'Trial expands to the West End as crackdown on illegal use continues',
+                            imgSrc:'images/9.jpg',
+                        },
+                        {
+                            text:'Lord Digby Jones breaks silence after Alex Scott BBC pronunciation criticism',
+                            imgSrc:'images/10.jpg',
+                        },
+                    ],
+                    newsData2:[
+                        //popular post
+                        {
+                            text:'Singapore shocked by killing of boy, 13, at school',
+                            imgSrc:'images/11.jpg',
+                        },
+                        {
+                            text:'Simone Biles says she now realizes she is more than her gymnastics career in',
+                            imgSrc:'images/12.jpg',
+                        },
+                        {
+                            text:'lraq attack: Bombing at Baghdad market kills Eid shoppers',
+                            imgSrc:'images/13.jpg',
+                        },
+                        {
+                            text:'Tokyo COVID-19 cases hit record high for third day in a row as Olympics continue',
+                            imgSrc:'images/14.jpg',
+                        },
+                        {
+                            text:'Caeleb Dressel sets another Olympic record in 100 meter Butterfly semi-final',
+                            imgSrc:'images/15.jpg',
+                        },
+                    ],
+                    footer:'All Posts',
+
+                },methods: {
+                    hd1(){
+                        this.headerKey=true;
+                    },
+                    hd2(){
+                        this.headerKey=false;
+                    },
+                },
+            })
+        })(Vue)
+        
+    </script>
+</body>
+</html>
