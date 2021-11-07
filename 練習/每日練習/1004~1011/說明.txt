@@ -72,4 +72,4 @@ miko.html pekora.html 修復audio區域動畫異常 修改pc及mobile的menu3字
 檢查-pekora.html c3_1繪師資訊註明錯誤 四個成員的c3區域觸發動畫困難增加些微
 花費時間 20分
 
-資料夾轉移至ayvc0420.github.io庫
+資料夾轉移至ayvc0420.github.io庫 後續更新紀錄查詢該庫git修改紀錄
