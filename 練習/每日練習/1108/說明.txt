@@ -1,0 +1,10 @@
+1.html
+
+node環境 運行json-server 參考todolist功能自行修改內容為記錄清單
+使用套件axios vue
+
+
+花費時間4.5小時-手受傷code時間延長
+
+
+/**/ npm run json

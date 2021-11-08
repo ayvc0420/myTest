@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        [v-cloak]{
+            display: none;
+        }
+        .main{
+            border-radius: 15px;
+            padding: 10px 40px 40px 40px;
+            box-shadow: 0 5px 20px 0 black;
+            background-color: oldlace;
+        }
+        .main h4{
+            font-size: 22px;
+            margin: 10px 0;
+        }
+        .main input,.main select{
+            padding: 3px;
+            width: 100%;
+        }
+        .enter{
+            margin-bottom: 30px;
+        }
+        .enter>div{
+            padding: 10px 70px ;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 30px 0;
+        }
+        .enter>div:nth-of-type(1){
+            background-color: burlywood;
+        }
+        .enter>div:nth-of-type(2){
+            background-color: cyan;
+        }
+        .enter>div:nth-of-type(3){
+            flex-direction: row;
+        }
+        .view h2{
+            font-size: 30px;
+            font-weight: 500;
+            text-align: center;
+        }
+        .err{
+            border: 3px solid red;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .view h2{
+            margin: 20px 0;
+        }
+        .view table{
+            width: 400px;
+            margin: auto;
+        }
+        .view table td{
+            padding: 5px 0;
+            box-sizing: border-box;
+            
+        }
+        .view thead{
+            display: flex;
+        }
+        .view thead tr{
+            width: 100%;
+        }
+        .view tbody{
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+        }
+        .view tbody tr{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .view tbody td,.view thead tr{
+            width: 100%;
+            padding-left: 5px;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <div class="main" id="main" v-cloak>
+        <div class="enter">
+            <div>
+                <h4>名字</h4>
+                <input type="text" v-model="inputName" placeholder="填入玩家名字" :class="{err:nameTest}" @click="nameErrClear">
+            </div>
+            <div>
+                <h4>種族</h4>
+                <select v-model="inputRace" :class="{err:raceTest}" @click="raceErrClear">
+                    <option disabled value="請選擇">請選擇</option>
+                    <option value="騎士">騎士</option>
+                    <option value="王族">王族</option>
+                    <option value="妖精">妖精</option>
+                    <option value="魔法師">魔法師</option>
+                </select>
+            </div>
+            <div>
+                <button @click="send">送出</button>
+                <button @click="clear">重填</button>
+            </div>
+        </div>
+        <div class="view">
+            <h2>已記錄清單:</h2>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>順序</th>
+                        </tr>
+                        <tr>
+                            <th>名稱</th>
+                        </tr>
+                        <tr>
+                            <th>職業</th>
+                        </tr>
+                        <tr>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr v-for="(item,index) in view">
+                            <td>{{item.id}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.race}}</td>
+                            <td>
+                                <button @click="edit(index)">修改</button>
+                                <button @click="del(index)">刪除</button>
+                            </td>
+                        </tr>
+                        <tr >
+                        </tr>
+                        <!-- <tr>
+                        </tr>
+                        <tr>
+                        </tr> -->
+                    </tbody>
+                </table>
+                <span></span>
+                <!-- <span>{{item.race}}</span> -->
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/vue.js"></script>
+    <script src="js/axios.js"></script>
+    <script>
+        // ;(function(Vue){
+            new Vue({
+                el:'#main',
+                data:{
+                    inputName:'',
+                    inputRace:'請選擇',
+                    raceTest:false,
+                    nameTest:false,
+                    view:[],
+                    editIndex:null,
+                    url:'http://localhost:8080/LineageW/',
+                },
+                methods: {
+                    clear(){
+                        // 重置預設設定
+                        this.inputName = ''
+                        this.inputRace = '請選擇'
+                        this.raceTest = false
+                        this.nameTest = false
+                        this.editIndex = null
+                    },
+                    // 判斷+送出請求
+                    async send(){
+                        // let text = /[請選擇]/
+                        if(!this.inputName){
+                            this.nameTest = true
+                        }
+                        if(this.inputRace === '請選擇'){
+                            this.raceTest = true
+                        }else if(this.inputRace && this.inputName){
+                            this.raceTest = false
+                            await this.enter()
+                            await this.update()
+                            this.clear()
+                        }
+                    },
+                    raceErrClear(){
+                        this.raceTest = false
+                    },
+                    nameErrClear(){
+                        this.nameTest = false
+                    },
+                    // 輸入
+                    async enter(){
+                        let data = {
+                            name:this.inputName,
+                            race:this.inputRace
+                        }
+                        if(this.editIndex === null){
+                            try{
+                                await axios.post(this.url,data)
+                            }catch{
+                                console.error('post ERROR!')
+                            }
+                        }else{
+                            await axios.put(`${this.url}${this.editIndex+1}`,data).then((res)=>{
+                                alert('修改成功!')
+                            }).catch((err)=>{
+                                alert('修改失敗!')
+                                // console.error('put ERROR!')
+                            })
+                            console.log(`12312,,${this.url}${this.editIndex}`)
+                        }
+                    },
+                    // 更新
+                    async update(){
+                        let data;
+                        try{
+                            data = await axios.get(this.url)
+                        }catch{
+                            console.error('get error!')
+                        }
+                        data = data.data
+                        data.forEach(item => {
+                            this.view.push(item)
+                        })
+                    },
+                    // 修改
+                    async edit(index){
+                        let data = this.view[index]
+                        this.inputName = data.name
+                        this.inputRace = data.race
+                        this.editIndex = index;
+                        this.raceTest = false
+                        this.nameTest = false
+                    },
+                    async del(index){
+                        let data = this.view[index];
+                        if(confirm(`點擊確認刪除第${data.id}號，${data.name}。`)){
+                            try{
+                                await axios.delete(`${this.url}${data.id}`)
+                            }catch{
+                                console.error('del ERROR!')
+                            }
+                            this.clear()
+                        }
+                    }
+                },
+                mounted() {
+                    this.update()
+                },
+            })
+        // })(Vue)
+    </script>
+</body>
+</html>
