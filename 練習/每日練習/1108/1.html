@@ -30,6 +30,13 @@
             padding: 3px;
             width: 100%;
         }
+        .edit_remind{
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: red;
+            margin: 15px ;
+        }
         .enter{
             margin-bottom: 30px;
         }
@@ -99,6 +106,8 @@
 </head>
 <body>
     <div class="main" id="main" v-cloak>
+        <div v-show="editIndex !== null" class="edit_remind">當前正在修改{{editIndex+1}}號資料</div>
+        <div v-show="editIndex === null" class="edit_remind">當前為新增資料</div>
         <div class="enter">
             <div>
                 <h4>名字</h4>
@@ -165,7 +174,7 @@
     <script src="js/vue.js"></script>
     <script src="js/axios.js"></script>
     <script>
-        // ;(function(Vue){
+        ;(function(Vue){
             new Vue({
                 el:'#main',
                 data:{
@@ -223,10 +232,9 @@
                             await axios.put(`${this.url}${this.editIndex+1}`,data).then((res)=>{
                                 alert('修改成功!')
                             }).catch((err)=>{
-                                alert('修改失敗!')
+                                alert('修改失敗，請稍後再試。')
                                 // console.error('put ERROR!')
                             })
-                            console.log(`12312,,${this.url}${this.editIndex}`)
                         }
                     },
                     // 更新
@@ -253,7 +261,7 @@
                     },
                     async del(index){
                         let data = this.view[index];
-                        if(confirm(`點擊確認刪除第${data.id}號，${data.name}。`)){
+                        if(confirm(`點擊確認刪除第${data.id}號，${data.name}的資料?`)){
                             try{
                                 await axios.delete(`${this.url}${data.id}`)
                             }catch{
@@ -267,7 +275,7 @@
                     this.update()
                 },
             })
-        // })(Vue)
+        })(Vue)
     </script>
 </body>
 </html>

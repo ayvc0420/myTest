@@ -80,6 +80,9 @@
             font-weight: 700;
             margin-bottom: 10px;
         }
+        section>article span{
+            color: red;
+        }
         .center{
             width: 3px;
             position: absolute;
@@ -170,7 +173,7 @@
             <p>自評85分</p>
         </article>
         <article>
-            <h3>1001範例影片製作css輪播圖效果/測試flex相關設定/優化後的svg產生器</h3>
+            <h3>1001範例影片製作css輪播圖效果/測試flex相關設定/<span>優化後的svg產生器</span></h3>
             <p>自評88分</p>
         </article>
         <article>
@@ -186,7 +189,7 @@
             <p>無自評</p>
         </article>
         <article>
-            <h3>1004~1011製作網站</h3>
+            <h3><span>1004~1011製作網站</span></h3>
             <p>連結:https://ayvc0420.github.io/</p>
         </article>
         <article>
@@ -226,7 +229,7 @@
             <p>自評80分</p>
         </article>
         <article>
-            <h3>1021簡單用CSS畫一顆圓球/vue製作表單處理並根據對應輸入資料顯示畫面</h3>
+            <h3>1021簡單用CSS畫一顆圓球/<span>vue製作表單處理並根據對應輸入資料顯示畫面</span></h3>
             <p>自評82分</p>
         </article>
         <article>
@@ -250,7 +253,7 @@
             <p>自評79分</p>
         </article>
         <article>
-            <h3>1027 觀看影片成品後自行切版練習/vue阻止事件冒泡/js阻止事件冒泡</h3>
+            <h3>1027觀看影片成品後自行切版練習/vue阻止事件冒泡/js阻止事件冒泡</h3>
             <p>自評78分</p>
         </article>
         <article>
@@ -274,7 +277,7 @@
             <p>自評84分</p>
         </article>
         <article>
-            <h3>1102axios、fetch ajax練習</h3>
+            <h3>1102<span>axios、fetch ajax練習</span></h3>
             <p>自評87分</p>
         </article>
         <article>
@@ -294,8 +297,12 @@
             <p>自評86分</p>
         </article>
         <article>
-            <h3>1108vue+node環境 參照todolist構思後修改為記錄清單</h3>ㄕ
+            <h3>1108<span>vue+node環境 參照todolist構思後修改為記錄清單</span></h3>
             <p>自評92分</p>
+        </article>
+        <article>
+            <h3>1109速作一個切版練習</h3>
+            <p>自評80</p>
         </article>
         <!-- <article>
             <h3></h3>
@@ -311,7 +318,11 @@
             document.getElementById('title').innerText = `目前的總練習有${article.length}個!`
             article.forEach(item => {
                 item.addEventListener('click',function(){
-                    alert('更詳細查看每日練習簡介.txt')
+                    // alert('更詳細查看每日練習簡介.txt')
+                    window.open(
+                        'https://github.com/ayvc0420/myTest/tree/main/%E7%B7%B4%E7%BF%92/%E6%AF%8F%E6%97%A5%E7%B7%B4%E7%BF%92'
+                        ,'new'
+                    )
                 })
             })
             let centerHeight = 66 * (article.length-3)

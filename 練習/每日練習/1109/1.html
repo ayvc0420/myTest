@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="https://use.fontawesome.com/e60baf10f6.js"></script>
+    <style>
+        /* layout */
+        .images {
+            background-color: rgb(255, 215, 215);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .images img {
+            vertical-align: middle;
+        }
+
+        .box {
+            display: flex;
+            justify-content: center;
+            background-color: rgb(230, 255, 192);
+        }
+    </style>
+    <style>
+        /* box work */
+        .item {
+            max-width: 1000px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 5px;
+            background-color: white;
+        }
+
+        .item img {
+            width: 100%;
+            vertical-align: middle;
+        }
+
+        .item>article {
+            width: 31%;
+            margin: 10px;
+        }
+
+        /* .item>article>div{
+            display: flex;
+
+        } */
+        .item p {
+            border: 1px solid rgb(229, 229, 229);
+            padding: 5px;
+            line-height: 1.5;
+            box-sizing: border-box;
+            font-size: 20px;
+        }
+
+        .item div {
+            border: 1px solid rgb(229, 229, 229);
+            border-top: none;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        .item div a {
+            text-decoration: none;
+            color: #555;
+            padding-left: 5px;
+            font-weight: 100;
+        }
+
+        .item span {
+            color: #999;
+        }
+
+        .item span:nth-of-type(2) {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="images">
+        <img src="1.png">
+    </div>
+    <div class="box">
+        <div class="work">
+            <section class="item">
+                <article>
+                    <img src="images/1.jpg" alt="">
+                    <p>Olympics: Japan stun China to win historic Olympic table tennis gold</p>
+                    <div>
+                        <span><i class="fa fa-tags"></i><a href="#">Olympics</a></span>
+                        <span><a href="#">Asia</a></span>
+                    </div>
+                </article>
+                <article>
+                    <img src="images/2.jpg" alt="">
+                    <p>Olympics: Georgian judokas’ accreditation revoked for leaving</p>
+                    <div>
+                        <span><i class="fa fa-tags"></i><a href="#">Olympics</a></span>
+                        <span><a href="#">Asia</a></span>
+                    </div>
+                </article>
+                <article>
+                    <img src="images/3.jpg" alt="">
+                    <p>Sporting Life: China’s Su Bingtian gives planet a taste of Asian speed</p>
+                    <div>
+                        <span><i class="fa fa-tags"></i><a href="#">China</a></span>
+                        <span><a href="#">Asia</a></span>
+                    </div>
+                </article>
+                <article>
+                    <img src="images/4.jpg" alt="">
+                    <p>China’s risk-averse political culture proves deadly in Henan floods</p>
+                    <div>
+                        <span><i class="fa fa-tags"></i><a href="#">political</a></span>
+                        <span><a href="#">Asia</a></span>
+                    </div>
+                </article>
+                <article>
+                    <img src="images/5.jpg" alt="">
+                    <p>Navigating China’s regulatory tsunami</p>
+                    <div>
+                        <span><i class="fa fa-tags"></i><a href="#">China</a></span>
+                        <span><a href="#">Asia</a></span>
+                    </div>
+                </article>
+                <article>
+                    <img src="images/6.jpg" alt="">
+                    <p>China’s conundrum in South China Sea</p>
+                    <div>
+                        <span><i class="fa fa-tags"></i><a href="#">South China</a></span>
+                        <span><a href="#">Asia</a></span>
+                    </div>
+                </article>
+            </section>
+        </div>
+
+
+
+    </div>
+</body>
+
+</html>
