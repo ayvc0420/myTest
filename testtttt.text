@@ -40,3 +40,9 @@ Font Awesome
 </button>
 
 npm i json-server 
+
+
+windows Powershell
+set-ExecutionPolicy RemoteSigned
+
+選擇A 解除預設安全性原則
