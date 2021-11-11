@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+
+
 // import Demo1111 from '../views/Demo1111.vue'
 
 Vue.use(VueRouter)
@@ -26,12 +28,12 @@ const routes = [
       {
         path:'text',
         name:'Demo1111-text',
-        component:() => import(/* webpackChunkName: "Demo1111-text" */ '../views/Demo1111-text.vue')
+        component:() => import('../views/Demo1111-text.vue')
       },
       {
         path:'web',
         name:'Demo1111-web',
-        component:() => import(/* webpackChunkName: "Demo1111-web" */ '../views/Demo1111-web.vue')
+        component:() => import('../views/Demo1111-web.vue')
       }
     ]
   }
