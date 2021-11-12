@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仿天堂W抽卡</title>
+    <style>
+        #app{
+            max-width: 800px;
+            padding: 20px 0;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgb(250, 187, 158);
+        }
+        h3{
+            font-size: 40px;
+            font-weight: 900;
+            color: black;
+            text-align: center;
+        }
+        .content{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            flex-direction: column;
+        }
+        .content>div:nth-of-type(1){
+            display: flex;
+        }
+        .content button{
+            margin: 10px 0;
+            font-size: 30px;
+        }
+        .view{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+        .view>div{
+            /* display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; */
+            font-size: 24px;
+        }
+        input{
+            font-size: 30px;
+            width: 200px;
+        }
+        .card_type{
+            margin: 50px 0;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        .all_card{
+            font-size: 28px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="#top"></id>
+        <div id="app">
+            <a href="#buttom">最底</a>
+            <h3>天堂W 模擬抽卡</h3>
+            <div class="content">
+            <div>11抽次數(預設1):<input type="text" v-Model="lotteryNumber"></div>
+            <div><button @click="lottery">上級變身卡片11抽</button></div>
+        </div>
+        <div class="view">
+            <div v-html="viewCard"></div>
+            <div class="card_type">
+                目前抽到的卡為:
+                <span>灰卡:{{garyCard}}張</span>
+                <span>綠卡:{{greenCard}}張</span>
+                <span>藍卡:{{blueCard}}張</span>
+                <span>紅卡:{{redCard}}張</span>
+            </div>
+            <span class="all_card">一共抽了{{allCardNumber}}張</span>
+            <span id="buttom" class="all_card">花了{{diamond}}鑽石，{{twd}}台幣</span>
+            <a href="#top">最頂</a>
+        </div>
+    </div>
+
+
+    <script src="js/vue.js"></script>
+    <script>
+
+        ;(function(Vue){
+            new Vue({
+                el:'#app',
+                data:{
+                    prize:[
+                        {item:'黑蛇萊奧斯',card:'紅',keyBefore:1},
+                        {item:'絲莉安',card:'紅',keyBefore:1},
+                        {item:'卡爾圖蘭',card:'紅',keyBefore:1},
+                        {item:'銀騎士團長拉',card:'紅',keyBefore:1},
+                        {item:'流浪君主傑登',card:'紅',keyBefore:1},
+                        {item:'森林妖精德里',card:'紅',keyBefore:1},
+                        {item:'抄寫員弗雷德溫',card:'紅',keyBefore:1},
+                        {item:'巴風特',card:'紅',keyBefore:1},
+                        {item:'天上騎士',card:'紅',keyBefore:1},
+                        {item:'大魔法師艾希德',card:'紅',keyBefore:1},
+                        {item:'紅狼巴伯特',card:'紅',keyBefore:1},
+                        {item:'克特',card:'紅',keyBefore:1},
+                        {item:'真死亡騎士',card:'紅',keyBefore:1},
+                        {item:'說話之島槍兵',card:'藍',keyBefore:6},
+                        {item:'說話之島弓箭手',card:'藍',keyBefore:6},
+                        {item:'卡爾迪修',card:'藍',keyBefore:6},
+                        {item:'萊茵哈德',card:'藍',keyBefore:6},
+                        {item:'克頓阿托魯',card:'藍',keyBefore:6},
+                        {item:'巴魯德拉克',card:'藍',keyBefore:6},
+                        {item:'波若斯妖魔鬥士',card:'藍',keyBefore:6},
+                        {item:'波若斯妖魔戰士',card:'藍',keyBefore:6},
+                        {item:'波若斯妖魔魔',card:'藍',keyBefore:6},
+                        {item:'波若斯妖魔弓',card:'藍',keyBefore:6},
+                        {item:'尼羅德',card:'藍',keyBefore:6},
+                        {item:'托魯克',card:'藍',keyBefore:6},
+                        {item:'卡修阿特',card:'藍',keyBefore:6},
+                        {item:'大黑長者',card:'藍',keyBefore:6},
+                        {item:'奈克偌斯',card:'藍',keyBefore:6},
+                        {item:'烏勒庫斯',card:'藍',keyBefore:6},
+                        {item:'卡司特王',card:'藍',keyBefore:6},
+                        {item:'上級傭兵',card:'藍',keyBefore:6},
+                        {item:'上級魔法師',card:'藍',keyBefore:6},
+                        {item:'上級騎士',card:'藍',keyBefore:6},
+                        {item:'上級獵人',card:'藍',keyBefore:6},
+                        {item:'咒術師斯科特',card:'藍',keyBefore:6},
+                        {item:'卡士柏',card:'藍',keyBefore:6},
+                        {item:'西瑪',card:'藍',keyBefore:6},
+                        {item:'馬庫爾',card:'藍',keyBefore:6},
+                        {item:'奧杜亞',card:'藍',keyBefore:6},
+                        {item:'巴土瑟',card:'藍',keyBefore:6},
+                        {item:'卡司特',card:'綠',keyBefore:220},
+                        {item:'果凍怪',card:'綠',keyBefore:220},
+                        {item:'史巴托',card:'綠',keyBefore:220},
+                        {item:'甘地妖魔魔法師',card:'綠',keyBefore:220},
+                        {item:'甘地妖魔槍兵',card:'綠',keyBefore:220},
+                        {item:'甘地妖魔弓箭手',card:'綠',keyBefore:220},
+                        {item:'甘地妖魔戰士',card:'綠',keyBefore:220},
+                        {item:'羅孚妖魔斧兵',card:'綠',keyBefore:220},
+                        {item:'羅孚妖魔槍兵',card:'綠',keyBefore:220},
+                        {item:'羅孚妖魔魔法師',card:'綠',keyBefore:220},
+                        {item:'羅孚妖魔弓箭手',card:'綠',keyBefore:220},
+                        {item:'銀光法師',card:'綠',keyBefore:220},
+                        {item:'銀光騎士',card:'綠',keyBefore:220},
+                        {item:'食人妖',card:'綠',keyBefore:220},
+                        {item:'食人妖王',card:'綠',keyBefore:220},
+                        {item:'長者',card:'綠',keyBefore:220},
+                        {item:'黑長者',card:'綠',keyBefore:220},
+                        {item:'巨大亞力安',card:'綠',keyBefore:220},
+                        {item:'多羅',card:'綠',keyBefore:220},
+                        {item:'下級魔法師',card:'綠',keyBefore:220},
+                        {item:'下級獵人',card:'綠',keyBefore:220},
+                        {item:'下級傭兵',card:'綠',keyBefore:220},
+                        {item:'下級騎士',card:'綠',keyBefore:220},
+                        {item:'阿魯巴',card:'綠',keyBefore:220},
+                        {item:'克頓妖魔弓箭手',card:'灰',keyBefore:861},
+                        {item:'克頓妖魔魔法師',card:'灰',keyBefore:861},
+                        {item:'克頓妖魔槍兵',card:'灰',keyBefore:861},
+                        {item:'克頓妖魔斧頭兵',card:'灰',keyBefore:861},
+                        {item:'巴魯妖魔戰士',card:'灰',keyBefore:861},
+                        {item:'巴魯妖魔槍兵',card:'灰',keyBefore:861},
+                        {item:'巴魯妖魔弓箭手',card:'灰',keyBefore:861},
+                        {item:'巴魯妖魔咒術師',card:'灰',keyBefore:861},
+                        {item:'黑騎士團騎士',card:'灰',keyBefore:861},
+                        {item:'黑騎士團戰士',card:'灰',keyBefore:861},
+                        {item:'黑騎士團魔法師',card:'灰',keyBefore:861},
+                        {item:'黑騎士團劍士',card:'灰',keyBefore:861},
+                        {item:'修練魔法師',card:'灰',keyBefore:861},
+                        {item:'修練騎士',card:'灰',keyBefore:861},
+                        {item:'修練弓箭手',card:'灰',keyBefore:861},
+                        {item:'骷髏',card:'灰',keyBefore:861},
+                        {item:'瘋狂的狂信徒',card:'灰',keyBefore:861},
+                        {item:'邪惡的狂信徒',card:'灰',keyBefore:861},
+                        {item:'高崙',card:'灰',keyBefore:861},
+                        {item:'橡木桶',card:'灰',keyBefore:861},
+                        {item:'狼人',card:'灰',keyBefore:861},
+                        {item:'萊肯',card:'灰',keyBefore:861},
+                        
+                    ],
+                    prizeCope:[],
+                    prizeKey:0,
+                    random:[],
+                    randKey:null,
+                    lotteryNumber:1,
+                    viewCard:null,
+                    garyCard:0,
+                    greenCard:0,
+                    blueCard:0,
+                    redCard:0,
+                    allCardNumber:0,
+                    cardSwitch:false,
+                    diamond:0,
+                    twd:0,
+                },
+                methods: {
+                    lottery(){
+                        this.viewCard = '';
+                        let key = [];
+                        for(let i=0;i< 11*this.lotteryNumber;i++){
+                            key.push(Math.floor(Math.random()*this.randKey))
+                        }
+                        for(let i=0;i<key.length;i++){
+                            for(let k=0;k<this.prizeCope.length;k++){
+                                if(key[i] >= this.prizeCope[k].key){
+                                    this.viewCard += `第${i+1}次抽到:${this.prizeCope[k].item}，`
+                                    // console.log(`第${i+1}次抽到:${this.prizeCope[k].item}，是${this.prizeCope[k].card}卡`)
+                                    if(this.prizeCope[k].card === '灰'){
+                                        this.garyCard+=1;
+                                        this.viewCard += `是<span style="background-color: gray;">${this.prizeCope[k].card}卡</span>。<br>`
+                                    }else if(this.prizeCope[k].card === '綠'){
+                                        this.viewCard += `是<span style="background-color: green;">${this.prizeCope[k].card}卡</span>。<br>`
+                                        this.greenCard+=1 
+                                    }else if(this.prizeCope[k].card === '藍'){
+                                        this.viewCard += `是<span style="background-color: blue;">${this.prizeCope[k].card}卡</span>。<br>`
+                                        this.blueCard+=1
+                                    }else if(this.prizeCope[k].card === '紅'){
+                                        this.viewCard += `是<span style="background-color: red;">${this.prizeCope[k].card}卡</span><br>`
+                                        this.redCard+=1
+                                    }
+                                    this.allCardNumber+=1;
+                                    break;
+                                }
+                            }
+                        }
+                        this.diamond += 1200 * this.lotteryNumber;
+                        this.twd += 780 * this.lotteryNumber;
+                    },
+                },
+                mounted() {
+                    let key = 0;
+                    this.prize.forEach(item => {
+                        this.prizeCope.push({
+                            ...item,
+                            key:key
+                        })
+                        key += item.keyBefore
+                    })
+                    this.prizeCope = this.prizeCope.reverse()
+                    this.randKey = key;
+                },
+            })
+        })(Vue)
+
+
+    </script>
+
+</body>
+</html>

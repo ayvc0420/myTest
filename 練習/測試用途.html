@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n = Math.floor(Math.random()*20);
+        console.log(n)
+        let r = [
+            {name: '404', r: 10},
+            {name: '3', r: 3},
+            {name: '2', r: 1},
+            {name: '1', r: 0},
+        ];
+        for(let index = 0; index < r.length; index++){
+            let p = r[index];
+            console.log('外',p.r)
+            console.log('n',n)
+            if(n >= p.r){
+                console.log('n',n)
+                console.log('pr',p.r)
+                console.log(`你中了 ${p.name}`);
+                break;
+            }
+        }
+    </script>
+</body>
+</html>
