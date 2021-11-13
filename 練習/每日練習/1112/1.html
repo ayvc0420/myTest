@@ -72,7 +72,7 @@
             <a href="#buttom">最底</a>
             <h3>天堂W 模擬抽卡</h3>
             <div class="content">
-            <div>11抽次數(預設1):<input type="text" v-Model="lotteryNumber"></div>
+            <div>11抽次數(預設1):<input type="text" v-Model="lotteryNumber" @keyup.enter="lottery"></div>
             <div><button @click="lottery">上級變身卡片11抽</button></div>
         </div>
         <div class="view">
@@ -188,18 +188,30 @@
                         
                     ],
                     prizeCope:[],
-                    prizeKey:0,
-                    random:[],
+                    // 原預設處理後key 現不需要
+                    // prizeKey:0,
+                    // 原預設機率 現不需要
+                    // random:[],
+                    // 抽的範圍大小-機率
                     randKey:null,
+                    // 要連抽的次數
                     lotteryNumber:1,
+                    // 顯示抽到的卡片畫面
                     viewCard:null,
+                    // 灰卡
                     garyCard:0,
+                    // 綠卡
                     greenCard:0,
+                    // 藍卡
                     blueCard:0,
+                    // 紅卡
                     redCard:0,
+                    // 抽的卡片數量
                     allCardNumber:0,
-                    cardSwitch:false,
+                    // cardSwitch:false,
+                    // 花費的鑽石
                     diamond:0,
+                    // 花費的台幣
                     twd:0,
                 },
                 methods: {
