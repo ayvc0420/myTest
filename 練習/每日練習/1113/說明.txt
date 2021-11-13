@@ -1,5 +1,5 @@
 1.html
-速做一個切版練習 
+切一個一定的複雜度面板以及特效
 
 參照網站http://www.templatemonsterpreview.com/demo/213516.html
-花費時間 15分鐘
+花費時間2hr

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+
+    <script src="https://use.fontawesome.com/e60baf10f6.js"></script>
+    <style>/* layout */
+
+        .images{
+            background-color: rgb(255, 215, 215);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .images img{
+            vertical-align: middle;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(230, 255, 192);
+        }
+    </style>
+    <style> /* box work */
+    .work{
+        width: 1500px;
+        display: flex;
+        background-color: white;
+        padding: 0 20px;
+        box-shadow: 0 0 15px 0 rgb(139, 139, 139);
+        margin-bottom: 50px;
+    }
+    .work>div:nth-of-type(1){
+        width: 70%;
+    }
+    .work>div:nth-of-type(2){
+        width: 30%;
+    }
+    .fa-tags{
+        color: rgb(139, 139, 139);
+    }
+    .content a{
+        text-decoration: none;
+    }
+    .content>header{
+        position: relative;
+        margin: 20px 0;
+    }
+    .content>header::before{
+        content: '';
+        position: absolute;
+        top: 30%;
+        left: 70px;
+        width: 90%;
+        height: 3px;
+        background-color: rgb(205,205,205);
+        
+    }
+    .content>header::after{
+        content: '';
+        position: absolute;
+        left: 70px;
+        bottom: 30%;
+        width: 90%;
+        height: 3px;
+        background-color: rgb(205,205,205);
+    }
+    .content>header a{
+        color: black;
+        font-size: 20px;
+    }
+    .content img{
+        width: 100%;
+        vertical-align: middle;
+    }
+    .item1{
+        display: flex;
+    }
+    .item1_left:hover{
+        filter: brightness(105%);
+    }
+    .item1>div:nth-of-type(1){
+        width: 48%;
+    }
+    
+    .item1>div:nth-of-type(2){
+        width: 50%;
+        box-sizing: border-box;
+        padding-left: 20px;
+    }
+    .item1>div>div{
+        display: flex;
+    }
+    .item1_left>div{
+        display: flex;
+        flex-direction: column;
+    }
+    .item1_left>div:nth-of-type(2)>a{
+        padding: 10px;
+        border-left: 1px solid rgb(226, 226, 226);
+        border-right: 1px solid rgb(226, 226, 226);
+        line-height: 1.5;
+        color: black;
+        font-size: 20px;
+    }
+    .item1_left>div:nth-of-type(2)>span{
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid rgb(235, 235, 235);
+    }
+    .item1_left>div:nth-of-type(2)>span a{
+        padding-left: 5px;
+        color: rgb(114, 114, 114);
+    }
+    .item1_left span{
+        width: 100%;
+    }
+    .item1_right>div{
+        position: relative;
+        padding-bottom: 7px;
+    }
+    .item1_right>div::before{
+        content: '';
+        width: 100%;
+        position: absolute;
+        bottom: 8px;
+        border-bottom: 1px solid rgb(226, 226, 226);
+    }
+    .item1_right>div>div>a{
+        display: inline-block;
+        line-height: 1.4;
+        margin-bottom: 8px;
+        font-size: 18px;
+        letter-spacing: 1px;
+        color: black;
+        
+    }
+    .item1_right span{
+        padding: 0 5px;
+    }
+    .item1_right .text{
+        width: 100% ;
+        padding-left: 5px
+    }
+    .item1_right .img{
+        width: 50%;
+    }
+    .item1_right .img a{
+        width: 100%;
+    }
+    .item1_right .text a{
+        padding: 0 10px;
+    }
+    .item1_right .text span a{
+        font-size: 16px;
+        color: rgb(114, 114, 114)
+    }
+    .item1_right .text span a:hover{
+        color: rgb(41, 41, 41);
+        transition: color .2s;
+    }
+    .item2{
+        display: flex;
+        margin-bottom: 20px;
+    }
+    .item2>div{
+        width: 25%;
+        margin-right:18px;
+        border: 1px solid rgb(235, 235, 235)
+    }
+    .item2>a{
+        display: inline-block;
+    }
+    .item2>div:hover img{
+        filter: brightness(105%);
+    }
+    .item2>div p{
+        line-height: 1.5;
+        color: black;
+        padding: 10px 5px;
+        font-size: 21px;
+    }
+    .item2>div>div{
+        padding-left: 10px;
+        border-top: 2px solid rgb(235, 235, 235);
+    }
+    .item2>div>div a{
+        display: inline-block;
+        padding: 10px;
+        color: rgb(180, 180, 180)
+    }
+    .item2>div>div a:hover{
+        color: rgb(41, 41, 41);
+        transition: color .3s;
+    }
+    .business{
+        margin-top: 20px;
+    }
+    .business h3{
+        padding: 20px 0 20px 8px;
+        background-color: rgb(238, 238, 238);
+    }
+    .business>a{
+        color: black;
+        text-decoration: none;
+        font-size: 20px;
+    }
+    .business_content{
+        border: 1px solid rgb(226, 226, 226);
+    }
+    .business_menu:hover{
+        filter: contrast(90%)
+    }
+    .business_menu h4{
+        padding: 10px 0 10px 6px;
+    }
+    .business_menu>img{
+        width: 100%;
+    }
+    .business_menu>a{
+        font-size: 20px;
+        padding: 10px 0 10px 5px;
+        color: black;
+        text-decoration: none;
+    }
+    .business_menu>div{
+        position: relative;
+        padding: 10px 8px;
+        display: flex;
+    }
+    .business_menu>div::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 95%;
+        border-top: 1px dashed rgb(226, 226, 226);
+    }
+    .business_menu>div::after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 95%;
+        border-bottom: 1px solid rgb(226, 226, 226);
+    }
+    .business_menu>div>a{
+        display: inline-block;
+        padding-left: 10px;
+        font-size: 18px;
+        line-height: 1.5;
+        text-decoration: none;
+        color: black;
+    }
+    .business_menu>div>a:hover{
+        color: rgb(167, 202, 255);
+        transition: color .2s;
+        cursor: pointer;
+    }
+    .business_btn{
+        margin-top: 10px;
+        background-color: black;
+        color: white;
+        width: 100%;
+        padding: 10px 0;
+        font-size: 18px;
+        border: none;
+        cursor: pointer;
+    }
+    .business_btn:hover{
+        transition: all 0.6s;
+        filter: contrast(65%)
+    }
+    .business_btn .fa-angle-double-right{
+        padding-left: 20px;
+    }
+    </style>
+</head>
+<body>
+    <div class="images">
+        <img src="1.png">
+    </div>
+    <div class="box">
+        <div class="work">
+            <div class="content">
+                <header>
+                    <a href="#">Health</a>
+                </header>
+                <div class="item1">
+                    <div class="item1_left">
+                        <div>
+                            <a href="#">
+                                <img src="images/1.jpg" alt="">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#">
+                                <p>Holiday travel rules in full as ministers consider new ‘amber watchlist’ for Spain</p>
+                            </a>
+                            <span><i class="fa fa-tags"></i><a href="#">Holiday</a></span>
+                        </div>
+                    </div>
+                    <div class="item1_right">
+                        <div>
+                            <div class="img">
+                                <a href="#">
+                                    <img src="images/2.jpg">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <a href="#">Paris riot police use tear gas on anti-vaxxers as huge crowds clash over</a>
+                                <span><i class="fa fa-tags"></i><a href="#">Covid</a></span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="img">
+                                <a href="#">
+                                    <img src="images/3.jpg">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <a href="#">Boris Johnson urged to dump travel rules to save summer hols – by his</a>
+                                <span><i class="fa fa-tags"></i><a href="#">Boris Johnson</a></span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="img">
+                                <a href="#">
+                                    <img src="images/4.jpg">
+                                </a>
+                            </div>
+                            <div class="text">
+                                <a href="#">Covid care home deaths ‘could be thousands higher’ due to ‘death</a>
+                                <span><i class="fa fa-tags"></i><a href="#">Covid</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item2">
+                    <div>
+                        <a href="#">
+                            <div>
+                                <img src="images/5.jpg">
+                                <p>New furlough changes from August 1 as government support falls</p>
+                            </div>
+                        </a>
+                        <div>
+                            <i class="fa fa-tags"></i><a href="#">government</a>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <div>
+                                <img src="images/6.jpg">
+                                <p>Incredible scary’ NHS backlog risks scandal like Mid-Staffs, warns Jeremy</p>
+                            </div>
+                        </a>
+                        <div>
+                            <i class="fa fa-tags"></i><a href="#">NHS</a>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <div>
+                                <img src="images/7.jpg">
+                                <p>Royal superfan with astonishing treasure trove of more than 3,000 items</p>
+                            </div>
+                        </a>
+                        <div>
+                            <i class="fa fa-tags"></i><a href="#">Queen</a>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <div>
+                                <img src="images/8.jpg">
+                                <p>Rules forcing quarantine for travelers passing via red list countries ‘to be</p>
+                            </div>
+                        </a>
+                        <div>
+                            <i class="fa fa-tags"></i><a href="#">travelers</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="business">
+                <a href="#"><h3>Business</h3></a>
+                <div class="business_content">
+                    <div class="business_menu">
+                        <img src="images/9.jpg">
+                        <a href="#"><h4>Raise prices for Covid-19 vaccines in EU</h4></a>
+                        <div>
+                            <img src="images/10.jpg" alt="">
+                            <a href="#"><p>Pfizer and Moderna raise prices for Covid-19 vaccines in EU</p></a>
+                        </div>
+                        <div>
+                            <img src="images/11.jpg" alt="">
+                            <a href="#"><p>54% in S’pore have received 2 doses of Covid-19 mRNA vaccine; vaccination rate up 1</p></a>
+                        </div>
+                        <div>
+                            <img src="images/12.jpg" alt="">
+                            <a href="#"><p>More vaccinated people with Covid-19 will go straight to community care facilities instead</p></a>
+                        </div>
+                    </div>
+                    <a href="#">
+                        <button class="business_btn">All From Business<i class="fa fa-angle-double-right"></i></button>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+</body>
+</html>
