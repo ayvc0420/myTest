@@ -65,21 +65,21 @@
         vertical-align: bottom;
     }
     
-    .item2 .item2_text::before{
-        content: '';
-        border-top: 50px solid transparent;
-        border-left: 150px solid rgb(209, 169, 255);
-        border-right: 150px solid rgb(209, 169, 255);
-        top: -50px;
-        left: 0;
-        position: absolute;
-    }
     .item2 .item2_text{
         position: relative;
         line-height: 1.5rem;
         text-align: center;
         background: linear-gradient(0deg,rgb(255, 202, 202),rgb(209, 169, 255));
         padding: 10px 20px;
+    }
+    .item2 .item2_text::before{
+        content: '';
+        position: absolute;
+        top: -50px;
+        left: 0;
+        border-top: 50px solid transparent;
+        border-left: 150px solid rgb(209, 169, 255);
+        border-right: 150px solid rgb(209, 169, 255);
     }
     .item2 .item2_text h2{
         border-bottom: 1px solid gray;
