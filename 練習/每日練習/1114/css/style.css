@@ -379,6 +379,9 @@ footer h4{
     .footer_email{
         margin: 30px auto;
     }
+    .footer_email h3{
+        margin: 15px 0;
+    }
 }
 @media screen and (max-width:768px){
     .header .left{
