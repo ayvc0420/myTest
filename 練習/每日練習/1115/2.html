@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #app{
+            width: 1000px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+        #app>div{
+            width: 300px;
+            height: 100px;
+        }
+        span{
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div id="app">
+
+
+
+
+    </div>
+
+    <script>
+        ;(function(){
+            const app = document.getElementById('app')
+            const apiUrl = 'https://ptx.transportdata.tw/MOTC/v2/Air/Airport?$top=519&$format=JSON'
+            async function rand(){
+                let data;
+                try{
+                    data = await fetch(apiUrl)  
+                }catch{
+                    console.log('獲取資料失敗')
+                }
+                data.json().then((res)=>{
+                    console.log(res)
+                    res.forEach(item => {
+                        app.innerHTML += 
+                        `
+                            <div>
+                                機場中文名稱:${item.AirportName.Zh_tw}<br>英文名稱:${item.AirportName.En}<br>
+                                機場國家:${item.AirportNationality}<br>資料更新時間:<span>${item.UpdateTime}</span>
+                            </div>
+                        `
+                    })
+                })
+            }
+            rand()
+        })()
+    </script>
+</body>
+</html>

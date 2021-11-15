@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        iframe{
+            position: absolute;
+            top: 100px;
+            right: 100px;
+        }
+    </style>
+</head>
+<body>
+    輸入影片網址後方編碼<input type="text" id="videoId" placeholder="fCi9XEubTm0">
+    <button onclick="api()">查看</button>
+    <div id="app">
+        <h2>影片資訊</h2>
+
+    </div>
+    <script>
+        const videId = document.getElementById('videoId')
+        const app = document.getElementById('app')
+        async function api (){
+            const ytbUrl = `https://www.googleapis.com/youtube/v3/videos?id=${videId.value}&key=AIzaSyAj9jdukFxvPlUYrwMhah0POiZBrQ1Kacs&part=snippet`
+            let data;
+            try{
+                data = await fetch(ytbUrl)
+
+            }catch{
+                console.log('error')
+            }
+            data.json().then((res)=>{
+                const e = res.items[0].snippet;
+                app.innerHTML = ''
+                app.innerHTML += 
+                `
+                    <img src="${e.thumbnails.high.url}"<br>
+                    <div>影片標題:${e.title}</div>
+                    <div>頻道擁有者:${e.channelTitle}</div>
+                    <div>影片語言:${e.defaultAudioLanguage}</div>
+                    <div>影片發布時間:${e.publishedAt}</div>
+                    <iframe width="1200" height="800" src="https://www.youtube.com/embed/${videId.value}"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                `
+            })
+
+        }
+
+//         async function runSample() {
+//             const API_KEY = 'AIzaSyAj9jdukFxvPlUYrwMhah0POiZBrQ1Kacs';
+//         const res = await axios.get('https://www.googleapis.com/youtube/v3/search',
+//             {
+//                 params: {
+//                     part: 'UCaV2RmU3drZBtPuOkXZri3w',// 必填，把需要的資訊列出來
+//                     type:'video',
+//                     videoType:'any',
+//                     q: '艾拉',// 查詢文字
+//                     maxResults: 50,// 預設為五筆資料，可以設定1~50
+//                     key: API_KEY, // 使用 API 只能取得公開的播放清單
+//                 }
+//             });
+
+//         console.log(res.data);
+//         }
+
+// runSample().catch(err => console.error(err));
+
+
+    </script>
+</body>
+</html>
