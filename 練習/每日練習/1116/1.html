@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        header{
+            display: flex;
+            justify-content: center;
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        header input[type="text"]{
+            width: 100px;
+        }
+        header>div{
+            display: flex;
+        }
+        .main{
+            display: table;
+            flex-wrap: wrap;
+            width: 900px;
+            margin: 20px auto;
+            justify-content: space-around;
+        }
+        .stay{
+            width: 300px;
+            display: inline-block;
+            box-sizing: border-box;
+            padding: 10px;
+            margin: 0 auto;
+        }
+        .stay img{
+            width: 100%;
+            transition: transform .3s;
+        }
+        .stay .img{
+            overflow: hidden;
+            transform:scale(1)
+        }
+        .stay .img:hover img{
+            transform: scale(1.1);
+        }
+        .stay h4{
+            text-align: center;
+            color: black;
+            margin: 10px 0;
+            font-weight: 900;
+            font-size: 22px;
+        }
+        .stay p{
+            border-top: 1px solid #999;
+            font-size: 18px;
+            font-weight: 400;
+            padding: 10px 0 10px 5px;
+        }
+        .stay span{
+            color: red;
+            font-size: 30px;
+        }
+        .stay span::before{
+            content:'$';
+            font-size: 20px;
+        }
+        @keyframes stay_ani{
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+        .stay_ani{
+            animation : stay_ani .3s ease-in;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+
+        <header>
+            <div>
+                地區
+                <select v-model="areaOption">
+                    <option v-for="(item, index) in area" :value="item">{{item}}</option>
+                </select>
+            </div>
+            <div>
+                金額
+                <input type="text" v-model="searchMoney">
+                以上
+            </div>
+        </header>
+        <section class="main">
+            <article class="stay" v-for="(item,index) in hotel" v-show="search(item)" :class="{stay_ani:index+1}">
+                <!-- v-show="item.area===areaOption" -->
+                <!-- 使用固定一張圖片進行套用 -->
+                <div class="img"><a href="#"><img :src="item.img"></a></div>
+                <div>
+                    <h4>{{item.name}}</h4>
+                    <p>地區:{{item.area}}</p>
+                    <p>價格:<span>{{item.money.replace(/\B(?!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}}</span></p>
+                </div>
+            </article>
+        </section>
+    </div>
+    <h1 style="text-align: center;font-size: 24px;margin-bottom: 50px;" >資料來源:https://www.trivago.com.tw/ 2021-11-16</h1>
+    <script src="js/vue.js"></script>
+    <script>
+        ;(function(Vue){
+            new Vue({
+                el:'#app',
+                data:{
+                    area:['全部','台北','台中','高雄'],
+                    areaOption:'全部',
+                    searchMoney:null,
+                    hotel:[
+                        {name:'寒舍艾美酒店',area:'台北',money:'8081',img:'images/962015_v2.webp'},
+                        {name:'烏來淞呂溫泉會館',area:'台北',money:'6804',img:'images/962015_v2.webp'},
+                        {name:'萬豪酒店',area:'台北',money:'4817',img:'images/962015_v2.webp'},
+                        {name:'福華大飯店',area:'台北',money:'2945',img:'images/962015_v2.webp'},
+                        {name:'洛基大飯店',area:'台北',money:'1512',img:'images/962015_v2.webp'},
+                        {name:'寒舍艾美酒店',area:'台北',money:'8081',img:'images/962015_v2.webp'},
+                        {name:'寒舍艾麗酒店',area:'台北',money:'4655',img:'images/962015_v2.webp'},
+                        {name:'老爺大酒店',area:'台北',money:'3800',img:'images/962015_v2.webp'},
+                        {name:'西苑旅店',area:'台中',money:'9424',img:'images/962015_v2.webp'},
+                        {name:'莿桐花文創微旅',area:'台中',money:'9609',img:'images/962015_v2.webp'},
+                        {name:'撲克商旅',area:'台中',money:'4249',img:'images/962015_v2.webp'},
+                        {name:'五都大飯店',area:'台中',money:'5499',img:'images/962015_v2.webp'},
+                        {name:'雲河概念旅館',area:'台中',money:'5903',img:'images/962015_v2.webp'},
+                        {name:'一中時尚商旅',area:'台中',money:'2338',img:'images/962015_v2.webp'},
+                        {name:'杜拜風情時尙旅館',area:'台中',money:'3384',img:'images/962015_v2.webp'},
+                        {name:'意文大飯店',area:'台中',money:'1672',img:'images/962015_v2.webp'},
+                        {name:'夏都汽車旅館',area:'台中',money:'10858',img:'images/962015_v2.webp'},
+                        {name:'陽光大飯店',area:'高雄',money:'7180',img:'images/962015_v2.webp'},
+                        {name:'打狗戀館',area:'高雄',money:'2674',img:'images/962015_v2.webp'},
+                        {name:'城市商旅高雄真愛館',area:'高雄',money:'11713',img:'images/962015_v2.webp'},
+                        {name:'馨悅旅館',area:'高雄',money:'1683',img:'images/962015_v2.webp'},
+                        {name:'單人房住宿空間高雄館',area:'高雄',money:'1741',img:'images/962015_v2.webp'},
+                        {name:'河堤戀館商務汽車旅館',area:'高雄',money:'2160',img:'images/962015_v2.webp'},
+                        {name:'現代商務旅館',area:'高雄',money:'1320',img:'images/962015_v2.webp'},
+                        {name:'輕旅店',area:'高雄',money:'2000',img:'images/962015_v2.webp'},
+                        
+                    ]
+                },methods: {
+                    search(item){
+                        this.view = true;
+                        let money = parseInt(item.money , 10)
+                        if(item.area === this.areaOption && money >= this.searchMoney){
+                            return true
+                        }else if(this.areaOption === '全部'  && money >= this.searchMoney){
+                            return true
+                        }
+
+                    }
+                }
+            })
+        })(Vue)
+    </script>
+</body>
+</html>
