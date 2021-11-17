@@ -438,12 +438,14 @@
     </div>
 
     <script>
-        const view_all = document.querySelector('.view_all')
-        view_all.addEventListener('click',function(){
-            document.querySelector('.view_all').style.display = 'none';
-            document.querySelector('.main').style.height = '100%';
-            
-        })
+        ;(function(){
+            const view_all = document.querySelector('.view_all')
+            view_all.addEventListener('click',function(){
+                document.querySelector('.view_all').style.display = 'none';
+                document.querySelector('.main').style.height = '100%';
+                
+            })
+        })()
     </script>
 </body>
 </html>
