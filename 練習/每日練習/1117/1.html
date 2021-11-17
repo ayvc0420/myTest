@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="https://use.fontawesome.com/e60baf10f6.js"></script>
+    <style>/* layout */
+
+        .images{
+            background-color: rgb(255, 215, 215);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .images img{
+            vertical-align: middle;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(230, 255, 192);
+        }
+    </style>
+    <style> /* box work */
+        /* header.header span:nth-of-type(2){
+            padding-left: 10px;
+        } */
+        .work{
+            background-color: rgb(233, 233, 233);
+            padding: 0 30px 50px 30px;
+        }
+        header.header{
+            padding: 20px 0;
+            font-size: 15px;
+        }
+        header.header a{
+            text-decoration: none;
+            color: #2370e4;
+        }
+        .work a{
+            color: #2370e4;
+        }
+        .work a:hover{
+            filter: brightness(150%);
+        }
+        .nav_title{
+            display: inline-block;
+            white-space: nowrap;
+            width: 160px ;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            vertical-align: middle;
+        }
+        nav{
+            display: flex;
+            background-color: white;
+            width: 1300px;
+            position: relative;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 3px 3px 0 rgb(211, 211, 211);
+        }
+        .logo{
+            padding: 50px 40px;
+        }
+        .title{
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .title h2{
+            display: inline-block;
+            margin-right: 5px;
+            font-size: 26px;
+            font-weight: 900;
+        }
+        .menu1 a{
+            /* display: inline-block; */
+            text-decoration: none;
+            color: rgb(142,224,228);
+            padding: 3px 6px;
+            border-radius: 20px;
+            border: 1px solid rgb(142,224,228);
+        }
+        .menu1 a:hover{
+            filter: brightness(100%);
+        }
+        .menu1 span+span a{
+            margin-left: 4px;
+        }
+        .menu1 span:nth-of-type(5)>a{
+            color: rgb(120, 38, 159);
+            border: 1px solid rgb(120, 38, 159);
+        }
+        .menu2{
+            display: flex;
+            font-size: 0;
+            padding-bottom: 20px;
+        }
+        .menu2 li{
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 20px;
+        }
+        .menu2 a{
+            text-decoration: none;
+            color: black;
+            transition: all .2s;
+        }
+        .menu2 a::before{
+            content: '';
+            transition: opacity .2s;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        .menu2 a:hover{
+            position: relative;
+            color: #ff7800;
+            filter: brightness(110%);
+        }
+        .menu2 a:hover::before{
+            content: '';
+            opacity: 1;
+            position: absolute;
+            width: calc(100% + 40px);
+            height: 4px;
+            bottom: -20px;
+            left: -20px;
+            right: 0;
+            margin: auto;
+            background-color: #ff7800;
+        }
+        .menu2 li:nth-of-type(1) a{
+            position: relative;
+            color: #ff7800;
+        }
+        .menu2 li:nth-of-type(1) a::before{
+            content: '';
+            opacity: 1;
+            position: absolute;
+            width: calc(100% + 40px);
+            height: 4px;
+            bottom: -20px;
+            left: -20px;
+            right: 0;
+            margin: auto;
+            background-color: #ff7800;
+        }
+        .btn{
+            position: absolute;
+            right: 30px;
+            bottom: 10px;
+            color: #ff7800 !important;
+            border-radius: 5px;
+            border: 1px solid #ff7800;
+            padding: 8px 50px;
+            text-decoration:none;
+            font-weight: 700;
+        }
+        .btn:hover{
+            box-shadow: 0 0 4px 0 #ff7800;
+            transition: all .2s;
+            filter: brightness(110%) !important;
+        }
+        .btn span{
+            font-weight: 900;
+            font-size: 24px;
+            vertical-align: sub;
+        }
+
+        /* main */
+        main{
+            display: flex;
+        }
+        main a{
+            text-decoration: none;
+            color: #2370e4;
+            transition: all .2s;
+        }
+        main a:hover{
+            /* filter: brightness(150%); */
+        }
+        .main{
+            width: 1050px;
+            background-color: white;
+            border-radius: 5px;
+            height: 550px;
+            overflow: hidden;
+        }
+        .main>ul{
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            padding: 20px 50px;
+        }
+        .main>ul li{
+            width: 50%;
+            padding: 10px 0;
+        }
+        .main header{
+            font-size: 20px;
+            font-weight: 700;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .main li.all{
+            width: 100%;
+        }
+        .main ul span:nth-of-type(1){
+            font-weight: 700;
+            display: inline-block;
+            width: 82px;
+        }
+        .content{
+            line-height: 1.7;
+            position: relative;
+            left: 50px;
+            text-overflow: ellipsis;
+            padding-right: 100px;
+            padding-bottom: 20px;
+        }
+        .content::before{
+            content: '';
+            width: 88%;
+            height: 1px;
+            left: 0;
+            position: absolute;
+            top: -10px;
+            background-color: rgb(228, 228, 228);
+        }
+
+        .content>p{
+            padding: 8px 0 22px 0;
+        }
+        .view_all{
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            
+            cursor: pointer;
+            color: rgb(75, 75, 75);
+            font-size: 15px;
+            font-weight: 700;
+        }
+        .view_all i{
+            position: relative;
+            top: 2px;
+            left: 5px;
+            font-size: 18px;
+            color: rgb(167, 167, 167)
+        }
+        .content h4{
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .content h5{
+            margin-bottom: 5px;
+        }
+        aside{
+            width: 250px;
+            box-sizing: border-box;
+            padding-left: 20px;
+        }
+        aside a{
+            text-decoration: none;
+            word-wrap: break-word;
+        }
+        aside>div{
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        aside>div+div{
+            margin-top: 15px;
+        }
+        aside h4{
+            margin-bottom: 20px;
+        }
+        .news>a{
+            line-height: 1.3;
+            font-size: 14px;
+        }
+        .news p{
+            transition: all .2s;
+        }
+        .news p:hover{
+            filter: brightness(150%);
+        }
+        .evaluation .number{
+            display: flex;
+            align-items: center;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        .evaluation .number span{
+            padding-left: 10px;
+            display: inline-block;
+        }
+        .evaluation .number span:nth-of-type(2){
+            line-height: 0px;
+        }
+        .fa-thumbs-up{
+            color: #ff7800;
+            margin-left: 2px;
+            font-size: 18px;
+        }
+        .evaluation>a{
+            display: flex;
+            justify-content: center;
+            color: #ff7800;
+            border-radius: 5px;
+            border: 1px solid #ff7800;
+            padding: 8px 50px;
+            text-decoration:none;
+            font-weight: 700;
+        }
+        .record p{
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 14px;
+            color: rgb(75, 75, 75);
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="images">
+        <img src="1.png">
+    </div>
+    <div class="box">
+        <div class="work">
+            <header class="header">
+                <span><a href="#">104人力銀行</a></span>
+                &nbsp;&nbsp;/&nbsp;&nbsp;
+                <span class="nav_title">台灣積體電路製造股份有限公司(台積電)</span>
+            </header>
+            <nav>
+                <div class="logo">
+                    <img src="images/logo.gif" alt="TSMC_logo">
+                </div>
+                <div class="title">
+                    <div class="menu1">
+                        <h2>台灣積體電路製造股份有限公司(台積電)</h2>
+                        <span><a href="#">竹科</a></span>
+                        <span><a href="#">中科</a></span>
+                        <span><a href="#">南科</a></span>
+                        <span><a href="#">其他</a></span>
+                        <span><a href="#">半導體展</a></span>
+                    </div>
+                    <ul class="menu2">
+                        <li><a href="#">公司介紹</a></li>
+                        <li><a href="#">主要商品</a></li>
+                        <li><a href="#">福利制度</a></li>
+                        <li><a href="#">企業社會責任</a></li>
+                        <li><a href="#">工作機會(99+)</a></li>
+                    </ul>
+                </div>
+                <a href="#" class="btn"><span>☆</span>&nbsp;&nbsp;儲存公司</a>
+            </nav>
+
+            <main>
+
+                <section class="main">
+                    <ul>
+                        <header>公司介紹</header>
+                        <li><span>產業類別</span><span>半導體製造業</span></li>
+                        <li><span>聯絡人</span><span>招募部</span></li>
+                        <li><span>產業描述</span><span>晶圓製造服務</span></li>
+                        <li><span>電話</span><span>暫不提供</span></li>
+                        <li><span>資本額</span><span>暫不提供&nbsp;&nbsp;</span><span><a href="#">經濟部商業司查詢</a></span></li>
+                        <li><span>傳真</span><span>暫不提供</span></li>
+                        <li><span>員工人數</span><span>51000人</span></li>
+                        <li><span>地址</span><span>新竹市新竹科學園區研新二路6號</span></li>
+                        <li class="all"><span>公司網址</span><span><a href="#">http://www.tsmc.com.tw</a></span></li>
+                        <li class="all"><span>相關企業</span><span><a href="#">企業網站</a>&nbsp;|&nbsp;<a href="#">加入台積</a>&nbsp;|&nbsp;<a href="#">公司地圖</a></span></li>
+                    </ul>
+                    <article class="content">
+                        <p>台積公司是全世界最大的專業積體電路製造服務公司．</p>
+                        <p>台積公司在民國七十六年成立於台灣新竹科學工業園區，並開創了專業積體電路製造服務商業模式。</p>
+                        <p>領先的技術、卓越的製造，以及對於研發及產能投資的持續承諾，讓我們能夠在行動裝置、高效能運算、物聯網與車用半導體領域掌握商機。</p>
+                        <div class="view_all">顯示全部<i class="fa fa-chevron-down"></i></div>
+                        <p>台積公司的全球總部位於新竹科學園區，在北美、歐洲、日本、中國大陸、南韓、印度等地均設有子公司或辦事處，提供全球客戶即時的業務和技術服務。</p>
+                        <h4>經營理念</h4>
+                        <h5>企業經營理念</h5>
+                        <ul>
+                            <li>一、堅持誠信正直</li>
+                            <li>二、專注於「專業積體電路製造服務」本業</li>
+                            <li>三、放眼世界市場，國際化經營</li>
+                            <li>三、放眼世界市場，國際化經營</li>
+                            <li>四、注意長期策略，追求永續經營</li>
+                            <li>五、客戶是我們的夥伴</li>
+                            <li>六、品質是我們工作與服務的原則</li>
+                            <li>七、鼓勵在各方面的創新，確保高度企業活力</li>
+                            <li>八、營造具挑戰性、有樂趣的工作環境</li>
+                            <li>九、建立開放型管理模式</li>
+                            <li>十、兼顧員工福利與股東權益，盡力回饋社會</li>
+                        </ul>
+                    </article>
+                </section>
+                <aside>
+                    <div class="news">
+                        <h4>最新消息</h4>
+                        <a href="#">
+                            <p>請至台積官網查看更多職缺並投遞履歷。網址: http://www.tsmc.com/chinese/careers/index.htm</p>
+                        </a>
+                    </div>
+                    <div class="evaluation">
+                        <h4>公司評價</h4>
+                        <div class="number">
+                            <span>4.3</span>
+                            <span>
+                                <i class="fa fa-thumbs-up"></i><i class="fa fa-thumbs-up"></i><i class="fa fa-thumbs-up"></i><i class="fa fa-thumbs-up"></i>
+                            </span>
+                        </div>
+                        <!-- <span><i class="fa fa-thumbs-up"></i><i class="fa fa-thumbs-up"></i><i class="fa fa-thumbs-up"></i><i class="fa fa-thumbs-up"></i></span> -->
+                        <a href="#">看完整評價</a>
+                    </div>
+                    <div class="record">
+                        <h4>瀏覽公司記錄</h4>
+                        <p>韓商頂通股份有限公司台灣分公司</p>
+                        <p>TutorABC_麥奇數位股份有限公</p>
+                    </div>
+                </aside>
+            </main>
+
+        </div>
+
+
+
+    </div>
+
+    <script>
+        const view_all = document.querySelector('.view_all')
+        view_all.addEventListener('click',function(){
+            document.querySelector('.view_all').style.display = 'none';
+            document.querySelector('.main').style.height = '100%';
+            
+        })
+    </script>
+</body>
+</html>
