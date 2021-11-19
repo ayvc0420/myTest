@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            padding: 0;
+            list-style: none;
+            margin: 0;
+        }
+        main{
+            width: 800px;
+            box-sizing: border-box;
+            background-color: blanchedalmond;
+            margin: auto;
+        }
+        main>ul{
+            display: flex;
+            justify-content: space-around;
+        }
+        ul{
+            position: relative;
+        }
+        ul>li{
+            cursor: pointer;
+        }
+        ul>li:first-child span{
+            background-color: orange;
+        }
+        li{
+            width: 200px;
+            padding: 10px 0;
+            text-align: center;
+            display: inline-block;
+        }
+        li>div{
+            text-align: left;
+            padding: 10px 30px;
+            position: absolute;
+            width: 800px;
+            top: 40px;
+            left: 0px;
+            cursor: text;
+            box-sizing: border-box;
+            font-size: 3rem;
+        }
+        li>div:nth-of-type(odd){
+            background-color: rgb(255, 126, 126);
+        }
+        li>div:nth-of-type(even){
+            background-color: rgb(175, 255, 143);
+        }
+        li+li div{
+            display: none;
+        }
+        .menu1{
+            background-color: orange;
+        }
+        li:hover:not(first-child) {
+            background-color: orange;
+        }
+        li:hover div{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <main>
+        <ul>
+            <li class="menu1">選單一
+                <div>
+                    <p>選單一內容選單一內容選單一內容選單一內容選單一內容選單一內容選單一內容選單一內容選單一內容選單一內容選單一內容選單一內容</p>
+                </div>
+            </li>
+            <li onmouseover="li1(this)">選單二
+                <div>
+                    <p>選單二內容選單二內容選單二內容選單二內容選單二內容選單二內容選單二內容選單二內容選單二內容選單二內容選單二內容選單二內容</p>
+                </div>
+            </li>
+            <li onmouseover="li1(this)">選單三
+                <div>
+                    <p>選單三內容選單三內容選單三內容選單三內容選單三內容選單三內容選單三內容選單三內容選單三內容選單三內容選單三內容選單三內容</p>
+                </div>
+            </li>
+            <li onmouseover="li1(this)">選單四
+                <div>
+                    <p>選單四內容選單四內容選單四內容選單四內容選單四內容選單四內容選單四內容選單四內容選單四內容選單四內容選單四內容選單四內容</p>
+                </div>
+            </li>
+        </ul>
+    </main>
+
+    <script>
+        const menu1 = document.querySelector('.menu1')
+        function li1(k){
+            console.log('this',k)
+            menu1.style.backgroundColor = 'blanchedalmond';
+            k.addEventListener('mouseleave',function(){
+                menu1.style.backgroundColor = 'orange';
+            })
+        }
+    </script>
+</body>
+</html>
