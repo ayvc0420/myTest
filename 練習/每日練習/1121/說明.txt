@@ -1,0 +1,5 @@
+網址連結 https://ayvc0420.github.io/targetGame/
+
+讓使用者選擇遊戲速度及時間 遊戲範圍內隨機座標產生圓圈 點擊成功+1分失敗不倒扣分
+本次紀錄未保留 相關紀錄查看https://github.com/ayvc0420/targetGame
+整體遊戲製作時間:7~8小時 後續優化3小時 本次紀錄為v1.1.0截止

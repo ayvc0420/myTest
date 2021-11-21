@@ -1,6 +1,5 @@
+網址連結 https://ayvc0420.github.io/guessNumber/
 讓使用者自行輸入數字範圍產生亂數遊玩終極密碼遊戲
 
-本次紀錄只留下對應debug用 js檔
-相關檔案及成品查看: ayvc0420.github.io/guessNumber
-
+本次紀錄只留下對應debug用js檔做參照
 花費時間: 6hr
