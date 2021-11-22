@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="https://use.fontawesome.com/e60baf10f6.js"></script>
+
+    <style>/* layout */
+
+        .images{
+            background-color: rgb(255, 215, 215);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .images img{
+            vertical-align: middle;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(230, 255, 192);
+        }
+        footer{
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+        footer a{
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 0;
+            color: yellow;
+        }
+    </style>
+    <style> /* box work */
+        h2,h3,h4{
+            font-weight: bold;
+        }
+        .home{
+            width: 414px;
+            height: 896px;
+            background-color: white;
+            margin: auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+            border-radius: 35px;
+            font-family:Microsoft JhengHei;
+        }
+        .system{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 44px;
+        }
+        .system h4{
+            margin-left: 1px;
+        }
+        .system>ul{
+            display: flex;
+            margin: 0 -1px 0 auto;
+        }
+        .system>ul>li:nth-of-type(1){
+            margin-right: 5.7px;
+        }
+        .system>ul>li:nth-of-type(2){
+            margin-right: 9.1px;
+        }
+
+        header.title{
+            margin-top: 12px;
+            display: flex;
+            font-size: 24px;
+        }
+        header.title .img{
+            margin-left: auto;
+        }
+        header.title .img>img[alt="搜尋"]{
+            margin-right: 26px;
+        }
+        .scanning{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #61af2b;
+            background-color: #eef7e8;
+            border-radius: 8px;
+            margin-top: 28px;
+            padding: 14px 0;
+            font-weight: bold;
+        }
+        .scanning>img[alt="掃描"]{
+            margin-right: 24px;
+        }
+        section a{
+            color: #61af2b;
+            margin-left: auto;
+            font-weight: 900;
+        }
+        .popular{
+            margin-top: 28px;
+            display: flex;
+        }
+
+        .menu{
+            margin-top: 38px;
+            display: flex;
+            padding-bottom: 23.8px;
+            border-bottom: 1px solid #d9d9d9;
+        }
+        .menu img{
+            width: 55%;
+            position: relative;
+            left: -15px;
+            bottom: 12px;
+        }
+        .menu>li{
+            width: 179px;
+            height: 130px;
+            background: #f8f8f8;
+            border-radius: 12px;
+            display: flex;
+        }
+        .menu>li+li{
+            margin-left: 16px;
+        }
+        .menu>li+li img{
+            width: 50%;
+        }
+        .menu h3{
+            font-size: 16px;
+            margin-top: 1px;
+        }
+        .menu .text{
+            align-self: flex-end;
+            margin: 0 0 12px 12px;
+        }
+
+        .categories{
+            margin-top: 23.8px;
+            display: flex;
+        }
+        .categories h3{
+            font-size: 18px;
+        }
+        .categories_item{
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 24px;
+            padding-bottom: 26.8px;
+            border-bottom: 1px solid #d9d9d9;
+        }
+        .categories_item h4{
+            margin-bottom: 4px;
+        }
+        .categories_item img{
+            border-radius: 12px;
+            width: 50px;
+            height: 50px;
+        }
+        .categories_item li{
+            display: flex;
+            align-items: center;
+        }
+        .categories_item li+li+li{
+            margin-top: 22px;
+        }
+        .categories_item .left{
+            width: 224px;
+        }
+        .categories_item li>div{
+            padding-left: 14px;
+        }
+
+        .alerts{
+            display: flex;
+            margin-top: 23.8px;
+        }
+        .alerts_item{
+            display: flex;
+            flex-direction: column;
+            margin-top: 24px;
+        }
+        .alerts_item img{
+            width: 50px;
+            height: 50px;
+            border-radius: 6px;
+        }
+        .alerts_item>li{
+            display: flex;
+            align-items: center;
+        }
+        .alerts_item>li:nth-of-type(1){
+            margin-bottom: 16px;
+        }
+        .alerts_item>li>div{
+            margin-left: 16px;
+        }
+        .alerts_item h3{
+            font-size: 14px;
+        }
+        .alerts_item p{
+            margin-top: 2px;
+            color: #628093;
+            font-size: 12px;
+            width: 248px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space:nowrap;
+        }
+        .footer{
+            position: relative;
+        }
+        .footer::before{
+            content: '';
+            width: 414px;
+            position: absolute;
+            top: -8px;
+            left: -20px;
+            height: 10px;
+            margin-top: 1px;
+            /* background-color: #e9e9e9;;
+            box-shadow: 0 3px 8px rgb(100, 100, 100); */
+            background: linear-gradient(transparent 20% , #e9e9e9 100%);
+        }
+        .footer ul{
+            display: flex;
+            justify-content: space-around;
+        }
+        .footer ul>li{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .footer ul>li>svg{
+            margin: 14px 0 6px;
+        }
+        .footer ul>li>p{
+            margin-top: 7px;
+        }
+    </style>
+</head>
+<body>
+    <div class="images">
+        <img src="1.png">
+    </div>
+    <div class="box">
+        <div class="work">
+            
+            <div class="home">
+                <header class="system">
+                    <h4>9:14</h4>
+                    <ul>
+                        <li><i class="fa fa-signal"></i></li>
+                        <li><i class="fa fa-wifi"></i></li>
+                        <li><i class="fa fa-battery-three-quarters"></i></li>
+                    </ul>
+                </header>
+
+                <header class="title">
+                    <h2>My Plants</h2>
+                    <div class="img">
+                        <img src="images/Search.svg" alt="搜尋">
+                        <img src="images/Add.svg" alt="增加">
+                    </div>
+                </header>
+
+                <div class="scanning">
+                    <img src="images/Scan.svg" alt="掃描">
+                    <h3>Scan and identify the plant</h3>
+                </div>
+
+                <section>
+                    <div class="popular">
+                    <h3>Popular plants</h3>
+                        <a href="#">View all</a>
+                    </div>
+                    <ul class="menu">
+                        <li>
+                            <div class="text">
+                                <p>Fits we</p>
+                                <h3>Peperomia<br>Houseplant</h3>
+                            </div>
+                            <img src="images/popular-1.png" alt="植物">
+                        </li>
+                        <li>
+                            <div class="text">
+                                <p>Fits we</p>
+                                <h3>Peperomia<br>Houseplant</h3>
+                            </div>
+                            <img src="images/popular-2.png" alt="植物">
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <div class="categories">
+                        <h3>Categories</h3>
+                        <a href="#">View all</a>
+                    </div>
+                    <ul class="categories_item">
+                        <li class="left">
+                            <img src="images/categories-1.png" alt="生活">
+                            <div>
+                                <h4>2 Plants</h4>
+                                <h3>Living Room</h3>
+                            </div>
+                        </li>
+                        <li class="right">
+                            <img src="images/categories-2.png" alt="廚房">
+                            <div>
+                                <h4>1 Plants</h4>
+                                <h3>Kitchen</h3>
+                            </div>
+                        </li>
+                        <li class="left">
+                            <img src="images/categories-3.png" alt="客廳">
+                            <div>
+                                <h4>2 Plants</h4>
+                                <h3>Drawing Room</h3>
+                            </div>
+                        </li>
+                        <li class="right">
+                            <img src="images/categories-4.png" alt="後院">
+                            <div>
+                                <h4>8 Plants</h4>
+                                <h3>Backyard</h3>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <div class="alerts">
+                        <h3>Alerts for today</h3>
+                        <a href="#">View all</a>
+                    </div>
+                    <ul class="alerts_item">
+                        <li>
+                            <img src="images/alerts-1.png" alt="仙人掌">
+                            <div>
+                                <h3>Water your Cactus today (living room)</h3>
+                                <p>It’s 2 weeks old, you have to water it twice a w...</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="images/alerts-2.png" alt="枯枝">
+                            <div>
+                                <h3>Prune the dead branches of Bamboo t...</h3>
+                                <p>It’s been 2-3 weeks since you have prune the d...</p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+                <section class="footer">
+                    <ul>
+                        <li>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.04 6.82L14.28 2.79C12.71 1.69 10.3 1.75 8.78999 2.92L3.77999 6.83C2.77999 7.61 1.98999 9.21 1.98999 10.47L1.98999 17.37C1.98999 19.92 4.05999 22 6.60999 22H17.39C19.94 22 22.01 19.93 22.01 17.38V10.6C22.01 9.25 21.14 7.59 20.04 6.82Z" fill="#61AF2B"/>
+                                <path d="M12 18.75C11.59 18.75 11.25 18.41 11.25 18V15C11.25 14.59 11.59 14.25 12 14.25C12.41 14.25 12.75 14.59 12.75 15V18C12.75 18.41 12.41 18.75 12 18.75Z" fill="white"/>
+                            </svg>
+                            <P>HOME</P>
+                        </li>
+                        <li>
+                            <svg width="17" height="24" viewBox="0 0 17 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 4.44331C15.1135 3.8033 15.1133 3.80326 15.1131 3.80323L15.1126 3.80314L15.1115 3.80295L15.1086 3.80245L15.1002 3.80101L15.0728 3.79659C15.05 3.79302 15.0182 3.78827 14.978 3.78286C14.8978 3.77205 14.7839 3.75857 14.6423 3.74657C14.3594 3.72261 13.9625 3.70428 13.4976 3.72573C12.5757 3.76828 11.3441 3.9692 10.2072 4.63285C9.67487 4.94357 9.18657 5.28284 8.75923 5.63263C8.35508 4.90219 7.78136 4.14333 7.08235 3.43661L7.08235 3.4366C6.07293 2.41606 4.79432 1.90124 3.80429 1.63875C3.30451 1.50624 2.86507 1.43454 2.54881 1.39579C2.39035 1.37637 2.26189 1.36512 2.17113 1.35866C2.12573 1.35542 2.08969 1.35339 2.06396 1.35213L2.03321 1.35077L2.02384 1.35043L2.02069 1.35033L2.01951 1.35029L2.01901 1.35028C2.01879 1.35027 2.01859 1.35027 2 2M15 4.44331C15.6114 4.66403 15.6113 4.66422 15.6112 4.66442L15.6111 4.66486L15.6107 4.6659L15.6097 4.66864L15.6067 4.67667L15.5969 4.70266C15.5886 4.72429 15.5768 4.75441 15.5614 4.79215C15.5306 4.8676 15.4854 4.97373 15.425 5.10351C15.3043 5.36256 15.1219 5.71862 14.8715 6.11423C14.3751 6.89859 13.5883 7.87538 12.4519 8.53873C11.3824 9.16301 10.279 9.58745 9.35231 9.73411V12.0659H13.4703C14.2261 12.0659 14.8267 12.6834 14.8267 13.4301V14.8584C14.8267 15.5711 14.2795 16.1661 13.5724 16.2188L12.8359 21.1831L12.1929 21.0877L12.8359 21.1831C12.7116 22.0208 11.997 22.65 11.1451 22.65H5.19994C4.34804 22.65 3.63345 22.0208 3.50915 21.1831L4.15211 21.0877L3.50915 21.1831L2.77262 16.2188C2.06555 16.1661 1.51835 15.5711 1.51835 14.8584V13.4301C1.51835 12.6834 2.11893 12.0659 2.87472 12.0659H6.99274L6.99274 9.40648C6.52693 9.29413 6.03897 9.08389 5.56016 8.8108C4.84839 8.40483 4.10618 7.83115 3.41092 7.12823C2.40213 6.10832 1.89396 4.81748 1.63495 3.81896C1.50414 3.31466 1.43337 2.8713 1.39514 2.5523C1.37598 2.39247 1.36488 2.26295 1.35851 2.17152C1.35532 2.12578 1.35332 2.08949 1.35208 2.06363L1.35075 2.03276L1.35041 2.02339L1.35032 2.02026L1.35028 2.01909L1.35027 2.0186C1.35026 2.01839 1.35025 2.01818 2 2M15 4.44331L15.1135 3.8033L15.8735 3.93807L15.6114 4.66403L15 4.44331ZM2 2L1.35025 2.01818L1.33101 1.3306L2.01859 1.35027L2 2ZM1.98034 2.6497L1.98105 2.64972L1.98075 2.64971L1.98034 2.6497ZM2.64972 1.98078L2.64972 1.98077L2.64972 1.98078Z" stroke="#8C8C8C" stroke-width="1.3"/>
+                            </svg>
+                            <p>Explore</p>
+                        </li>
+                        <li>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 16.74V4.67001C22 3.47001 21.02 2.58001 19.83 2.68001H19.77C17.67 2.86001 14.48 3.93001 12.7 5.05001L12.53 5.16001C12.24 5.34001 11.76 5.34001 11.47 5.16001L11.22 5.01001C9.44 3.90001 6.26 2.84001 4.16 2.67001C2.97 2.57001 2 3.47001 2 4.66001V16.74C2 17.7 2.78 18.6 3.74 18.72L4.03 18.76C6.2 19.05 9.55 20.15 11.47 21.2L11.51 21.22C11.78 21.37 12.21 21.37 12.47 21.22C14.39 20.16 17.75 19.05 19.93 18.76L20.26 18.72C21.22 18.6 22 17.7 22 16.74Z" stroke="#8C8C8C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 5.48999V20.49" stroke="#8C8C8C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M7.75 8.48999H5.5" stroke="#8C8C8C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8.5 11.49H5.5" stroke="#8C8C8C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <p>Articles</p>
+                        </li>
+                        <li>
+                            <svg width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.3598 19.0918L10.3569 19.0901C9.94526 18.8439 9.45366 18.7416 9 18.7416C8.54634 18.7416 8.05474 18.8439 7.64307 19.0901L7.64023 19.0918L5.26653 20.5256C5.26608 20.5258 5.26563 20.5261 5.26518 20.5264C3.8372 21.3815 2.72101 21.3899 2.01737 21.0061C1.32081 20.6262 0.75 19.7085 0.75 18.0833L0.75 5.36592C0.758717 3.69849 1.18219 2.58106 1.89228 1.87512C2.60274 1.16881 3.72524 0.75 5.4 0.75L12.6 0.75C14.2664 0.75 15.3861 1.1647 16.0969 1.86432C16.8065 2.56266 17.2326 3.66691 17.25 5.31414V18.0833C17.25 19.7085 16.6792 20.6262 15.9826 21.0061C15.279 21.3899 14.1628 21.3815 12.7348 20.5264C12.7344 20.5261 12.7339 20.5258 12.7335 20.5256L10.3598 19.0918Z" stroke="#8C8C8C" stroke-width="1.5"/>
+                            </svg>
+                            <p>Saved</p>
+                        </li>
+                        <li>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 6.75C8 4.54421 9.79421 2.75 12 2.75C14.2053 2.75 15.9992 4.54343 16 6.74855C15.9908 8.91292 14.3051 10.6579 12.1563 10.74H12.1563H12.1562H12.1562H12.1562H12.1561H12.1561H12.156H12.156H12.156H12.1559H12.1559H12.1559H12.1558H12.1558H12.1558H12.1557H12.1557H12.1556H12.1556H12.1556H12.1555H12.1555H12.1555H12.1554H12.1554H12.1553H12.1553H12.1553H12.1552H12.1552H12.1551H12.1551H12.1551H12.155H12.155H12.1549H12.1549H12.1549H12.1548H12.1548H12.1547H12.1547H12.1547H12.1546H12.1546H12.1545H12.1545H12.1545H12.1544H12.1544H12.1543H12.1543H12.1542H12.1542H12.1542H12.1541H12.1541H12.154H12.154H12.1539H12.1539H12.1539H12.1538H12.1538H12.1537H12.1537H12.1536H12.1536H12.1535H12.1535H12.1535H12.1534H12.1534H12.1533H12.1533H12.1532H12.1532H12.1531H12.1531H12.153H12.153H12.1529H12.1529H12.1529H12.1528H12.1528H12.1527H12.1527H12.1526H12.1526H12.1525H12.1525H12.1524H12.1524H12.1523H12.1523H12.1522H12.1522H12.1521H12.1521H12.152H12.152H12.1519H12.1519H12.1518H12.1518H12.1517H12.1517H12.1516H12.1516H12.1515H12.1514H12.1514H12.1513H12.1513H12.1512H12.1512H12.1511H12.1511H12.151H12.151H12.1509H12.1509H12.1508H12.1507H12.1507H12.1506H12.1506H12.1505H12.1505H12.1504H12.1503H12.1503H12.1502H12.1502H12.1501H12.1501H12.15H12.1499H12.1498H12.1496H12.1495H12.1494H12.1493H12.1492H12.1491H12.149H12.1488H12.1487H12.1486H12.1485H12.1484H12.1483H12.1482H12.148H12.1479H12.1478H12.1477H12.1476H12.1475H12.1474C12.0476 10.7297 11.9478 10.7308 11.8569 10.7385C9.65976 10.6384 8 8.89467 8 6.75Z" stroke="#8C8C8C" stroke-width="1.5"/>
+                                <path d="M7.33807 19.9673L7.33602 19.966C6.22759 19.227 5.70999 18.2976 5.70999 17.38C5.70999 16.4618 6.22817 15.5228 7.34556 14.7743C8.60291 13.9427 10.2902 13.505 12.0125 13.505C13.7357 13.505 15.4176 13.9431 16.664 14.774C17.7669 15.5094 18.2814 16.4383 18.29 17.363C18.2889 18.2904 17.7704 19.2193 16.6612 19.9678C15.4099 20.8077 13.7241 21.25 12 21.25C10.2756 21.25 8.5894 20.8075 7.33807 19.9673Z" stroke="#8C8C8C" stroke-width="1.5"/>
+                            </svg>
+                            <p>Profile</p>
+                        </li>
+                    </ul>
+                </section>
+                    
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <footer>
+        <a href="https://www.figma.com/community/file/1043052073261558633">參照網站</a>
+        <br>本次紀錄使用Figma+Zeplin根據設計圖製作
+    </footer>
+</body>
+</html>
