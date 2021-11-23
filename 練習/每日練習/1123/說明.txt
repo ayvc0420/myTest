@@ -1,0 +1,5 @@
+更新網站 https://ayvc0420.github.io/vtuber.html
+將內容修改為vue接資料輸出
+新增多筆資料
+
+花費時間8~9小時
