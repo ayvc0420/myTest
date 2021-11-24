@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .view{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .view>button{
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <main>
+        <h1>露西婭鬧鐘倒數計時</h1>
+        <div class="view"></div>
+        <input type="number" id="userInput">
+        <button id="btn">送出</button>
+
+        <audio src="video/rushia.mp3" id="music" loop></audio>
+    </main>
+
+
+</body>
+    <script>
+        document.getElementById('btn').addEventListener('click',function(){
+            const userInput = document.getElementById('userInput')
+            let n = parseInt(userInput.value,10)
+            console.log(n)
+            if(isNaN(n)){
+                alert('請輸入數字')
+            }else{
+                const view = document.querySelector('.view')
+                let music = document.getElementById("music");
+                let a = function(){
+                    view.textContent = n
+                    n--
+                    if(n === -2){
+                        clearInterval(reciprocal)
+                        music.volume = 0.1
+                        music.play()
+                        let stopBtn = document.createElement('button');
+                        stopBtn.textContent = '停止';
+                        view.textContent = '時間到了!!!';
+                        view.appendChild(stopBtn);
+                        stopBtn.addEventListener('click',()=>{
+                            music.pause()
+                            music.currentTime = 0
+                        })
+                    }
+                    return a
+                }
+                let reciprocal = setInterval(a(),1000);
+            }
+        })
+
+    </script>
+</html>

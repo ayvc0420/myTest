@@ -1,0 +1,58 @@
+$mgBottom : 10px;
+@function mgB($count : 1){
+    @return $mgBottom * $count;
+}
+
+html,body{
+    margin: 0;
+    padding: 0;    
+}
+
+.item{
+    width: 918px;
+    padding: 0 7px;
+    background-color: white;
+    margin: auto;
+    >li{
+        display: flex;
+        margin-bottom: mgB(2);
+    }
+    >li:hover img{
+        transform: scale(1.1);
+        transition: all .3s;
+    }
+    .img{
+        width: 28%;
+        overflow: hidden;
+        >img{
+            width: 100%;
+            border-radius: 10px;
+        }
+    }
+    .text{
+        width: 72%;
+        margin-left:15px;
+        >h4{
+            color: gray;
+            margin-bottom: mgB(1);
+            font-size: 14px;
+            font-weight: 900;
+        }
+        >h2{
+            color: black;
+            font-size: 18px;
+            font-weight: 900;
+            margin-bottom: mgB(1)
+        }
+        >p{
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            line-height: 1.5;
+            font-size: 14px;
+            
+        }
+    }
+    
+}
