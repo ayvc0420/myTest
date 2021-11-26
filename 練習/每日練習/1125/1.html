@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+        檢測是否超過10個字
+        <input type="text" id="input">
+        <button id="rand">rand</button>
+        檢測是否為中文字\u4e00-\u9fa5
+        <input type="text" id="input2">
+        <button id="rand2">rand2</button>
+
+    </div>
+
+    <script>
+        let a = 10;
+        const input = document.getElementById('input')
+        const input2 = document.getElementById('input2')
+        const rand = document.getElementById('rand')
+        const rand2 = document.getElementById('rand2')
+        rand.addEventListener('click',function(){
+            if(input.value.length <= 10){
+                console.log('ok')
+            }else{
+                console.log('error')
+            }
+        })
+        // 𨉼
+        rand2.addEventListener('click',function(){
+            const chinese = /^[\u4E00-\u9FFF]+$/;
+            if(chinese.test(input2.value)){
+                console.log('chinese:yes')
+            }else{
+                console.log('chinese:no')
+            }
+        })
+    </script>
+</body>
+</html>

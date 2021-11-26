@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: gray;
+        }
+        .box{
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+        }
+        li{
+            padding: 15px;
+            border-radius: 3px;
+            border: 1px solid black;
+            margin: 0 8px;
+            font-size: 20px;
+        }
+        .active{
+            font-size:3rem;
+            box-shadow:0 0 5px 3px yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <ul class="box">
+        <li data-view="a" class="li">A</li>
+        <li data-view="s" class="li">S</li>
+        <li data-view="d" class="li">D</li>
+        <li data-view="f" class="li">F</li>
+        <li data-view="g" class="li">G</li>
+        <li data-view="h" class="li">H</li>
+        <li data-view="j" class="li">J</li>
+        <li data-view="k" class="li">K</li>
+        <li data-view="l" class="li">L</li>
+    </ul>
+
+    <audio data-key="a" src="sounds/clap.wav"></audio>
+    <audio data-key="s" src="sounds/hihat.wav"></audio>
+    <audio data-key="d" src="sounds/kick.wav"></audio>
+    <audio data-key="f" src="sounds/openhat.wav"></audio>
+    <audio data-key="g" src="sounds/boom.wav"></audio>
+    <audio data-key="h" src="sounds/ride.wav"></audio>
+    <audio data-key="j" src="sounds/snare.wav"></audio>
+    <audio data-key="k" src="sounds/tom.wav"></audio>
+    <audio data-key="l" src="sounds/tink.wav"></audio>
+
+    <script>
+        ;(function(){
+        const allAudio = document.getElementsByTagName('audio')
+        const allLi = document.getElementsByTagName('li')
+        const n = ['a','s','d','f','g','h','j','k','l']
+        window.addEventListener('keypress',function(e){
+            // console.log(e.key)
+            const userKey = (e.key.toLowerCase())
+            console.log('使用者按了',userKey)
+            
+            let t;
+            for(let i in n){
+                if(userKey === n[i]){
+                    t = true;
+                }
+            }
+            for(let i in allAudio.length){
+                allAudio[i].pause()
+                allAudio[i].currentTime = 0;
+            }
+            if(t){
+                const music = document.querySelector(`audio[data-key="${userKey}"]`)
+                music.currentTime = 0;
+                const ul = document.querySelector(`li[data-view="${userKey}"]`)
+                // console.log(ul)
+                music.play()
+                ul.classList.add('active')
+                // setTimeout(() => {
+                //     ul.style.fontSize = '16px'
+                // }, 200);
+                setTimeout(() => {                
+                    ul.classList.remove('active')
+                }, 200);
+            }
+        })
+        })()
+    </script>
+
+
+
+</body>
+</html>
