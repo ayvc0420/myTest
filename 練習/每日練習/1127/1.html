@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+            transform: scale(2.5);
+        }
+        .clock{
+            width: 8px;
+            height: 8px;
+            margin: auto;
+            position: relative;
+            transition: all 2s;
+        }
+        .clock::after{
+            content: '';
+            background-image: url(./1.svg);
+            position: absolute;
+            width: 230px;
+            height: 230px;
+            top: 0;
+            left: -115px;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        .clock::before{
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            left: -50%;
+            top: 0;
+            background-color: black;
+            z-index: 1;
+        }
+        .clock>div{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            transform-origin: 0px 0px;
+            
+        }
+        .short{
+            width: 80px;
+            height: 1px;
+            left: 0;
+            transform: rotate(0deg);
+            background-color: red;
+        }
+        .middle{
+            width: 50px;
+            height: 2px;
+            left: 0px;
+            transform: rotate(0deg);
+            background-color: blue;
+        }
+        .long{
+            width: 30px;
+            height: 3px;
+            left: 2px;
+            transform: rotate(0deg);
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="clock">
+
+        <div class="short" id="short"></div>
+        <div class="middle" id="middle"></div>
+        <div class="long" id="long"></div>
+
+    </div>
+
+
+    <script>
+        ;(function(){
+            // 角度
+            const rotateHr = 30;
+            const rotateMin = 6;
+            const rotateS = 6;
+            // let timeHr =  9;
+            
+            let start = () => {
+                const date = new Date()
+                let timeHr = date.getHours()
+                const timeMin = date.getMinutes()
+                const timeS = date.getSeconds()
+
+                if(timeHr > 12){
+                    timeHr -= 12;
+                }
+
+                const short = document.getElementById('short')
+                const middle = document.getElementById('middle')
+                const long = document.getElementById('long')
+                //時
+                long.style.transform = `rotate(${(timeHr * rotateHr - 90) + (timeMin * 0.5)}deg)`
+                //分
+                middle.style.transform = `rotate(${timeMin * rotateMin - 90}deg)`
+                //秒
+                short.style.transform = `rotate(${timeS * rotateS - 90}deg)`
+
+                //優化短針角度 可有可無
+                if(timeHr >= 0 && timeHr <= 3){
+                    long.style.top = '2px'
+                    long.style.left = '-2px'
+                }else if(timeHr >= 4 && timeHr <= 8){
+                    long.style.top = '3px'
+                    long.style.left = '3px'
+                }else if(timeHr >= 9 && timeHr <= 11){
+                    long.style.top = '5px'
+                    long.style.left = '0px'
+                }else if(timeHr <= 12 && timeHr >= 14){
+                    long.style.top = '2px'
+                    long.style.left = '1px'
+                }
+                console.log(timeHr)
+                return start;
+            }
+
+            let loop = setInterval(start(),1000);
+
+        })()
+    </script>
+</body>
+</html>

@@ -59,10 +59,8 @@
         const allLi = document.getElementsByTagName('li')
         const n = ['a','s','d','f','g','h','j','k','l']
         window.addEventListener('keypress',function(e){
-            // console.log(e.key)
             const userKey = (e.key.toLowerCase())
-            console.log('使用者按了',userKey)
-            
+            // console.log('使用者按了',userKey)
             let t;
             for(let i in n){
                 if(userKey === n[i]){
@@ -77,12 +75,8 @@
                 const music = document.querySelector(`audio[data-key="${userKey}"]`)
                 music.currentTime = 0;
                 const ul = document.querySelector(`li[data-view="${userKey}"]`)
-                // console.log(ul)
                 music.play()
                 ul.classList.add('active')
-                // setTimeout(() => {
-                //     ul.style.fontSize = '16px'
-                // }, 200);
                 setTimeout(() => {                
                     ul.classList.remove('active')
                 }, 200);
