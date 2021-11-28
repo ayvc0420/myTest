@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --widthSize:400px;
+            --filterBlur:10px;
+            --borderRadius:0px;
+            --backgroundColor:white;
+            --padding:20px
+        }
+        body{
+            background-color: rgb(255, 145, 145);
+        }
+        .box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        img{
+            margin-top: 30px;
+            width: var(--widthSize);
+            filter: blur(var(--filterBlur));
+            border-radius: var(--borderRadius);
+            background-color: var(--backgroundColor);
+            padding: var(--padding);
+        }
+        #i1,#i2,#i3{
+            font-size: 24px;
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+        <div>
+            <h2>試著拉動拉桿改變圖片</h2>
+            大小(0~800px)
+            <input type="range" min="0" max="800" id="inputSize" value="">
+            <span id="i1"></span>
+            模糊度(百分比)
+            <input type="range" min="0" max="100" id="inputBlur" value="10">
+            <span id="i2"></span>
+            邊框圓角(百分比)
+            <input type="range" min="0" max="100" id="inputRadius" value="0">
+            <span id="i3"></span>
+            照片的背景顏色(十六進制)
+            <input type="color" id="inputBgc" value="#ffffff">
+            <span id="i4"></span>
+            照片的內距(0~200px)
+            <input type="range" min="0" max="200" id="inputPadding" value="20">
+            <span id="i5"></span>
+        </div>
+        <img src="./images/rushia_80035153.jpg">
+
+    </div>
+    <script>
+        ;(function(){
+            const inputSize = document.getElementById('inputSize')
+            const inputBlur = document.getElementById('inputBlur')
+            const inputRadius = document.getElementById('inputRadius')
+            const inputBgc = document.getElementById('inputBgc')
+            const inputPadding = document.getElementById('inputPadding')
+            const inputS = document.querySelectorAll('.box>div>input')
+            const i1 = document.getElementById('i1')
+            const i2 = document.getElementById('i2')
+            const i3 = document.getElementById('i3')
+            const i4 = document.getElementById('i4')
+            const i5 = document.getElementById('i5')
+            const img = document.querySelector('img')
+            i1.textContent = inputSize.value+'px'
+            i2.textContent = inputBlur.value+'px'
+            i3.textContent = inputRadius.value+'%'
+            i4.textContent = inputBgc.value
+            i5.textContent = inputPadding.value+'px'
+            inputS.forEach(item => {
+                item.addEventListener('change',imgUpdate)
+                item.addEventListener('mousemove',imgUpdate)
+            })
+            function imgUpdate(){
+                if(this.id === 'inputSize'){
+                    img.style.width = this.value+'px'
+                    i1.textContent = this.value+'px'
+                }else if(this.id === 'inputBlur'){
+                    img.style.filter = `blur(${this.value}px)`
+                    i2.textContent = this.value+'px'
+                }else if(this.id === 'inputRadius'){
+                    img.style.borderRadius = this.value+'%'
+                    i3.textContent = this.value+'%'
+                }else if(this.id === 'inputBgc'){
+                    img.style.backgroundColor = this.value
+                    i4.textContent = this.value
+                }else if(this.id === 'inputPadding'){
+                    img.style.padding = this.value+'px'
+                    i5.textContent = this.value+'px'
+                }
+            }
+
+            
+        })()
+    </script>
+</body>
+</html>

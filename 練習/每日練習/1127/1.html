@@ -106,12 +106,16 @@
                 const short = document.getElementById('short')
                 const middle = document.getElementById('middle')
                 const long = document.getElementById('long')
+
+                const longDeg = date.getHours()*30+date.getMinutes()*30/60
+                const middleDeg = date.getMinutes()*6+date.getSeconds()*6/60
+                const shortDeg = date.getSeconds()*6
                 //時
-                long.style.transform = `rotate(${(timeHr * rotateHr - 90) + (timeMin * 0.5)}deg)`
+                long.style.transform = `rotate(${longDeg - 90}deg)`
                 //分
-                middle.style.transform = `rotate(${timeMin * rotateMin - 90}deg)`
+                middle.style.transform = `rotate(${middleDeg - 90}deg)`
                 //秒
-                short.style.transform = `rotate(${timeS * rotateS - 90}deg)`
+                short.style.transform = `rotate(${shortDeg - 90}deg)`
 
                 //優化短針角度 可有可無
                 if(timeHr >= 0 && timeHr <= 3){

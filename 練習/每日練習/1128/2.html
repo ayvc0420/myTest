@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --inputSize:400px;
+            --inputBlur:10px;
+            --inputRadius:0px;
+            --inputBgc:white;
+            --inputPadding:20px
+        }
+        body{
+            background-color: rgb(255, 145, 145);
+        }
+        .box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        img{
+            margin-top: 30px;
+            width: var(--inputSize);
+            filter: blur(var(--inputBlur));
+            border-radius: var(--inputRadius);
+            background-color: var(--inputBgc);
+            padding: var(--inputPadding);
+        }
+        div>span{
+            font-size: 24px;
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+        <div>
+            <h2>試著拉動拉桿改變圖片</h2>
+            大小(0~800px)
+            <input type="range" min="0" max="800" id="inputSize" value="" data-parameter="px">
+            <span id="i1"></span>
+            模糊度(0~100px)
+            <input type="range" min="0" max="100" id="inputBlur" value="10" data-parameter="px">
+            <span id="i2"></span>
+            邊框圓角0~200px)
+            <input type="range" min="0" max="200" id="inputRadius" value="0" data-parameter="px">
+            <span id="i3"></span>
+            照片的背景顏色(十六進制)
+            <input type="color" id="inputBgc" value="#ffffff" data-parameter="">
+            <span id="i4"></span>
+            照片的內距(0~200px)
+            <input type="range" min="0" max="200" id="inputPadding" value="20" data-parameter="px">
+            <span id="i5"></span>
+        </div>
+        <img src="./images/rushia_80035153.jpg">
+
+    </div>
+    <script>
+        ;(function(){
+            const inputSize = document.getElementById('inputSize')
+            const inputBlur = document.getElementById('inputBlur')
+            const inputRadius = document.getElementById('inputRadius')
+            const inputBgc = document.getElementById('inputBgc')
+            const inputPadding = document.getElementById('inputPadding')
+            const inputS = document.querySelectorAll('.box>div>input')
+            const i1 = document.getElementById('i1')
+            const i2 = document.getElementById('i2')
+            const i3 = document.getElementById('i3')
+            const i4 = document.getElementById('i4')
+            const i5 = document.getElementById('i5')
+            const img = document.querySelector('img')
+            
+            i1.textContent = inputSize.value+'px'
+            i2.textContent = inputBlur.value+'px'
+            i3.textContent = inputRadius.value+'%'
+            i4.textContent = inputBgc.value
+            i5.textContent = inputPadding.value+'px'
+            inputS.forEach(item => {
+                item.addEventListener('change',imgUpdate)
+                item.addEventListener('mousemove',imgUpdate)
+            })
+
+            function imgUpdate(){
+                const unit = this.dataset.parameter;
+                document.querySelector(':root').style.setProperty(`--${this.id}`,`${this.value}${unit}`)
+                if(this !== inputBgc){
+                    i1.textContent = inputSize.value+unit
+                    i2.textContent = inputBlur.value+unit
+                    i3.textContent = inputRadius.value+unit
+                    i5.textContent = inputPadding.value+unit
+                }else{
+                    i4.textContent = inputBgc.value
+                }
+            }
+
+            
+        })()
+    </script>
+</body>
+</html>

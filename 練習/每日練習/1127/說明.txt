@@ -1,6 +1,5 @@
 1.html
 根據js30挑戰 第二天製作
-
 參照網站 https://github.com/wesbos/JavaScript30
 
 花費時間2.5hr 含介面優化
