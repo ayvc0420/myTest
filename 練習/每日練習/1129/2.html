@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+        }
+        .wrap>div{
+            flex:1;
+            transition: all .4s;
+            position: relative;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 24px;
+        }
+        .wrap>div:nth-of-type(1){
+            background-image: url(./images/1273069461403131904_rushia_title.png);
+        }
+        .wrap>div:nth-of-type(2){
+            background-image: url(./images/76193394_rushia_title.jpg);
+        }
+        .wrap>div:nth-of-type(3){
+            background-image: url(./images/76909869_koronne_title.jpg);
+        }
+        .wrap>div:nth-of-type(4){
+            background-image: url(./images/79108022_card_03.jpg);
+        }
+        .wrap>div:nth-of-type(5){
+            background-image: url(./images/korone_card_02.jpg);
+        }
+        .wrap>div p{
+            text-shadow: 2px 2px 5px black;
+            font-weight: 900;
+            color: white;
+            transition: all .2s;
+        }
+        .wrap>div p:first-child{
+            transform: translateY(-300%);
+            transition: all .3s .6s;
+            opacity: 0;
+        }
+        .wrap>div p:last-child{
+            transform: translateY(300%);
+            transition: all .3s .6s;
+            opacity: 0;
+        }
+        .wrap>div.active p:first-child{
+            transform: translateY(0%);
+            font-size: 24px;
+            opacity: 1;
+        }
+        .wrap>div.active p:last-child{
+            transform: translateY(0%);
+            font-size: 24px;
+            opacity: 1;
+        }
+        .active{
+            flex: 3 !important;
+            filter: brightness(110%) !important;
+            font-size: 36px !important;
+        }
+        .active_text{
+            transform: scaleX(100%);
+            transition: all .3s .4s;
+        }
+        /* .wrap>img:not(.active){
+            width: 15vw;
+        } */
+
+
+    </style>
+</head>
+<body>
+    
+
+    <div class="wrap">
+        
+        <!-- 本範例圖片為ayvc0420網站素材 並非特意為此範例的效果做尋找的圖片 因此有變形等問題產生-->
+        <div>
+            <p>潤羽るしあ</p>
+            <p>潤羽露西婭</p>
+            <p>黑暗露西婭</p>
+        </div>
+        <div>
+            <p>潤羽るしあ</p>
+            <p>潤羽露西婭</p>
+            <p>做夢露西婭</p>
+        </div>
+        <div>
+            <p>戌神ころね</p>
+            <p>戌神沁音</p>
+            <p>咬麵包的狗</p>
+        </div>
+        <div>
+            <p>戌神ころね</p>
+            <p>戌神沁音</p>
+            <p>齁拉唷</p>
+        </div>
+        <div>
+            <p>戌神ころね</p>
+            <p>戌神沁音</p>
+            <p>狗狗狂笑</p>
+        </div>
+
+    </div>
+
+
+
+    <script>
+        ;(function(){
+            const divS = document.querySelectorAll('.wrap>div')
+
+            divS.forEach(item => {
+                item.addEventListener('click',function(){
+                    this.classList.toggle('active')
+                })
+            })
+
+        })()
+    </script>
+</body>
+</html>

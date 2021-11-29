@@ -1,0 +1,14 @@
+1.html
+根據js30挑戰 第四天製作
+參照網站 https://github.com/wesbos/JavaScript30
+
+針對陣列的操作練習 不含界面優化 含自行找資料時間
+花費時間 1.5小時
+
+
+2.html
+根據js30挑戰 第五天製作
+參照網站 https://github.com/wesbos/JavaScript30
+
+利用js新增隱藏class 觸發二次動畫  此範例使用的技巧(div.active)相同權重下利用class名稱決定是否觸發效果 實務操作上非常實用
+花費時間 1小時

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            width: 600px;
+            margin: auto;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            line-height: 1.8;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div>
+        btn1 = 輸入組別及金額(可不輸入) 顯示篩選結果
+        <br>
+        btn2 = 輸入組別 顯示篩選結果
+        <br>
+        btn3 = 直接點擊 顯示組別排序結果
+        <br>
+        btn4 = 直接點擊 顯示總金額結果
+        <br>
+        btn5 = 直接點擊 顯示收益排序結果
+        <br>
+        btn6 = 點擊btn1~5按鈕顯示資料後 直接點擊顯示有幾筆資料
+    </div>
+
+    <div>
+        用組別顯示<input type="number" id="group">
+        用收入金額篩選顯示<input type="number" id="revenue">
+    </div>
+    <div>
+        <button id="btn1">顯示(filter)</button>
+        <button id="btn2">顯示(map)</button>
+        <button id="btn3">顯示(sort)</button>
+        <button id="btn4">顯示(reduce)</button>
+        <button id="btn5">顯示(sort)</button>
+        <button id="btn6">顯示(length)</button>
+    </div>
+
+    <br>
+    <div id="view">尚未輸入</div>
+
+
+
+    <script>
+        // 金額為千萬單位
+        // 82734915
+        // 82344794
+        // 41749709
+        // 47648859
+        // 53101365
+        // 38808021
+        // 35580832
+        // 31387586
+        // 31244746
+        // 28821714
+        // 27898341
+        // 19147135
+        // 27708660
+        // 25784142
+        const data = [
+            {chineseName:'潤羽露西婭',name:'潤羽るしあ',group:'3',revenue:8273},
+            {chineseName:'桐生可可',name:'桐生ココ',group:'4',revenue:8234},
+            {chineseName:'雪花菈米',name:'雪花ラミィ',group:'5',revenue:3558},
+            {chineseName:'湊阿庫婭',name:'湊あくあ',group:'2',revenue:4174},
+            {chineseName:'寶鐘瑪林',name:'宝鐘マリン',group:'3',revenue:4764},
+            {chineseName:'兔田佩克拉',name:'兎田ぺこら',group:'3',revenue:5310},
+            {chineseName:'不知火芙蕾雅',name:'不知火フレア',group:'3',revenue:3138},
+            {chineseName:'角卷綿芽',name:'角巻わため',group:'4',revenue:3124},
+            {chineseName:'天音彼方',name:'天音かなた',group:'4',revenue:3880},
+            {chineseName:'櫻巫女',name:'桜巫女',group:'0',revenue:2882},
+            {chineseName:'夏色祭',name:'夏色まつり',group:'1',revenue:2789},
+            {chineseName:'白上吹雪',name:'白上フブキ',group:'1',revenue:1914},
+            {chineseName:'白銀諾艾爾',name:'白銀ノエル',group:'3',revenue:2770},
+            {chineseName:'大空昴',name:'大空スバル',group:'2',revenue:2578}
+        ]
+
+        const btn1 = document.getElementById('btn1')
+        const btn2 = document.getElementById('btn2')
+        const btn3 = document.getElementById('btn3')
+        const btn4 = document.getElementById('btn4')
+        const btn5 = document.getElementById('btn5')
+        const btn6 = document.getElementById('btn6')
+        const view = document.getElementById('view')
+        const group = document.getElementById('group')
+        const revenue = document.getElementById('revenue')
+        let k = []
+        btn1.addEventListener('click',function(){
+            k = data.filter(item => item.group === group.value && item.revenue >= revenue.value)
+            view.textContent = ''
+            k.forEach(item => view.innerHTML += `中文名字:${item.chineseName}日文名字:${item.name}<br>組別:${item.group}收入金額:${item.revenue}萬<br>`)
+            group.value = ''
+            revenue.value =''
+        })
+
+        btn2.addEventListener('click',function(){
+            k = data.map(item => 
+                group.value === item.group ? `中文:${item.chineseName}<br>日文:${item.name}<br>` : ''
+                // if(group.value === item.group){
+                //     return `中文:${item.chineseName}<br>日文:${item.name}<br>`
+                // }else{
+                //     return ''
+                // }
+            )
+            view.textContent = ''
+            view.innerHTML = k.join('')
+        })
+
+        btn3.addEventListener('click',function(){
+            k = data.sort((one,two)=> one.group - two.group)
+            view.textContent = '';
+            k.forEach(item =>{
+                view.innerHTML += `中文名字${item.chineseName}日文名字:${item.name}<br>組別:${item.group}收入金額:${item.revenue}萬<br>`
+            })
+        })
+
+        btn4.addEventListener('click',function(){
+            k = data.reduce((k,item)=> k+=item.revenue,0)
+            view.textContent = `總收益為${k}萬`
+            k=[k]
+        })
+
+        btn5.addEventListener('click',function(){
+            k = data.sort((a,b) => b.revenue - a.revenue)
+            view.textContent = '';
+            k.forEach(item=> view.innerHTML += `日文名字:${item.name}收益:${item.revenue}萬<br>`)
+        })
+        
+        btn6.addEventListener('click',function(){
+            let n = 0;
+            k.forEach(item => item === '' ? '' : n+=1)
+            view.innerHTML += `<br>總共有${n}筆資料`
+        })
+    </script>
+</body>
+</html>
