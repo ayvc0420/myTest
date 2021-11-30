@@ -1,0 +1,12 @@
+1.html
+findMatches 查找符合字function功能
+XHR fetch $.ajax 練習 搜尋即時顯示對應資料
+
+花費時間 2小時
+
+2.html
+some every find findIndex splice slice練習
+額外練習 嘗試深拷貝
+
+花費時間2小時
+

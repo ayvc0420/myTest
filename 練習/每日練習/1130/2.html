@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+
+
+
+    <script>
+        const data1 = [
+            {name:'Rushia Ch. 潤羽るしあ',area:'日本'},
+            {name:'音時エラー / Ototoki Error',area:'台灣'},
+            {name:'Matsuri Channel 夏色まつり',area:'日本'},
+            {name:'Komame ch.茸茸鼠',area:'日本'},
+            {name:'Pekora Ch. 兎田ぺこら',area:'日本'},
+            {name:'Korone Ch. 戌神ころね',area:'日本'},
+        ]
+
+        //001 = USA
+        //002 = JP
+        //003 = TW
+        const data2 = [
+            {text:'hello, my name is jack', id:001},
+            {text:'hello, my name is jack', id:001},
+            {text:'hello, my name is jack', id:001},
+            {text:'konichiha, watasiha hanacyan desu', id:002},
+            {text:'konichiha, bokuha ryu desu', id:002},
+            {text:'你好,我是孫先生', id:003},
+            {text:'你好,我是孫先生', id:003},
+            {text:'你好,我是孫先生', id:003},
+            {text:'你好,我是孫先生', id:003},
+        ]
+        //some使用
+        let topic1 = data1.some(item =>{
+            return item.area === '日本'
+        })
+        console.log('topic1',topic1)
+        
+        //every使用
+        let topic2 = data1.every(item =>{
+            return item.area === '日本'
+        })
+        console.log('topic2',topic2)
+
+        //find使用 查找陣列內是否符合條件的東西 有的就回傳給你資料 即使id有多個 但也只會回傳第一個
+        let topic3 = data2.find(item => item.id === 002)
+        console.log('topic3',topic3)
+
+        //findIndex使用 查找陣列內是否符合條件的東西 有的就回傳給你資料所在位置的索引值編號 即使id有多個 但也只會回傳第一個
+        let topic4 = data2.findIndex(item => item.id === 002)
+        console.log('topic4',topic4)
+
+        //find系列很像filter 如果要過濾陣列內符合的資料建議使用filter
+
+
+        //變數.splice(刪除或插入的位置,刪除元素的數量,要插入的內容) 修改陣列 
+        //以下範例請用註解查看data2資料差別
+        // let topic5 = data2.splice(topic4,1)
+        // console.log('被刪除的資料',topic5 ,'原始資料',data2 )
+
+
+
+
+        //slice
+        //從第0個切到第二個參數的位置
+        let topic6 = data2.slice(0,topic4)
+        //從第二個參數的位置後一格開始到最後
+        let topic7 = data2.slice(topic4 +1)
+
+        console.log('topic6',topic6 , 'topic7',topic7 ,'原本的資料',data2)
+        //剩下的資料 解構賦值
+        let topic8 = [ ...topic6 , ...topic7]
+        console.log('topic8',topic8)
+        let topic9 = data2.filter(item =>{
+            return item.text !== 'konichiha, watasiha hanacyan desu'
+        })
+        //也可使用filter過濾對應資料
+        console.log('topic9',topic9)
+
+
+
+        //額外練習 深拷貝
+        let aqa = [...data1]
+        let aqa1 = Object.assign({},aqa)
+        let aqa2 = JSON.parse(JSON.stringify(aqa1))
+
+        
+        aqa2[0].area = '台灣'
+        console.log('data1',data1,'aqa',aqa,'aqa1',aqa1,'aqa2',aqa2)
+
+    </script>
+    
+</body>
+</html>

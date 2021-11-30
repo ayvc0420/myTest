@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            width: 500px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+        input{
+            width: 200px;
+            margin: auto
+       }
+       table tr{
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+       }
+       table tr:nth-of-type(odd){
+           transform: perspective(100px) rotateX(5deg) translateY(2px) scale(1.001);
+       }
+       table tr:nth-of-type(even){
+           transform: perspective(100px) rotateX(-5deg) translateY(3px);
+       }
+    </style>
+</head>
+<body>
+
+    <input type="text" class="search">
+    <article >
+        <table>
+            <tbody id="dataView">
+                <!-- <tr>
+                    <td></td>
+                </tr> -->
+            </tbody>
+        </table>
+    </article>
+
+
+    <!-- <script src="js/jquery-3.6.0.min.js"></script> -->
+    <script>
+        // const url = './api/vtuber.json'
+        // let api = new XMLHttpRequest()
+        // api.open('get',url)
+        // api.send()
+        // api.addEventListener('load',ajax)
+        // function ajax(){
+        //     let data = JSON.parse(this.response)
+        //     console.log(data)
+        // }
+
+        // var url = './api/vtuber.json'
+        
+        // $.ajax({
+        //     url:url,
+        //     type:'get',
+        //     dataType:'json',
+        // }).then((res)=>{
+        //     console.log(res)
+        // }).catch((err)=>{
+        //     console.log(err)
+        // })
+
+        const url = './api/vtuber.json';
+        // let data;
+        // fetch(url)
+        // .then(res => res.json())
+        // .then(dataJson => (data = dataJson))
+        let vtuberData;
+        ~ async function(){
+            try{
+                data = await fetch(url)
+            }catch{
+                console.error('error!!!')
+            }
+            data.json().then(res => vtuberData=res.vtuber)
+        }()
+
+        // document.querySelector('.search').addEventListener('keyup',innerView)
+        document.querySelector('.search').addEventListener('change',innerView)
+        const dataView = document.getElementById('dataView')
+        function innerView(){
+            const view = findMatches(this.value,vtuberData)
+            dataView.textContent = ''
+            view.forEach(item =>{
+                // dataView.textContent += item.id
+                // dataView.textContent += item.name
+                // dataView.innerHTML += item.content
+                dataView.innerHTML +=
+                `
+                <tr>
+                    <td>${item.id}</td>
+                    <td>${item.name}</td>
+                    <td>${item.content}</td>
+                </tr>
+
+                
+                `
+            })
+        }
+
+        function findMatches (value,data){
+            console.log(data)
+            return data.filter(item =>{
+                const regex = new RegExp(value,'gi')
+                return item.name.match(regex) || item.area.match(regex)
+            })
+        }
+
+
+    </script>
+    
+</body>
+</html>
