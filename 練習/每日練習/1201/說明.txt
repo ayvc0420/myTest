@@ -1,0 +1,13 @@
+1.html
+根據js30挑戰 第八天製作
+參照網站 https://github.com/wesbos/JavaScript30
+canvas練習
+
+花費時間1.5小時
+
+2.html
+RESTful API練習
+使用的script對應版本參考對應.js檔案內說明
+資料庫為json-server 安裝位置:全域安裝
+
+花費時間 2小時尚未結束

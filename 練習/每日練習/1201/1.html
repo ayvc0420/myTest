@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 50px;
+            display: flex;
+        }
+
+        canvas{
+            border: 1px solid black;
+            margin-right: 50px;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <canvas width="800" height="800" id="can"></canvas>
+
+    <div></div>
+
+    <script>
+        ;(function(){
+
+            const can = document.getElementById('can')
+            const div = document.querySelector('div')
+            let state = false
+            let ctx = can.getContext('2d')
+            //顏色
+            let canColor = 0
+            //粗細
+            let lineWidth = 0
+            ctx.strokeStyle = 'hsl(0,100%,50%)'
+            ctx.lineWidth = 30
+            ctx.lineCap = 'round'
+            ctx.lineJoin = 'round'
+            let x = 0; y = 0;
+            let widthDirection = -1;
+
+            
+            can.addEventListener('mousedown',function(e){
+                console.log(e)
+                x = e.offsetX
+                y = e.offsetY
+                state = true
+                div.textContent = '移動滑鼠開始畫畫1'
+            })
+            can.addEventListener('mousemove',function(e){
+                div.textContent = '按下滑鼠即可開始畫畫'
+                if(state){
+                    div.textContent = '繪圖中'
+                    ctx.beginPath()
+                    canColor = canColor < 360 ? canColor + 1 :0;
+
+                    if(lineWidth<1 || lineWidth>50){
+                        widthDirection *= -1
+                    }
+                    lineWidth += widthDirection
+                    console.log(lineWidth)
+
+                    ctx.lineWidth = lineWidth
+                    ctx.strokeStyle = `hsl(${canColor},100%,50%)`
+                    ctx.moveTo(x,y)
+                    ctx.lineTo(e.offsetX,e.offsetY)
+                    x = e.offsetX
+                    y = e.offsetY
+                    ctx.stroke()
+
+
+                }
+
+            })
+            can.addEventListener('mouseup',function(){
+                state = false;
+                div.textContent = '按下滑鼠即可開始畫畫'
+            })
+            can.addEventListener('mouseleave',function(){
+                state = false;
+                div.textContent = '滑鼠離開了繪畫範圍'
+            })
+
+
+        })()
+    </script>
+</body>
+</html>

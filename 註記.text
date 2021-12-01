@@ -39,6 +39,7 @@ Font Awesome
     <i class="fa fa-arrow-right" title="Submit My Tax Return"></i>
 </button>
 
+npm init
 npm i json-server 
 
 
