@@ -40,19 +40,21 @@
             ctx.lineCap = 'round'
             ctx.lineJoin = 'round'
             let x = 0; y = 0;
+            // 線條的角度轉換
             let widthDirection = -1;
-
+            // 判斷是否出去還持續按著
+            let pen = false;
             
             can.addEventListener('mousedown',function(e){
                 console.log(e)
                 x = e.offsetX
                 y = e.offsetY
                 state = true
-                div.textContent = '移動滑鼠開始畫畫1'
+                pen = true
             })
             can.addEventListener('mousemove',function(e){
                 div.textContent = '按下滑鼠即可開始畫畫'
-                if(state){
+                if(state || pen){
                     div.textContent = '繪圖中'
                     ctx.beginPath()
                     canColor = canColor < 360 ? canColor + 1 :0;
@@ -61,7 +63,6 @@
                         widthDirection *= -1
                     }
                     lineWidth += widthDirection
-                    console.log(lineWidth)
 
                     ctx.lineWidth = lineWidth
                     ctx.strokeStyle = `hsl(${canColor},100%,50%)`
@@ -77,11 +78,20 @@
             })
             can.addEventListener('mouseup',function(){
                 state = false;
+                pen = false
                 div.textContent = '按下滑鼠即可開始畫畫'
             })
             can.addEventListener('mouseleave',function(){
                 state = false;
                 div.textContent = '滑鼠離開了繪畫範圍'
+                window.addEventListener('mouseup',function(){
+                    pen = false
+                })
+            })
+            can.addEventListener('mouseenter',function(e){
+                div.textContent = '繪圖中'
+                x = e.offsetX
+                y = e.offsetY
             })
 
 
