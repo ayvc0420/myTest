@@ -10,17 +10,20 @@
 <body>
     
     <div id="app">
-        <div>
+
+        <!-- <div>
             <input type="text" v-model.trim="userInput">
-            <button @click="createData">新增</button>
+            <button @click="createData">更新資料</button>
         </div>
         <ol id="view">
-            <li v-for="(item, index) in data" :key="index">
+            <li v-for="(item, index) in data" :key="item.id">
                 <span>{{item.name}}</span>
-                <button>更新</button>
+                <button @click="updateBtn(index)">更新</button>
                 <button @click="deleteData(index)">刪除</button>
             </li>
-        </ol>
+        </ol> -->
+
+        <router-view></router-view>
     </div>
 
 
@@ -31,11 +34,32 @@
     <script>
         const url = 'http://localhost:3000/data1201/'
         ;(function(){
-            new Vue({
-                el:'#app',
-                data:{
-                    userInput:'',
-                    data:[],
+
+            let List = {
+                template:`
+                <div>
+                    <div>
+                        <input type="text" v-model.trim="userInput">
+                        <button @click="createData">新增</button>
+                        <span>{{deleteMsg}}</span>
+                    </div>
+                    <ol id="view">
+                        <li v-for="(item, index) in data1201" :key="item.id">
+                            <span>{{item.name}}</span>
+                            <button @click="updateBtn(index)">更新</button>
+                            <button @click="deleteData(index)">刪除</button>
+                        </li>
+                    </ol>
+                </div>`,
+                // 重要 與js傳址傳值有關
+                data:function(){
+                    return {
+                        userInput:'',
+                        data1201:[],
+                        updateIndex:null,
+                        updateMsg:'',
+                        deleteMsg:'',
+                    }
                 },
                 methods: {
                     async getData(){
@@ -45,27 +69,108 @@
                         }catch{
                             console.log('get錯誤')
                         }
-                        this.data =  await data.data;
+                        this.data1201 =  await data.data;
                     },
-                    createData(){
+                    async createData(){
                         if(this.userInput){
-                            axios.post(url,{
+                            await axios.post(url,{
                                 name:this.userInput
                             }).then(res=>{
                                 this.userInput = '',
-                                this.data.push(res.data)
+                                this.data1201.push(res.data)
                             })
                         }
                     },
-                    deleteData(index){
-                        console.log(index)
-                        let delData = this.data[index]
-                        axios.delete(`${url}${delData.id}`)
-                        this.data.splice(index,1)
+                    async deleteData(index){
+                        let delData = this.data1201[index]
+                        await axios.delete(`${url}${delData.id}`)
+                        this.data1201.splice(index,1)
+                        this.deleteMsg = `你刪除了第${index+1}筆資料`
+                        setTimeout(() => {
+                            this.deleteMsg = ''
+                        }, 2000);
                     },
+                    updateBtn(index){
+                        let updateIndex = this.data1201[index]
+                        // $router.push可讓使用者進行上一頁操作
+                        // this.$router.push({path:`/update/${updateIndex.id}`})
+                        // $router.replace不可讓使用者進行上一頁操作 有關相關安全性問題待日後研究解決
+                        // this.$router.replace({path:`/update/${updateIndex.id}`})
+                        // 當有過多的網頁路徑時建議用下面這個$router.push方法 依照name找到該接口 設定的參數(id或day)接上每筆資料的唯一id值辨別
+                        // this.$router.push({name:'update',params:{day:updateIndex.day}})
+                        this.$router.push({name:'update',params:{id:updateIndex.id}})
+                        // this.userInput = this.data1201[index].name
+                        this.updateIndex = index
+                        // this.updateMsg = `正在更新第${index+1}筆資料`
+                    },
+                    async updateData(){
+                        // 選到當前的資料
+                        let updateData = this.data1201[this.updateIndex]
+                        await axios.patch(`${url}${updateData.id}`,{
+                            name:this.userInput
+                        }).then(res=>{
+                            this.data1201[this.updateIndex].name = this.userInput;
+                        })
+                        this.updateIndex = null
+                        this.userInput = ''
+                    }
+                    },
+                    mounted() {
+                        this.getData();
+                    },
+            }
+            let Edit = {
+                template:`
+                    <div>
+                        <input type="text">
+                        <button>更新資料</button>
+                        <span>當前更新第{{updateIndex}}筆資料</span>
+                    </div>
+                    `
+            }
+
+
+            let store = new Vuex.Store({
+                state:{
+                    data1201:[],
                 },
+                actions:{
+                    // 建議用此種方法 同名稱+動作 可放在一起方便管理
+                    DATA1201_READ:(data)=>{
+                        console.log(data)
+                    }
+                }
+            })
+
+            let router = new VueRouter({
+                routes: [
+                    // /=首頁
+                    {
+                        path:'/',
+                        name:'list',
+                        component:List
+                    },
+                    {
+                        // path:'/update/:day',
+                        path:'/update/:id',
+                        name:'update',
+                        component:Edit
+                    },
+                    {
+                        // 以上以外的網址 就導回首頁
+                        path:'*',
+                        redirect:'/'
+                    }
+                ]
+            })
+
+
+            new Vue({
+                el:'#app',
+                router : router,
+                store: store,
                 mounted() {
-                    this.getData();
+                    this.$store.dispatch('DATA1201_READ')
                 },
             })
         })()
