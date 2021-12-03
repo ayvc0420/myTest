@@ -7,8 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    
 
+    <div></div>
+
+    <script src="axios.js"></script>
     <script>
 
         let console = {
@@ -26,7 +28,8 @@
                 window.console.error(...viewConsoleData)
             }
         }
-        
+
+        console.log('console',console)
 
         console.log('這是一個名稱 %s','ana')
         let name = 'ana'
@@ -41,8 +44,122 @@
         console.error('這是一個錯誤!! ERROR')
         window.console.log('需要用ff瀏覽器 info!')
         window.console.info('需要用ff瀏覽器 info!')
-        window.console.assert('assert TEST!!')
+        window.console.assert(false,'false assert TEST!!')
+        window.console.assert(NaN,'NaN assert TEST!!')
+        window.console.assert(0,'0 assert TEST!!')
+        window.console.assert(undefined,'undefined assert TEST!!')
+        window.console.assert(null,'null assert TEST!!')
+        window.console.assert('','\'\' assert TEST!!')
 
-    </script>
+        window.console.log('在console面板內嘗試用CTRL+L看看吧?')
+
+        let div = document.querySelector('div')
+        const obj = {
+            div,
+            data:{
+                msg:'hi'
+            }
+        }
+        window.console.dir(obj)
+        console.log('試試看 window.console.dir(div)')
+        // window.console.dir(div)
+        console.log('錯誤使用方式 window.console.dir(`ES6 樣板字面值 div${div}`)')
+        console.log('試試看 window.console.dir(console)')
+        // window.console.dir(console)
+
+        let tableData = []
+        ~async function(){
+            try{
+                data = await fetch('../1130/api/vtuber.json')
+            }catch{
+                console.error('err!')
+            }
+            data.json().then(res=>{
+                
+                res.vtuber.forEach(item =>{
+                    tableData.push({...item})
+                })
+            })
+        }()
+        window.console.log('這邊要live server 以下兩個複製測試table 複製完後可以重整再複製')
+        window.console.log('試試看輸入 window.console.table(tableData)')
+        window.console.log('試試看輸入 window.console.table(tableData,[\'name\'])')
+
+        // 會顯示印了幾次 感覺不太常用
+        window.console.count('這是第 1 次')
+        window.console.count('這是第 1 次')
+        window.console.count('這是第 1 次')
+        window.console.count('這是第 1 次')
+        window.console.count('這是第 1 次')
+        window.console.count('這是第 2 次')
+        window.console.count('這是第 2 次')
+        window.console.count('這是第 3 次')
+        window.console.count('這是第 3 次')
+        window.console.count('這是第 3 次')
+        window.console.count('這是第 3 次')
+
+        window.console.group()
+        window.console.group()
+        window.console.log('這是第 1 次')
+        window.console.log('這是第 1 次')
+        window.console.log('這是第 1 次')
+        window.console.log('這是第 1 次')
+        window.console.log('這是第 1 次')
+        window.console.groupEnd()
+        window.console.group()
+        window.console.log('這是第 3 次')
+        window.console.log('這是第 2 次')
+        window.console.log('這是第 2 次')
+        window.console.group()
+        window.console.log('這是第 3 次')
+        window.console.log('這是第 2 次')
+        window.console.log('這是第 2 次')
+        window.console.log('這是第 2 次')
+        window.console.log('這是第 3 次')
+        window.console.groupEnd()
+        window.console.log('這是第 2 次')
+        window.console.log('這是第 2 次')
+        window.console.groupEnd()
+        window.console.groupEnd()
+
+
+    
+        // console.time 檢測效能
+        window.console.time('i j 在外')
+        let i
+        let j 
+        for(i =0; i <= 9999999 ; i++){
+            j=i
+        }
+        window.console.timeEnd('i j 在外')
+
+        window.console.time('jj在外')
+        let jj 
+        for(let i =0; i <= 9999999 ; i++){
+            jj=i
+        }
+        window.console.timeEnd('jj在外')
+        
+        window.console.time('ii在外')
+        let ii
+        for(ii =0; ii <= 9999999 ; ii++){
+            let j = ii
+        }
+        window.console.timeEnd('ii在外')
+
+        window.console.time('都在內')
+        for(let i =0; i <= 9999999 ; i++){
+            let j=i
+        }
+        window.console.timeEnd('都在內')
+        window.console.log('結論常態性下在外宣告裡面使用就會增加效能消耗')
+        window.console.log('且與全域變數和區域變數有明顯相關')
+        window.console.log('此結論於google V8引擎情況下測試')
+        window.console.log('相關測試可參考[ Alex 宅幹嘛 ] 👨‍💻 深入淺出 Javascript30 快速導覽 | Day 9')
+
+        
+
+
+        </script>
 </body>
 </html>

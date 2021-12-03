@@ -4,3 +4,8 @@ script下 Vuex的設定及使用
 花費時間6小時
 
 2.html
+根據js30挑戰 第九天製作
+參照網站 https://github.com/wesbos/JavaScript30
+console系列大全與測試
+
+花費時間1小時
