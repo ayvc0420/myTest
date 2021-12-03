@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>電腦canvas畫圖</title>
     <style>
         body{
-            margin: 50px;
+            margin:0;
+        }
+        .canvas{
+            margin: 50px 20px;
             display: flex;
         }
-        body::before{
-            content: '本網站僅支援電腦滑鼠';
+        .canvas::before{
+            content: '本網站僅支援電腦滑鼠，在畫布範圍內右鍵可儲存圖片';
             position: absolute;
             left: 50px;
             top: 10px;
@@ -20,15 +23,28 @@
             border: 1px solid black;
             margin-right: 50px;
         }
+        footer{
+            background-color: black;
+            margin-top: 30px;
+            justify-self: center;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     
+    <section class="canvas">
+        <canvas width="1600" height="800" id="can"></canvas>
+    
+        <div style="background-color: wheat; padding: 30px 10px; align-self: flex-start;"></div>
+    </section>
 
-    <canvas width="800" height="800" id="can"></canvas>
 
-    <div></div>
-
+    <footer>
+        <p>本網站根據ALEX js30挑戰 第八天製作 詳細說明查看對應網址路徑的github內說明檔案</p>
+    </footer>
     <script>
         ;(function(){
 

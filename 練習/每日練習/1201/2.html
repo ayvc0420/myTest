@@ -38,6 +38,7 @@
             let List = {
                 template:`
                 <div>
+                    <span>我是第筆資料</span>
                     <div>
                         <input type="text" v-model.trim="userInput">
                         <button @click="createData">新增</button>
@@ -55,40 +56,47 @@
                 data:function(){
                     return {
                         userInput:'',
-                        data1201:[],
+                        // 改用從vuex獲取資料 因此不用在本體data內存放資料
+                        // data1201:[],
                         updateIndex:null,
                         updateMsg:'',
                         deleteMsg:'',
                     }
                 },
-                methods: {
-                    async getData(){
-                        let data;
-                        try{
-                            data = await axios.get(url)
-                        }catch{
-                            console.log('get錯誤')
-                        }
-                        this.data1201 =  await data.data;
+                computed:{
+                    data1201(){
+                        return this.$store.state.data1201
                     },
+                },
+                methods: {
+                    // 改用vuex的actions獲取遠端資料
+                    // async getData(){
+                    //     let data;
+                    //     try{
+                    //         data = await axios.get(url)
+                    //     }catch{
+                    //         console.log('get錯誤')
+                    //     }
+                    //     this.data1201 =  await data.data;
+                    // },
                     async createData(){
                         if(this.userInput){
                             await axios.post(url,{
                                 name:this.userInput
                             }).then(res=>{
-                                this.userInput = '',
-                                this.data1201.push(res.data)
+                                this.userInput = ''
+                                // 改用mutations改變資料
+                                // this.data1201.push(res.data)
+                                this.$store.commit('CREATE_DATA1201',res.data)
                             })
                         }
                     },
                     async deleteData(index){
                         let delData = this.data1201[index]
-                        await axios.delete(`${url}${delData.id}`)
-                        this.data1201.splice(index,1)
-                        this.deleteMsg = `你刪除了第${index+1}筆資料`
-                        setTimeout(() => {
-                            this.deleteMsg = ''
-                        }, 2000);
+                        await this.$store.dispatch('DATA1201_DELETE',delData,index)
+                        // await axios.delete(`${url}${delData.id}`)
+                        // this.data1201.splice(index,1)
+                        this.deleteMsg = `你剛剛刪除了第${index+1}筆資料`
                     },
                     updateBtn(index){
                         let updateIndex = this.data1201[index]
@@ -100,45 +108,150 @@
                         // this.$router.push({name:'update',params:{day:updateIndex.day}})
                         this.$router.push({name:'update',params:{id:updateIndex.id}})
                         // this.userInput = this.data1201[index].name
-                        this.updateIndex = index
+                        // this.updateIndex = index
                         // this.updateMsg = `正在更新第${index+1}筆資料`
+                        this.$store.commit('UPDATE_INDEX_DATA1201',index)
                     },
-                    async updateData(){
-                        // 選到當前的資料
-                        let updateData = this.data1201[this.updateIndex]
-                        await axios.patch(`${url}${updateData.id}`,{
-                            name:this.userInput
-                        }).then(res=>{
-                            this.data1201[this.updateIndex].name = this.userInput;
-                        })
-                        this.updateIndex = null
-                        this.userInput = ''
-                    }
                     },
                     mounted() {
-                        this.getData();
+                        // this.getData();
                     },
             }
             let Edit = {
                 template:`
                     <div>
-                        <input type="text">
-                        <button>更新資料</button>
-                        <span>當前更新第{{updateIndex}}筆資料</span>
+                        <input type="text" v-model.trim="userInput">
+                        <button @click="updateData">更新資料</button>
+                        
+                        <span>當前更新第{{this.$store.state.updateIndex}}筆資料</span>
+                        
+                        <span>是更新對應資料庫的第{{this.$route.params.id}}筆資料</span>
+                        (這邊編號是對應資料庫的獨立編號 實際上線應刪除此段)
                     </div>
-                    `
-            }
+                    `,
+                data:function(){
+                    return{
+                        userInput:'',
+                    }
+                },
+                computed:{
+                    searchData1201Update(){
+                        // 找匹配的資料 例如/update/12 從vuex裡面的state的data1201資料找
+                        // item = 該包資料的每個去做迴圈處理 找尋這包資料中id符合當前所在的路由器編號this.$route.params.id
+                        return this.$store.state.data1201.find(item =>{
+                            return item.id == this.$route.params.id
+                        })
+                    },
+                    errorPath(){
+                        if(this.searchData1201Update == undefined){
+                            // 不希望讓使用者回到錯誤頁面 因此用redirect
+                            return this.$router.replace({path : '/'})
+                        }else{
+                            // 秀出符合選到的資料
+                            this.userInput = this.searchData1201Update.name
+                        }
+                    }
+                },
+                methods: {
+                    async updateData(){
+                        // 使用者在input輸入的資料
+                        const userData = this.userInput
+                        // 當前資料的id編號(唯一編號)
+                        let id = this.searchData1201Update.id
+                        // this.$store.dispatch('DATA1201_DELETE',delData,index)
+                        await this.$store.dispatch('DATA1201_UPDATE',{userData,id})
+                        // let updateData = this.data1201[this.updateIndex]
+                        // await axios.patch(`${url}${updateData.id}`,{
+                            //     name:this.userInput
+                            // }).then(res=>{
+                                //     this.data1201[this.updateIndex].name = this.userInput;
+                                // })
+                                // this.updateIndex = null
+                                // this.userInput = ''
+                                // this.$router.push({name:'list',params:{'/'}})
+                                this.$router.replace({path : '/'})
+                            }
+                        },
+                    mounted() {
+                        // 2:48:30
+                        this.errorPath
+                        
+                    },
+                }
+                    
+                let store = new Vuex.Store({
+                        // 嚴格模式 開發模式下強烈建議打開 上線版本必須關掉否則耗效能
+                        strict:true,
+                        state:{
+                            data1201:[],
+                            userInput:'',
+                            updateIndex:null,
+                        },
+                        mutations:{
+                            //這邊放與畫面相關或資料處裡的同步處裡
 
-
-            let store = new Vuex.Store({
-                state:{
-                    data1201:[],
+                    SET_DATA1201(state,data){
+                        state.data1201 = data
+                    },
+                    CREATE_DATA1201(state,data){
+                        state.data1201.push(data)
+                    },
+                    // 刪除畫面上的
+                    DELETE_DATA1201(state,index){
+                        state.data1201.splice(index,1)
+                    },
+                    UPDATE_INDEX_DATA1201(state,index){
+                        // 將幾號編號作為註記 由於陣列是從0開始計算 因此要+1
+                        state.updateIndex = index+1
+                    },
+                    UPDATE_DATA1201(state,data){
+                        let index = state.updateIndex
+                        // 由於上面UPDATE_INDEX_DATA1201有+1影響數據 這邊是改變陣列的資料因此由0開始計算 要-1
+                        state.data1201[index-1].name = data
+                        state.updateIndex = null
+                    }
                 },
                 actions:{
+                    // 這邊放非同步處裡 API相關
+                    
                     // 建議用此種方法 同名稱+動作 可放在一起方便管理
-                    DATA1201_READ:(data)=>{
-                        console.log(data)
-                    }
+                    DATA1201_READ:(context)=>{
+                        // context為自己命名的名字 詳細參照https://vuex.vuejs.org/zh/guide/actions.html
+                        return axios.get(url).then((res)=>{
+                            //拿到資料後將資料傳給mutations 在mutations寫入資料
+                            context.commit('SET_DATA1201',res.data)
+                        })
+                    },
+                    DATA1201_DELETE:(context,data)=>{
+                        // 確認資料是否存在 若為-1等於不存在
+                        let checkData = context.state.data1201.indexOf(data)
+                        if(checkData !== -1){
+                            return axios.delete(`${url}${data.id}`).then(res=>{
+                                context.commit('DELETE_DATA1201',checkData)
+                            })
+                        }else{
+                            return
+                        }
+                    },
+                    // 只能傳兩個參數 第二個需傳更新的資料及id時必須用物件包起來 且呼叫此actions的參數必須與這邊的參數一模一樣
+                    DATA1201_UPDATE:(context,{userData,id})=>{
+                        // 這邊的checkData是從state裡data1201找的資料 也就是使用者選擇要更新寫的資料
+                        let checkData = context.state.data1201.find(item=>{
+                            return item.id == id
+                        }) 
+                        // 判斷是否存在才要繼續執行
+                        if(checkData){
+                            return axios.patch(`${url}${id}`,{
+                                // 要更新的資料 將使用者寫的data放入
+                                name:userData
+                            }).then(res=>{
+                                // 這邊的data是func的參數 也可以用res.data.name
+                                context.commit('UPDATE_DATA1201',userData)
+                            })
+                        }else{
+                            return 
+                        }
+                    },
                 }
             })
 
