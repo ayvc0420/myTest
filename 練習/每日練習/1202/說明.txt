@@ -1,5 +1,5 @@
 1202接續1201檔案
-script方法 Vue router設定及使用
+script下 Vue router設定及使用
 
 花費時間5~7小時
 

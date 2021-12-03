@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        let console = {
+            isDev : true,
+            // 這邊的viewConsoleData 是自定義名稱 此func意義用於isDev如果是false那就不做以下事件
+            // 底下if(!this.isDev) return須放在對應位置 isDev改成false才會有作用
+            log(...viewConsoleData){
+                if(!this.isDev) return
+                window.console.log(...viewConsoleData)
+            },
+            warn(...viewConsoleData){
+                window.console.warn(...viewConsoleData)
+            },
+            error(...viewConsoleData){
+                window.console.error(...viewConsoleData)
+            }
+        }
+        
+
+        console.log('這是一個名稱 %s','ana')
+        let name = 'ana'
+        console.log(`這是一個名稱 ${name}`)
+        console.log('我是一個數字 %f 的數字',3.14159)
+        console.log('我是一個數字 %d 的數字',3.14159)
+
+        console.log('%c 這是一個測試!!!', 'font-size:3rem;color:red;text-shadow:0 2px 5px black')
+
+        // window.console.warn('警告!!')
+        console.warn('警告!!')
+        console.error('這是一個錯誤!! ERROR')
+        window.console.log('需要用ff瀏覽器 info!')
+        window.console.info('需要用ff瀏覽器 info!')
+        window.console.assert('assert TEST!!')
+
+    </script>
+</body>
+</html>
