@@ -1,0 +1,15 @@
+ayvc0420網站根據現有架構建立chloe.html頁面
+連結:https://ayvc0420.github.io/chloe.html
+
+花費時間5小時左右含找資料
+
+1.html
+根據js30挑戰 第十天製作
+參照網站 https://github.com/wesbos/JavaScript30
+連續選擇的處裡方式及觀念
+
+花費時間1小時
+
+skill.xmind紀錄this相關的實測以及說明
+花費時間1小時
+

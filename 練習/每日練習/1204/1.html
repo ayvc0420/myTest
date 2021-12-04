@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        ul{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        li{
+            list-style: none;
+            display: flex;
+            align-items: center;
+            /* border-left: 1px solid gray; */
+            border: 1px solid gray;
+            border-bottom: none;
+        }
+        li:last-child{
+            border-bottom: 1px solid gray;
+        }
+        input[type="checkbox"]{
+            margin: 0 20px;
+            display: inline-block;
+        }
+        p{
+            margin: 0;
+            padding: 30px;
+            border-left: 1px solid gray;
+        }
+        input:checked ~ p {
+            text-decoration: line-through;
+            background-color: rgb(226, 226, 226);
+        }
+        .msg{
+            margin-left: 10px;
+            display: flex;
+            flex-direction: column;
+            width: 150px;
+
+        }
+    </style>
+</head>
+<body>
+    
+    <ul>
+
+        <li>
+            
+            <input type="checkbox">
+            <p>我是第一筆資料我是第一筆資料</p>
+        </li>
+        <li>
+            
+            <input type="checkbox">
+            <p>我是第二筆資料我是第二筆資料</p>
+        </li>
+        <li>
+            
+            <input type="checkbox">
+            <p>我是第三筆資料我是第三筆資料</p>
+        </li>
+        <li>
+            
+            <input type="checkbox">
+            <p>我是第四筆資料我是第四筆資料</p>
+        </li>
+        <li>
+            
+            <input type="checkbox">
+            <p>我是第五筆資料我是第五筆資料</p>
+        </li>
+        <li>
+            
+            <input type="checkbox">
+            <p>我是第六筆資料我是第六筆資料</p>
+        </li>
+        <li>
+            
+            <input type="checkbox">
+            <p>我是第七筆資料我是第七筆資料</p>
+        </li>
+        <li>
+            
+            <input type="checkbox">
+            <p>我是第八筆資料我是第八筆資料</p>
+        </li>
+        <li>
+            
+            <input type="checkbox">
+            <p>我是第九筆資料我是第九筆資料</p>
+        </li>
+        <li>
+            
+            <input type="checkbox">
+            <p>我是第十筆資料我是第十筆資料</p>
+        </li>
+
+
+    </ul>
+
+    <div class="msg">
+        <span>當前狀態</span>
+        <div id="view" style="float: right;">
+    
+        </div>
+        <div id="remind" style="float: right;">
+            沒按SHIFT
+        </div>
+    </div>
+    <script>
+
+        ;(function(){
+
+            // const checkBoxS = document.querySelectorAll('.inputbox>input[type="checkbox"]')
+            // 需轉換成陣列
+            // const arrayBox = Array.from(checkBoxS)
+            const arrayBox = Array.from(document.querySelectorAll('input[type="checkbox"]'))
+            const view = document.getElementById('view')
+            const remind = document.getElementById('remind')
+
+
+            // 紀錄上一個按的
+            let beforeCheck = null
+
+            arrayBox.forEach(item =>{
+                item.addEventListener('click',checkFunc)
+            })
+
+            function checkFunc(e){
+                console.log('this',this)
+                // 如果我按的當下按鈕是由沒勾轉變勾就做
+                if(this.checked){
+                    // 如果我按了shift而且beforeCheck不等於null就做  預設beforeCheck是null 假設我點了第二筆
+                    // 我的beforeCheck就會變第二筆資料(對應畫面資料第三筆) 用indexOf從全部的資料去找我點了哪一筆資料
+                    if(e.shiftKey && beforeCheck !== null){
+                        // 記錄我按著SHIFT點的第二個鍵
+                        let nowCheck = arrayBox.indexOf(this)
+
+                        arrayBox.slice(
+                            // 確保slice的數字是由小到大 因此做Math.min Math.max來調整數字大小順序
+                            Math.min(nowCheck , beforeCheck),
+                            Math.max(nowCheck , beforeCheck),
+                        ).forEach(item => {
+                            // 把已確定好的區間內全打勾
+                            item.checked = true
+                        })
+                    }
+                    // 記錄我第一次的按鈕 / 上一次的按鈕
+                    beforeCheck = arrayBox.indexOf(this)
+                    view.textContent = `選了第${beforeCheck+1}筆資料`
+
+                }else{
+                    // 如果我選到的已經是打勾狀態 那我就把這個紀錄變更為null
+                    beforeCheck = null
+                }
+
+                // shift多個取消
+                if(!this.checked){
+                    if(e.shiftKey && beforeCheck === null){
+                        let nowCheck = arrayBox.indexOf(this)
+                        arrayBox.slice(
+                            Math.min(nowCheck , beforeCheck),
+                            Math.max(nowCheck , beforeCheck)
+                        ).forEach(item => item.checked = false)
+                    }
+                }else{
+                    return 
+                }
+
+            }
+
+
+
+            let state = false;
+            window.addEventListener('keydown',function(e){
+                if(e.shiftKey === true){
+                    remind.textContent = '按了SHIFT，按著點第二個可以多個選取' 
+                }
+            })
+            window.addEventListener('keyup',function(e){
+                if(e.shiftKey === false){
+                    remind.textContent = '沒按SHIFT'
+                }
+            })
+
+
+        })()
+
+
+
+    </script>
+</body>
+</html>

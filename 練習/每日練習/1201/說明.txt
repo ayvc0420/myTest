@@ -11,3 +11,5 @@ RESTful API練習
 資料庫為json-server 安裝位置:全域安裝
 
 花費時間 2小時尚未結束
+
+--後續追加 本次紀錄需安裝json-server 使用插件為vue、vueRouter、vuex、axios
