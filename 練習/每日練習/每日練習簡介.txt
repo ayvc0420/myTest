@@ -1,4 +1,8 @@
 本簡介紀錄每日練習清單 比daily.html更為詳細記錄
+以下紀錄需要查看頁面輸入對應的日期及對應的.html檔名
+如 :https://ayvc0420.github.io/myTest/%E7%B7%B4%E7%BF%92/%E6%AF%8F%E6%97%A5%E7%B7%B4%E7%BF%92/0911/index.html
+如 :https://ayvc0420.github.io/myTest/%E7%B7%B4%E7%BF%92/%E6%AF%8F%E6%97%A5%E7%B7%B4%E7%BF%92/1113/1.html
+如 :https://ayvc0420.github.io/myTest/%E7%B7%B4%E7%BF%92/%E6%AF%8F%E6%97%A5%E7%B7%B4%E7%BF%92/1201/1.html
 
 0905 第一次刻網站 自評50分 滿分100 (過多效果及畫面處理不當)
 
