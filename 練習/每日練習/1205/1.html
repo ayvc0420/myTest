@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+    <style>
+        .video_player1{
+            /* margin: 100px ; */
+            position: relative;
+        }
+        video{
+            width: 800px;
+            cursor: pointer;
+        }
+        .video_player1_control{
+            position: absolute;
+            bottom: 0;
+            opacity: 0;
+            transition: opacity .7s;
+            background: linear-gradient(360deg,orange,cornsilk);
+            width: 800px;
+        }
+        .video_player1_control{
+            display: flex;
+            flex-direction: column;
+        }
+        .video_player1_control>div{
+            display: flex;
+            justify-content: space-around;
+        }
+        .all_time{
+            position: absolute;
+            bottom: 23px;
+            right: 0;
+            background: rgba(168,168,168,0.8);
+            width: 100%;
+            height: 15px;
+            cursor: ew-resize;
+        }
+        .now_time{
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 0%;
+            height: 15px;
+            background-color: yellow;
+            cursor: ew-resize;
+        }
+        .player1_start{
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        .video_player1_control input{
+            cursor: pointer;
+        }
+        .video_player1_control button{
+            margin-left: 20px;
+            cursor: pointer;
+        }
+        .video_player1_control:hover{
+            opacity: 1;
+        }
+        .video1:hover ~ .video_player1_control{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    
+
+    預設影片為循環
+    <div class="video_player1">
+        <video src="./rushia.mkv" viewer class="video1" loop></video>
+        <div class="video_player1_control">
+            <div class="all_time">
+                <div class="now_time">
+                </div>
+            </div>
+            <div>
+                <button class="player1_start">►</button>
+                <span>播放音量<input type="range" name="volume" volume="0.5" step="0.05" max="1" min="0" value="0.5" class="player1_volume player_control" ></span>
+                <span>播放速度<input type="range" name="playbackRate" max="2" min="0.25" value="1" step="0.25" class="player1_playbackRate player_control" ></span>
+                <button class="player1_time_btn" data-skip="-5">倒退5秒</button>
+                <button class="player1_time_btn" data-skip="5">前進5秒</button>
+                <!-- <button class="player1_time_btn" data-skip="10">前進10秒</button> -->
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <script>
+        
+        (function(){
+            // 整個區塊 player1
+            const video_player1 = document.querySelector('.video_player1')
+            // 影片
+            const video1 = document.querySelector('.video1')
+            // 開始按鈕
+            const player1_start = document.querySelector('.player1_start')
+            // 音量跟速度按鈕 但改用陣列因此不需要
+            // const player1_volume = document.querySelector('.player1_volume')
+            // const player1_playbackRate = document.querySelector('.player1_playbackRate')
+            // 音量跟速度按鈕的陣列
+            const player_control = document.querySelectorAll('.player_control')
+            // 整個控制面板
+            const video_player1_control = document.querySelector('.video_player1_control')
+            // 前進跟後退按鈕
+            const player1_time_btn = document.querySelectorAll('.player1_time_btn')
+            // 總長的時間
+            const all_time = document.querySelector('.all_time')
+            // 現在的時間
+            const now_time = document.querySelector('.now_time')
+
+
+
+            // 點擊開始鈕後播放影片
+            player1_start.addEventListener('click',video1Play)
+            video1.addEventListener('click',video1Play)
+            function video1Play(){
+                // 先判斷當前狀態是否為暫停 如果是就播放 如果不是就暫停
+                // console.log('按前',video1.paused)
+                video1.paused === true ? video1.play() : video1.pause()
+                // console.log('按後',video1.paused)
+
+                video1.paused === true ? player1_start.textContent = '►' : player1_start.textContent = '❚❚'
+                // player1_start.textContent = video1.paused ? '►' : '❚❚'
+                // player1_start.textContent = video1.paused===true ? '►' : '❚❚'
+                // 以下符號僅供參考 實際使用需改用svg或正式通用的符號
+                // ▶️⏸️
+            }
+
+
+
+            // 只要更新影片時間 我就做 包含我拖拉影片時間 加速 倒退
+            video1.addEventListener('timeupdate', video1Time);
+            function video1Time(){
+                // 取出當前時間位置與總時間的長度
+                const nowTime = (video1.currentTime / video1.duration) * 100;
+                now_time.style.width = `${nowTime}%`
+            }
+            player1_time_btn.forEach(item=>{
+                item.addEventListener('click',video1Skip)
+            })
+            function video1Skip() {
+                // dataset 在js中獲取data屬性值 對象.dataset.skip = 獲取對象的data-skip屬性值
+                video1.currentTime += parseFloat(this.dataset.skip)
+            }
+
+
+            // 音量及速度個別做 但不建議
+            // player1_volume.addEventListener('mousemove',video1Volume)
+            // player1_volume.addEventListener('change',video1Volume)
+            // function video1Volume (){
+            //     video1.volume = player1_volume.value
+            // }
+            // player1_timeSpeed.addEventListener('mousemove',video1TimeSpeed)
+            // player1_timeSpeed.addEventListener('change',video1TimeSpeed)
+
+            // function video1TimeSpeed(){
+            //     video1.volume = player1_volume.value
+            // }
+
+            // 音量及速度用陣列做
+            player_control.forEach(item=>{
+                item.addEventListener('click',player1Control)
+            })
+            player_control.forEach(item=>{
+                item.addEventListener('mousemove',player1Control)
+            })
+            function player1Control (){
+                // 取對應的name屬性
+                const property = this.name
+                // 對應的屬性中放入對應的值
+                video1[property] = this.value
+            }
+
+
+
+            // 先做一個變數 代表現在影片時間片段的按鈕是否是按下 預設否
+            let videoTimeDown = false
+            // 當我滑鼠放開之後就等於否
+            all_time.addEventListener('mouseup', () => (videoTimeDown = false))
+            // 當我滑鼠按下去之後就打開
+            all_time.addEventListener('mousedown',()=> (videoTimeDown = true))
+            // 當我現在是按下去還沒放開的時候 我就做func並且帶一個我摸到的參數
+            all_time.addEventListener('mousemove',e => (videoTimeDown && video1EditTime(e)))
+            // 離開區域的時候等同於滑鼠放開
+            all_time.addEventListener('mouseleave',() => (videoTimeDown = false))
+
+            function video1EditTime (e){
+                // 摸到的參數
+                console.log(parseInt(window.getComputedStyle(all_time).width,10))
+                // 宣告一個變數取得數字決定移動的時間落在哪裡  取得方式是(放參數的座標位置 / 總時間長度的寬度) * 影片時間總長度  
+                // 在這邊的all_time.offsetWidth 等同於 parseInt(window.getComputedStyle(all_time).width,10)
+                const editTime = (e.offsetX / all_time.offsetWidth) * video1.duration
+                video1.currentTime = editTime
+            }
+            
+
+
+        })()
+
+    </script>
+</body>
+</html>

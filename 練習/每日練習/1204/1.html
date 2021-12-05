@@ -116,6 +116,7 @@
         <div id="remind" style="float: right;">
             沒按SHIFT
         </div>
+        <button id="btn">刪除</button>
     </div>
     <script>
 
@@ -127,7 +128,7 @@
             const arrayBox = Array.from(document.querySelectorAll('input[type="checkbox"]'))
             const view = document.getElementById('view')
             const remind = document.getElementById('remind')
-
+            const btn = document.getElementById('btn')
 
             // 紀錄上一個按的
             let beforeCheck = null
@@ -142,17 +143,34 @@
                 if(this.checked){
                     // 如果我按了shift而且beforeCheck不等於null就做  預設beforeCheck是null 假設我點了第二筆
                     // 我的beforeCheck就會變第二筆資料(對應畫面資料第三筆) 用indexOf從全部的資料去找我點了哪一筆資料
-                    if(e.shiftKey && beforeCheck !== null){
+                    if(e.shiftKey === true && beforeCheck !== null){
                         // 記錄我按著SHIFT點的第二個鍵
                         let nowCheck = arrayBox.indexOf(this)
 
                         arrayBox.slice(
                             // 確保slice的數字是由小到大 因此做Math.min Math.max來調整數字大小順序
+                            // 這邊的Math可以看做是數字 第一次先做Math.min拿兩個參數比較 回傳出小的當作第一個數字
+                            // 第二次做Math.max拿兩個參數做比較 回傳出大的當作第二個數字
                             Math.min(nowCheck , beforeCheck),
                             Math.max(nowCheck , beforeCheck),
+                            // 驗證
+                            // console.log('不管你先點哪個我都是比較小的',Math.min(nowCheck , beforeCheck)),
+                            // console.log('不管你先點哪個我都是比較大的',Math.max(nowCheck , beforeCheck))
                         ).forEach(item => {
                             // 把已確定好的區間內全打勾
                             item.checked = true
+                            // 將已選取的資料以及第二次點擊的資料選取父層後 隱藏或刪除
+                            btn.addEventListener('click',function(){
+                                // 隱藏
+                                let baba = item.parentNode
+                                let nowBaba = arrayBox[nowCheck].parentNode
+                                baba.style.display = 'none'
+                                nowBaba.style.display = 'none'
+                                //刪除
+                                const ulBaba = baba.parentNode
+                                // ulBaba.removeChild(baba)
+                                // ulBaba.removeChild(nowBaba)
+                            })
                         })
                     }
                     // 記錄我第一次的按鈕 / 上一次的按鈕

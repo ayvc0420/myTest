@@ -1,0 +1,10 @@
+1.html
+根據js30挑戰 第十一天製作
+參照網站 https://github.com/wesbos/JavaScript30
+手刻一個video控制介面 (內建用controls) 理解參數的應用及觀念
+
+花費時間1.5小時
+
+查看以前的製作範例、Vue cli影片、筆記更新、解決一些存在未得解答問題
+
+花費時間3小時
