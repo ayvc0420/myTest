@@ -5,3 +5,9 @@
 
 花費時間1.5hr
 
+2.html
+根據js30挑戰 第十二天製作
+參照網站 https://github.com/wesbos/JavaScript30
+如何讓使用者輸入一連串鍵盤數字與資料相符
+
+花費時間50分
