@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #view{
+            font-size: 3rem;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <h2>使出一連串按鈕打出秘笈吧!</h2>
+    <p>每5秒重置一次按鍵紀錄</p>
+    <p>上上下下左右左右ABABB</p>
+    <p>下下上上左右AB</p>
+    
+    <div id="userScanf">
+
+    </div>
+
+    <div id="view">
+
+    </div>
+
+    <br><br><br>
+    <div id="clear">
+
+    </div>
+
+    <button id="btn">按錯了?手動清除</button>
+
+    <script>
+
+        ;(function(){
+
+            setTimeout(()=>{
+
+                const view = document.getElementById('view')
+                const clear = document.getElementById('clear')
+                const userScanf = document.getElementById('userScanf')
+                const btn = document.getElementById('btn')
+                let userKey = [];
+                const skill = [
+                    {name:'昇龍拳',key:[38,38,40,40,37,39,37,39,65,66,65,66,66]},
+                    {name:'上勾拳',key:[40,40,38,38,37,39,65,66]}
+                ]
+                window.addEventListener('keyup',function(e){
+                    // 直接查看按下鍵盤
+                    userScanf.textContent += e.key
+                    if(e.keyCode !== 116){
+                        userKey.push(e.keyCode)
+                    }
+                    // console.log('userKey.join(\'.\')',userKey.join('.'))
+                    // console.log('skill[0].key.join(\'.\')',skill[0].key.join('.'))
+                    if(userKey.join('.')===skill[0].key.join('.')){
+                        view.textContent = `使出了${skill[0].name}!!`
+                    }
+                    if(userKey.join('.')===skill[1].key.join('.')){
+                        view.textContent = `使出了${skill[1].name}!!`
+                    }
+    
+                    if(userScanf.length === 13){
+                        userScanf.textContent = ''
+                        userKey = []
+                    }
+    
+                })
+    
+                let n = 0
+                
+                setInterval(()=>{
+                    userKey = []
+                    n++
+                    view.textContent = ''
+                    clear.textContent = `第${n}次清除!`
+                    userScanf.textContent = ''
+                },5000)
+    
+                btn.addEventListener('click',function(){
+                    userKey = []
+                    n++
+                    view.textContent = ''
+                    clear.textContent = `第${n}次清除!`
+                    userScanf.textContent = ''
+                })
+
+            },200)    
+
+        })()
+
+
+
+    </script>
+
+
+
+</body>
+</html>

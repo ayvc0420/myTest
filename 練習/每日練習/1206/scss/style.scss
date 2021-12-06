@@ -1,0 +1,186 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.wrap{
+    width: 1440px;
+    height: 900px;
+    margin: auto;
+    display: flex;
+    border: 1px solid gainsboro;
+    >aside{
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        border-top-left-radius: 16px;
+        border-bottom-left-radius: 16px;
+        background-color: white;
+        .menu{
+            margin-top: 48px;
+        }
+        .community{
+            margin-bottom: 70.5px;
+            >li:nth-of-type(1){
+                margin-bottom: 27.2px;
+            }
+            >li:nth-of-type(2){
+                margin-bottom: 37.2px;
+            }
+        }
+    }
+}
+.content{
+    width: 1340px;
+    background-image: url(../bg.png);
+    >nav{   
+        display: flex;
+        justify-content: space-between;
+        >.list{
+            display: flex;
+            align-items: center;
+            li{
+                padding-top: 46px;
+                margin-left: 99px;
+                position: relative;
+                font-weight: 900;
+            }
+            li a{
+                color: #b41d1d;
+                text-decoration: none;
+            }
+            li:nth-of-type(1)::before{
+                content: '';
+                width: 130px;
+                height: 66px;
+                position: absolute;
+                top: 0;
+                right: -44px;
+                margin: auto;
+                background: linear-gradient(180deg, rgba(207, 15, 0, 0.15), rgba(207, 15, 0, 0));
+            }
+            li:nth-of-type(1)::after{
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -46px;
+                width: 130px;
+                height: 7px;
+                background-color: #cf0f00;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
+            li:nth-of-type(2){
+                margin-left: 79px;
+            }
+            li+li{
+                margin: 0 20px;
+                background: none;
+            }
+            li+li a{
+                color: #461504;
+            }
+        }
+        >ul:nth-of-type(2){
+            display: flex;
+            align-items: center;
+            margin-right: 70px;
+            li+li{
+                margin-left: 43.4px;
+            }
+            img{
+                width: 17.2px;
+                height: 19.8px;
+            }
+        }
+    }
+    .title_text{
+        margin-top: 172px;
+        margin-left: 60px;
+        font-weight: 900;
+        h3{
+            background:rgba(255, 255, 255, 0.4);
+            color: #cf0f00;
+            letter-spacing: 8.4px;
+            font-size: 28px;
+            padding: 9px 28px 8px 25px;
+            display: inline-block;
+            margin-bottom: 33px;
+        }
+        h2{
+            color:#461504;
+            font-size: 64px;
+            letter-spacing: 1.28px;
+            margin-bottom: 16px;
+            span{
+                color: #cf0f00;
+            }
+        }
+        h1{
+            color: rgba(70, 21, 4, 0.8);
+            font-size: 64px;
+            margin-bottom: 40px;
+        }
+        button{
+            padding: 21px 64px;
+            background-color: #cf0f00;
+            color: white;
+            border-radius: 8px;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    }
+    .item{
+        margin-top: 41px;
+        display: flex;
+        >div{
+            width: 378px;
+            height: 252px;
+            border-radius: 15px;
+            padding: 20px 35px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            border: 1px solid white;
+            background-color: rgba(255, 255, 255, 0.35);
+            margin-left: 60px;
+            h3{
+                color: #cf0f00;
+                font-weight: 900;
+                font-size: 24px;
+                letter-spacing: 0.48px;
+                margin-left: 13px;
+            }
+            p{
+                color: #461504;
+                font-size: 20px;
+                letter-spacing: 0.4px;
+                line-height: 30px;
+                width: 308px;
+                height: 90px;
+                font-weight: 600;
+            }
+        }
+        >div:nth-of-type(2){
+            position: relative;
+            margin-left: 40px;
+            z-index: 1;
+            h3{
+                width: 223px;
+                margin-left: 20px;
+            }
+        }
+        >div:nth-of-type(2)::before{
+            content: 'STOP';
+            position: absolute;
+            font-size: 26.2px;
+            letter-spacing: 0.53px;
+            top: 71px;
+            color: #cf0f00;
+            font-weight: 900;
+        }
+    }
+}
