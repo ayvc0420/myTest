@@ -204,7 +204,6 @@
     <script>
         ;(function(){
             const article = document.querySelectorAll('article')
-            // document.getElementById('title').innerText = `目前的總練習有${article.length}個!`
             const url = './data/data.json'
 
             const v = new Vue({
@@ -242,15 +241,6 @@
             })
 
 
-            // article.forEach(item => {
-            //     item.addEventListener('click',function(){
-            //         // alert('更詳細查看每日練習簡介.txt')
-            //         window.open(
-            //             'https://github.com/ayvc0420/myTest/tree/main/%E7%B7%B4%E7%BF%92/%E6%AF%8F%E6%97%A5%E7%B7%B4%E7%BF%92'
-            //             ,'new'
-            //         )
-            //     })
-            // })
             const center = document.querySelector('.center')
                 function centerHeightHandler(){
                     setTimeout(() => {

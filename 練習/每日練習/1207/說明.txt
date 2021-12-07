@@ -1,0 +1,13 @@
+1.html
+根據js30挑戰 第十三天製作
+參照網站 https://github.com/wesbos/JavaScript30
+了解閉包功能與觸發動畫方式
+
+花費時間30分
+
+2.html
+根據js30挑戰 第十四天製作
+參照網站 https://github.com/wesbos/JavaScript30
+說明js傳值傳址的概念與實作
+
+花費時間一小時

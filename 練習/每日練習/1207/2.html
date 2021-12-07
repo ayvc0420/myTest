@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        //本次範例針對js的型態做練習及測試
+        // 此處太過基礎不講解
+        let a1 = 'my is a1'
+        let a2 = a1
+        a2 = 'my is a2'
+        console.log(a1,a2)
+
+
+        let b1 = 0
+        let b2 = b1
+        b1+=1
+        console.log(b1,b2)
+
+
+        let c1 = true
+        let c2 = c1
+        c1 = !c1
+        console.log(c1,c2)
+
+
+        // 以下傳址問題 會導致原陣列被變更資料
+        const players = ['amy','wei','jack','ana']
+        let players2 = players
+        players2[0] = 'jason'
+
+        console.log('players',players)
+        console.log('players2',players2)
+
+        let players3 = [].concat(players)
+        players3[0] = 'kami'
+        console.log('players',players)
+        console.log('players3',players3)
+
+
+        
+        function objCreate (name){
+            return{
+                name:name
+            }
+        }
+
+        let d1 = objCreate('amy')
+        let d2 = objCreate('wei')
+        let d3 = objCreate('jack')
+        let d4 = objCreate('ana')
+
+        let d5 = [d1,d2,d3,d4]
+        let d6 = d5.slice()
+        // d6[0].name = 'yami' //註解時開啟68行
+        // 是否會一樣?
+        console.log('d5',d5)
+        console.log('d6',d6)
+
+        // 由於第60行是用傳值的方式將d1 ... d4傳入 61行複製陣列後修改該物件內的值因此會影響d1 d5自然也會影響
+        d6[0] = {name:'apa'}  //註解時開啟62行
+        // 是否會一樣?
+        console.log('d5',d5)
+        // 由於68行改動的是[0]的整包物件 是一個新的物件 在這邊等同於創立一個新的物件因此d6[0]與d1 ... d5皆無任何關係
+
+
+
+        let player1 = {
+            name:'jack',
+            age:'30'
+        }
+        let player2 = player1
+        // 猜猜是什麼?
+        player2 = 'hi~'
+        console.log('player2',player2)
+        // 與71行一樣的概念 81行賦予的內容是新的型態因此等同於給予獨立的內容
+
+        let player3 = player1
+        player3.name = 'miko'
+        // 猜猜是什麼?
+        console.log('player1',player1)
+        console.log('player3',player3)
+        // 與67行的一樣概念 修改物件的內容會因傳址原因而導致原物件內容修改
+
+        // 使用Object.assign目標是空物件 來源是已存在物件 此處有後蓋前的特性 詳細參考 https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
+        let player4 = Object.assign({},player1)
+        player4.name = 'pekora'
+        //猜猜是甚麼? 此處建議將86行註解
+        console.log('player1',player1)
+        console.log('player4',player4)
+
+        // 利用JSON.parse轉字串再轉物件的特性 會讓內容被放置一個全新的位置因此這時候再對值做賦予動作這個值就是一個獨立的內容
+        // 此方式不可用於func func並不能使用JSON方式複製物件
+        let player5 = JSON.parse(JSON.stringify(player1))
+        player5.name = 'marin'
+        // 猜猜是什麼? 此處建議將86行註解
+        console.log('player1',player1)
+        console.log('player5',player5)
+
+
+        const wes = {
+            name: 'Wes',
+            age: 100,
+            social: {
+                twitter: '@wesbos',
+                facebook: 'wesbos.developer'
+            }
+        }
+
+        let wes1 = JSON.parse(JSON.stringify(wes))
+        // 請先想想再看答案 原理以101行一樣 如果排除func以外 對象是陣列、數字、物件、布林 那麼這將是一個深拷貝
+        wes1.social = null 
+        console.log('wes',wes)
+        console.log('wes1',wes1)
+
+
+
+        // 回傳物件的方式
+        let obj1 = function(name){
+            return{
+                name : name
+            }
+        }
+        
+        let obj2 = obj1('yuki')
+        let obj3 = obj1('matsuri')
+        let obj4 = obj1('siro')
+
+        console.log("請嘗試輸入obj4.name = 'sakama'")
+        console.log('然後再依序查看obj2、obj3、obj4')
+        console.log('由於是回傳一個物件的方式 因此每個都是獨立的')
+
+
+        // func的深拷貝請參考lodash
+        // 或許你可以找到更好的處裡方式 而不是將一個本身就應該是共用的func進行複製
+
+    </script>
+
+</body>
+</html>
