@@ -1,0 +1,9 @@
+1.html
+根據js30挑戰 第十五天製作
+參照網站 https://github.com/wesbos/JavaScript30
+認識localStorage並實際應用
+
+花費時間兩小時
+
+更新ayvc0420網站相關資料及動畫更新
+花費時間兩小時

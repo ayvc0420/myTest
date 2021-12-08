@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-image: url(./images/file_370010.png);
+            background-repeat: repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 300px;
+            margin: auto;
+            border: 1px solid black;
+            box-shadow: 0 2px 3px 0 black;
+            background-color: white;
+            padding: 10px 20px;
+        }
+        .content{
+            align-self: flex-start;
+        }
+        h2{
+            margin: 0 0 10px;
+        }
+        button{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="box">
+
+        <h2>輸入資料然後儲存</h2>
+        <ol class="content" id="content">
+
+        </ol>
+
+        <form class="add_items">
+            <input type="text" name="item" placeholder="輸入任意資料" required>
+            <input type="submit" value="送出">
+        </form>
+        <button id="clearBtn">全部清除</button>
+    </div>
+
+
+
+
+    <script>
+
+        const add_items = document.querySelector('.add_items')
+        const content = document.getElementById('content')
+        const clearBtn = document.getElementById('clearBtn')
+        // 向localStorage找資料Key為items 如果沒有items這個Key那我就就取一個空陣列保留型態 避免undefined
+        let items = JSON.parse(localStorage.getItem('items')) || []
+
+        // 將內容用map+innerHTML的方式寫到畫面上
+        // 首先參數一型態定為陣列 參數二型態按照傳進來的參數不變
+        function createContent (data=[],contentList){
+            // 查看內容是否有錯誤
+            // console.log('data',data)
+            // console.log('contentList',contentList)
+            // 第二個參數為要修改的dom參數 針對參數進行innerHTML 修改的內容為map方式 回傳資料內容
+            // 針對75行的 ${item.done ? "checked" : ''} 意思為 item內的done資料 如果是true我就預設checked狀態 否的話就不設
+            contentList.innerHTML = data.map((item,index)=>{
+                return `
+                <li>
+                    <input type="checkbox" data-index="${index}" id="item${index}" ${item.done ? "checked" : ''} />
+                    <label for="item${index}">${item.text}</label>
+                </li>
+                `
+            }).join('')
+            // 或者是用forEach的方式進行innerHTML操作
+            // contentList.innerHTML = ''
+            // data.forEach((item,index)=>{
+            //     contentList.innerHTML +=
+            //     `
+            //     <li>
+            //         <input type="checkbox" data-index="${index}" id="item${index}" ${item.done ? "checked" : ''} />
+            //         <label for="item${index}">${item.text}</label>
+            //     </li>
+            //     `
+            // })
+        }
+        // 載入後先呼叫一次func 將local內的資料讀取並帶入 渲染一次畫面
+        createContent(items,content)
+
+        // 監聽form表單 當表單被觸發submit動作時 執行
+        add_items.addEventListener('submit',addItem)
+
+        // 帶一個參數 參數為submit功能
+        function addItem(e){
+            // 查看e的參數內容
+            // console.log('e',e)
+            // console.log(this)
+            // 阻擋submit的預設動作 如跳轉網頁等
+            e.preventDefault()
+            // 這邊this代表送出的form表單 獲取底下的name
+            const v = this.querySelector("[name=item]")
+            // 將值推回陣列資料
+            items.push({text:v.value,done:false})
+            // 獲取localStorage資料
+            localStorage.setItem('items',JSON.stringify(items))
+            // 更新畫面
+            createContent(items,content)
+            this.reset()
+        }
+
+        // 這邊的func要做當我勾選資料時 資料要變為true 並且儲存至localStorage
+        content.addEventListener('click',function(e){
+            // 看有什麼東西 跟是甚麼內容
+            // 這邊可以看一下點到的東西是甚麼與下方要做的事情有關
+            console.log('e.currentTarget',e.currentTarget)
+            console.log('e.target',e.target)
+
+            // 這邊避免重複觸發因此做判斷 是input才做
+            if (!e.target.matches('input')) return; // skip this unless it's an input
+            // 取我點到目標的data-index值
+            let i = e.target.dataset['index']
+            // 這邊用一個技巧 如果點擊觸發本func的話 這邊會將true改為false false改為true
+            items[i].done = !items[i].done
+
+            // 獲取localStorage資料
+            localStorage.setItem('items',JSON.stringify(items))
+            // 更新畫面
+            createContent(items,content)
+
+        })
+
+
+
+
+
+
+        clearBtn.addEventListener('click',function(){
+            localStorage.clear()
+            items=[]
+            // items.splice(0,Infinity)
+            content.innerHTML = ''
+        })
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>
