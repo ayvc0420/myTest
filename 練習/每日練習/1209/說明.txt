@@ -1,0 +1,16 @@
+1.html
+根據js30挑戰 第十六天製作
+參照網站 https://github.com/wesbos/JavaScript30
+滑鼠移動特效
+
+花費時間50分鐘
+
+2.html
+node執行後端檔案 並執行axios XHR $ajax fetch post功能 後端回傳前端給予的資料
+
+花費時間1.5小時
+
+3.html
+詳細記錄vue事件偵聽實測以及效果查看
+
+花費時間1小時

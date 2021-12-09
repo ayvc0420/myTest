@@ -40,7 +40,7 @@
                 <div>
                     <span>我是第筆資料</span>
                     <div>
-                        <input type="text" v-model.trim="userInput">
+                        <input type="text" v-model.trim="userInput"  @keyup.enter="createData">
                         <button @click="createData">新增</button>
                         <span>{{deleteMsg}}</span>
                     </div>
@@ -65,6 +65,7 @@
                 },
                 computed:{
                     data1201(){
+                        // 從$store裡面的state拿data1201   state是共用資料
                         return this.$store.state.data1201
                     },
                 },
@@ -92,8 +93,10 @@
                         }
                     },
                     async deleteData(index){
+                        // 把index為基準從資料庫取"對應陣列"的資料取出  注意 此處不是找id而是找陣列的順序
                         let delData = this.data1201[index]
-                        await this.$store.dispatch('DATA1201_DELETE',delData,index)
+                        // 此處要進行的是資料庫操作 也就是遠端因此用dispatch
+                        await this.$store.dispatch('DATA1201_DELETE',delData)
                         // await axios.delete(`${url}${delData.id}`)
                         // this.data1201.splice(index,1)
                         this.deleteMsg = `你剛剛刪除了第${index+1}筆資料`
@@ -120,7 +123,7 @@
             let Edit = {
                 template:`
                     <div>
-                        <input type="text" v-model.trim="userInput">
+                        <input type="text" v-model.trim="userInput" @keyup.enter="updateData">
                         <button @click="updateData">更新資料</button>
                         
                         <span>當前更新第{{this.$store.state.updateIndex}}筆資料</span>
@@ -181,89 +184,102 @@
                     
                 let store = new Vuex.Store({
                         // 嚴格模式 開發模式下強烈建議打開 上線版本必須關掉否則耗效能
-                        strict:true,
-                        state:{
-                            data1201:[],
-                            userInput:'',
-                            updateIndex:null,
+                    strict:true,
+                    state:{
+                        data1201:[],
+                        userInput:'',
+                        updateIndex:null,
+                    },
+                    mutations:{
+                        // 這邊放與畫面相關或資料處裡的同步處裡
+                        // 注意 一切在本地影響資料的事情必須都透過vuex的mutations做處理 也就是commit 不能再actions或各頁面內的methods處理
+                        SET_DATA1201(state,data){
+                            state.data1201 = data
                         },
-                        mutations:{
-                            //這邊放與畫面相關或資料處裡的同步處裡
+                        // 將帶來的參數push到vuex的store資料
+                        CREATE_DATA1201(state,data){
+                            state.data1201.push(data)
+                        },
+                        // 刪除畫面上的資料
+                        DELETE_DATA1201(state,index){
+                            // 將data1201裡的第X個參數刪去一個 這邊的index參數來自於呼叫DELETE_DATA1201的checkData參數
+                            // 參數是代表使用者點擊刪除按鈕在畫面上是第幾號陣列 更詳細參考237行
+                            state.data1201.splice(index,1)
+                        },
+                        UPDATE_INDEX_DATA1201(state,index){
+                            // 將幾號編號作為註記 由於陣列是從0開始計算 因此要+1
+                            state.updateIndex = index+1
+                        },
+                        UPDATE_DATA1201(state,data){
+                            let index = state.updateIndex
+                            // 由於上面UPDATE_INDEX_DATA1201有+1影響數據 這邊是改變陣列的資料因此由0開始計算 要-1
+                            state.data1201[index-1].name = data
+                            state.updateIndex = null
+                        }
+                    },
+                    actions:{
+                        // 這邊放非同步處裡 API相關
 
-                    SET_DATA1201(state,data){
-                        state.data1201 = data
-                    },
-                    CREATE_DATA1201(state,data){
-                        state.data1201.push(data)
-                    },
-                    // 刪除畫面上的
-                    DELETE_DATA1201(state,index){
-                        state.data1201.splice(index,1)
-                    },
-                    UPDATE_INDEX_DATA1201(state,index){
-                        // 將幾號編號作為註記 由於陣列是從0開始計算 因此要+1
-                        state.updateIndex = index+1
-                    },
-                    UPDATE_DATA1201(state,data){
-                        let index = state.updateIndex
-                        // 由於上面UPDATE_INDEX_DATA1201有+1影響數據 這邊是改變陣列的資料因此由0開始計算 要-1
-                        state.data1201[index-1].name = data
-                        state.updateIndex = null
+                        // 這邊使用同名稱+行為動作  當有多筆資料要處裡時可將同個資料放在一起方便管理
+                        DATA1201_READ:(context)=>{
+                            // context為自己命名的名字 詳細參照https://vuex.vuejs.org/zh/guide/actions.html
+                            return axios.get(url).then((res)=>{
+                                //拿到資料後將資料傳給mutations 在mutations寫入資料
+                                context.commit('SET_DATA1201',res.data)
+                            })
+                        },
+                        DATA1201_DELETE:(context,data)=>{
+                            console.log('data',data)
+                            // 確認資料是否存在 若為-1等於不存在
+                            // 在這邊從context裡的state裡的data1201資料去找 判斷方法為indexOf 根據data的參數也就是要刪除的資料參數去找內容
+                            // 找到的話回傳第一個符合值的位置是在第幾號陣列之中
+                            let checkData = context.state.data1201.indexOf(data)
+                            // console.log('我是要被刪除的資料陣列編號',checkData,'而你點下去要刪除的資料id是',data.id)
+                            // 只要不等於-1 也就是找的到的話 我就執行delete
+                            if(checkData !== -1){
+                                // 刪除的對象是url中的data.id獨立編號 這邊的data是從點擊刪除按鈕傳來的參數 
+                                return axios.delete(`${url}${data.id}`).then(res=>{
+                                    // 遠端刪除完畢後從context呼叫commit功能 執行DELETE_DATA1201 附帶checkData參數
+                                    context.commit('DELETE_DATA1201',checkData)
+                                })
+                            }else{
+                                return
+                            }
+                        },
+                        // 只能傳兩個參數 第二個需傳更新的資料及id時必須用物件包起來 且呼叫此actions的參數必須與這邊的參數一模一樣
+                        DATA1201_UPDATE:(context,{userData,id})=>{
+                            // 這邊的checkData是從state裡data1201找的資料 也就是使用者選擇要更新寫的資料
+                            let checkData = context.state.data1201.find(item=>{
+                                return item.id == id
+                            }) 
+                            // 判斷是否存在才要繼續執行
+                            if(checkData){
+                                return axios.patch(`${url}${id}`,{
+                                    // 要更新的資料 將使用者寫的data放入
+                                    name:userData
+                                }).then(res=>{
+                                    // 這邊的userData是呼叫DATA1201_UPDATE傳來的參數 是使用者在input輸入的資料 也可以用res.data.name
+                                    // console.log('userData',userData)
+                                    // console.log('res.data.name',res.data.name)
+                                    context.commit('UPDATE_DATA1201',userData)
+                                })
+                            }else{
+                                return 
+                            }
+                        },
                     }
-                },
-                actions:{
-                    // 這邊放非同步處裡 API相關
-                    
-                    // 建議用此種方法 同名稱+動作 可放在一起方便管理
-                    DATA1201_READ:(context)=>{
-                        // context為自己命名的名字 詳細參照https://vuex.vuejs.org/zh/guide/actions.html
-                        return axios.get(url).then((res)=>{
-                            //拿到資料後將資料傳給mutations 在mutations寫入資料
-                            context.commit('SET_DATA1201',res.data)
-                        })
-                    },
-                    DATA1201_DELETE:(context,data)=>{
-                        // 確認資料是否存在 若為-1等於不存在
-                        let checkData = context.state.data1201.indexOf(data)
-                        if(checkData !== -1){
-                            return axios.delete(`${url}${data.id}`).then(res=>{
-                                context.commit('DELETE_DATA1201',checkData)
-                            })
-                        }else{
-                            return
-                        }
-                    },
-                    // 只能傳兩個參數 第二個需傳更新的資料及id時必須用物件包起來 且呼叫此actions的參數必須與這邊的參數一模一樣
-                    DATA1201_UPDATE:(context,{userData,id})=>{
-                        // 這邊的checkData是從state裡data1201找的資料 也就是使用者選擇要更新寫的資料
-                        let checkData = context.state.data1201.find(item=>{
-                            return item.id == id
-                        }) 
-                        // 判斷是否存在才要繼續執行
-                        if(checkData){
-                            return axios.patch(`${url}${id}`,{
-                                // 要更新的資料 將使用者寫的data放入
-                                name:userData
-                            }).then(res=>{
-                                // 這邊的data是func的參數 也可以用res.data.name
-                                context.commit('UPDATE_DATA1201',userData)
-                            })
-                        }else{
-                            return 
-                        }
-                    },
-                }
-            })
+                })
             
             let router = new VueRouter({
                 routes: [
-                    // /=首頁
                     {
+                        // /=首頁
                         path:'/',
                         name:'list',
                         component:List
                     },
                     {
+                        // 設定路由器
                         // path:'/update/:day',
                         path:'/update/:id',
                         name:'update',
@@ -283,6 +299,7 @@
                 router : router,
                 store: store,
                 mounted() {
+                    // 載入網頁後先執行DATA1201_READ
                     this.$store.dispatch('DATA1201_READ')
                 },
             })

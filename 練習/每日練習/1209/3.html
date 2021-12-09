@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #app{
+            width: 100% !important;
+        }
+        section{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        div{
+            padding: 50px;
+            display: inline-block;
+        }
+        div:not(#app){
+            margin: 30px 0;
+        }
+        #app div:nth-of-type(odd){
+            background-color: blanchedalmond;
+        }
+        #app div:nth-of-type(even){
+            background-color: chocolate;
+        }
+        a{
+            display: inline-block;
+            background-color: cornflowerblue;
+            padding: 20px;
+            text-decoration: none;
+            color: yellow;
+        }
+        button{
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div id="app">
+
+        <section>
+            <span>self作用:以別人優先 觸發對象只在綁定身上才會產生 子元素也不會觸發</span>
+            <div @click="clickDiv">我沒有任何參數
+                <a href="javascript:;" @click="clickA">
+                    <button>我沒有任何參數</button>
+                </a>
+            </div>
+            <div @click.self="clickDiv">我有.self
+                <a href="javascript:;" @click="clickA">
+                    <button>我沒有任何參數</button>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <span>stop作用:同時監聽父層和子層的話 在子層監聽上stop只會觸發子層 父層不會觸發</span>
+            <div @click="clickDiv">我沒有任何參數
+                <a href="javascript:;" @click="clickA">
+                    <button @click="clickBtn">我沒有任何參數</button>
+                </a>
+            </div>
+            <div @click="clickDiv">我沒有任何參數
+                <a href="javascript:;" @click="clickA">
+                    <button @click.stop="clickBtn">我有.stop</button>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <span>capture作用:同時監聽父層和子層的話 在父層監聽上capture那capture的監聽對象就會優先執行</span>
+            <div @click.capture="clickDiv">我有.capture
+                <a href="javascript:;" @click="clickA">
+                    <button @click="clickBtn">我沒有任何參數</button>
+                </a>
+            </div>
+            <div @click.capture="clickDiv">我有.capture
+                <a href="javascript:;" @click="clickA">
+                    <button @click="clickBtn">stop on</button>
+                </a>
+            </div>
+            <span>capture+stop:優先執行並且阻擋其他的觸發</span>
+            <div @click.capture.stop="clickDiv">我有.capture.stop
+                <a href="#" @click="clickA">
+                    <button @click="clickBtn">我沒有任何參數</button>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <span>prevent作用:阻擋預設事件 以下連結預設導向google</span>
+            <div @click="clickDiv">我沒有任何參數
+                <a href="https://www.google.com.tw" @click="clickA">我是a 沒有prevent
+                    <button @click="clickBtn">我沒有任何參數</button>
+                </a>
+            </div>
+            <div @click.capture="clickDiv">我沒有任何參數
+                <a href="https://www.google.com.tw" @click.prevent="clickA">我是a 有prevent 所以不會觸發預設事件(href)
+                    <button @click="clickBtn">我沒有任何參數</button>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <span>once作用:觸發只會執行一次 執行一次之後將不再執行 - 以下請點按鈕</span>
+            <div @click="clickDiv">我沒有任何參數
+                <a href="javascript:;" @click="clickA">我沒有任何參數
+                    <button @click="clickBtn">我沒有任何參數</button>
+                </a>
+            </div>
+            <div @click.capture.stop.once="clickDiv">我有.capture.stop.once
+                <a href="javascript:;" @click.prevent.capture.stop.once="clickA">我有.capture.stop.once
+                    <button @click.capture.stop.once="clickBtn">我有.capture.stop.once</button>
+                </a>
+            </div>
+        </section>
+
+
+        <section >
+            <span>passive作用:與debounce作用類似 降低效能的使用</span>
+            <span>根據MDN以及VUE官網的說明passive的確有一定的效果 若測試沒有明顯差距建議還是用js自行額外處理</span>
+            <div @scroll="scrollDiv" style="height: 100px;background-color: blueviolet;overflow: scroll;">我沒有.passive
+                <div style="height: 500px;background-color: rgb(202, 149, 252);"></div>
+            </div>
+            <div @scroll.passive="scrollDiv" style="height: 100px;background-color: blueviolet;overflow: scroll;">我有.passive
+                <div style="height: 500px;background-color: rgb(202, 149, 252);"></div>
+            </div>
+        </section>
+
+    </div>
+
+
+
+
+
+    <script src="./vue.js"></script>
+    <script>
+
+        (function(){
+
+            new Vue({
+                el:'#app',
+                data:{
+
+                },
+                methods: {
+                    clickDiv(){
+                        console.log('我是div喔')
+                    },
+                    clickA(){
+                        console.log('我是a喔')
+                    },
+                    clickBtn(){
+                        console.log('我是btn喔')
+                    },
+                    scrollDiv(){
+                        console.log('滾動中 請比次數')
+                    },
+                },
+            })
+
+        })()
+
+    </script>
+
+
+</body>
+</html>

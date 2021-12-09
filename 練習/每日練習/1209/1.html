@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .title{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+        }
+        h1{
+            text-shadow: 10px 10px 0 rgba(0,0,0,1),10px 10px 0 rgb(226, 110, 110),10px 10px 0 rgb(102, 2, 2);
+            font-size: 3rem;
+            /* z-index: -100; */
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="title" id="title">
+
+        <h1>移動滑鼠看看特效!</h1>
+
+    </div>
+
+
+
+    <script>
+
+        (function(){
+
+            // 移動的幅度
+            let movePosition = 200
+
+            const title = document.getElementById('title')
+            const text = title.querySelector('h1')
+            title.addEventListener('mousemove',function(cursor){
+                // console.log(cursor)
+                // 傳統寫法
+                // console.log(cursor.target)
+                // let x = cursor.offsetX
+                // let y = cursor.offsetY
+                // console.log('x',x,'y',y)
+                // ES6寫法 與宣告物件概念一樣
+                let {offsetX , offsetY} = cursor
+                // console.log('offsetX',offsetX ,'offsetY',offsetY)
+                if(cursor.target !== title){
+                    offsetX += cursor.target.offsetLeft
+                    offsetY += cursor.target.offsetTop
+                }
+                // if(cursor.target !== this){
+                //     offsetX += cursor.target.offsetLeft
+                //     offsetY += cursor.target.offsetTop
+                // }
+
+                
+
+                // if(cursor!==this.cursor){
+                //     offsetX = this.offsetX
+                //     offsetY = this.offsetY
+                // }
+                // console.log(lengh)
+                let moveX = Math.floor(offsetX / this.offsetWidth * movePosition) * 2 - movePosition
+                let moveY = Math.floor(offsetY / this.offsetHeight * movePosition) * 2 - movePosition
+                // console.log('offsetX',offsetX / this.offsetWidth * movePosition)
+                // console.log('offsetY',offsetY / this.offsetHeight * movePosition)
+
+
+                text.style.textShadow = `
+                ${moveX * -.8}px ${moveY * -.8}px 8px rgba(0,0,0,.7),
+                ${moveX * .8}px ${moveY * .8}px 8px rgba(167,32,82,.8),
+                ${moveX * .3}px ${moveY * .3}px 8px rgba(64,193,83,.6),
+                ${moveX * -.3}px ${moveY * -.3}px 8px rgba(91,93,173,.8),
+                ${moveX * .5}px ${moveY * .5}px 8px rgba(123,83,152,.8),
+                ${moveX * -.5}px ${moveY * -.5}px 8px rgba(241,123,83,.7)
+                `
+
+            })
+        })()
+
+
+    </script>
+
+</body>
+</html>

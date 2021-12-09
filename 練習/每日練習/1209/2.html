@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <span>GET</span>
+    <form action="http://localhost:8080/" method="GET">
+        <input type="text" name="name" value="">
+        <input type="submit" value="送出">
+    </form>
+
+    <span>POST</span>
+    <form action="http://localhost:8080/" method="POST">
+        <input type="text" name="name" value="">
+        <input type="submit" value="送出">
+    </form>
+
+
+
+
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script src="./axios.js"></script>
+    <script>
+
+
+        // 查看終端機的輸出與console面板吧! 建議一次只開啟一個ajax功能避免覆蓋輸出
+        const url = 'http://localhost:8080/'
+        axios.post(`${url}`,{name:'hi my is axios post'}).then(res=>{
+            let axiosData = res.data.name
+            console.log('axiosData',axiosData)
+        }).catch(err=>{
+            console.log('err',err)
+        }) 
+        
+
+
+
+        // var send = new XMLHttpRequest()
+        // send.open('POST',url)
+        // send.send('hi my is XHR post')
+        // send.addEventListener('load',function(e){
+        //     let XHRdata = e.currentTarget.response
+        //     console.log('XHRdata',XHRdata)
+        // })
+
+
+
+
+        // fetch(url,{
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/text'
+        //     },
+        //     body:'hi my is fetch'
+        // }).then(res=>{
+        //     console.log('fetch',res)
+        // })
+
+        // $.post(url,'hi my is jQuery').then(res=>{
+        //     console.log('jQuery',res)
+        // })
+
+
+        const form = document.querySelector('form').addEventListener('submit',function(e){
+            // e.preventDefault()
+            console.log('form',e)
+        })
+
+    </script>
+</body>
+</html>
