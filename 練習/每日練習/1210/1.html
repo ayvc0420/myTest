@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ol{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: burlywood;
+        }
+        ol{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.5;
+            color: crimson;
+            font-size: 2rem;
+            padding: 50px;
+            border: 50px solid white;
+            margin: 20px 0;
+        }
+        ol>li{
+            box-sizing: border-box;
+            padding: 20px 80px;
+            width: 100%;
+        }
+        ol > li+li{
+            border-top: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+    
+    <ol id="view">
+
+    </ol>
+
+    <ol id="javascriptFeatures"> 
+        
+    </ol>
+
+    <script>
+
+        (function(){
+
+            const data = [
+                'houshoumarin',
+                'uruharushia',
+                'minatoaqua',
+                'sakuramiko',
+                'usadapekora',
+                'inugamikorone',
+
+            ]
+
+            
+            const view = document.getElementById('view')
+            
+            // 預設用英文字母排序
+            data.sort()
+            data.forEach(item=>{
+                view.innerHTML += `<li>${item}</li>`
+            })
+            
+            // 仔細看順序 與原始陣列資料的順序並不相同 sort是操作原陣列
+            console.log(data)
+
+            
+
+            
+            // 原作範例外的練習  根據一堆字串將其變成陣列後進行sort排序
+
+            let jsFunc = 'append appendChild bind call style addEventListener splice concat every fill join indexOf push map forEach reduce reverse some sort shift pop entries toString unshift length copyWithin'
+            const javascriptFeatures = document.getElementById('javascriptFeatures')
+            const arrayJsFunc = jsFunc.split(/\s/)
+            javascriptFeatures.innerHTML = arrayJsFunc.map(item=> `<li>${item}</li>` ).sort().join('')
+
+
+        })()
+
+    </script>
+
+
+</body>
+</html>

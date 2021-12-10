@@ -1,0 +1,23 @@
+1.html
+根據js30挑戰 第十七天製作
+參照網站 https://github.com/wesbos/JavaScript30
+sort使用 與1129 1.html相似
+
+花費時間20分
+
+2.html
+初步了解typeScript及簡單應用
+
+花費時間30分
+
+3.html
+根據js30挑戰 第十八天製作
+參照網站 https://github.com/wesbos/JavaScript30
+data屬性經過計算處理後得出需要的結果
+
+花費時間30分
+
+4.html
+使用Vue做一個切換獲取資訊清單 以及check用於資料傳送的使用
+
+花費時間30分

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0 0 0 30px;
+        }
+        *{
+            font-size: 36px;
+            vertical-align: super
+        }
+
+    </style>
+</head>
+<body>
+    
+
+    <div id="app">
+
+        <section>
+            <ol>
+                <li v-for="item in vtList">{{item}}</li>
+            </ol>
+            <button @click="listHandlerCut" :disabled="vtPageNumber===0">上一頁</button>
+            <span>第{{ vtPageNumber }}頁</span>
+            <!-- 這邊:disabled使用的技巧 當我顯示資料的最後一筆跟原資料的最後一筆一模一樣的時候 那我就變true禁用 -->
+            <button @click="listHandlerAdd" :disabled="vtList[vtList.length-1]===vtData[vtData.length-1]">下一頁</button>
+        </section>
+
+
+        <section>
+
+            <ol>
+                以下你的選擇是
+                <li v-for="item in checkData">
+                    <input type="checkbox" :name="item" v-model="checkOrder" :value="item">{{item}}
+                </li>
+                <p>你選了:{{checkOrder.join('、')}}</p>
+                <p v-if="checkOrder.length === checkData.length">你全都要 好貪心啊</p>
+            </ol>
+
+        </section>
+
+
+    </div>
+
+
+
+    <script src="./vue.js"></script>
+    <script>
+
+        new Vue({
+            el:'#app',
+            data:{
+                // 總資料
+                vtData:['兔田佩克拉','寶鐘瑪琳','獅白牡丹','潤羽露西婭','沙花叉克蘿耶','拉普拉斯','白上吹雪','夏色祭','櫻巫女','時乃空','蘿蔔子','星街彗星','不知火芙蕾雅','白銀諾艾爾','天音彼方','角卷綿芽','常闇永遠','姬森璐娜','雪花菈米','桃鈴音音','尾丸波爾卡','湊阿庫婭','紫咲詩音','百鬼綾目','癒月巧可','大空昴','赤井心'],
+                // 要顯示的資料
+                vtList:[],
+                // 現在的頁數是第幾頁
+                vtPageNumber:0,
+                // 一次顯示幾筆 要改的話跟listPage數字必須相同
+                jumpPage:4,
+                // 現在是顯示到第幾筆 與下共同使用
+                listPage:4,
+                // 現在是顯示第幾筆到 與上共同使用
+                beforeListPage:0,
+                checkData:['兔田佩克拉','寶鐘瑪琳','獅白牡丹','潤羽露西婭','沙花叉克蘿耶','拉普拉斯','白上吹雪'],
+                checkOrder:[],
+            },
+            computed:{
+
+            },
+            methods:{
+                // 下一頁func
+                listHandlerAdd(){
+                    // 點進來先把現在的頁數+1
+                    this.vtPageNumber++
+                    // 因上一頁的disabled條件已設好 因此這邊不用再做額外判斷現在是否為第一頁
+                    // 將我現在顯示到第幾筆資料傳給他 在這邊this.beforeListPage的用意是要從第幾筆開始切 也就是我上一次顯示到第幾筆 就從那筆之後開始切
+                    // 把我現在的資料改成已經顯示到哪一筆的資料
+                    this.beforeListPage = this.listPage
+                    // 我要顯示到第幾筆資料+要一次顯示幾筆的資料 這邊的意思是我如果現在顯示0~4筆 一次顯示4筆那我就會變成顯示到第8筆
+                    this.listPage+=this.jumpPage
+                    // 將要顯示的資料做修整 根據原始資料從第幾筆開始切到要顯示第幾筆為條件 驅動顯示畫面
+                    this.vtList = this.vtData.slice(this.beforeListPage,this.listPage)
+                },
+                listHandlerCut(){
+                    // 點進來先把現在的頁數-1
+                    this.vtPageNumber--
+                    // 把我要切的資料改成 從第幾筆資料開始 減掉 一次要顯示幾筆資料的數字
+                    // 例如 我現在顯示到第12筆 我就減掉4筆變成8筆 之後從第八筆開始切
+                    this.beforeListPage-= this.jumpPage
+                    // 現在顯示到第幾筆的資料減掉一次顯示幾筆的數字
+                    this.listPage-= this.jumpPage
+                    // 將要顯示的資料做修整 根據原始資料從前面以處裡好的數字做切割 驅動顯示畫面
+                    this.vtList = this.vtData.slice(this.beforeListPage,this.listPage)
+                },
+            },
+            mounted() {
+                // 載入先做一次
+                this.vtList = this.vtData.slice(this.beforeListPage,this.listPage)
+            },
+
+        })
+
+    </script>
+
+
+</body>
+</html>

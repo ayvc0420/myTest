@@ -17,7 +17,7 @@
             color: black;
         }
         h1{
-            text-shadow: 10px 10px 0 rgba(0,0,0,1),10px 10px 0 rgb(226, 110, 110),10px 10px 0 rgb(102, 2, 2);
+            /* text-shadow: 10px 10px 0 rgba(0,0,0,1),10px 10px 0 rgb(226, 110, 110),10px 10px 0 rgb(102, 2, 2); */
             font-size: 3rem;
             /* z-index: -100; */
         }
@@ -51,26 +51,28 @@
                 // let y = cursor.offsetY
                 // console.log('x',x,'y',y)
                 // ES6寫法 與宣告物件概念一樣
-                let {offsetX , offsetY} = cursor
+                let {offsetX , offsetY , target , currentTarget} = cursor
                 // console.log('offsetX',offsetX ,'offsetY',offsetY)
+
+                // 判斷指到的dom不是原本的元素  不寫判斷也可以直接用z-index將子元素放到最底
                 if(cursor.target !== title){
                     offsetX += cursor.target.offsetLeft
                     offsetY += cursor.target.offsetTop
                 }
+
+
                 // if(cursor.target !== this){
                 //     offsetX += cursor.target.offsetLeft
                 //     offsetY += cursor.target.offsetTop
                 // }
 
-                
 
                 // if(cursor!==this.cursor){
                 //     offsetX = this.offsetX
                 //     offsetY = this.offsetY
                 // }
-                // console.log(lengh)
-                let moveX = Math.floor(offsetX / this.offsetWidth * movePosition) * 2 - movePosition
-                let moveY = Math.floor(offsetY / this.offsetHeight * movePosition) * 2 - movePosition
+                let moveX = Math.floor(offsetX / currentTarget.offsetWidth * movePosition) * 2 - movePosition
+                let moveY = Math.floor(offsetY / currentTarget.offsetHeight * movePosition) * 2 - movePosition
                 // console.log('offsetX',offsetX / this.offsetWidth * movePosition)
                 // console.log('offsetY',offsetY / this.offsetHeight * movePosition)
 
@@ -83,6 +85,14 @@
                 ${moveX * .5}px ${moveY * .5}px 8px rgba(123,83,152,.8),
                 ${moveX * -.5}px ${moveY * -.5}px 8px rgba(241,123,83,.7)
                 `
+                // text.style.textShadow = `
+                // ${moveX * -1.5}px ${moveY * -.9}px 8px rgba(0,0,0,.7),
+                // ${moveX * .1}px ${moveY * .8}px 8px rgba(167,32,82,.8),
+                // ${moveX * .7}px ${moveY * .2}px 8px rgba(64,193,83,.6),
+                // ${moveX * -1.6}px ${moveY * -1.3}px 8px rgba(91,93,173,.8),
+                // ${moveX * 1.2}px ${moveY * 1.3}px 8px rgba(123,83,152,.8),
+                // ${moveX * -1.9}px ${moveY * -.5}px 8px rgba(241,123,83,.7)
+                // `
 
             })
         })()
