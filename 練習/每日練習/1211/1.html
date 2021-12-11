@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* https://www.pixiv.net/artworks/91170982 */
+            background: url(./bg.webp) left no-repeat ;
+            position: relative;
+        }
+        body::before{
+            /* 本範例環境在1920x1080製作 均沒有處理RWD */
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url(./bg.webp) right no-repeat;
+            z-index: -100;
+        }
+        #app{
+            width: 470px;
+            margin: 0 auto;
+            font-size: 30px;
+            background-color: rgba(255,255,255,.8);
+        }
+        #app>p{
+            color: red;
+        }
+        h3{
+            text-align: center;
+        }
+        input{
+            width: 30px;
+            vertical-align: middle;
+        }
+        .err{
+            border: 1px solid red;
+            position:relative;
+        }
+        .err::before{
+            content: '欄位必須輸入!';
+            position: absolute;
+            left: 100%;
+            width: 200px;
+            color: red;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div id="app">
+
+        <h3>點餐頁面</h3>
+        <span>說明:不需要的餐點請輸入0</span>
+
+        <ol>
+            <li v-for="item in breakfast">
+                點餐數量:<input type="number" min="0" v-model="item.number" @blur="blur">
+                {{item.item}}價格:{{item.money}}
+            </li>
+        </ol>
+
+        <div>
+            <p v-for="item in breakfast">{{item.item}}-數量:{{item.number}}{{item.unit}}</p>
+        </div>
+
+        <h2>總金額:{{allMoney}}</h2>
+        <button @click="fill">點我結帳!</button>
+        <p v-show="fillErrMsg">重新確認餐點是否有誤</p>
+        <p v-show="fillState">{{fillMsg}}刷卡還是付現?</p>
+    </div>
+    
+    <!-- 本範例操作blur屬性 因此將數量限制必須為0個以上 正常該類系統不需要輸入會自動轉換0 或預設0個  範例僅供參考 -->
+
+    <script src="./vue.js"></script>
+    <script>
+
+        (function(){
+            new Vue({
+                el:'#app',
+                data:{
+                    money:null,
+                    breakfast:[
+                        {item:'奶茶',unit:'杯',money:15,number:null},
+                        {item:'漢堡',unit:'個',money:25,number:null},
+                        {item:'豬排三明治',unit:'個',money:30,number:null},
+                        {item:'焗烤吐司',unit:'個',money:30,number:null},
+                        {item:'蘑菇麵',unit:'份',money:30,number:null},
+                        {item:'蔥抓餅',unit:'個',money:30,number:null},
+                        {item:'蛋餅',unit:'份',money:20,number:null},
+                        {item:'巧克力吐司',unit:'個',money:15,number:null}
+                    ],
+                    fillState:false,
+                    fillErrMsg:false,
+                    fillMsg:'',
+                },
+                computed:{
+                    allMoney(){
+                        let data = 0;
+                        this.breakfast.forEach(item=>{
+                            data +=item.money*item.number
+                        })  
+                        this.money = data
+                        return data
+                    }
+                },
+                methods: {
+                    blur(){
+                        if(!event.srcElement._value){
+                            event.currentTarget.parentNode.classList.add('err')
+                        }else{
+                            event.currentTarget.parentNode.classList.remove('err')
+                        }
+                        
+                    },
+                    fill(){
+                        let state = this.breakfast.map(item => item.number).indexOf(null)
+                        console.log(state)
+                        if(state === -1){
+                            this.fillErrMsg = false
+                            this.fillState = true
+                            this.fillMsg = `一共是${this.money}元`
+                        }else{
+                            this.fillErrMsg = true
+                        }
+                    },
+                },
+
+            })
+        })()
+
+
+    </script>
+
+</body>
+</html>

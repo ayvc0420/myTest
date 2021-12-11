@@ -77,6 +77,11 @@
 
         <section>
             <span>capture作用:同時監聽父層和子層的話 在父層監聽上capture那capture的監聽對象就會優先執行</span>
+            <div @click="clickDiv">我沒有任何參數
+                <a href="javascript:;" @click="clickA">
+                    <button @click="clickBtn">我沒有任何參數</button>
+                </a>
+            </div>
             <div @click.capture="clickDiv">我有.capture
                 <a href="javascript:;" @click="clickA">
                     <button @click="clickBtn">我沒有任何參數</button>

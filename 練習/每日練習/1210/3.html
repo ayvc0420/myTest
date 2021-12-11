@@ -215,13 +215,22 @@
             })
 
             console.log(checkTime)
-
             let allTime = 0;
+            // let reduceTest = checkTime.reduce((total,sec) => total+sec, 0)
+            // console.log('reduceTest',reduceTest)
             checkTime.forEach(item => allTime+=item)
-
             console.log(allTime)
 
+            let sec = allTime%60;
+            let min = Math.floor((allTime%3600)/60)
+            let hr = Math.floor(allTime/60/60)
 
+            // let min = (allTime-sec)/60
+            // let min = Math.floor(allTime/60)
+            // let hr = Math.floor(min/60)~
+            // min = min % 60
+            // min %= 60
+            console.log(`一共是${hr}時${min}分${sec}秒`)
         })()
 
     </script>
