@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            background-color: yellow;
+        }
+        #view{
+            width: 500px;
+            padding-bottom: 50px;
+            margin: auto;
+            background-color: white;
+            box-shadow: 3px 3px 5px 0 black
+        }
+    </style>
+</head>
+<body>
+    
+
+
+    <div id="view" contenteditable>
+
+    </div>
+
+
+
+    <script>
+        // SpeechRecognition 參數參考 https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition
+        // 判斷是否可用 目前僅限chrome瀏覽器
+        window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
+        // 改為true的話會立即辨識 false是一句結束後再辨識
+        recognition.interimResults = false;
+        recognition.lang = 'zh-TW';
+
+        // 在這邊用創建標籤做後面的顯示處理
+        let p = document.createElement('p')
+        const view = document.getElementById('view')
+        // 在這個標籤內增加子元素
+        view.appendChild(p)
+        // result = 辨識成功
+        recognition.addEventListener('result',function(e){
+            // 查看辨識的資料在哪邊
+            console.log(e)
+            // 宣告一個變數 將資料傳回
+            const transcript = Array.from(e.results).map(item => item[0]).map(item => item.transcript).join('')
+            console.log(transcript)
+
+            // 禁字過濾
+            const starTag = transcript.replace(/幹|白癡|智障/gi,'*')
+            p.textContent = starTag
+            if(e.results[0].isFinal){
+                p = document.createElement('p')
+                view.appendChild(p)
+            }
+
+
+
+        })
+
+
+        // 結束後會再次偵聽語音判斷
+        recognition.addEventListener('end', recognition.start);
+        // 網頁開始就先啟動一次
+        recognition.start();
+
+    </script>
+</body>
+</html>

@@ -4,7 +4,7 @@
 花費時間30分
 
 2.html
-js30挑戰 第十八天 
+js30挑戰 第十九天 
 參照網站 https://github.com/wesbos/JavaScript30
 內容為照相機處理視訊畫面 因用不到僅複製程式碼
 觀看相關影片https://www.youtube.com/watch?v=1oOxMR_LPb0&list=PLEfh-m_KG4dYbxVoYDyT_fmXZHnuKg2Fq&index=19

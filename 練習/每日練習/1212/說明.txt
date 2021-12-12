@@ -1,0 +1,6 @@
+1.html
+js30挑戰 第二十天 
+參照網站 https://github.com/wesbos/JavaScript30
+認識SpeechRecognition 語音辨識 並實際使用
+
+花費時間30分
