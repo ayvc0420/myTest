@@ -4,3 +4,21 @@ js30挑戰 第二十天
 認識SpeechRecognition 語音辨識 並實際使用
 
 花費時間30分
+
+2.html
+js30挑戰 第二十一天 
+參照網站 https://github.com/wesbos/JavaScript30
+認識geolocation API及參數含意 但實際應用仍須調整
+
+花費時間30分
+
+3.html
+切版練習
+元件過多為SVG 雖然能正常切出版面但RWD要額外製作 這個範例選的偏失敗
+
+花費時間20分
+
+4.html
+切版練習
+
+花費時間10分

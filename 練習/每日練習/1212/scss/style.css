@@ -1,0 +1,69 @@
+.cover {
+  width: 1600px;
+  height: 960px;
+  margin: 0 auto;
+  position: relative;
+  background-color: #cff469;
+}
+
+.bg_svg > svg:nth-of-type(1) {
+  position: absolute;
+  top: 0;
+  left: 520px;
+}
+
+.bg_svg > svg:nth-of-type(2) {
+  position: absolute;
+  top: 50px;
+  right: 59.5px;
+}
+
+.bg_svg > svg:nth-of-type(3) {
+  position: absolute;
+  top: 281px;
+  left: 0;
+}
+
+.bg_svg > svg:nth-of-type(4) {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.bg_svg > svg:nth-of-type(5) {
+  position: absolute;
+  top: 301.2px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.title {
+  padding-top: 431.1px;
+  color: #503658;
+}
+
+.title > h1 {
+  font-weight: 900;
+  font-size: 90px;
+  text-align: center;
+}
+
+.title > h3 {
+  font-weight: 600;
+  font-size: 40px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.title .title_footer {
+  margin-top: 194px;
+  font-size: 33px;
+  text-align: center;
+}
+
+.title .title_footer > span {
+  font-weight: 900;
+  font-size: 40px;
+}
+/*# sourceMappingURL=style.css.map */

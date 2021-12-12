@@ -7,6 +7,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/reset.css">
     <style>
+        [v-cloak]{
+            display : none;
+        }
         a{
             text-decoration: none;
             color: blue;
@@ -190,7 +193,7 @@
             如: https://ayvc0420.github.io/myTest/練習/每日練習/1201/1.html<br>
         </p>
     </div>
-    <section id="app">
+    <section id="app" v-cloak>
         <h3 id="title">{{practiceNumber}}</h3>
         <div class="center"></div>
         <article v-for="(item,index) in list" @click="hrefHandler">

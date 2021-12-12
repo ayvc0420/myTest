@@ -1,0 +1,33 @@
+.instruction{
+    width: 960px;
+    height: 960px;
+    background-color:#3b2542;
+}
+.content{
+    padding: 165px 0 0 200px;
+    color: white;
+    >h2{
+        font-size: 40px;
+        padding-bottom: 75px;
+    }
+    >p{
+        width: 499px;
+        font-size: 20px;
+        line-height: 30px;
+        padding-bottom: 30px;
+    }
+    >p:nth-of-type(2){
+        font-weight: 900;
+    }
+    >button{
+        border-radius: 35.6px;
+        color:#503658;
+        padding: 27px 38.4px 27px 41.7px;
+        font-size: 26.4px;
+        border: none;
+        cursor: pointer;
+        >svg{
+            vertical-align: middle;
+        }
+    }
+}

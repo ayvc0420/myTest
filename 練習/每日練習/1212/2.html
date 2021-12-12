@@ -57,7 +57,7 @@
         const arrow = document.getElementById('arrow');
         const speed = document.getElementById('speed_value');
     
-        
+        // 以下geolocation相關設定請參考 https://w3c.github.io/geolocation-api/
         // watchPosition只要移動就會一直偵測 與addEventListener類似
         let directions = navigator.geolocation.watchPosition(data => {
             // 查看資料
@@ -71,6 +71,11 @@
             alert('請求錯誤，請稍後再試！')
             navigator.geolocation.clearWatch(directions);
         });
+
+        // 根據原作範例 https://github.com/wesbos/JavaScript30/tree/master/21%20-%20Geolocation
+        // 本範例僅介紹geolocation API功能 實際使用及數據需要額外驗證校調
+        // 本範例僅供參考 不建議使用 相關map api請左轉參考google
+
     </script>
 </body>
 </html>
