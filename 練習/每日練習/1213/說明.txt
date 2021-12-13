@@ -1,0 +1,12 @@
+1.html
+參考ReVue 第一季季末回顧綜合練習
+用不同的寫法製作todolist 若需要重整仍然存在資料畫面需參考localstorage 1208-1.html 或後端存放資料
+
+花費時間2小時
+
+2.html
+js30挑戰 第二十二天 
+參照網站 https://github.com/wesbos/JavaScript30
+經典hover時出現區域範圍顯示的特效 
+
+花費時間1小時

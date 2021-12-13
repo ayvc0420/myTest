@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            background-color: brown;
+            /* position: relative; */
+        }
+        ul{
+            padding-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            display: inline-block;
+            font-size: 20px;
+            padding: 0 10px;
+        }
+        p{
+            max-width: 1000px;
+            margin: auto;
+            line-height: 1.6;
+            color: chartreuse;
+            font-size: 20px;
+            letter-spacing: 0.9px;
+        }
+        .hoverTarget{
+            border-radius: 5px;
+            background-color: white;
+            position: absolute;
+            transition: all .4s;
+            z-index: -10;
+            /* 要取消從左上角飛過來就加上display或移除下面兩個座標 */
+            top: 0;
+            left: 0;
+        }
+        p{
+            position: relative;
+        }
+        p>a{
+            color: orange;
+        }
+        div{
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <span class="hoverTarget" id="hoverTarget"></span>
+    <ul class="menu">
+        <li><a href="#">one</a></li>
+        <li><a href="#">two</a></li>
+        <li><a href="#">three</a></li>
+        <li><a href="#">four</a></li>
+        <li><a href="#">five</a></li>
+        <li><a href="#">six</a></li>
+    </ul>
+    
+    <div>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae veniam sequi, quibusdam beatae rem, sapiente est dolorem blanditiis aut minus quos hic mollitia dignissimos? Quod, voluptatem deserunt ratione quaerat molestias illo <a href="#">reprehenderit!</a> Alias dolore officiis saepe unde repellendus architecto hic veniam, esse nisi debitis molestiae suscipit, ratione quidem dolores aliquam at odio error recusandae illo beatae commodi quod cupiditate, quo sunt. Commodi, sunt voluptate? Nobis in aspernatur, mollitia dignissimos dolore ut qui nulla fuga natus explicabo expedita id ipsum, sunt excepturi, deserunt corrupti est reprehenderit incidunt. Doloribus culpa recusandae accusantium. Magni, deleniti. Ipsa corporis fugit delectus laudantium tempore itaque dolor temporibus explicabo quasi ad sunt exercitationem, perferendis, at quibusdam nostrum corrupti rerum necessitatibus, consequuntur praesentium! Laudantium dolores ratione qui corrupti iste deleniti atque, beatae<a href="#">facere</a> sequi cumque obcaecati eos animi odio, nihil iusto! Recusandae ab, culpa harum labore magni neque quisquam. Modi earum repudiandae <a href="#">voluptatum</a>, magnam commodi dolore, praesentium mollitia deleniti nobis perferendis dignissimos. Enim, quas dolore? Dolorem sit facere ut mollitia doloribus, aliquid eos cupiditate voluptatibus soluta inventore repellat repellendus laudantium esse maxime, impedit consectetur reiciendis beatae quibusdam officia quisquam blanditiis aut eveniet! Veritatis, tenetur asperiores at, quos esse earum facilis laudantium porro ipsam eligendi dolores. Facere nisi repellendus, totam cupiditate iste doloremque? Cupiditate esse officia unde error porro repudiandae iste at facilis hic <a href="#">nostrum</a> ratione quasi omnis, maxime, repellat alias aspernatur eveniet et! Error illum dolores assumenda, dolorem vitae id! Laborum necessitatibus culpa incidunt eum voluptates quo enim cumque beatae non, quam quidem aspernatur nobis omnis porro praesentium. Laboriosam hic illo ab itaque sequi recusandae ut iusto nihil accusantium, eaque veritatis nisi perspiciatis repudiandae eius quibusdam natus non error inventore, cumque fuga ipsam autem architecto ipsum. Ullam dolorem earum ab quis fugiat eligendi quod, dicta consequuntur ut est quidem vero error eius mollitia dolor voluptas aliquid quae! Doloremque numquam dolores voluptate officia <a href="#">eveniet</a> omnis placeat quibusdam itaque neque totam nesciunt ducimus amet, dicta provident pariatur temporibus, sint distinctio vero laboriosam laborum voluptatibus, nostrum harum accusamus ut. Repellendus, quasi! Recusandae illo eius quis necessitatibus asperiores eveniet porro dolores! Deleniti vitae iusto, magnam pariatur vel eaque quis sed aspernatur odit est dolorem cumque modi repellendus blanditiis in cupiditate! Nesciunt sed harum neque laborum cum nam quisquam id, consectetur sequi debitis <a href="#">reprehenderit</a> tempora recusandae illo qui vero nisi consequuntur, inventore, expedita est unde mollitia soluta voluptatibus eos? Pariatur harum explicabo dolore nam voluptatum. Quisquam, quibusdam! Obcaecati quo inventore esse laudantium, ab ut explicabo cum laborum accusamus nesciunt cumque necessitatibus exercitationem facilis alias modi perferendis aliquid blanditiis dolor eaque odio! Dolorum aperiam facere <a href="#">laborum voluptates nulla, ut voluptate error perspiciatis</a>. Aliquid illo labore eaque qui pariatur accusamus amet ipsa iure mollitia ex. Voluptatibus repellendus rerum dolore aspernatur repudiandae! Perferendis quam repudiandae sunt asperiores sed! Earum neque aliquam quis nulla illo error aliquid? Sequi, nam eum velit, expedita <a href="#">molestiae</a> iusto alias beatae earum iste dolorum, fuga totam. Eum odit, a facere sunt, minus laborum rem quaerat sed, culpa explicabo incidunt vitae consequatur enim asperiores rerum accusantium maxime voluptas. Inventore illo eaque ea libero.</p>
+    </div>
+
+    
+
+    <script>
+
+
+        (function(){
+            let now = null;
+            // 常見特效只有某部分的區塊內的連結使用 原作者的範例是包含多個區域 因此選全域的a連結
+            let a = document.querySelectorAll('a')
+            const hoverTarget = document.getElementById('hoverTarget')
+            a.forEach(item=>{
+                item.addEventListener('mouseenter',function(){
+                    // 紀錄摸到的目標是哪個dom(a)
+                    now = this
+                    hoverAhref()
+                })
+            })
+
+            function hoverAhref (){
+                if(now === null) return
+                // 針對摸到的a dom元素去做getBoundingClientRect api取值
+                let position = now.getBoundingClientRect()
+                // 由於getBoundingClientRect是取左上角 不會隨著滾動而改變因此要加上window.scrollY
+                let windowPosition = {
+                    top: window.scrollY+position.top,
+                    left: window.scrollX+position.left,
+                    width: position.width,
+                    height: position.height
+                }
+                // console.log(windowPosition)
+                hoverTarget.style.display = 'block'
+                hoverTarget.style.top = windowPosition.top+'px'
+                hoverTarget.style.left = windowPosition.left+'px'
+                hoverTarget.style.height = windowPosition.height+'px'
+                hoverTarget.style.width = windowPosition.width+'px'
+            }
+            // 在這邊跟第87行的差別只在now有沒有被更新
+            window.addEventListener('resize',hoverAhref)
+
+        })()
+
+
+    </script>
+</body>
+</html>

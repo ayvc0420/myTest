@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0 0 0 100px;
+        }
+        #app{
+            width: 1200px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        #app>div{
+            width: 1200px;
+            margin: auto;
+            display: flex;
+        }
+        ol{
+            border: 1px solid black;
+            width: 100%;
+            padding: 0 0 50px 25px
+        }
+        li{
+            width: 100%;
+            padding: 5px 0;
+            word-wrap: break-word;
+        }
+        li:hover{
+            background-color: blanchedalmond;
+        }
+        /* li>button{
+            display: none;
+        }
+        li:hover>button{
+            display: inline-block;
+        } */
+        li>p{
+            margin: 0;
+            display: none;
+        }
+        li:hover p{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div id="app">
+
+        <span>輸入文字:<input type="text" v-model.trim="userText"> <button @click="send">送出</button></span>
+        <!-- <div>
+            <button @click="allView">全部</button>
+            <button @click="notView">尚未完成</button>
+            <button @click="okView">已完成</button>
+        </div> -->
+
+        <div>
+            <ol>
+                <h3>全部(按照先後順序)</h3>
+                <li v-for="(item,index) in contents">
+                    {{item.content}}<p>(修改請至右方)</p>
+                </li>
+            </ol>
+            <ol>
+                <h3>已完成(按照當初資料輸入的先後順序)</h3>
+                <li v-for="(item,index) in contents"  v-show="item.state === true">
+                    <span v-show="item.id === editId && item.state === true">原始資料:</span>{{item.content}}
+                    <button @click="edit(item)" v-show="!editState">修改</button>
+                    <input type="text" v-show="item.id === editId && item.state === true" v-model="editText">
+                    <button @click="editSend(index)" v-show="item.id === editId">確認修改</button>
+                    <button @click="clear(item)" v-show="item.id !== editId">刪除</button>
+                </li>
+                
+            </ol>
+            <ol>
+                <h3>未完成</h3>
+                <li v-for="(item,index) in contents"  v-show="item.state === false">
+                    <span v-show="item.id === editId && item.state !== true">原始資料:</span>{{item.content}}
+                    <button @click="finish(item)" v-show="item.state !== true && editText === ''">完成</button>
+                    <button @click="edit(item)" v-show="!editState">修改</button>
+                    <input type="text" v-show="item.id === editId && item.state !== true" v-model="editText">
+                    <button @click="editSend(index)" v-show="item.id === editId">確認修改</button>
+                    <button @click="clear(item)" v-show="item.id !== editId">刪除</button>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+
+    <script src="js/vue.js"></script>
+    <script>
+        (function(){
+
+            new Vue({
+                el:'#app',
+                data:{
+                    userText:'',
+                    contents:[],
+                    editText:'',
+                    editId:null,
+                    editState:false,
+                },
+                methods: {
+                    send(){
+                        if(this.userText === '') return
+                        let id = new Date().getTime()
+                        this.contents.push({
+                            content:this.userText,
+                            id,
+                            state:false
+                        })
+                        this.userText = ''
+                    },
+                    finish(item){
+                        let id = item.id
+                        for(let i = 0; i < this.contents.length ; i++){
+                            if(this.contents[i].id === id){
+                                this.contents[i].state = true;
+                                break
+                            }
+                        }
+                        this.resetData()
+                    },
+                    edit(item){
+                        this.editText = item.content
+                        this.contents.forEach(data =>{
+                            if(data.content === item.content){
+                                this.editId = data.id
+                            }
+                        })
+                        this.editState = true;
+                    },
+                    editSend(item){
+                        for(let i = 0; i < this.contents.length ; i++){
+                            if(this.contents[i].id === this.editId){
+                                this.contents[i].content = this.editText
+                                break
+                            }
+                        }
+                        this.resetData()
+                    },
+                    clear(item){
+                        // indexOf找編號或
+                        // let i = this.contents.indexOf(item)
+                        // console.log(i)
+                        // this.contents.splice(i,1)
+                        // filter全跑一遍 都可以
+                        this.contents = this.contents.filter(data =>{
+                            return data !== item
+                        })
+                        this.resetData()
+                    },
+                    resetData(){
+                        this.editText = ''
+                        this.editState = false
+                        this.editId = null
+                    }
+                },
+            })
+
+
+
+        })(Vue)
+    </script>
+
+
+</body>
+</html>
