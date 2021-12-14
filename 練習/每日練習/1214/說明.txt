@@ -1,10 +1,11 @@
 1.html
-區塊切版練習
+用scss區塊切版練習
 參照網站 https://www.templatemonsterpreview.com/demo/62222.html
 要完整模仿需要額外花3倍以上時間去切區塊 因此背景漸層顏色不參考網站製作
-icon圖示無法取得 僅能用截圖img佔位代表
+icon圖示無法取得 範例暫用截圖導入img佔位代表
 
 花費時間1小時20分
+
 
 2.html
 js30挑戰 第二十三天 
@@ -14,3 +15,12 @@ js30挑戰 第二十三天
 目前測試僅有chrome可以使用
 
 花費時間1小時30分
+
+
+3.html
+用scss區塊切版練習
+參照網站 https://ithelp.ithome.com.tw/articles/10209288
+原網站rwd僅有文字變動 考慮到layout布局關係 這邊不做rwd
+
+花費時間1小時
+
