@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <style>
+        html {
+            font-size: 10px;
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color: #3BC1AC;
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+
+            background-image:
+                radial-gradient(circle at 100% 150%, #3BC1AC 24%, #42D2BB 25%, #42D2BB 28%, #3BC1AC 29%, #3BC1AC 36%, #42D2BB 36%, #42D2BB 40%, transparent 40%, transparent),
+                radial-gradient(circle at 0 150%, #3BC1AC 24%, #42D2BB 25%, #42D2BB 28%, #3BC1AC 29%, #3BC1AC 36%, #42D2BB 36%, #42D2BB 40%, transparent 40%, transparent),
+                radial-gradient(circle at 50% 100%, #42D2BB 10%, #3BC1AC 11%, #3BC1AC 23%, #42D2BB 24%, #42D2BB 30%, #3BC1AC 31%, #3BC1AC 43%, #42D2BB 44%, #42D2BB 50%, #3BC1AC 51%, #3BC1AC 63%, #42D2BB 64%, #42D2BB 71%, transparent 71%, transparent),
+                radial-gradient(circle at 100% 50%, #42D2BB 5%, #3BC1AC 6%, #3BC1AC 15%, #42D2BB 16%, #42D2BB 20%, #3BC1AC 21%, #3BC1AC 30%, #42D2BB 31%, #42D2BB 35%, #3BC1AC 36%, #3BC1AC 45%, #42D2BB 46%, #42D2BB 49%, transparent 50%, transparent),
+                radial-gradient(circle at 0 50%, #42D2BB 5%, #3BC1AC 6%, #3BC1AC 15%, #42D2BB 16%, #42D2BB 20%, #3BC1AC 21%, #3BC1AC 30%, #42D2BB 31%, #42D2BB 35%, #3BC1AC 36%, #3BC1AC 45%, #42D2BB 46%, #42D2BB 49%, transparent 50%, transparent);
+            background-size: 100px 50px;
+        }
+
+        .voiceinator {
+            padding: 2rem;
+            width: 600px;
+            margin: 0 auto;
+            border-radius: 1rem;
+            position: relative;
+            background: white;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            width: calc(100% + 4rem);
+            margin: -2rem 0 2rem -2rem;
+            padding: .5rem;
+            background: #ffc600;
+            border-bottom: 5px solid #F3C010;
+            text-align: center;
+            font-size: 5rem;
+            font-weight: 100;
+            font-family: 'Pacifico', cursive;
+            text-shadow: 3px 3px 0 #F3C010;
+        }
+
+        .voiceinator input,
+        .voiceinator button,
+        .voiceinator select,
+        .voiceinator textarea {
+            width: 100%;
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            border: 0;
+            font-size: 2rem;
+            background: #F7F7F7;
+            outline: 0;
+        }
+
+        textarea {
+            height: 20rem;
+        }
+
+        input[type="select"] {}
+
+        .voiceinator button {
+            background: #ffc600;
+            border: 0;
+            width: 49%;
+            float: left;
+            font-family: 'Pacifico', cursive;
+            margin-bottom: 0;
+            font-size: 2rem;
+            border-bottom: 5px solid #F3C010;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .voiceinator button:active {
+            top: 2px;
+        }
+
+        .voiceinator button:nth-of-type(1) {
+            margin-right: 2%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="voiceinator">
+
+        <h1>The JavaScript 二十三!</h1>
+
+        <p>選擇語系:</p>
+        <select name="voice" id="voices">
+            <option value="">Select A Voice</option>
+        </select>
+
+        <label for="rate">語速(rate):</label>
+        <input name="rate" type="range" min="0" max="3" value="1" step="0.1">
+
+        <label for="pitch">音調(Pitch):</label>
+
+        <input name="pitch" type="range" min="0" max="2" step="0.1">
+        <textarea name="text">Hello!這是JavaScript 23天挑戰
+嘗試修改這段文字?</textarea>
+        <button id="stop">停止</button>
+        <button id="speak">發音</button>
+
+    </div>
+
+    <script>
+
+        (function(){
+
+            // 以下程式碼大多為原作者撰寫 在這邊有經過部分修改及位置更換及中文註解
+            // 原範例參考 https://github.com/wesbos/JavaScript30/blob/master/23%20-%20Speech%20Synthesis/index-FINISHED.html
+
+            // 建立語音物件 對象是一個建構函數
+            const msg = new SpeechSynthesisUtterance();
+            // 獲取在畫面上要發出語音的文字 放入這個api中的.text
+            msg.text = document.querySelector('[name="text"]').value;
+            // 放入各種語系的 因多個因此為陣列
+            let voices = [];
+            // 獲取對應dom元素
+            const voicesDropdown = document.querySelector('[name="voice"]');
+            const options = document.querySelectorAll('[type="range"], [name="text"]');
+            const speakButton = document.querySelector('#speak');
+            const stopButton = document.querySelector('#stop');
+            
+    
+            // 監控 如果speechSynthesis偵測到電腦的語音列表載入完成就會觸發
+            // speechSynthesis詳細參考https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
+            speechSynthesis.addEventListener('voiceschanged', populateVoices);
+            function populateVoices() {
+                // 獲取有哪些語音可用(SpeechSynthesis)
+                voices = this.getVoices();
+                // console.log('voices',voices)
+                // 寫入至option選單 用map方式
+                voicesDropdown.innerHTML = voices
+                // 篩選 裡面lang有符合zh的才能通過 (原作是eu) 如果下方整行註解將不篩選任何語系
+                // .filter(voice => voice.lang.includes('zh'))
+                // 回傳相應的參數與標籤
+                .map(voice => `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`)
+                .join('');
+            }
+            
+    
+    
+    
+            // 更換語系時觸發
+            voicesDropdown.addEventListener('change', setVoice);
+            function setVoice() {
+                // 這邊find的意思是 篩選我選到的選單 第一個符合的回傳至參數 更詳細用法參考skill.xmind find使用
+                msg.voice = voices.find(voice => voice.name === this.value);
+                // 如果更換語系後不自動唸出註解下方這行
+                audioSpeak();
+            }
+            
+    
+    
+            // 按下按鈕觸發
+            speakButton.addEventListener('click', audioSpeak);
+            function audioSpeak() {
+                // 先停止 防止連續按發音
+                audioStop()
+                // 播放 這邊參數必須是語音物件
+                speechSynthesis.speak(msg);
+            }
+            
+            // 原作在這邊是與播放共用一個func  這邊是修改成兩個func將意思區隔
+            // 按下按鈕觸發
+            stopButton.addEventListener('click', audioStop);
+            function audioStop (){
+                // 將目前發出語音的事件停止
+                speechSynthesis.cancel();
+            }
+    
+    
+            // 只要input range兩個有改動就觸發 如修改文字、調整音量 
+            options.forEach(option => option.addEventListener('change', setOption));
+            function setOption() {
+                // 顯示當前被改動的名稱 以及值 這邊的name對應SpeechSynthesisUtterance的參數
+                // console.log(this.name, this.value);
+                // 這邊的msg是上面建立物件的功能 拿對應的name參數+value值改變對應功能的參數與值
+                // 這邊撈到的是兩個參數分別是rate語速 pitch音調(高低音)
+                msg[this.name] = this.value;
+                // 念出
+                audioSpeak();
+            }
+    
+
+        })()    
+
+
+
+    </script>
+
+</body>
+
+</html>

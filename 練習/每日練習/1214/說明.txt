@@ -1,0 +1,16 @@
+1.html
+區塊切版練習
+參照網站 https://www.templatemonsterpreview.com/demo/62222.html
+要完整模仿需要額外花3倍以上時間去切區塊 因此背景漸層顏色不參考網站製作
+icon圖示無法取得 僅能用截圖img佔位代表
+
+花費時間1小時20分
+
+2.html
+js30挑戰 第二十三天 
+參照網站 https://github.com/wesbos/JavaScript30
+輸入文字後用選擇的語系語音念出 相關程式碼複製原作者 這邊將每行程式碼附上註解以及部分修改
+詳細SpeechSynthesisUtterance API參考https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
+目前測試僅有chrome可以使用
+
+花費時間1小時30分
