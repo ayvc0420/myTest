@@ -1,0 +1,13 @@
+index.html
+預計開發為第二個網站
+內容為介紹前端技術
+
+花費時間6小時
+
+
+2.html
+js30挑戰 第二十四天 
+參照網站 https://github.com/wesbos/JavaScript30
+網頁往下後nav固定在頂端
+
+花費時間20分鐘
