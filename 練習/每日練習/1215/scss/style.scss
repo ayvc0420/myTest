@@ -8,6 +8,12 @@ body{
     background: url(../images/bg.webp);
     background-size: 50px 100px;
 }
+.mob_menu{
+    display: none;
+}
+#touchMenu{
+    display: none;
+}
 .nav_menu{
     display: flex;
     justify-content: center;
@@ -23,12 +29,30 @@ body{
         transition: all .3s;
         z-index: -10;
     }
+    >li ul{
+        position: absolute;
+        display: none;
+        background: linear-gradient(50deg,rgb(240, 176, 0) , rgb(240, 204, 0));
+        width: 200px;
+        a{
+            width: calc(100% - 20px);
+            display: inline-block;
+            padding: 10px;
+        }
+        a:hover{
+            color: black;
+            background-color: white;
+        }
+    }
     >li{
         a{
             display: inline-block;
             padding: 25px;
             font-size: $text;
         }
+    }
+    >li:hover ul{
+        display: block;
     }
     .menu1{
         order: -2;
@@ -69,6 +93,7 @@ main{
 }
 .breadcrumbs{
     width: 1400px;
+    font-size: 19px;
     margin: 20px auto;
     a{
         text-decoration: none;
@@ -111,6 +136,7 @@ main{
             width: 100%;
             height: 864px;
             position: absolute;
+            border-radius: 8px;
         }
     }
     @keyframes bannerAni {
@@ -197,4 +223,50 @@ main{
     }
 }
 
+
+@media screen and (max-width:1023px) {
+    .nav_menu{
+        display: none;
+    }
+    #touchMenu{
+        width: 50px;
+        height: 40px;
+        border:2px solid black;
+        border-radius: 5px;
+        display: block;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        z-index: 100;
+        >svg{
+            position: absolute;
+            cursor: pointer;
+        }
+        >#svg2{
+            opacity: 0;
+        }
+    }
+    .mob_menu{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        font-size: 2rem;
+        top: 0;
+        z-index: 10;
+        transition: all .5s;
+        transform: translateY(-200%);
+        background-color: blanchedalmond;
+        width: 100%;
+        height: 100vh;
+        
+    }
+
+    .banner{
+        >div{
+            opacity: 1;
+        }
+    }
+}
 

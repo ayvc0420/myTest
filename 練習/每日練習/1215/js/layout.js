@@ -6,11 +6,17 @@
     menuLis.forEach(item=>{
         item.addEventListener('mouseenter',function(){
             const position = item.getBoundingClientRect()
-            const {width , height , top , left} = position
-            menuTarget.style.width = `${width}px`
-            menuTarget.style.height = `${height}px`
-            menuTarget.style.top = `${top}px`
-            menuTarget.style.left = `${left}px`
+            // const {width , height , top , left} = position
+            let windowPosition = {
+                top: window.scrollY+position.top,
+                left: window.scrollX+position.left,
+                width: position.width,
+                height: position.height
+            }
+            menuTarget.style.width = `${windowPosition.width}px`
+            menuTarget.style.height = `${windowPosition.height}px`
+            menuTarget.style.top = `${windowPosition.top}px`
+            menuTarget.style.left = `${windowPosition.left}px`
             menuTarget.style.transform = 'scale(100%)'
         })
     })
@@ -46,6 +52,22 @@
 
     })
 
-    
+    const touchMenu = document.getElementById('touchMenu')
+    const svg1 = document.getElementById('svg1')
+    const svg2 = document.getElementById('svg2')
+    const mobileMenu = document.querySelector('.mob_menu')
+    touchMenu.addEventListener('click',function(){
+        const svg1Opacity = window.getComputedStyle(svg1,null).opacity
+        if(svg1Opacity === '1'){
+            svg1.style.opacity = 0;
+            svg2.style.opacity = 1;
+            mobileMenu.style.transform = 'translateY(0%)';
+        }else{
+            svg1.style.opacity = 1;
+            svg2.style.opacity = 0;
+            mobileMenu.style.transform = 'translateY(-200%)';
+        }
+    })
+
 
 })()
