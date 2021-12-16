@@ -17,38 +17,69 @@
             <a href="index.html">
                 <img src="./images/logo.webp" alt="logo">
             </a>
+            <li class="menu1"><a href="htmlExplain.html">HTML</a></li>
+            <li class="menu2"><a href="#2">CSS</a></li>
+            <li class="menu3"><a href="#3">JavaScript</a></li>
+            <li class="menu4"><a href="#4">Vue</a></li>
+            <li class="menu5"><a href="#5">前端更多技術<img src="images/chevron-down.svg" alt="更多資訊"></a>
+                <ul>
+                    <li><a href="#1">Git</a></li>
+                    <li><a href="#1">Regex</a></li>
+                    <li><a href="#1">svg</a></li>
+                    <li><a href="#1">Seo</a></li>
+                    <li><a href="#1">jQuery</a></li>
+                    <li><a href="#1">Docker</a></li>
+                    <li><a href="#1">CI/CD</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div id="touchMenu">
+            <svg width="50" height="40" class="svg1" id="svg1">
+                <line x1="10" y1="10" x2="40" y2="10" stroke="black" stroke-width="4"> </line>
+                <line x1="10" y1="20" x2="40" y2="20" stroke="black" stroke-width="4"> </line>
+                <line x1="10" y1="30" x2="40" y2="30" stroke="black" stroke-width="4"> </line>
+            </svg>
+            <svg width="50" height="40" class="svg2" id="svg2">
+                <line x1="10" y1="30" x2="40" y2="10" stroke="black" stroke-width="4"> </line>
+                <line x1="10" y1="10" x2="40" y2="30" stroke="black" stroke-width="4"> </line>
+            </svg>
+        </div>
+
+        <ul class="mob_menu">
             <li class="menu1"><a href="#1">HTML</a></li>
             <li class="menu2"><a href="#2">CSS</a></li>
             <li class="menu3"><a href="#3">JavaScript</a></li>
             <li class="menu4"><a href="#4">Vue</a></li>
             <li class="menu5"><a href="#5">前端更多技術<img src="images/chevron-down.svg" alt="更多資訊"></a></li>
         </ul>
-
     </nav>
 
+    <div class="breadcrumbs">當前位置: <a href="index.html">首頁</a></div>
+    <section class="banner" id="banner">
+        <div class="banner_left" @click.stop="imgSwitch(bannerKey-1)">
+            <img src="./images/chevron-left.svg">
+        </div>
+        <div class="banner_right" @click.stop="imgSwitch(bannerKey+1)">
+            <img src="./images/chevron-right.svg">
+        </div>
+        <a v-for="(img,index) in banner" :href="img.href" v-show="index === bannerKey" :class="{show:index == bannerKey}"><img :src="img.src" alt="img.alt"></a> 
+    </section>
     <main>
-        <div class="breadcrumbs">當前位置: <a href="index.html">首頁</a></div>
-        
-        <section class="banner" id="banner">
-            <div class="banner_left" @click="imgSwitch(bannerKey-1)">
-                <
-            </div>
-            <div class="banner_right" @click="imgSwitch(bannerKey+1)">
-                >
-            </div>
-            <a v-for="(img,index) in banner" :href="img.href" v-show="index === bannerKey" :class="{show:index == bannerKey}"><img :src="img.src" alt="img.alt">    
-    
-        </section>
 
+        
         <section class="content">
 
+            <article>
 
             </article>
-
         </section>
 
 
     </main>
+
+    <footer>
+        <p>&copy; ayvc0420</p> 
+    </footer>
 
 
 

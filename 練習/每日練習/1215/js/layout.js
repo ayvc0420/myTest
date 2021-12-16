@@ -23,6 +23,11 @@
     navMenu.addEventListener('mouseleave',function(){
         menuTarget.style.transform = 'scale(0)'
     })
+    document.querySelector('.nav_menu>a').addEventListener('mouseenter',function(){
+        menuTarget.style.transform = 'scale(0)'
+    })
+
+
 
 
     new Vue({
@@ -69,5 +74,8 @@
         }
     })
 
+
+
+    
 
 })()

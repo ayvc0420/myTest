@@ -1,0 +1,12 @@
+接續1215內說明
+開發為第二個網站
+內容為介紹前端技術
+
+花費時間7~8小時
+
+1.html
+js30挑戰 第二十五天 
+參照網站 https://github.com/wesbos/JavaScript30
+addEventListener事件參數說明及使用
+
+花費時間20分

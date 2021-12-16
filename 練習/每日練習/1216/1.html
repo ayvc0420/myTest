@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Understanding JavaScript's Capture</title>
+    <style>
+        html {
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        div,section{
+            width: 100%;
+            padding: 100px;
+        }
+
+        .one {
+            background: thistle;
+        }
+
+        .two {
+            background: mistyrose;
+        }
+
+        .three {
+            background: coral;
+        }
+    </style>
+</head>
+
+<body class="bod">
+
+    <button>bod</button>
+    <div class="one">
+        <div class="two">
+            <div class="three">
+            </div>
+        </div>
+    </div>
+    <section class="one">
+        <section class="two">
+            <section class="three">
+            </section>
+        </section>
+    </section>
+
+
+    <script>
+
+        // once true時 func功能只執行一次
+        // 由外到內 > capture
+        // 由內到外 bubbling
+        // passive 禁止阻擋預設功能 (event.preventDefault)
+        document.querySelector('.bod>button').addEventListener('click',bodBtn,{capture:false,once:false})
+        function bodBtn(){
+            console.log('this is bod\'s btn');
+        }
+
+        // 關閉capture的話 將由內由外為順序
+        document.querySelectorAll('div').forEach(item => {
+            item.addEventListener('click',divClickCaptureOn,{capture:false})
+        })
+
+        // 匿名函式寫法
+        // document.querySelectorAll('div').forEach(item => {
+        //     item.addEventListener('click',function(){
+        //         console.log(event.path)
+        //         console.log(this)
+        //     },{capture:false})
+        // })
+
+
+        // 開啟capture的話 將由外由內為順序
+        document.querySelectorAll('section').forEach(item => {
+            item.addEventListener('click',sectionClickCaptureOn,{capture:true})
+        })
+
+        function divClickCaptureOn(){
+            // 停止繼續冒泡 開啟後會執行第一個對象後停止後續事件觸發
+            // event.stopPropagation()
+            // event.path為完整的觸發路徑 不支援firefox safari
+            // event.composedPath()支援firefox safari
+            console.log(event.composedPath())
+            console.log(this)
+        }
+        function sectionClickCaptureOn(){
+            // 停止繼續冒泡 開啟後會執行第一個對象後停止後續事件觸發
+            // event.path為完整的觸發路徑
+            // event.stopPropagation()
+            console.log(event.composedPath())
+            console.log(this)
+        }
+
+    </script>
+</body>
+
+</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>每日記錄清單</title>
     <link rel="stylesheet" href="css/reset.css">
     <style>
         [v-cloak]{
@@ -132,6 +132,14 @@
             margin: 20px 0;
         }
 
+        footer{
+            background-color: black;
+            padding: 10px 0;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+        }
+
         @media screen and (max-width:1650px) {
             .comment{
                 max-width: 200px;
@@ -203,6 +211,10 @@
         <div class="clear"></div>
     </section>
 
+    <footer>
+        &copy;ayvc0420
+    </footer>
+
     <script src="js/vue.js"></script>
     <script>
         ;(function(){
@@ -246,16 +258,18 @@
 
             const center = document.querySelector('.center')
                 function centerHeightHandler(){
-                    setTimeout(() => {
-                        let centerHeight = 66 * (v.listLength-3)
-                        center.style.height = `${centerHeight}px`
-                    }, 100);
+                    if( document.documentElement.scrollWidth > 1024){
+                        setTimeout(() => {
+                            let centerHeight = 66 * (v.listLength-3)
+                            center.style.height = `${centerHeight}px`
+                        }, 100);
+                    }else{
+                        center.style.height = `0px`
+                    }
                 }
                 centerHeightHandler()
-            window.addEventListener('scroll',function(){
-                document.documentElement.scrollWidth >= 1024 ? centerHeightHandler() : center.style.height = `0px`
-                
-            })
+            window.addEventListener('scroll',centerHeightHandler)
+            window.addEventListener('resize',centerHeightHandler)
         })()
     </script>
 </body>
