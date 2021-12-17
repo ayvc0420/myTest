@@ -11,8 +11,14 @@
         .content ol>li{
             list-style: decimal;
             border-left: 4px solid chartreuse;
-            padding-left: 22px;
+            padding-left: 5px;
             background-color: rgba(255, 255, 255,.2)
+        }
+        .content div.code ol:not(:first-of-type){
+            background-color: cadetblue;
+        }
+        .content div.code ol:not(:first-of-type) li{
+            color: rgb(0,50,255);
         }
     </style>
 </head>
@@ -121,15 +127,141 @@
                     <p id="test_text02">我是第三段測試文字</p>
                 </ol>
                 <br>
-                <p>以上是常見設定style樣式的方式，一般而言網站會採用第二種方式去掉頭尾標籤獨立製作檔案，新增資料夾命名為css後放入，其css副檔名必須為.css，在head標籤中使用&lt;link rel="stylesheet" href="css位置">導入樣式。</p>
+                <p>以上是常見設定style樣式的方式，每個方法都有不同的使用時機，設定網站頁面的css會採用第二種方式去掉頭尾style標籤後獨立製作檔案，新增資料夾命名為css後放入，其css副檔名必須為.css，在head標籤中使用&lt;link rel="stylesheet" href="css位置">導入樣式。</p>
                 <p>css在設定中會有權重問題，一般而言css的權重是由以下由小至大做排序，設定重複的樣式會已權重越大為優先覆蓋。</p>
                 <h5>class > id > 標籤內直接輸入style控制 > !important</h5>
                 <p>其中important的權重是最大的，任何在屬性後方加上!important就會蓋過其他地方設置的屬性，因此若非必要盡量避免使用該參數。</p>
-                <h3>以下將針對css的選取器做一些簡單介紹。</h3>
-                .class:nth-of-type 
-                .class:first-child
-                .class:last-child
-                .class:not()
+                <h3>以下將針對css的選取器做一些簡單介紹</h3>
+                <ol>
+                    <li>#idName</li>
+                    <p>用途:選取符合id的對象，權重占比非常高若非必要樣式設定建議皆使用class</p>
+                    <li>.className .className</li>
+                    <p>用途:選取子層所有符合class名稱的元素</p>
+                    <li>.className>.className</li>
+                    <p>用途:用以選取子層一層符合class名稱的元素，又稱子彈選取器</p>
+                    <li>.className + .className</li>
+                    <p>用途:選取符合class名稱後一個class名稱的元素</p>
+                    <li>.className ~ .className</li>
+                    <p>用途:選取同一層符合class名稱的元素</p>
+                    <li>.className[type="text"]</li>
+                    <p>用途:選取符合class名稱且帶有type="text"參數的元素，又稱屬性選取器</p>
+                    <li>.className.className2</li>
+                    <p>用途:選取同時擁有兩個class名稱的元素，通常用以觸發動畫條件等</p>
+                    <li>.className.first-of-type</li>
+                    <p>用途:選取符合class名稱的第一個元素</p>
+                    <li>.className.last-of-type</li>
+                    <p>用途:選取符合class名稱的最後一個元素</p>
+                    <li>.className:first-child</li>
+                    <p>用途:選取符合class名稱的第一個元素，但選擇的對象同層前方有有其他元素將不會有效果，若需求為指定對象後的第一個元素建議使用first-of-type</p>
+                    <li>.className:last-child</li>
+                    <p>用途:選取符合class名稱的最後一個元素，但選擇的對象同層後方有其他元素將不會有效果，若需求為指定對象後的最後一個元素建議使用last-of-type</p>
+                    <li>.className:nth-of-type()</li>
+                    <p>用途:選取符合class名稱的元素，()內填入數字或odd(單數)或even(雙數)或4n+2(第二個開始每第四個)</p>
+                    <li>.className:nth-child()</li>
+                    <p>用途:選取符合條件參數，與nth-of-type接受參數一樣但會受到其他同層元素的干擾因此排除特殊需求建議優先選用nth-of-type</p>
+                    <li>domName:not(.className)</li>
+                    <p>用途:通常選擇對象為標籤，參數內填入排除的class名稱</p>
+                    <li>.className:hover</li>
+                    <p>用途:選取符合class名稱的元素，當滑鼠觸碰元素時產生效果</p>
+                    <li>.className:focus</li>
+                    <p>用途:通常對象為input，當滑鼠點擊或tab鍵選取時獲得焦點觸發效果</p>
+                    <li>.className:active</li>
+                    <p>用途:選取符合class名稱的元素，當滑鼠按住元素時產生效果</p>
+                    <li>.className:checked</li>
+                    <p>用途:對象必須是input type屬性為checkbox，當對象被勾選時會觸發效果，必須與~或+一起使用，如「.className:checked ~ .className」</p>
+                    <li>.className:before</li>
+                    <p>用途:選取符合class名稱的元素，位置在對象的首字前其css參數內必須要有content:才會有作用，用途非常廣泛可以直接生成一個元素，又稱偽元素</p>
+                    <li>.className:after</li>
+                    <p>用途:選取符合class名稱的元素，與:before類似，位置在對象的尾字後</p>
+                </ol>
+                <p>以上是我們最常使用到的20種css選取器，在正確的時機使用正確的選擇器會讓專案的開發順利一倍不止。</p>
+                <p>透過<a href="https://flukeout.github.io/" target="new">css選取器遊戲</a>可以增強對css選取能力。</p>
+                <h3>以下針對css RWD設定進行簡單介紹</h3>
+                
+                <p>近年隨著手機裝置普及化手機版網頁需求大增，由於行動裝置的解析度遠遠低於一般電腦螢幕，在閱讀一般網站時會有頻繁縮放、不易閱讀等情況產生，因此2010年國外著名網頁設計師提出RWD的概念，RWD又稱響應式網頁，是一種透過css的技術切換不同的排版設定</p>
+                <p>RWD是透過CSS3 @media 技術達成的網頁，由於必須符合多種平台的環境RWD網站的參數多為百分比或相對尺寸(em/rem)，而不是像素(px)，在學習製作網站的過程如何熟練的運用RWD技術是一個非常重要的開發方式。</p>
+                <p>@media的參數有all(全部)、print(印表機)、screen(電腦螢幕/手機螢幕等)、speech(螢幕閱讀器)...等，在這邊只針對最泛用的screen做介紹。</p>
+                <ol>    
+                    <li>@media screen and (max-width:1024px){ ...css參數 }</li>
+                    <p>最常見針對智平板電腦設定的尺寸，觸發條件為當瀏覽器寬度等於或小於1024px時</p>
+                    <li>@media screen and (max-width:768px){ ...css參數 }</li>
+                    <p>最常見針對智慧型手機設定的尺寸，觸發條件為當瀏覽器寬度等於或小於768px時</p>
+                    <li>@media screen and (min-width:1025px){ ...css參數 }</li>
+                    <p>針對桌上型螢幕設定的尺寸，觸發條件為當瀏覽器寬度等於或大於1025px時</p>
+                    <li>@media screen and (min-width:1025px) and (max-width:1680px){ ...css參數 }</li>
+                    <p>針對桌上型螢幕設定的尺寸，觸發條件為當瀏覽器寬度等於或大於1025px且小於等於1680px時</p>
+                </ol>
+                <p>在這裡and是一個條件，一個@media可以有多個條件做判斷，如果不輸入screen and 默認值將會是all，在css權重同等的情況下@media內的css參數會優先執行。</p>
+                <p>知名的網頁框架「Bootstrap」是採用6個尺寸條件為判定基準，分別為低於576px、576~768px、768~992px、992~1200px、1200~1400px、1400px以上，在了解css的網格系統觀念後自行開發類似Bootstrap這類框架的簡易版並不是太困難的事情。</p>
+                <h3>以下針對常見的css語法做簡單介紹</h3>
+                <ol>
+                    <li>width</li>
+                    <p>設定元素的寬度</p>
+                    <li>height</li>
+                    <p>設定元素的高度，通常不設置讓子元素自動撐開</p>
+                    <li>color</li>
+                    <p>設定文字顏色</p>
+                    <li>font-size</li>
+                    <p>設定文字大小</p>
+                    <li>text-align</li>
+                    <p>設定文字位置</p>
+                    <li>font-weight</li>
+                    <p>設定文字粗細</p>
+                    <li>word-wrap</li>
+                    <p>設定文字換行條件</p>
+                    <li>text-decoration</li>
+                    <p>設定文字的修飾線</p>
+                    <li>list-style</li>
+                    <p>設定有序/無序清單的樣式型態</p>
+                    <li>background</li>
+                    <p>設定背景型式，默認為顏色可以使用url參數插入圖片，設定linear-gradient可以設定角度變化與漸層色</p>
+                    <li>background-size</li>
+                    <p>設定背景圖片尺寸</p>
+                    <li>background-position</li>
+                    <p>設定背景圖片位置</p>
+                    <li>background-repeat</li>
+                    <p>設定背景圖片是否重複出現</p>
+                    <li>圖片屬性object-fit</li>
+                    <p>控制圖片尺寸屬性</p>
+                    <li>margin</li>
+                    <p>元素與元素之間的距離(外距)</p>
+                    <li>padding</li>
+                    <p>元素內的距離(內距)</p>
+                    <li>box-sizing</li>
+                    <p>設定元素的尺寸設定方式，該參數通常與padding一起使用</p>
+                    <li>position</li>
+                    <p>設定元素的位置，使用relative或absoluter設定位置型態須搭配top、left、right、bottom其中兩個以上參數使用</p>
+                    <li>cursor</li>
+                    <p>設定滑鼠觸碰至元素時顯示的狀態</p>
+                    <li>z-index</li>
+                    <p>設定元素的重疊層數，通常與position一起使用</p>
+                    <li>display</li>
+                    <p>設定元素的顯示型態，參數有flex(並排)、none(消失)等，通常會搭配justify-content、align-items一起使用</p>
+                    <li>float</li>
+                    <p>設定元素浮動位置</p>
+                    <li>opacity</li>
+                    <p>設定元素透明度</p>
+                    <li>transition</li>
+                    <p>設定元素屬性觸發切換時以動畫方式呈現</p>
+                    <li>transform</li>
+                    <p>設定元素的變型方式</p>
+                    <li>border</li>
+                    <p>設定邊框線樣式，接受參數:寬度 樣式 顏色</p>
+                    <li>border-radius</li>
+                    <p>設定元素四邊圓角</p>
+                    <li>overflow</li>
+                    <p>設定子元素超出父元素時呈現方式</p>
+                    <li></li>
+                    <p></p>
+                </ol>
+                <style>
+                    div{
+                        
+                    }
+                </style>
+
+
+                <!-- 遊戲建議https://flukeout.github.io/ -->
             </div>
 
 
