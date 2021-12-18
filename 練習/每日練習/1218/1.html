@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            box-sizing: border-box;
+            background: url('https://source.unsplash.com/NFs6dRTBgaM/2000x2000') fixed;
+            background-size: cover;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .items {
+            height: 800px;
+            padding: 100px;
+            width: 100%;
+            border: 1px solid white;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+            user-select: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            transform: scale(0.98);
+            will-change: transform;
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            font-size: 0;
+            perspective: 500px;
+        }
+
+        .items.active {
+            background: rgba(255, 255, 255, 0.3);
+            cursor: grabbing;
+            cursor: -webkit-grabbing;
+            transform: scale(1);
+        }
+
+        .item {
+            width: 200px;
+            height: calc(100% - 40px);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            font-weight: 100;
+            color: rgba(0, 0, 0, 0.15);
+            box-shadow: inset 0 0 0 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .item:nth-child(9n+1) {
+            background: dodgerblue;
+        }
+
+        .item:nth-child(9n+2) {
+            background: goldenrod;
+        }
+
+        .item:nth-child(9n+3) {
+            background: paleturquoise;
+        }
+
+        .item:nth-child(9n+4) {
+            background: gold;
+        }
+
+        .item:nth-child(9n+5) {
+            background: cadetblue;
+        }
+
+        .item:nth-child(9n+6) {
+            background: tomato;
+        }
+
+        .item:nth-child(9n+7) {
+            background: lightcoral;
+        }
+
+        .item:nth-child(9n+8) {
+            background: darkslateblue;
+        }
+
+        .item:nth-child(9n+9) {
+            background: rebeccapurple;
+        }
+
+        .item:nth-child(even) {
+            transform: scaleX(1.31) rotateY(40deg);
+        }
+
+        .item:nth-child(odd) {
+            transform: scaleX(1.31) rotateY(-40deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="items">
+        <div class="item item1">01</div>
+        <div class="item item2">02</div>
+        <div class="item item3">03</div>
+        <div class="item item4">04</div>
+        <div class="item item5">05</div>
+        <div class="item item6">06</div>
+        <div class="item item7">07</div>
+        <div class="item item8">08</div>
+        <div class="item item9">09</div>
+        <div class="item item10">10</div>
+        <a href="https://www.google.com" class="item item11">11</a>
+        <div class="item item12">12</div>
+        <div class="item item13">13</div>
+        <div class="item item14">14</div>
+        <div class="item item15">15</div>
+        <div class="item item16">16</div>
+        <div class="item item17">17</div>
+        <div class="item item18">18</div>
+        <div class="item item19">19</div>
+        <div class="item item20">20</div>
+        <div class="item item21">21</div>
+        <div class="item item22">22</div>
+        <div class="item item23">23</div>
+        <div class="item item24">24</div>
+        <div class="item item25">25</div>
+    </div>
+
+    <script>
+
+
+
+
+        const area = document.querySelector('.items')
+
+
+        // 符合正常視覺效果 原作者沒有設定
+        area.style.overflow = 'hidden'
+
+
+        // 位置橫軸
+        let positionX = 0
+        // 按下
+        area.addEventListener('mousedown',function(){
+            area.classList.add('active')
+            // 當我按下時紀錄當前按下的位置
+            positionX = event.pageX
+
+        })
+
+        // 移動
+        area.addEventListener('mousemove',function(){
+            // 檢查是否有class 這邊class只會點下時才會出現 或改用偵聽按下皆可
+            if(area.classList.contains('active')){
+                // 阻擋預設事件 如果不擋點到超連結將會產生BUG移動
+                event.preventDefault()
+                // 如果要達成拖曳超連結範圍內不會產生導向行為 要監聽click事件 但會把整個導向行為徹底關閉 如果只保留區域內拖曳不導向 單點擊導向正常需額外做一個條件 將以下監聽獨立判斷當移動時才停止預設事件 否則不停止
+                // this.addEventListener('click',function(){
+                //     event.preventDefault()
+                // })
+
+                // 要移動的位置 = 我要移動的位置 - 我按下的位置 　這兩個數字只差1
+                let move = event.pageX - positionX
+                // console.log('event.pageX',event.pageX)
+                // console.log('positionX',positionX)
+
+                // 做一個類似持續觸發的方式 將上一次位置改成移動的位置
+                positionX = event.pageX
+                // 將要移動的區域做一個移動 往左拖往右移因此用-= 數字為倍數
+                area.scrollLeft -= move
+            }
+        })
+
+        // 放開
+        area.addEventListener('mouseup',areaStop)
+
+        // 離開
+        area.addEventListener('mouseleave',areaStop)
+        function areaStop (){
+            area.classList.remove('active')
+        }
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

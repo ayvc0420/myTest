@@ -7,20 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="scss/reset.css">
     <link rel="stylesheet" href="scss/style.css">
-    <style>
-        .content ol>li{
-            list-style: decimal;
-            border-left: 4px solid chartreuse;
-            padding-left: 5px;
-            background-color: rgba(255, 255, 255,.2)
-        }
-        .content div.code ol:not(:first-of-type){
-            background-color: cadetblue;
-        }
-        .content div.code ol:not(:first-of-type) li{
-            color: rgb(0,50,255);
-        }
-    </style>
+
 </head>
 <body>
     
@@ -31,9 +18,9 @@
             <a href="index.html">
                 <img src="./images/logo.webp" alt="logo">
             </a>
-            <li class="menu1"><a href="htmlExplain.html">HTML</a></li>
-            <li class="menu2"><a href="#2">CSS</a></li>
-            <li class="menu3"><a href="#3">JavaScript</a></li>
+            <li class="menu1"><a href="./htmlExplain.html">HTML</a></li>
+            <li class="menu2"><a href="./cssExplain.html">CSS</a></li>
+            <li class="menu3"><a href="./jsExplain.html">JavaScript</a></li>
             <li class="menu4"><a href="#4">Vue</a></li>
             <li class="menu5"><a href="#5">前端更多技術<img src="images/chevron-down.svg" alt="更多資訊"></a>
                 <ul>
@@ -60,9 +47,9 @@
         </div>
 
         <ul class="mob_menu">
-            <li class="menu1"><a href="#1">HTML</a></li>
-            <li class="menu2"><a href="#2">CSS</a></li>
-            <li class="menu3"><a href="#3">JavaScript</a></li>
+            <li class="menu1"><a href="./htmlExplain.html">HTML</a></li>
+            <li class="menu2"><a href="./cssExplain.html">CSS</a></li>
+            <li class="menu3"><a href="./jsExplain.html">JavaScript</a></li>
             <li class="menu4"><a href="#4">Vue</a></li>
             <li class="menu5"><a href="#5">前端更多技術<img src="images/chevron-down.svg" alt="更多資訊"></a></li>
         </ul>
@@ -131,7 +118,7 @@
                 <p>css在設定中會有權重問題，一般而言css的權重是由以下由小至大做排序，設定重複的樣式會已權重越大為優先覆蓋。</p>
                 <h5>class > id > 標籤內直接輸入style控制 > !important</h5>
                 <p>其中important的權重是最大的，任何在屬性後方加上!important就會蓋過其他地方設置的屬性，因此若非必要盡量避免使用該參數。</p>
-                <h3>以下將針對css的選取器做一些簡單介紹</h3>
+                <h3>以下將針對CSS的選取器做一些簡單介紹</h3>
                 <ol>
                     <li>#idName</li>
                     <p>用途:選取符合id的對象，權重占比非常高若非必要樣式設定建議皆使用class</p>
@@ -174,12 +161,12 @@
                     <li>.className:after</li>
                     <p>用途:選取符合class名稱的元素，與:before類似，位置在對象的尾字後</p>
                 </ol>
-                <p>以上是我們最常使用到的20種css選取器，在正確的時機使用正確的選擇器會讓專案的開發順利一倍不止。</p>
+                <p>以上是我們最常使用到的20種css選取器，在正確的時機使用正確的選擇器會讓專案的開發順利一倍以上不止。</p>
                 <p>透過<a href="https://flukeout.github.io/" target="new">css選取器遊戲</a>可以增強對css選取能力。</p>
-                <h3>以下針對css RWD設定進行簡單介紹</h3>
+                <h3>以下針對CSS RWD設定進行簡單介紹</h3>
                 
                 <p>近年隨著手機裝置普及化手機版網頁需求大增，由於行動裝置的解析度遠遠低於一般電腦螢幕，在閱讀一般網站時會有頻繁縮放、不易閱讀等情況產生，因此2010年國外著名網頁設計師提出RWD的概念，RWD又稱響應式網頁，是一種透過css的技術切換不同的排版設定</p>
-                <p>RWD是透過CSS3 @media 技術達成的網頁，由於必須符合多種平台的環境RWD網站的參數多為百分比或相對尺寸(em/rem)，而不是像素(px)，在學習製作網站的過程如何熟練的運用RWD技術是一個非常重要的開發方式。</p>
+                <p>RWD是透過css3 @media 技術達成的網頁，由於必須符合多種平台的環境RWD網站的參數多為百分比或相對尺寸(em/rem)，而不是像素(px)，在學習製作網站的過程如何熟練的運用RWD技術是一個非常重要的開發方式。</p>
                 <p>@media的參數有all(全部)、print(印表機)、screen(電腦螢幕/手機螢幕等)、speech(螢幕閱讀器)...等，在這邊只針對最泛用的screen做介紹。</p>
                 <ol>    
                     <li>@media screen and (max-width:1024px){ ...css參數 }</li>
@@ -193,8 +180,10 @@
                 </ol>
                 <p>在這裡and是一個條件，一個@media可以有多個條件做判斷，如果不輸入screen and 默認值將會是all，在css權重同等的情況下@media內的css參數會優先執行。</p>
                 <p>知名的網頁框架「Bootstrap」是採用6個尺寸條件為判定基準，分別為低於576px、576~768px、768~992px、992~1200px、1200~1400px、1400px以上，在了解css的網格系統觀念後自行開發類似Bootstrap這類框架的簡易版並不是太困難的事情。</p>
-                <h3>以下針對常見的css語法做簡單介紹</h3>
+                <h3>以下針對常見的CSS語法做簡單介紹</h3>
                 <ol>
+                    <li>max-width</li>
+                    <p>設定元素的最大寬度，當小於時會自動縮小</p>
                     <li>width</li>
                     <p>設定元素的寬度</p>
                     <li>height</li>
@@ -209,6 +198,10 @@
                     <p>設定文字粗細</p>
                     <li>word-wrap</li>
                     <p>設定文字換行條件</p>
+                    <li>line-height</li>
+                    <p>設定文字的行高</p>
+                    <li>letter-spacing</li>
+                    <p>設定文字之間的行距</p>
                     <li>text-decoration</li>
                     <p>設定文字的修飾線</p>
                     <li>list-style</li>
@@ -236,37 +229,47 @@
                     <li>z-index</li>
                     <p>設定元素的重疊層數，通常與position一起使用</p>
                     <li>display</li>
-                    <p>設定元素的顯示型態，參數有flex(並排)、none(消失)等，通常會搭配justify-content、align-items一起使用</p>
+                    <p>設定元素的顯示型態，參數有flex(並排)、none(消失)等，flex通常會搭配justify-content、align-items一起使用</p>
                     <li>float</li>
                     <p>設定元素浮動位置</p>
                     <li>opacity</li>
                     <p>設定元素透明度</p>
                     <li>transition</li>
                     <p>設定元素屬性觸發切換時以動畫方式呈現</p>
+                    <li>@keyframes</li>
+                    <p>設定動畫的關鍵幀狀態，瀏覽器會自動處理順暢切換</p>
+                    <li>animation</li>
+                    <p>設定使用哪種動畫影格效果，必須搭配@keyframes</p>
                     <li>transform</li>
                     <p>設定元素的變型方式</p>
                     <li>border</li>
-                    <p>設定邊框線樣式，接受參數:寬度 樣式 顏色</p>
+                    <p>設定邊框線樣式</p>
                     <li>border-radius</li>
                     <p>設定元素四邊圓角</p>
                     <li>overflow</li>
                     <p>設定子元素超出父元素時呈現方式</p>
-                    <li></li>
-                    <p></p>
+                    <li>vertical-align</li>
+                    <p>設定行內元素的垂直對齊方式</p>
+                    <li>perspective</li>
+                    <p>設定元素3D可視屬性，該參數會讓元素產生3D立體感</p>
                 </ol>
-                <style>
-                    div{
-                        
-                    }
-                </style>
+                <p>以上，是最常見的35種css語法，在這裡僅針對參數做簡單說明，更詳細的屬性參數與使用說明需參考<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax" target="new">MDN CSS說明</a>。</p>
+                <p>其中css語法有些為縮寫可接受多個參數，有些必須與前置參數才可使用，要想徹底熟練運用這些語法只有經過不斷的練習與使用才能達成。</p>
+                <p>針對display:flex屬性在這裡推薦一款<a href="https://flexboxfroggy.com/#zh-tw" target="new">青蛙遊戲</a>可以有效幫助了解屬性。</p>
 
 
-                <!-- 遊戲建議https://flukeout.github.io/ -->
+
             </div>
 
 
         </section>
 
+        <article class="end_text">
+            <h2>以上是針對CSS3常見的語法與功能介紹</h2>
+            <p>無論是網頁設計師，還是前端工程師，對於css熟練度的需求都是無庸置疑的，只有隨時可以透過css切出各種不同的版才是合格的前端人員。</p>
+            <p>只要了解css的運作原理，相信達到運用自如的時間就會是伸手可及的距離。</p>
+            <p>針對css入門影片可以參考:<a href="https://www.youtube.com/watch?v=ZavL9y4Adrk&list=PLqivELodHt3iL9PgGHg0_EF86FwdiqCre" target="new">金魚都能懂系列</a></p>
+        </article>
 
     </main>
     

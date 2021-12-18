@@ -250,7 +250,7 @@
         })
 
         function viewMenu(){
-            // 觸摸的對象加上trigger-enter 作者這邊效果是給區塊取消隱藏
+            // 觸摸的對象是li 給li一個class名稱 當有這個class名稱其子層的元素會顯示為block
             this.classList.add('trigger-enter')
             setTimeout(()=>{
                 // 觸摸的對象加上trigger-enter-active 作者這邊是給透明顯示
@@ -260,20 +260,20 @@
             const viewArea = this.querySelector('.dropdown')
             // getBoundingClientRect API
             const position = viewArea.getBoundingClientRect()
-            console.log(position)
+            // console.log(position)
             // ES6解構
             const p = {width,height,top,left} = position
             console.log('p',navTop.top)
             // 作者這邊給予opacity 1 參數
             dropdownBackground.classList.add('open')
-            // 位置
+            // 改變位置
             dropdownBackground.style.width = `${p.width}px`
             dropdownBackground.style.height = `${p.height}px`
             dropdownBackground.style.top = `${p.top - navTop.top}px`
             dropdownBackground.style.left = `${p.left - navTop.left}px`
         }
 
-        // 清除
+        // 清除效果
         function clearMenu(){
             this.classList.remove('trigger-enter')
             setTimeout(()=>{

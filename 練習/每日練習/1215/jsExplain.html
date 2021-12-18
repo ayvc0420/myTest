@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="scss/reset.css">
+    <link rel="stylesheet" href="scss/style.css">
+</head>
+<body>
+    
+    <nav>
+
+        <ul class="nav_menu">
+            <span id="menuTarget"></span>
+            <a href="index.html">
+                <img src="./images/logo.webp" alt="logo">
+            </a>
+            <li class="menu1"><a href="./htmlExplain.html">HTML</a></li>
+            <li class="menu2"><a href="./cssExplain.html">CSS</a></li>
+            <li class="menu3"><a href="./jsExplain.html">JavaScript</a></li>
+            <li class="menu4"><a href="#4">Vue</a></li>
+            <li class="menu5"><a href="#5">前端更多技術<img src="images/chevron-down.svg" alt="更多資訊"></a>
+                <ul>
+                    <li><a href="#1">Git</a></li>
+                    <li><a href="#1">Regex</a></li>
+                    <li><a href="#1">svg</a></li>
+                    <li><a href="#1">Seo</a></li>
+                    <li><a href="#1">jQuery</a></li>
+                    <li><a href="#1">Docker</a></li>
+                    <li><a href="#1">CI/CD</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div id="touchMenu">
+            <svg width="50" height="40" class="svg1" id="svg1">
+                <line x1="10" y1="10" x2="40" y2="10" stroke="black" stroke-width="4"> </line>
+                <line x1="10" y1="20" x2="40" y2="20" stroke="black" stroke-width="4"> </line>
+                <line x1="10" y1="30" x2="40" y2="30" stroke="black" stroke-width="4"> </line>
+            </svg>
+            <svg width="50" height="40" class="svg2" id="svg2">
+                <line x1="10" y1="30" x2="40" y2="10" stroke="black" stroke-width="4"> </line>
+                <line x1="10" y1="10" x2="40" y2="30" stroke="black" stroke-width="4"> </line>
+            </svg>
+        </div>
+
+        <ul class="mob_menu">
+            <li class="menu1"><a href="./htmlExplain.html">HTML</a></li>
+            <li class="menu2"><a href="./cssExplain.html">CSS</a></li>
+            <li class="menu3"><a href="./jsExplain.html">JavaScript</a></li>
+            <li class="menu4"><a href="#4">Vue</a></li>
+            <li class="menu5"><a href="#5">前端更多技術<img src="images/chevron-down.svg" alt="更多資訊"></a></li>
+        </ul>
+    </nav>
+
+    <div class="breadcrumbs">當前位置: <a href="index.html">首頁</a></div>
+    <section class="banner" id="banner">
+        <div class="banner_left" @click.stop="imgSwitch(bannerKey-1)">
+            <img src="./images/chevron-left.svg">
+        </div>
+        <div class="banner_right" @click.stop="imgSwitch(bannerKey+1)">
+            <img src="./images/chevron-right.svg">
+        </div>
+        <a v-for="(img,index) in banner" :href="img.href" v-show="index === bannerKey" :class="{show:index == bannerKey}"><img :src="img.src" alt="img.alt"></a> 
+    </section>
+    <main>
+
+        
+        <section class="content">
+
+            <header class="header">
+                <h2>前言</h2>
+                <p>JavaScript是一個在WEB上執行的程式語言，與HTML/CSS不同的是，它是一個真正的程式語言，因此你如果開始學習JS的話那麼恭喜你，你現在已經成為一位真正的網頁製作人員。</p>
+                <p>網站設立的初衷是與使用者互動為目標，JS在網頁中扮演協助使用者與網站雙方互動的角色，沒有JS的網站稱為靜態網站。</p>
+                <p>在開始撰寫JavaScript前，建議先安裝vs code套件<a href="https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets" target="new">JavaScript (ES6) </a>在使用時會提示語法幫助撰寫速度，但仍然強烈建議須將完整名字了解記住。</p>
+            </header>
+
+            <div class="code">
+                <h3>JavaScript使用說明</h3>
+                <p>JS的使用方式分為script標籤內以及script src導入的方式將JS檔導入置網頁，早期網站會將src位置放在head標籤內但隨著網頁技術進步，需要的JS檔案越來越多導致載入的時間被拉長因此src位置放在/body標籤前可以優先載入文字與畫面再載入功能，以下將分成多個單元對JS進行簡單介紹。</p>
+                <h3>變數</h3>
+                <ol>
+                    <li>var</li>
+                    <p></p>
+                    <li></li>
+                    <p></p>
+                    <li></li>
+                    <p></p>
+                </ol>
+            </div>
+            
+
+
+
+            <article>
+
+            </article>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <p>&copy; ayvc0420</p> 
+    </footer>
+
+
+
+<script src="./js/vue_2.6.14.js"></script>
+<script src="./js/layout.js"></script>
+</body>
+</html>
