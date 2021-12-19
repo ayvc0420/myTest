@@ -198,27 +198,6 @@
 
         
 
-        let mobPositionX = 0
-        area.addEventListener('touchstart',function(){
-            area.classList.add('active')
-            // 當我按下時紀錄當前按下的位置
-            mobPositionX = event.pageX
-        })
-
-        area.addEventListener('touchmove',function(){
-            if(area.classList.contains('active')){
-                event.preventDefault()
-                let move = event.pageX - mobPositionX
-                mobPositionX = event.pageX
-                area.scrollLeft -= move
-            }
-        })
-
-        area.addEventListener('touchend',function(){
-            area.classList.remove('active')
-        })
-
-
     </script>
 
 </body>
