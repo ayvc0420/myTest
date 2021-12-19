@@ -383,6 +383,11 @@ main {
   color: cyan;
 }
 
+.content .code > p > span {
+  color: lime;
+  font-weight: 900;
+}
+
 .content .code ol {
   list-style: decimal;
   font-size: 20px;
@@ -396,12 +401,12 @@ main {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.content .code ol:not(:first-of-type) {
+.content .code ol {
   background-color: cadetblue;
 }
 
-.content .code ol:not(:first-of-type) li {
-  color: #0014ff;
+.content .code ol li {
+  color: blue;
 }
 
 .content .code > h5 {

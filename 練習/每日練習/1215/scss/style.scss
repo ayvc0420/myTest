@@ -284,6 +284,10 @@ main{
             >a:hover{
                 color: $hoverHrefColor;
             }
+            >span{
+                color: rgb(0, 255, 0);
+                font-weight: 900;
+            }
         }
         ol{
             list-style: decimal;
@@ -297,12 +301,12 @@ main{
             }
         }
         // 註解
-        ol:not(:first-of-type){
+        ol{
             background-color: cadetblue;
         }
         // li文字
-        ol:not(:first-of-type) li{
-            color: rgb(0, 20, 255);
+        ol li{
+            color: blue;
         }
         
         // css code內標題文字
