@@ -366,6 +366,7 @@ main {
   font-size: 30px;
   text-align: center;
   color: yellow;
+  margin-top: 20px;
 }
 
 .content .code > p {

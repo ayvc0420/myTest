@@ -117,7 +117,7 @@
             console.log(group[2])
         &lt;/script></pre>
                     </li>
-                        <p>不使用索引值印出陣列是印出整個物件內容，而使用索引值則會印出對應的陣列位置內容，最常見使用方法如迴圈等方式對陣列內全部內容進行事件處裡。</p>
+                        <p>不使用索引值印出陣列是印出整個物件內容，而使用索引值則會印出對應的陣列位置內容，最常見使用方法如迴圈等方式對陣列內全部內容進行事件處理。</p>
                     <li>
     <pre>
         &lt;script>
@@ -147,7 +147,37 @@
             console.log(groupObj[0].name)
         &lt;/script></pre>
                     </li>  
-                    <p>物件中需用.名稱的方式呼叫儲存的對應資料，在這邊是常見利用陣列與物件的特性將資料做整合紀錄，再使用迴圈功能針對資料做處理如渲染至畫面上或批量修改等。</p>
+                    <p>物件中需用「.名稱」的方式呼叫對應的儲存資料，在這邊是常見利用陣列與物件的特性將資料做整合紀錄，經常會使用迴圈功能針對資料做處理如渲染至畫面上或批量修改等動作。</p>
+                </ol>
+                <h3>型態</h3>
+                <p>JS中型態非常重要，錯誤的型態會造成不可預期的後果，以下是五種JS中最常用到的型態</p>
+                <ol>
+                    <li>let type1 = true</li>
+                    <p>布林值boolean，參數分別為true或false</p>
+                    <li>let type2 = 10</li>
+                    <li>let type2Part2 = 1.1+1.3</li>
+                    <p>試著將兩個參數log出查看吧!是否有感覺到出現了不預期的結果?</p>
+                    <p>數字number，參數由負值到0到正值皆為數字型態，特別注意JS的數字處理皆為IEEE 754標準，因此某些情況處理小數點的值時需要做額外的處理如toFixed(2)取小數點至2位數。</p>
+                    <li>let type3 = {name:'小美'}</li>
+                    <li>let name = '小美'<br>let type3Part2 = {name}</li>
+                    <p>物件object，用自定義名稱存放內容，內容不限於任何資料，當屬性名與值相同時可以採用下方ES6縮寫方法。</p>
+                    <li>let type4 = undefined</li>
+                    <p>未定義undefined，JS中宣告後未定義的變數或不明確的計算結果會被認定為undefined。</p>
+                    <li>let type5 = 'string'</li>
+                    <p>字串string，用單引號或雙引號包覆的字元皆為字串。</p>
+                </ol>
+                <p>以上是每天都會接觸的五種型態，另外兩種Symbol、Bigint可以參考:<a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Data_structures" target="new">MDN 資料型態</a>，部分參數在使用上須特別注意如數字型態的0在執行布林轉換時雖然本身是一個存在的字元但仍會被轉換成false。</p>
+                <p>JS中使用=是將右邊的值賦予至左邊稱為傳值，但對象為物件與陣列時JS會採用傳址的方式將值賦予，由於是傳址的方式改動其中一方都會影響雙方，針對傳址傳值的部分可以參考影片:<a href="https://www.youtube.com/watch?v=sxe-oahUARI&t=3205s" target="new">Alex 傳值傳址解說</a>，針對物件純字串進行深拷貝可以參考JSON.parse()與JSON.stringify()的功能。</p>
+                <h3>function函式</h3>
+                <p>在JS中函式是一個非常泛用的程式碼執行片段區塊，在JS幾乎每個動作執行都會透過函式進行處理，以下是常見的函式宣告方式</p>
+                <ol>
+                    <li></li>
+                </ol>
+                <h3>常見的功能型函式</h3>
+                <!-- JS仍還有許多功能/參數在這裡未提及如動態參數this、同步與非同步ajax、建構函式class -->
+                <!-- <p>JS中存在一個非常特殊的參數this,this在不同的環境下會有不同的結果，以下針對幾個常見的用法做介紹</p> -->
+                <ol>
+                    <li></li>
                 </ol>
             </div>
             

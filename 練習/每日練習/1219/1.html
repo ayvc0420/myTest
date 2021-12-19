@@ -1,20 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #4C4C4C url('https://ayvc0420.github.io/images/chloe_header.webp');
+            background-size: cover;
+            font-family: sans-serif;
+        }
+
+        .wrapper {
+            width: 850px;
+            display: flex;
+        }
+
+        video {
+            box-shadow: 0 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .speed {
+            background: #efefef;
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+            margin: 10px;
+            border-radius: 50px;
+            box-shadow: 0 0 1px 3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .speed-bar {
+            width: 100%;
+            background: linear-gradient(-170deg, #2376ae 0%, #c16ecf 100%);
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2px;
+            color: white;
+            height: 16.3%;
+        }
+    </style>
 </head>
+
 <body>
+
+
+    <div class="wrapper">
+        <video class="flex" width="765" height="430" src="./Screen48.mkv" loop controls></video>
+        <div class="speed">
+            <div class="speed-bar">1×</div>
+        </div>
+    </div>
 
 
 
     <script>
+        window.addEventListener('mousemove',function(){
+            // console.log(event.offsetHeight)
+        })
+        const speed = document.querySelector('.speed')
+        const speedText = document.querySelector('.speed-bar')
+        const video = document.querySelector('.wrapper').querySelector('video')
 
-        
+        speed.addEventListener('mousemove',function(){
+            // y的算法為 碰到的位置在網頁上Y座標為pageY 減掉 元素離網頁頂端的距離 除以 元素的總高度包含padding border
+            // 我碰到的座標-元素離網頁頂端的座標 等於我現在的座標是元素內的頂端開始往下計算的距離 也就是我鼠標在元素內的距離 除以整個的高度就是百分比
+            let y = (event.pageY - this.offsetTop) / this.offsetHeight
+            // h的算法為 取出當前位置是占比多少百分比的y * 100 將整個範圍從0~100計算 
+            let h = y * 100
+            // 寫入高度
+            speedText.style.height = h+'%'
+            // (0~1) * (大減小) + 小
+            // y的起始值是近乎為0 *2.5就是整體數字多2.5倍 +0.5就是基礎值為0.5開始 最高到3
+            y = y * 2.5+0.5
+            // y = 如果大於等於3就是3 如果小於等於0.5 就等於0.5
+            // y = y >= 3 ? 3 : y <= 0.5 ? 0.5 : y
+            // 避免變成負值或預期外意外的情況 因此確保值為設定的最大或最小值
+            if(y >= 3){
+                y = 3
+            }else if(y <= 0.5){
+                y = 0.5
+            }
+
+            // 影片速度變更
+            video.playbackRate = y.toFixed(2)
+            // 畫面速度文字變更
+            speedText.textContent = y.toFixed(2)+'x'
+            // speedText
+        })
+
+
 
     </script>
-    
+
 </body>
+
 </html>
