@@ -208,8 +208,8 @@
         area.addEventListener('touchmove',function(){
             if(area.classList.contains('active')){
                 event.preventDefault()
-                let move = event.pageX - positionX
-                positionX = event.pageX
+                let move = event.pageX - mobPositionX
+                mobPositionX = event.pageX
                 area.scrollLeft -= move
             }
         })
