@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            box-sizing: border-box;
+            font-size: 10px;
+            background: #8E24AA;
+            background: linear-gradient(45deg, #42a5f5 0%, #478ed1 50%, #0d47a1 100%);
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        body {
+            margin: 0;
+            text-align: center;
+            font-family: 'Inconsolata', monospace;
+        }
+
+        .display__time-left {
+            font-weight: 100;
+            font-size: 20rem;
+            margin: 0;
+            color: white;
+            text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .timer {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        .timer__controls {
+            display: flex;
+        }
+
+        .timer__controls>* {
+            flex: 1;
+        }
+
+        .timer__controls form {
+            flex: 1;
+            display: flex;
+        }
+
+        .timer__controls input {
+            flex: 1;
+            border: 0;
+            padding: 2rem;
+        }
+
+        .timer__button {
+            background: none;
+            border: 0;
+            cursor: pointer;
+            color: white;
+            font-size: 2rem;
+            text-transform: uppercase;
+            background: rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+            border-right: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 1rem;
+            font-family: 'Inconsolata', monospace;
+        }
+
+        .timer__button:hover,
+        .timer__button:focus {
+            background: rgba(0, 0, 0, 0.2);
+            outline: 0;
+        }
+
+        .display {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .display__end-time {
+            font-size: 4rem;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="timer">
+        <div class="timer__controls">
+            <button data-time="20" class="timer__button">20 Secs</button>
+            <button data-time="300" class="timer__button">Work 5</button>
+            <button data-time="900" class="timer__button">Quick 15</button>
+            <button data-time="1200" class="timer__button">Snack 20</button>
+            <button data-time="3600" class="timer__button">Lunch Break</button>
+            <form name="customForm" id="custom">
+                <input type="number" name="minutes" placeholder="Enter Minutes">
+            </form>
+        </div>
+        <div class="display">
+            <h1 class="display__time-left"></h1>
+            <p class="display__end-time"></p>
+        </div>
+    </div>
+
+
+    <script>
+        ;(function(){
+
+            const buttons = document.querySelectorAll('.timer__button')
+            const custom = document.getElementById('custom')
+            const viewH1 = document.querySelector('.display__time-left')
+            const viewText = document.querySelector('.display__end-time')
+            let timeLoopView
+            buttons.forEach(item=>{
+                item.addEventListener('click',function(){
+                    // 將獲取到的data-time值拿來轉換成數字型態
+                    const time = parseInt(item.dataset.time,10)
+                    reciprocal(time)
+                })
+            })
+
+
+            custom.addEventListener('submit',function(){
+                // 阻止預設事件 跳轉
+                event.preventDefault()
+                // 這邊直接用name可以獲取DOM元素
+                let n = parseInt(this.minutes.value,10)
+                // 輸入的值必須為數字型態才執行
+                if(typeof(n)==='number'){
+                    reciprocal(n*60)
+                    custom.reset()
+                }
+            })
+            
+            // 時間
+            function reciprocal (s){
+                clearInterval(timeLoopView)
+                // 取得目前時間
+                const now = new Date().getTime()
+                // 取得到達時間
+                const endSec = now + s * 1000
+                // 裝回去用new Date()
+                // 取時
+                const hours = new Date(endSec).getHours()
+                // 取分
+                const min = new Date(endSec).getMinutes()
+                // 顯示
+                viewText.textContent = '到達時間'+hours+'點'+min+'分'
+                
+                // 循環
+                timeLoopView = setInterval(()=>{
+                    // 在循環內取剩餘時間 等於無時無刻更新時間
+                    const now = new Date().getTime()
+                    // 取到的時間 = (到達的時間 - 現在的時間) 除以1000
+                    let endTime = (endSec - now )/ 1000
+                    // 分
+                    let min = Math.floor(endTime  / 60)
+                    // 秒
+                    let sec = endTime % 60
+                    // 判斷
+                    if(min >= 0){
+                        viewH1.textContent = '剩餘時間'+Math.round(min)+':'+Math.round(sec)
+                    }else{
+                        viewH1.textContent = '時間到!!'
+                        // 結束循環
+                        clearInterval(timeLoopView)
+                    }
+                },100)
+
+            }
+
+            
+
+        })()
+    </script>
+
+</body>
+
+
+
+</html>

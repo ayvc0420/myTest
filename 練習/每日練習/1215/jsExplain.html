@@ -78,9 +78,18 @@
 
             <div class="code">
                 <h3>JavaScript使用說明</h3>
-                <p>JS的使用方式分為script標籤內以及script src導入的方式將JS檔導入置網頁，早期網站會將src位置放在head標籤內但隨著網頁技術進步，需要的JS檔案越來越多導致載入的時間被拉長因此src位置放在/body標籤前可以優先載入文字與畫面再載入功能，在開始前必須先了解瀏覽器中的開發人員工具console。</p>
-                    <!-- // 以下將分成多個單元對JS進行簡單介紹。 -->
-                <p>在JS中使用console.log(對象)後，console面板會顯示對象內的值或執行運算結果，是一個非常實用的功能，在實務上可以透過此方式得知變數當下的值或是有哪些參數可以使用。</p>
+                <p>JS的使用方式分為script標籤內以及script src導入的方式將JS檔導入置網頁，早期網站會將src位置放在head標籤內但隨著網頁技術進步，需要的JS檔案越來越多導致載入的時間被拉長因此src位置放在/body標籤前可以優先載入文字與畫面再載入功能，以下將分成多個單元對JS進行簡單介紹。</p>
+                    <h3>console</h3>
+                <ol>
+                    <li>
+    <pre>
+    &lt;script>
+        let a = 10
+        console.log(a)
+    &lt;/script></pre>
+                    </li>
+                </ol>
+                <p>在開始寫JS前必須先了解瀏覽器中的開發人員工具(F12)console，在JS中使用console.log()功能console面板會顯示對象內的值或執行運算結果，是一個非常實用的功能，在實務上可以透過此方式得知變數當下的值或是有哪些參數可以使用。</p>
                 <h3>變數宣告</h3>
                 <ol>
                     <li>var</li>
@@ -90,104 +99,187 @@
                     <li>const</li>
                     <p>又稱常數與let類似，宣告時必須賦予型態或值，且無法透過直接修改的方式對值進行修改</p>
                 </ol>
+                <p>雖然JS接受先使用變數再宣告，但這種操作會容易汙染全域變數，一般而言宣告都會放在程式的最頂端。</p>
                 <h3>作用域</h3>
-                <p>在最外層的區域稱為全域，使用{}包起來的區域稱為區域，若是在<span>區域內使用不存在的變數則會從上面外層</span>尋找，在進行專案中若非必要盡量在區域變數內宣告及使用變數避免全域汙染導致變數計算結果與期望值不同，試著將以下的let改成var後再console面板看看結果!</p>
+                <p>在最外層的區域稱為全域，在{}大括號內的區域稱為區域，若是在<span>區域內使用不存在的變數則會從上面外層</span>尋找，在進行專案中若非必要盡量在區域變數內宣告及使用變數避免全域汙染導致計算結果與期望值不同，試著將以下的let改成var後再console面板看看結果!</p>
                 <ol>
                     <li>
     <pre>
-        &lt;script>
-            let a = 1  //我是全域變數
-            {  //區域開始
-                let a = 2  //我是區域變數
-                console.log('內',a)
-            }  //區域結束
-            console.log('外',a)
-        &lt;/script></pre>
-                    </li>
-                    <p>透過上述範例可得知let在不同的作用域不會互相干擾，而var則會，對於入門的初學者或許可能有些難以理解但是作用域引起的BUG會隨著專案的增大而更容易出現，對於作用域的認知一定要理解原理。</p>
-                </ol>
-                <h3>陣列與物件</h3>
-                <p>JS中有兩個非常重要的型態就是陣列與物件，陣列用來儲存多筆資料陣列的位置稱為索引值<span>索引值的起始值是0而不是1</span>，物件是一種使用自訂名稱紀錄內容或function函式的資料型態，兩者可以合併使用，試著將以下範例的console做更改。</p>
-                <ol>
-                    <li>
+    &lt;script>
+        let a = 1  //我是全域變數
+        {  //區域開始
+            let a = 2  //我是區域變數
+            console.log('內',a)
+        }  //區域結束
+        console.log('外',a)
+    &lt;/script></pre>
+                </li>
+                <p>透過上述範例可得知let在不同的作用域不會互相干擾，而var則會，對於入門的初學者或許可能有些難以理解但是作用域引起的BUG會隨著專案的增大而更容易出現，對於作用域的認知一定要理解原理</p>
+            </ol>
+            <h3>陣列與物件</h3>
+            <p>JS中有兩個非常重要的型態就是陣列與物件，陣列用來儲存多筆資料陣列的位置稱為索引值<span>索引值的起始值是0而不是1</span>，物件是一種使用自訂名稱紀錄內容或function函式等的資料型態，兩者可以合併使用，試著將以下範例的console做更改。</p>
+            <ol>
+                <li>
     <pre>
-        &lt;script>
-            let group = ['小美','小明','瑪琳','阿力']
-            console.log(group)
-            console.log(group[2])
-        &lt;/script></pre>
-                    </li>
-                        <p>不使用索引值印出陣列是印出整個物件內容，而使用索引值則會印出對應的陣列位置內容，最常見使用方法如迴圈等方式對陣列內全部內容進行事件處理。</p>
-                    <li>
+    &lt;script>
+        let group = ['小美','小明','瑪琳','阿力']
+        console.log(group)
+        console.log(group[2])
+    &lt;/script></pre>
+                </li>
+                    <p>不使用索引值印出陣列是印出整個物件內容，而使用索引值則會印出對應的陣列位置內容，針對陣列資料處理最常見是使用迴圈的方式對全部內容進行事件處理</p>
+                <li>
     <pre>
-        &lt;script>
-            let groupObj = [
-                {
-                    name:'小美',
-                    age:20,
-                    gender:'女'
-                },
-                {
-                    name:'小明',
-                    age:23,
-                    gender:'男'
-                },
-                {
-                    name:'瑪琳',
-                    age:18,
-                    gender:'女'
-                },
-                {
-                    name:'阿力',
-                    age:30,
-                    gender:'男'
-                }
-            ]
-            console.log(groupObj[0])
-            console.log(groupObj[0].name)
-        &lt;/script></pre>
+    &lt;script>
+        let groupObj = [
+            {
+                name:'小美',
+                age:20,
+                gender:'女'
+            },
+            {
+                name:'小明',
+                age:23,
+                gender:'男'
+            },
+            {
+                name:'瑪琳',
+                age:18,
+                gender:'女'
+            },
+            {
+                name:'阿力',
+                age:30,
+                gender:'男'
+            }
+        ]
+        console.log(groupObj[0])
+        console.log(groupObj[0].name)
+    &lt;/script></pre>
                     </li>  
-                    <p>物件中需用「.名稱」的方式呼叫對應的儲存資料，在這邊是常見利用陣列與物件的特性將資料做整合紀錄，經常會使用迴圈功能針對資料做處理如渲染至畫面上或批量修改等動作。</p>
+                    <p>物件中需用「.名稱」的方式呼叫對應的儲存資料，在這邊是常見利用陣列與物件的特性將資料做整合紀錄，經常會使用迴圈功能針對資料做處理如渲染至畫面上或批量修改等動作</p>
                 </ol>
                 <h3>型態</h3>
-                <p>JS中型態非常重要，錯誤的型態會造成不可預期的後果，以下是五種JS中最常用到的型態</p>
+                <p>JS中型態非常重要，錯誤的型態會造成不可預期的後果，以下是五種JS中最常用到的型態。</p>
                 <ol>
                     <li>let type1 = true</li>
                     <p>布林值boolean，參數分別為true或false</p>
                     <li>let type2 = 10</li>
                     <li>let type2Part2 = 1.1+1.3</li>
                     <p>試著將兩個參數log出查看吧!是否有感覺到出現了不預期的結果?</p>
-                    <p>數字number，參數由負值到0到正值皆為數字型態，特別注意JS的數字處理皆為IEEE 754標準，因此某些情況處理小數點的值時需要做額外的處理如toFixed(2)取小數點至2位數。</p>
+                    <p>數字number，參數由負值到0到正值皆為數字型態，特別注意JS的數字處理皆為IEEE 754標準，因此某些情況處理小數點的值時需要做額外的處理如toFixed(2)取小數點至2位數</p>
                     <li>let type3 = {name:'小美'}</li>
                     <li>let name = '小美'<br>let type3Part2 = {name}</li>
-                    <p>物件object，用自定義名稱存放內容，內容不限於任何資料，當屬性名與值相同時可以採用下方ES6縮寫方法。</p>
+                    <p>物件object，用自定義名稱存放內容，內容不限於任何資料，當屬性名與值相同時可以採用type3Part2 ES6縮寫方法</p>
                     <li>let type4 = undefined</li>
-                    <p>未定義undefined，JS中宣告後未定義的變數或不明確的計算結果會被認定為undefined。</p>
+                    <p>未定義undefined，JS中宣告後未定義的變數或不明確的計算結果會被認定為undefined</p>
                     <li>let type5 = 'string'</li>
-                    <p>字串string，用單引號或雙引號包覆的字元皆為字串。</p>
+                    <p>字串string，用單引號或雙引號包覆的字元皆為字串</p>
                 </ol>
-                <p>以上是每天都會接觸的五種型態，另外兩種Symbol、Bigint可以參考:<a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Data_structures" target="new">MDN 資料型態</a>，部分參數在使用上須特別注意如數字型態的0在執行布林轉換時雖然本身是一個存在的字元但仍會被轉換成false。</p>
-                <p>JS中使用=是將右邊的值賦予至左邊稱為傳值，但對象為物件與陣列時JS會採用傳址的方式將值賦予，由於是傳址的方式改動其中一方都會影響雙方，針對傳址傳值的部分可以參考影片:<a href="https://www.youtube.com/watch?v=sxe-oahUARI&t=3205s" target="new">Alex 傳值傳址解說</a>，針對物件純字串進行深拷貝可以參考JSON.parse()與JSON.stringify()的功能。</p>
+                <p>以上是最常見的五種型態，另外兩種Symbol、Bigint可以參考:<a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Data_structures" target="new">MDN 資料型態</a>，部分參數在使用上須特別注意如數字型態的0在執行布林轉換時雖然本身是一個存在的字元但仍會被轉換成false。</p>
+                <p>JS中使用=是將右邊的值賦予至左邊稱為傳值，但對象為物件與陣列時JS會採用傳址的方式將值賦予，由於是傳址的方式改動其中一方都會影響雙方，針對傳址傳值的部分可以參考影片:<a href="https://www.youtube.com/watch?v=sxe-oahUARI&t=3205s" target="new">Alex 傳值傳址解說</a>，針對純字串的物件資料進行深拷貝可以參考JSON.parse()與JSON.stringify()的功能。</p>
                 <h3>function函式</h3>
-                <p>在JS中函式是一個非常泛用的程式碼執行片段區塊，在JS幾乎每個動作執行都會透過函式進行處理，以下是常見的函式宣告方式</p>
+                <p>在JS中函式是一個非常泛用的程式碼執行片段區塊，在JS幾乎每個動作執行都會透過函式進行處理，以下是常見的函式宣告方式。</p>
                 <ol>
-                    <li></li>
+                    <li>
+    <pre>
+    ;(function)(){
+        console.log('hello world!')
+    }()</pre>
+                    </li>
+                    <li>
+    <pre>
+    (function(){console.log(1)})()
+    ;(function(){console.log(2)})()</pre></li>
+                    <p>立即執行函式，又稱IIFE，通常位於最外層可以將整個JS的功能包覆在區域內執行，透過IIFE可以確保JS的變數或函式不能在console面板被修改，最前方的冒號是在執行程式碼壓縮時阻止ASI自動插入分號機制帶來的錯誤，嘗試將前面的分號拿掉試試看吧!</p>
+                    <li>
+    <pre>
+    function funcName(){
+        console.log('my is funcName')
+    }
+    funcName()</pre>
+                    </li>
+                    <p>這是一個基本的函式宣告命名為funcName，可以使用名稱()進行呼叫執行函式，與匿名函式不同，有名稱的函式可以被重複呼叫，<span>如果在不存在函式的作用域下呼叫函式JS會往外層尋找但不會進入其他區域環境內</span></p>
+                    <li>
+    <pre>
+    const funcName = (n) =>{
+        console.log(n)
+    }
+    funcName(10)</pre>
+                    <li>
+    <pre>
+    const funcName2 = n => console.log(n)
+    funcName2(10)</pre>
+                    </li>
+                    <p>ES6新增箭頭函式，箭頭函式讓宣告函式的方式變得更簡潔，同樣箭頭函式也能帶入參數執行功能，使用上需注意箭頭函式帶入一個參數時()可以被省略以及箭頭函式不存在自己的this</p>
                 </ol>
-                <h3>常見的功能型函式</h3>
-                <!-- JS仍還有許多功能/參數在這裡未提及如動態參數this、同步與非同步ajax、建構函式class -->
-                <!-- <p>JS中存在一個非常特殊的參數this,this在不同的環境下會有不同的結果，以下針對幾個常見的用法做介紹</p> -->
+
+                <h3>常見的功能介紹</h3>
+                <p>以下將在JS中經常會用到的函式功能做簡單介紹，某些功能在不同瀏覽器中可能無法使用，建議使用前先參考:<a href="https://caniuse.com/" target="new">can i use</a>查看支援版本。</p>
                 <ol>
-                    <li></li>
+                    <li>target.addEventListener</li>
+                    <p>對象為DOM元素，執行監聽，參數有click(點擊)、mousemove(移動)、resize(調整瀏覽器大小)等等，更詳細參數參考:<a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener" target="new">MDN 監聽器說明</a></p>
+                    <li>target.forEach</li>
+                    <p>與for迴圈相似但無法透過break跳出迴圈，forEach的停止條件為對象的length長度，在對陣列資料進行處理時非常好用，forEach有三個參數分別為當下內容、編號、對象本身</p>
+                    <li>target.map</li>
+                    <p>與forEach相似但有回傳值會建立新的陣列</p>
+                    <li>target.filter</li>
+                    <p>與map相似但只有符合條件篩選後回傳新陣列</p>
+                    <li>target.slice</li>
+                    <p>可以將對象的陣列內容進行淺拷貝，會回傳一個新陣列</p>
+                    <li>target.splice</li>
+                    <p>刪除陣列內內容，參數為被刪除的位置 刪除的數量 插入的內容(可不選)</p>
+                    <li>target.classList</li>
+                    <p>增加或移除class名稱，經常用於觸發動畫事件</p>
+                    <li>target.style.class屬性</li>
+                    <p>修改對象的css屬性，如果使用-字元的style屬性則需轉換成駝峰式寫法如:fontSize</p>
+                    <li>target.innerHTML</li>
+                    <p>對象為DOM元素，用HTML的方式修改內容(可以使用HTML標籤)</p>
+                    <li>target.textContent</li>
+                    <p>對象為DOM元素，用純文字的方式修改內容(不可使用HTML標籤)</p>
+                    <li>target.toLowerCase</li>
+                    <p>將對象內字串全部轉會成小寫，會回傳內容</p>
+                    <li>parseInt(target)</li>
+                    <p>將對象的字串轉換成數字型態的整數</p>
+                    <li>target.some</li>
+                    <p>檢查對象的內容是否有符合條件會回傳true/false</p>
+                    <li>target.every</li>
+                    <p>檢查對象的內容是否全部符合條件會回傳true/false</p>
+                    <li>target.find</li>
+                    <p>檢查對象是否有符合的值，有就回傳</p>
+                    <li>target.sort</li>
+                    <p>對陣列內內容進行排序，根據不同的環境有可能會產生不同的排序結果</p>
+                    <li>isNaN(target)</li>
+                    <p>檢查對象的值是否為數字型態，會回傳true/false</p>
+                    <li>confirm</li>
+                    <p>執行後會產生瀏覽器內建式窗讓使用者選擇確定或取消按鈕，搭配if判斷式使用可以執行不同結果</p>
+                    <li>target.join</li>
+                    <p>將陣列內內容轉換為字串</p>
+                    <li>target.split</li>
+                    <p>將字串透過自定義條件轉換為陣列</p>
+                    <li>setTimeout</li>
+                    <p>延遲自訂毫秒數後執行一次功能</p>
+                    <li>setInterval</li>
+                    <p>每間隔自訂毫秒執行功能直到被關閉</p>
+                    <li>event.preventDefault()</li>
+                    <p>阻止預設行為如a標籤的網頁跳轉</p>
+                    <li>event.stopPropagation()</li>
+                    <p>阻止事件冒泡</p>
                 </ol>
+                <p>JS還有非常多功能/參數這邊未提及如動態參數this、同步與非同步ajax、建構函式class，這些使用方式無法用三言兩語帶過，建議透過各類影片如:<a href="https://www.youtube.com/watch?v=1pYtVwIAvhY" target="new">影片1</a>、<a href="https://www.youtube.com/watch?v=_vFuDQ_6Xt8" target="new">影片2</a>以及參考<a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript" target="new">MDN文件</a>。</p>
+                <p>如果你是第一次接觸網頁技術那麼你的學習路線圖應該為:HTML>CSS>JS>AJAX技術>node管理>前端框架，JS學習的終點雖然是永無止盡的，但是JS的熱門程度卻是直線上升。</p>
             </div>
+            
             
 
 
 
-            <article>
-
-            </article>
         </section>
+        <article class="end_text">
+            <h2>小結</h2>
+            <p>JavaScript是賦予網頁靈魂的程式語言，在現今追求互動的網頁下是不可或缺的一門技術，JavaScript不只能應用在網頁上，也能在應用在手機APP開發。</p>
+            <p>針對更多JavaScript影片可以參考:<a href="https://www.youtube.com/channel/UCEL8871qFEakpqYpwBSjHNA" target="new">Alex 宅幹嘛頻道</a></p>
+        </article>
 
 
     </main>

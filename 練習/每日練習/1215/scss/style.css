@@ -47,6 +47,8 @@ body.fixed_nav > nav {
   -webkit-transition: all .3s;
   transition: all .3s;
   z-index: -10;
+  -webkit-transform: scale(100%);
+          transform: scale(100%);
 }
 
 .nav_menu > li ul {
@@ -369,22 +371,22 @@ main {
   margin-top: 20px;
 }
 
-.content .code > p {
+.content .code p {
   font-size: 20px;
 }
 
-.content .code > p > a {
+.content .code p > a {
   color: blue;
   -webkit-transition: all .4s;
   transition: all .4s;
   text-decoration: none;
 }
 
-.content .code > p > a:hover {
+.content .code p > a:hover {
   color: cyan;
 }
 
-.content .code > p > span {
+.content .code p > span {
   color: lime;
   font-weight: 900;
 }
