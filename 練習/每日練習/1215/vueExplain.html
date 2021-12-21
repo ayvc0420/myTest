@@ -4,16 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>前端技術分享介紹</title>
+    <title>Vue介紹</title>
     <link rel="stylesheet" href="scss/reset.css">
     <link rel="stylesheet" href="scss/style.css">
-    <style>
-        .content>article>div{
-            transition: all .6s;
-            opacity: 0;
-            transform: translateY(30%);
-        }
-    </style>
 </head>
 <body>
     
@@ -71,7 +64,7 @@
         </ul>
     </nav>
 
-    <div class="breadcrumbs">當前位置: <a href="index.html">首頁</a></div>
+    <div class="breadcrumbs">當前位置: <a href="./index.html">首頁</a><a href="./vueExplain.html">Vue</a></div>
     <article class="banner" id="banner">
         <div class="banner_left" @click.stop="imgSwitch(keyN-1)">
             <img src="./images/chevron-left.svg">
@@ -84,47 +77,66 @@
     </article>
     <main>
 
-
+        
         <section class="content">
+
             <header class="header">
                 <h2>前言</h2>
-                <p>網頁開發分為前端與後端，本站內容皆為前端部份，以下先介紹前端開發不可或缺的工具及環境。</p>
+                <p>框架是什麼?為什麼要用他?</p>
+                <p>在大型資料網站中直接使用HTML、JS顯示畫面及動畫功能時會因為龐大的分支頁導致維護困難及成本直線上升，如有一萬個頁面時改動其中一個共通佈局點時有可能要將這一萬個頁面的資料做更改，這是一個非常耗時間及做無意義事的成本，因此使用JavaScript框架可以有效解決這些問題。</p>
+                <P>目前JavaScript有三種主流框架，分別為Angular、React、Vue，本篇只針對Vue進行介紹，由於Vue有學習曲線低、輕量型等優點只要對HTML、CSS、JS有基礎認知幾乎都能在短時間內對Vue上手，相較於其他兩個框架Vue的入門門檻非常的低。</P>
             </header>
-            <article>
-                <div>
-                    <h3>VS CODE</h3>
-                    <p>作為開發者最重要的開發工具，vs code是現今最熱門之一的主流編輯器，作為一個超熱門的編輯器其用途並不僅限於網頁開發，在安裝各種套件及設置環境後也能進行其他程式語言如:Python、Java、C/C++。</p>
-                    <p>俗話說工欲善其事，必先利其器，在vs code中有各種擴充套件供免費使用，善用套件可以使開發時間縮短一倍以上。</p>
-                </div>
-                <div>
-                    <img src="./images/vscode.webp" alt="vs code" title="vs code圖片">
-                </div>
-            </article>
-            <article>
-                <div>
-                    <h3>版本控制</h3>
-                    <p>身為一個有良好習慣的開發者一定要使用版本控制管理自己的專案，在這邊推薦使用Git搭配GitHub平台，</p>
-                    <p>在Windows環境下vs code預設終端機為powerShell，在vs code內使用ctrl+`快速鍵可以開啟終端機介面由於Windows平台沒有自帶Git控制系統(Linux、Mac系統則有)，必須從<a href="https://git-scm.com/" target="new">Git官網</a>下載套件安裝後才可以在終端機內使用。</p>
-                </div>
-                <div>
-                    <img src="./images/git_github.webp" alt="git github" title="git跟github圖片">
-                </div>
-            </article>
-            <article>
-                <div>
-                    <h3>瀏覽器</h3>
-                    <p>好的開發者工具會帶你上天堂這句話不是沒有道理的，由於chrome市占率是最高的也支援不少API，如果你的主要開發瀏覽器不是chrome那我建議你現在就開始改用。</p>
-                    <p>在前端有各式各樣的環境存在，有必須支援IE的原因，也有考慮到使用者是使用safari或firefox等部份功能不支援的瀏覽器，在執行瀏覽上會產生了相容性問題，因此就算是你裝了chrome，在測試上仍然需要將其他瀏覽器一併納入。</p>
-                </div>
-                <div>
-                    <img src="./images/browser.webp" alt="browser" title="瀏覽器圖片">
-                </div>
-            </article>
+
+            <div class="code">
+                <h3>框架的優勢</h3>
+                <p>目前三大框架的運作原理都是由資料驅動畫面，開發者只要透過修改資料就可以讓框架自動將畫面做變更，聽起來很神奇對吧?首先需要了解MVC以及MVVM架構。</p>
+                <p>MVC，M全名Model指資料處理、處理邏輯的部分，V全名View指管理畫面顯示的部分，C全名Controller指負責處理使用者與系統端的互動應用。</p>
+                <p>MVVM，這邊與MVC相比只有VM不同，VM全名ViewModel是負責資料與畫面綁定做呈現的部分，根據<a href="https://vuejs.org/v2/guide/instance.html" target="new">官方文件</a>顯示Vue不完全是一個MVVM架構，但Vue的部分設計是受到它的啟發。</p>
+                <h3>使用框架前我要準備什麼?</h3>
+                <p>進入框架前請先確保已經對HTML、CSS、JS有基本了解，在Vue內需避免針對DOM的直接操作應該讓框架進行負責也符合MVVM的架構設定。</p>
+                <p>使用Vue前必須先進行導入，根據官方文件的解說可以使用以下的方式導入Vue</p>
+                <ol>
+                    <li>
+    <pre>
+    &lt;script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js">&lt;/script></pre>
+                    </li>
+                    <p>使用cdn的方式導入Vue檔案或者使用Vue CLI的方式進行安裝</p>
+                    <li>
+    <pre>
+    npm install -g @vue/cli</pre>
+                    </li>
+                    <p>使用前須先安裝node環境</p>
+                </ol>
+                <h3>Vue的完整運作流程</h3>
+                <p>根據官方製作的圖片Vue的生命週期如下</p>
+                <img src="./images/vueLifecycle.webp" alt="Vue Lifecycle圖片">
+                <p>看不懂嗎?沒關係，在入門時只要知道Vue是這樣再進行流程就可以了，而我們在Vue所做的一切動作都是遵循著這張圖的流程再進行。</p>
+                <h3>建立Vue及綁定</h3>
+                <p>由於本篇只針對Vue做簡單介紹，以下功能皆採用src的方式使用Vue，版本為2.6.14</p>
+                <p>在使用Vue之前必須先建立一個Vue實體以及告訴Vue負責的區域，特別注意如果再負責區域以外的地方使用Vue是無效的</p>
+                <ol>
+                    <li>
+    <pre>
+        &lt;div id="app">
+    
+        &lt;/div>
+        &lt;script>
+            new Vue(){
+                el:'#app'
+            }
+        &lt;/script></pre>
+                    </li>
+                    <p>以上，就建立了Vue以及將負責區域綁定在#app裡面了，</p>
+                </ol>
+                <!-- v-for in computed 或data -->
+                <!-- v-Model 雙向綁定 -->
+                <!-- mounted 當Vue準備完成後會馬上執行的區域  仅在整个视图都被渲染之后才会运行的代码-->
+                <!-- 我們可以用@click=""的方式呼叫methods內的函式 -->
+            </div>
         </section>
 
 
     </main>
-
 
     <footer>
         <p>&copy; ayvc0420</p> 
@@ -135,9 +147,7 @@
 
 
 
-    <script src="./js/vue_2.6.14.js"></script>
-    <script src="./js/layout.js"></script>
-    <script src="./js/contentAni.js"></script>
+<script src="./js/vue_2.6.14.js"></script>
+<script src="./js/layout.js"></script>
 </body>
-
 </html>

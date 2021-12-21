@@ -100,29 +100,32 @@ body.fixed_nav{
 }
 
 main{
-    width: 1400px;
+    max-width: 1400px;
     margin: auto;
+    padding:0 20px;
 }
 .breadcrumbs{
-    width: 1400px;
+    max-width: 1400px;
     font-size: 19px;
     margin: 20px auto;
+    color: greenyellow;
     a{
         text-decoration: none;
-        font-weight: 900;
-        color: rgb(197, 53, 53)
+        color: $hrefColor;
     }
     a+a::before{
-        content: ' > ';
+        content: ' / ';
+        color: rgb(0, 255, 21);
     }
 }
 .banner{
-    width: 1600px;
+    max-width: 1600px;
     height: 800px;
     margin: auto ;
     overflow: hidden;
     position: relative;
     perspective: 500px;
+    padding: 0 20px;
     div>img{
         width: 40px;
     }
@@ -150,6 +153,7 @@ main{
             height: 800px;
             position: absolute;
             border-radius: 8px;
+            box-sizing: border-box;
         }
     }
     @keyframes bannerAni {
@@ -190,7 +194,7 @@ main{
     color: white;
     .header{
         text-align: center;
-        width: 800px;
+        max-width: 800px;
         margin: auto;
         h2{
             font-weight: 900;
@@ -238,11 +242,14 @@ main{
                 text-align: center;
                 font-size: 30px;
             }
-
+        }
+        >div.ani{
+            opacity: 1;
+            transform: translateY(0%);
         }
         img{
             width: 100%;
-            height: 400px;
+            // height: 400px;
             border-radius: 8px;
         }
         a{
@@ -254,10 +261,6 @@ main{
             color: $hoverHrefColor;
         }
     }
-    >article.ani{
-        opacity: 1;
-        transform: translateY(0%);
-    }
     >article:nth-of-type(even){
         div:nth-of-type(2){
             order: -1;
@@ -266,7 +269,7 @@ main{
 
     // css
     .code{
-        width: 800px;
+        max-width: 800px;
         margin: 30px auto;
         line-height: 1.6;
         >h3{
@@ -316,6 +319,10 @@ main{
             margin: 10px 0;
             color: yellow;
         }
+        >img{
+            width: 100%;
+            border-radius: 8px;
+        }
     }
 
 }
@@ -345,9 +352,12 @@ main{
 
 footer{
     padding: 20px 0;
-    text-align: center;
     color: white;
     background-color: black;
+    text-align: center;
+    >div{
+        padding-top: 15px;
+    }
 }
 
 @media screen and (max-width:1023px) {
@@ -379,10 +389,9 @@ footer{
         justify-content: space-evenly;
         align-items: center;
         font-size: 2rem;
-        top: 0;
+        top: -200%;
         z-index: 10;
         transition: all .5s ease;
-        transform: translateY(-200%);
         background-color: gray;
         width: 100%;
         height: 100vh;
@@ -391,11 +400,66 @@ footer{
             text-decoration: none;
             color: $hoverHrefColor
         }
+        a:focus{
+            color: $hrefColor;
+        }
+        >.menu5_more{
+            width: 100%;
+            height: 100vh;
+            left: -200%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            position: absolute;
+            transition: all .3s;
+        }
     }
-
+    .code{
+        padding: 0 20px;
+        box-sizing: border-box;
+        pre{
+            white-space: pre-wrap !important;
+            white-space: -moz-pre-wrap !important;
+            word-wrap: break-word;
+        }
+    }
     .banner{
         >div{
             opacity: 1;
+        }
+        >a>img{
+            height: auto;
+            min-height: 90vh;
+            margin: auto;
+        }
+        >.banner_left{
+            left: 5%;
+            background-color: rgba(255,255,255,.2);
+        }
+        >.banner_right{
+            background-color: rgba(255,255,255,.2);
+            right: 5%;
+        }
+    }
+    .breadcrumbs{
+        padding-left: 20px;
+        >a:focus{
+            color: $hoverHrefColor;
+        }
+    }
+    .content{
+        >header.header{
+            padding: 0 20px;
+        }
+        >article{
+            flex-wrap: wrap;
+            >div{
+                width: 100%;
+            }
+            >div:nth-of-type(even){
+                order: -1;
+            }
         }
     }
 }

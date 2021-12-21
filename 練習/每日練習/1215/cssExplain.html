@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>css介紹</title>
     <link rel="stylesheet" href="scss/reset.css">
     <link rel="stylesheet" href="scss/style.css">
     <style>
@@ -28,16 +28,16 @@
             <li class="menu1"><a href="./htmlExplain.html">HTML</a></li>
             <li class="menu2"><a href="./cssExplain.html">CSS</a></li>
             <li class="menu3"><a href="./jsExplain.html">JavaScript</a></li>
-            <li class="menu4"><a href="#4">Vue</a></li>
-            <li class="menu5"><a href="#5">前端更多技術<img src="images/chevron-down.svg" alt="更多資訊"></a>
+            <li class="menu4"><a href="./vueExplain.html">Vue</a></li>
+            <li class="menu5"><a href="javascript:;">前端更多技術<img src="images/chevron-down.svg" alt="更多資訊"></a>
                 <ul>
-                    <li><a href="#1">Git</a></li>
-                    <li><a href="#1">Regex</a></li>
-                    <li><a href="#1">svg</a></li>
-                    <li><a href="#1">Seo</a></li>
-                    <li><a href="#1">jQuery</a></li>
-                    <li><a href="#1">Docker</a></li>
-                    <li><a href="#1">CI/CD</a></li>
+                    <li><a href="./gitExplain.html">Git</a></li>
+                    <li><a href="./regexExplain.html">Regex</a></li>
+                    <li><a href="./svgExplain.html">svg</a></li>
+                    <li><a href="./seoExplain.html">Seo</a></li>
+                    <li><a href="./jqueryExplain.html">jQuery</a></li>
+                    <li><a href="./dockerExplain.html">Docker</a></li>
+                    <li><a href="./cicdExplain.html">CI/CD</a></li>
                 </ul>
             </li>
         </ul>
@@ -54,24 +54,35 @@
         </div>
 
         <ul class="mob_menu">
+            <li class="menu1"><a href="./index.html">首頁</a></li>
             <li class="menu1"><a href="./htmlExplain.html">HTML</a></li>
             <li class="menu2"><a href="./cssExplain.html">CSS</a></li>
             <li class="menu3"><a href="./jsExplain.html">JavaScript</a></li>
-            <li class="menu4"><a href="#4">Vue</a></li>
-            <li class="menu5"><a href="#5">前端更多技術<img src="images/chevron-down.svg" alt="更多資訊"></a></li>
+            <li class="menu4"><a href="./vueExplain.html">Vue</a></li>
+            <li class="menu5"><a href="javascript:;">前端更多技術</a></li>
+            <ul class="menu5_more">
+                <li><a href="./gitExplain.html">Git</a></li>
+                <li><a href="./regexExplain.html">Regex</a></li>
+                <li><a href="./svgExplain.html">svg</a></li>
+                <li><a href="./seoExplain.html">Seo</a></li>
+                <li><a href="./jqueryExplain.html">jQuery</a></li>
+                <li><a href="./dockerExplain.html">Docker</a></li>
+                <li><a href="./cicdExplain.html">CI/CD</a></li>
+            </ul>
         </ul>
     </nav>
 
-    <div class="breadcrumbs">當前位置: <a href="index.html">首頁</a></div>
-    <section class="banner" id="banner">
-        <div class="banner_left" @click.stop="imgSwitch(bannerKey-1)">
+    <div class="breadcrumbs">當前位置: <a href="./index.html">首頁</a><a href="./cssExplain.html">CSS</a></div>
+    <article class="banner" id="banner">
+        <div class="banner_left" @click.stop="imgSwitch(keyN-1)">
             <img src="./images/chevron-left.svg">
         </div>
-        <div class="banner_right" @click.stop="imgSwitch(bannerKey+1)">
+        <div class="banner_right" @click.stop="imgSwitch(keyN+1)">
             <img src="./images/chevron-right.svg">
         </div>
-        <a v-for="(img,index) in banner" :href="img.href" v-show="index === bannerKey" :class="{show:index == bannerKey}"><img :src="img.src" alt="img.alt"></a> 
-    </section>
+        <a v-for="(img,index) in banner" :href="img.href" v-show="index === bannerKey && width>=1024" :class="{show:index == bannerKey}" ><img :src="img.src" alt="img.alt"></a> 
+        <a v-for="(img,index) in mobBanner" :href="img.href" v-show="index === mobBannerKey && width<=1023" :class="{show:index == mobBannerKey}" ><img :src="img.src" alt="img.alt"></a>
+    </article>
     <main>
 
         
@@ -124,7 +135,7 @@
                 <p>以上是常見設定style樣式的方式，每個方法都有不同的使用時機，設定網站頁面的css會採用第二種方式去掉頭尾style標籤後獨立製作檔案，新增資料夾命名為css後放入，其css副檔名必須為.css，在head標籤中使用&lt;link rel="stylesheet" href="css位置">導入樣式。</p>
                 <p>css在設定中會有權重問題，一般而言css的權重是由以下由小至大做排序，設定重複的樣式會已權重越大為優先覆蓋。</p>
                 <h5>class > id > 標籤內直接輸入style控制 > !important</h5>
-                <p>其中important的權重是最大的，任何在屬性後方加上!important就會蓋過其他地方設置的屬性，因此若非必要盡量避免使用該參數。</p>
+                <p>其中important的權重是最大的，任何在屬性後方加上!important就會蓋過其他地方設置的屬性，因此若非必要盡量避免使用該參數避免後續維護困難。</p>
                 <h3>以下將針對CSS的選取器做一些簡單介紹</h3>
                 <ol>
                     <li>#idName</li>
@@ -282,6 +293,9 @@
     
     <footer>
         <p>&copy; ayvc0420</p> 
+        <div>
+            本站最佳瀏覽解析度為1920x1080
+        </div>
     </footer>
 
 

@@ -1,6 +1,6 @@
 ;(function(){
 
-    const content = document.querySelectorAll('.content>article')
+    const content = document.querySelectorAll('.content>article>div')
 
     window.addEventListener('scroll',function(){
         const nowHeight = document.documentElement.scrollTop;

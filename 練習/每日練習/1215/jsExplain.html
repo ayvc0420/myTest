@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JavaScript介紹</title>
     <link rel="stylesheet" href="scss/reset.css">
     <link rel="stylesheet" href="scss/style.css">
 </head>
@@ -20,16 +20,16 @@
             <li class="menu1"><a href="./htmlExplain.html">HTML</a></li>
             <li class="menu2"><a href="./cssExplain.html">CSS</a></li>
             <li class="menu3"><a href="./jsExplain.html">JavaScript</a></li>
-            <li class="menu4"><a href="#4">Vue</a></li>
-            <li class="menu5"><a href="#5">前端更多技術<img src="images/chevron-down.svg" alt="更多資訊"></a>
+            <li class="menu4"><a href="./vueExplain.html">Vue</a></li>
+            <li class="menu5"><a href="javascript:;">前端更多技術<img src="images/chevron-down.svg" alt="更多資訊"></a>
                 <ul>
-                    <li><a href="#1">Git</a></li>
-                    <li><a href="#1">Regex</a></li>
-                    <li><a href="#1">svg</a></li>
-                    <li><a href="#1">Seo</a></li>
-                    <li><a href="#1">jQuery</a></li>
-                    <li><a href="#1">Docker</a></li>
-                    <li><a href="#1">CI/CD</a></li>
+                    <li><a href="./gitExplain.html">Git</a></li>
+                    <li><a href="./regexExplain.html">Regex</a></li>
+                    <li><a href="./svgExplain.html">svg</a></li>
+                    <li><a href="./seoExplain.html">Seo</a></li>
+                    <li><a href="./jqueryExplain.html">jQuery</a></li>
+                    <li><a href="./dockerExplain.html">Docker</a></li>
+                    <li><a href="./cicdExplain.html">CI/CD</a></li>
                 </ul>
             </li>
         </ul>
@@ -46,24 +46,35 @@
         </div>
 
         <ul class="mob_menu">
+            <li class="menu1"><a href="./index.html">首頁</a></li>
             <li class="menu1"><a href="./htmlExplain.html">HTML</a></li>
             <li class="menu2"><a href="./cssExplain.html">CSS</a></li>
             <li class="menu3"><a href="./jsExplain.html">JavaScript</a></li>
-            <li class="menu4"><a href="#4">Vue</a></li>
-            <li class="menu5"><a href="#5">前端更多技術<img src="images/chevron-down.svg" alt="更多資訊"></a></li>
+            <li class="menu4"><a href="./vueExplain.html">Vue</a></li>
+            <li class="menu5"><a href="javascript:;">前端更多技術</a></li>
+            <ul class="menu5_more">
+                <li><a href="./gitExplain.html">Git</a></li>
+                <li><a href="./regexExplain.html">Regex</a></li>
+                <li><a href="./svgExplain.html">svg</a></li>
+                <li><a href="./seoExplain.html">Seo</a></li>
+                <li><a href="./jqueryExplain.html">jQuery</a></li>
+                <li><a href="./dockerExplain.html">Docker</a></li>
+                <li><a href="./cicdExplain.html">CI/CD</a></li>
+            </ul>
         </ul>
     </nav>
 
-    <div class="breadcrumbs">當前位置: <a href="index.html">首頁</a></div>
-    <section class="banner" id="banner">
-        <div class="banner_left" @click.stop="imgSwitch(bannerKey-1)">
+    <div class="breadcrumbs">當前位置: <a href="./index.html">首頁</a><a href="./jqueryExplain.html">JavaScript</a></div>
+    <article class="banner" id="banner">
+        <div class="banner_left" @click.stop="imgSwitch(keyN-1)">
             <img src="./images/chevron-left.svg">
         </div>
-        <div class="banner_right" @click.stop="imgSwitch(bannerKey+1)">
+        <div class="banner_right" @click.stop="imgSwitch(keyN+1)">
             <img src="./images/chevron-right.svg">
         </div>
-        <a v-for="(img,index) in banner" :href="img.href" v-show="index === bannerKey" :class="{show:index == bannerKey}"><img :src="img.src" alt="img.alt"></a> 
-    </section>
+        <a v-for="(img,index) in banner" :href="img.href" v-show="index === bannerKey && width>=1024" :class="{show:index == bannerKey}" ><img :src="img.src" alt="img.alt"></a> 
+        <a v-for="(img,index) in mobBanner" :href="img.href" v-show="index === mobBannerKey && width<=1023" :class="{show:index == mobBannerKey}" ><img :src="img.src" alt="img.alt"></a>
+    </article>
     <main>
 
         
@@ -199,7 +210,7 @@
     }
     funcName()</pre>
                     </li>
-                    <p>這是一個基本的函式宣告命名為funcName，可以使用名稱()進行呼叫執行函式，與匿名函式不同，有名稱的函式可以被重複呼叫，<span>如果在不存在函式的作用域下呼叫函式JS會往外層尋找但不會進入其他區域環境內</span></p>
+                    <p>這是一個基本的函式宣告命名為funcName，可以使用名稱()進行呼叫執行函式，與匿名函式不同，有名稱的函式可以被重複呼叫，<span>如果在不存在函式的作用域下呼叫函式JS會往外層尋找但不會進入其他區域環境內</span>，特別注意用宣告命名函式的方式在執行的時候會將函式放在頂端執行，將函式放入變數後呼叫使用則不會</p>
                     <li>
     <pre>
     const funcName = (n) =>{
@@ -278,7 +289,7 @@
         <article class="end_text">
             <h2>小結</h2>
             <p>JavaScript是賦予網頁靈魂的程式語言，在現今追求互動的網頁下是不可或缺的一門技術，JavaScript不只能應用在網頁上，也能在應用在手機APP開發。</p>
-            <p>針對更多JavaScript影片可以參考:<a href="https://www.youtube.com/channel/UCEL8871qFEakpqYpwBSjHNA" target="new">Alex 宅幹嘛頻道</a></p>
+            <p>針對更多JavaScript影片可以參考:<a href="https://www.youtube.com/channel/UCEL8871qFEakpqYpwBSjHNA" target="new">Alex 宅幹嘛頻道</a>，有數百部前端影片可以學習。</p>
         </article>
 
 
@@ -286,6 +297,9 @@
 
     <footer>
         <p>&copy; ayvc0420</p> 
+        <div>
+            本站最佳瀏覽解析度為1920x1080
+        </div>
     </footer>
 
 

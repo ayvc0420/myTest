@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            box-sizing: border-box;
+            font-size: 10px;
+            background: #ffc600;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: 'Amatic SC', cursive;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 10rem;
+            line-height: 1;
+            margin-bottom: 0;
+        }
+
+        .score {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0 3rem;
+            line-height: 1;
+            border-radius: 1rem;
+        }
+
+        .game {
+            width: 600px;
+            height: 400px;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 auto;
+        }
+
+        .hole {
+            flex: 1 0 33.33%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hole:after {
+            display: block;
+            background: url(dirt.svg) bottom center no-repeat;
+            background-size: contain;
+            content: '';
+            width: 100%;
+            height: 70px;
+            position: absolute;
+            z-index: 2;
+            bottom: -30px;
+        }
+
+        .mole {
+            background: url('mole.svg') bottom center no-repeat;
+            background-size: 60%;
+            position: absolute;
+            top: 100%;
+            width: 100%;
+            height: 100%;
+            transition: all 0.4s;
+        }
+
+        .hole.up .mole {
+            top: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div style="display: flex;justify-content: center;margin: 20px auto;font-size: 18px;">
+        遊玩時間:<input type="number" id="userTime" style="width: 60px;">秒
+        <button id="gameBtn">開始!</button>
+    </div>
+
+    <h1>獲得分數: <span class="score">0</span></h1>
+    <h1 style="position: absolute; top: 10px;right: 100px;font-size: 30px;">剩餘時間: <span class="endTime">0</span></h1>
+    <!-- <button onClick="startGame()">Start!</button> -->
+
+    <div class="game">
+        <div class="hole hole1">
+            <div class="mole"></div>
+        </div>
+        <div class="hole hole2">
+            <div class="mole"></div>
+        </div>
+        <div class="hole hole3">
+            <div class="mole"></div>
+        </div>
+        <div class="hole hole4">
+            <div class="mole"></div>
+        </div>
+        <div class="hole hole5">
+            <div class="mole"></div>
+        </div>
+        <div class="hole hole6">
+            <div class="mole"></div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        const holes = document.querySelectorAll('.hole');
+        const scoreBoard = document.querySelector('.score');
+        const moles = document.querySelectorAll('.mole')
+        const userTime = document.getElementById('userTime')
+        const gameBtn = document.getElementById('gameBtn')
+        const endTime = document.querySelector('.endTime')
+        // 是否開始遊戲
+        let gameState = true
+        // 遊戲循環
+        let l
+        // 遊戲分數
+        let Fraction = 0
+        // 剩餘時間
+        let endTimeView = 0
+        // 點擊開始扭
+        let endTimeLoop
+        gameBtn.addEventListener('click',function(){
+            const n = parseInt(userTime.value,10)
+            // 開始前先檢查玩家輸入的時間是不是數字
+            if(n){
+                startGame()
+                endTimeView = n
+                endTimeLoop = setInterval(time,1000);
+            }
+        })
+
+        // 每一秒就更新一次剩餘時間 
+        function time(){
+            endTimeView --
+            endTime.textContent = endTimeView
+            if(endTimeView <= 0){
+                endTime.textContent = 0
+                clearInterval(endTimeLoop)
+            }
+            return time
+        }
+
+        function startGame(){
+            if(gameState === true){
+                // 設定無法開始遊戲
+                gameState = false
+                // 開始倒數
+                endGame()
+                // 歸零
+                Fraction = 0
+                scoreBoard.textContent = Fraction
+                // 移除掉全部class
+                holes.forEach(item=>item.classList.remove('up'))
+                // 持續執行遊戲
+                stateLoop()
+            }
+        }
+
+        function stateLoop(){
+            // 這邊延遲執行皆放在func內 避免一開始就執行
+            let n 
+            function loop(){
+                // 把class清掉 第一次不執行 第二次之後執行上一次出地鼠的位置
+                n ? holes[n].classList.remove('up') : ''
+                // 產一個隨機數字 要拿來顯示地鼠
+                n = stateNumber()
+                // 把拿到的數字拿去顯示地鼠
+                holes[n].classList.add('up')
+                // 設定時間300~1000毫秒內隨機呼叫這個func 叫地鼠出來
+                l = setTimeout(loop, randomTime(300,1000))
+            }
+            // 跟上面的搭配 做循環
+            l = setTimeout(loop, randomTime(300,1000))
+        }
+
+
+        // 設定一個隨機產生數字
+        function randomTime(min, max) {
+            // 回傳一個數字 最大最小由參數決定
+            return Math.round(Math.random() * (max - min) + min);
+        }
+        function stateNumber() {
+            // 設定地鼠有幾隻 會產在範圍內的數字
+            return Math.floor(Math.random() * holes.length)
+        }
+
+        moles.forEach(item=>{
+            // 當點擊到地鼠的時候
+            item.addEventListener('click',function(){
+                // 檢查現在是否開始遊戲 否則不執行以下
+                if(gameState === true) return
+                // 檢查點擊到的父層是否有up屬性 不然不執行以下 此檢查避免連續點擊加分
+                if(!this.parentNode.classList.contains('up')) return
+                // 點擊到的地鼠的父層移除up class
+                this.parentNode.classList.remove('up')
+                // 分數++
+                Fraction++
+                // 修改畫面分數
+                scoreBoard.textContent = Fraction
+            })
+        })
+
+
+        // 停止遊戲
+        function endGame(){
+            // 按下開始鍵就倒數 數字為使用者設定的秒數
+            setTimeout(()=>{
+                // 把現在遊戲狀態設為遊戲中 無法被連續觸發開始遊戲
+                gameState = true
+                // 提示時間到了
+                alert('時間到')
+                // 停止上面的循環
+                clearTimeout(l)
+                // 移除全部class
+                holes.forEach(item=>item.classList.remove('up'))
+                // 單位是毫秒 要*1000 這邊其實不加parseInt應也行 但觀念上還是加
+            },userTime.value*1000 +1000)
+        }
+
+
+
+    </script>
+</body>
+
+</html>

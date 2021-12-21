@@ -1,0 +1,6 @@
+1.html
+js30挑戰 第三十天 
+參照網站 https://github.com/wesbos/JavaScript30
+打地鼠遊戲 根據原作者版本做額外修改
+
+花費時間1小時40分
