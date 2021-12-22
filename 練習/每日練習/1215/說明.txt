@@ -3,7 +3,7 @@ index.html
 內容為介紹前端技術
 
 花費時間6小時
-
+(1222轉移至webDesign)
 
 2.html
 js30挑戰 第二十四天 
