@@ -1,0 +1,219 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+
+    <style>/* layout */
+
+        .images{
+            background-color: rgb(255, 215, 215);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .images img{
+            vertical-align: middle;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(230, 255, 192);
+        }
+        footer{
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+        footer a{
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 0;
+            color: yellow;
+        }
+    </style>
+    <style> /* box work */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200&display=swap');
+
+        .work{
+            background: linear-gradient(54deg, #2f2325 17%, #8e5d52 86%);
+            font-family: 'Roboto Slab', serif;
+        }
+        .header_nav{
+            display: flex;
+            width: 1200px;
+            margin: auto;
+            justify-content: space-between;
+            font-weight: 500;
+        }
+        .logo>img{
+            padding: 10px 0;
+            width: 62px;
+        }
+        .menu{
+            display: flex;
+        }
+        .menu>li>a{
+            display: inline-block;
+            text-decoration: none;
+            padding: 32px 20px;
+            font-size: 18px;
+            color: rgb(255, 255, 255);
+        }
+        .banner{
+            width: 1920px;
+            /* 這邊上下線用height 1px與0.4px完全沒差別 因此改用border省行數 */
+            border-top: 1px solid rgb(255, 255, 255);
+            border-bottom: 1px solid rgb(255, 255, 255);
+        }
+        .banner .title{
+            display: flex;
+            width: 1197px;
+            margin: auto;
+            justify-content: space-between;
+        }
+        .banner .title h2{
+            margin-top: 94px;
+            font-size: 64px;
+            color: #fff2e7;
+            margin-bottom: 32px;
+            font-weight: 900;
+        }
+        .banner .title h4{
+            font-size: 24px;
+            color: #ecd6c4;
+            margin-bottom: 34px;
+        }
+        .banner .title button{
+            width: 185px;
+            height: 67px;
+            font-size: 24px;
+            color: #2f2325;
+            background-color: #ecd6c4;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 4px 5px 4px 0 rgba(0, 0, 0, 0.25);
+        }
+        .banner .line{
+            width: 276px;
+            height: 0.4px;
+            background-color:rgb(255, 255, 255);
+            margin: auto;
+        }
+        .banner .wrap{
+            text-align: center;
+        }
+        .banner .title img{
+            width: 100%;
+            margin-top: 64px;
+            margin-bottom: 34px;
+        }
+        .banner .wrap h3{
+            margin-top: 74px;
+            margin-bottom: 31px;
+            font-size: 24px;
+            color: #fff2e7;
+            font-weight: 900;
+        }
+        .banner .wrap p{
+            font-size: 18px;
+            color: #ecd6c4;
+            line-height: 2.8;
+            font-weight: 700;
+        }
+        .banner .wrap p:last-of-type{
+            padding-bottom: 50px;
+        }
+        .BALLERINI{
+            margin: 31px 0 45px;
+            text-align: center;
+            font-size: 100px;
+            font-weight: 900;
+            /* 字體問題 */
+            letter-spacing: -12px;
+        }
+        .BALLERINI>span:nth-of-type(5n+1){
+            color: #feafbe;
+        }
+        .BALLERINI>span:nth-of-type(5n+2){
+            color: #b3dfd3;
+        }
+        .BALLERINI>span:nth-of-type(5n+3){
+            color: #a45a49;
+        }
+        .BALLERINI>span:nth-of-type(5n+4){
+            color: #efc764;
+        }
+        .BALLERINI>span:nth-of-type(5n+5){
+            color: #97d4d9
+        }
+    </style>
+</head>
+<body>
+    <div class="images">
+        <img src="1.png">
+    </div>
+    <div class="box">
+        <div class="work">
+            
+            <nav class="header_nav">
+                <div class="logo">
+                    <img src="./images/logo.webp" alt="logo 圖片">
+                </div>
+                <ul class="menu">
+                    <li><a href="#">Comunidade Ballerini</a></li>
+                    <li><a href="#">Tutorial</a></li>
+                    <li><a href="#">Open Source</a></li>
+                    <li><a href="#">Comandos</a></li>
+                </ul>
+            </nav>
+            <div class="banner">
+                <div class="title">
+                    <div>
+                        <h2>Balle Bot</h2>
+                        <h4>Deixe a sua comunidade segura de um jeito fácil</h4>
+                        <!-- 可以監控按鈕導向網頁或按鈕觀賞用或改用a標籤做 -->
+                        <button>Me adicione!</button>
+                    </div>
+                    <div>
+                        <img src="./images/group_4.webp" alt="微笑機器人 圖片">
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div class="wrap">
+                    <h3>O que ela faz por você?</h3>
+                    <p>1. Cria um sistema de verificação capcha para novos membros garantirem que não são robôs</p>
+                    <p>2. Possui um sistema de banimento automático para links suspeitos que forem enviados na comunidade</p>
+                    <p>3. Sistema de avisos e banimento manual, para pessoas administradoras utilizarem</p>
+                </div>
+            </div>
+            <div class="BALLERINI">
+                <!-- 字體問題 -->
+                <span>B</span>
+                <span>A</span>
+                <span>L</span>
+                <span>L</span>
+                <span>E</span>
+                <span>R</span>
+                <span>I</span>
+                <span>N</span>
+                <span>I</span>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <footer>
+        <a href="https://www.figma.com/community/file/1055168352221248474" target="new">參照網站</a>
+    </footer>
+</body>
+</html>
