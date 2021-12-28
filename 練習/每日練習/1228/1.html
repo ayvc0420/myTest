@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            background-color:sandybrown;
+        }
+        #app>div:first-of-type{
+            width: 450px;
+            display: flex;
+            flex-wrap: wrap;
+            border: 1px solid rgb(0,0,0);
+        }
+        .end_msg{
+            font-size: 40px;
+            color: greenyellow;
+            width: 100%;
+            margin:10px;
+            text-align: center;
+        }
+        .game{
+            width: 150px;
+            height: 150px;
+            border: 1px solid rgb(0,0,0);
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            font-weight: 900;
+        }
+        .symbol_o{
+            color: rgb(255, 0, 0)
+        }
+        .symbol_x{
+            color: rgb(255, 255, 0)
+        }
+        .F5{
+            margin-top: 20px;
+            border-radius: 7px;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+
+        <div>
+            <div class="game" v-for="(item,index) in grid" @click="step(index)">
+    
+            </div>
+        </div>
+
+        <div v-if="gameState"  class="end_msg">
+            目前平手,出手的是{{stepState}}
+        </div>
+        <div v-else class="end_msg">
+            是{{winTarget}}勝利
+        </div>
+        <button @click="F5()" class="F5">重新開始</button>
+
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        // ;(function(){
+            let v = new Vue({
+                el:'#app',
+                data:{
+                    grid:9,
+                    stepNumber:1,
+                    switch:false,
+                    // 預設可以玩遊戲
+                    gameState:true,
+                    // 遊戲內容 陣列+物件表達
+                    gameContent:[
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                    ],
+                    winTarget:'',
+                    
+                },
+                computed:{
+                    stepState(){
+                        if(this.switch !== false){
+                            return 'X'
+                        }else{
+                            return 'O'
+                        }
+                    }
+                    // lineState(){
+                    //     const n0 = this.gameContent[0].content
+                    //     const n1 = this.gameContent[1].content
+                    //     const n2 = this.gameContent[2].content
+                    //     const n3 = this.gameContent[3].content
+                    //     const n4 = this.gameContent[4].content
+                    //     const n5 = this.gameContent[5].content
+                    //     const n6 = this.gameContent[6].content
+                    //     const n7 = this.gameContent[7].content
+                    //     const n8 = this.gameContent[8].content
+                    //     console.log(0)
+                    //     if(n0 === n1 && n1 === n2 && n1 != undefined){
+                    //         this.gameState = false
+                    //         console.log(1)
+                    //         return n0
+                    //     }else if(n3 === n4 && n4 === n5 && n4 != undefined){
+                    //         this.gameState = false
+                    //         console.log(2)
+                    //         return n3
+                    //     }else if(n6 === n7 && n7 === n8 && n7 != undefined){
+                    //         this.gameState = false
+                    //         console.log(3)
+                    //         return n6
+                    //     }else if(n0 === n3 && n3 === n6 && n3 != undefined){
+                    //         this.gameState = false
+                    //         console.log(4)
+                    //         return n0
+                    //     }else if(n1 === n4 && n4 === n7 && n4 != undefined){
+                    //         this.gameState = false
+                    //         console.log(5)
+                    //         return n1
+                    //     }else if(n2 === n5 && n5 === n8 && n5 != undefined){
+                    //         this.gameState = false
+                    //         console.log(6)
+                    //         return n2
+                    //     }else if(n0 === n4 && n4 === n8 && n4 != undefined){
+                    //         this.gameState = false
+                    //         console.log(7)
+                    //         return n0
+                    //     }else if(n2 === n4 && n4 === n6 && n4 != undefined){
+                    //         this.gameState = false
+                    //         console.log(8)
+                    //         return n2
+                    //     }
+                    // }
+                },
+                methods: {
+                    step(index){
+                        // 如果遊戲結束以下就不做
+                        if(!this.gameState) return
+                        // 如果有內容以下就不做
+                        if(event.target.textContent) return
+                        const target = event.target
+                        this.switch = !this.switch
+                        if(this.switch){
+                            target.textContent = 'O'
+                            target.classList.add('symbol_o')
+                            this.gameContent[index].id = this.stepNumber-1
+                            this.gameContent[index].content = 'O'
+                            this.gameContent[index].position = index+1
+
+                        }else{
+                            target.textContent = 'X'
+                            target.classList.add('symbol_x')
+                            this.gameContent[index].id = this.stepNumber-1
+                            this.gameContent[index].content = 'X'
+                            this.gameContent[index].position = index+1
+                        }
+                        this.lineState()
+                        this.stepNumber++
+                    },
+                    lineState(){
+                        // 此部分可以考慮改用computed傳出參數 在step下條件影響結束
+                        const n0 = this.gameContent[0].content
+                        const n1 = this.gameContent[1].content
+                        const n2 = this.gameContent[2].content
+                        const n3 = this.gameContent[3].content
+                        const n4 = this.gameContent[4].content
+                        const n5 = this.gameContent[5].content
+                        const n6 = this.gameContent[6].content
+                        const n7 = this.gameContent[7].content
+                        const n8 = this.gameContent[8].content
+                        // console.log(0)
+                        if(n0 === n1 && n1 === n2 && n1 != undefined){
+                            this.gameState = false
+                            // console.log(1)
+                            this.winTarget = n0
+                        }else if(n3 === n4 && n4 === n5 && n4 != undefined){
+                            this.gameState = false
+                            // console.log(2)
+                            this.winTarget = n3
+                        }else if(n6 === n7 && n7 === n8 && n7 != undefined){
+                            this.gameState = false
+                            // console.log(3)
+                            this.winTarget = n6
+                        }else if(n0 === n3 && n3 === n6 && n3 != undefined){
+                            this.gameState = false
+                            // console.log(4)
+                            this.winTarget = n0
+                        }else if(n1 === n4 && n4 === n7 && n4 != undefined){
+                            this.gameState = false
+                            // console.log(5)
+                            this.winTarget = n1
+                        }else if(n2 === n5 && n5 === n8 && n5 != undefined){
+                            this.gameState = false
+                            // console.log(6)
+                            this.winTarget = n2
+                        }else if(n0 === n4 && n4 === n8 && n4 != undefined){
+                            this.gameState = false
+                            // console.log(7)
+                            this.winTarget = n0
+                        }else if(n2 === n4 && n4 === n6 && n4 != undefined){
+                            this.gameState = false
+                            // console.log(8)
+                            this.winTarget = n2
+                        }
+                    },
+                    F5(){
+                        window.location.reload()
+                    }
+                },
+
+            })
+
+
+        // })()
+    </script>
+</body>
+</html>
