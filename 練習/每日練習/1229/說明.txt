@@ -1,0 +1,10 @@
+1.html
+切版練習 根據網站rwd只做768px以下設定
+
+花費時間50分
+
+找工作...
+
+重新理解Vue 及 vue document觀看
+
+安裝php環境及成功編譯顯示hello world
