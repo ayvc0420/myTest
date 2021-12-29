@@ -4,7 +4,7 @@
     {"title":"0911第二次刻網站","text":"評語:成功一半的練習，花費的時間過久。"},
     {"title":"0915練習截圖刻板","text":"自評分"},
     {"title":"0917練習截圖刻板","text":"自評75分"},
-    {"title":"0918影片製作todolist","text":"自評70分"},
+    {"title":"0918根據影片製作todolist","text":"自評70分"},
     {"title":"0920練習截圖刻板","text":"自評80分"},
     {"title":"0921背景角度切版","text":"自評60分"},
     {"title":"0922練習刻板/圖文顯示製作","text":"自評75分"},
@@ -19,7 +19,7 @@
     {"title":"1002checked效果練習/練習截圖刻板/上課使用的jQ範例改用js重新操作","text":"自評84分"},
     {"title":"1003重新思考正確時機觸發動畫","text":"自評優化前78分優化後86分"},
     {"title":"1004簡單測試float效果","text":"無自評"},
-    {"title":"1004~1011製作網站網址:<a href='https://ayvc0420.github.io/' target='new' title='另開新視窗'>點我前往</a>","text":"無自評"},
+    {"title":"1004~1011製作ayvc0420網站網址<br><a href='https://ayvc0420.github.io/' target='new' title='另開新視窗'>點我前往</a>","text":"無自評"},
     {"title":"1011+號練習/頁籤切換製作","text":"自評78分"},
     {"title":"1012基本排版/切版練習/hover閃爍效果/hover互動效果","text":"自評76分"},
     {"title":"1013切表格/jquery、vue","text":"自評75分"},
@@ -96,6 +96,6 @@
     {"title":"1225繼續1215網站開發(專案命名為webDesign)","text":"自評90分"},
     {"title":"1226webDesign網站開發完畢","text":"自評90分"},
     {"title":"1227用figma+zeplin將網路範例設計稿以網頁型態做呈獻/觀看影片講解","text":"自評89分"},
-    {"title":"1228用Vue做出三子棋遊戲","text":"自評89分"}
+    {"title":"1228用Vue做出三子棋遊戲<br>網址:<a href='https://ayvc0420.github.io/webDesign/index.html' target='new' title='另開新視窗'>點我前往</a>","text":"自評89分"}
 
 ]

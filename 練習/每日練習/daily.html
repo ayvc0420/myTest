@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -228,6 +228,7 @@
                 },
                 computed:{
                     practiceNumber(){
+                        centerHeightHandler()
                         return `目前的練習數量有${this.list.length}個!!`
                     },
                     listLength(){
@@ -237,9 +238,7 @@
                 methods: {
                     hrefHandler(){
                         window.open(
-                            'https://github.com/ayvc0420/myTest/tree/main/%E7%B7%B4%E7%BF%92/%E6%AF%8F%E6%97%A5%E7%B7%B4%E7%BF%92'
-                            ,'new'
-                            )
+                            'https://github.com/ayvc0420/myTest/tree/main/%E7%B7%B4%E7%BF%92/%E6%AF%8F%E6%97%A5%E7%B7%B4%E7%BF%92','new')
                     }    
                 },
                 async mounted() {
