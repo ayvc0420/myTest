@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .calendar{
+            width: 500px;
+            border: 1px solid rgb(0,0,0);
+            border-radius: 4px;
+            padding: 10px;
+            box-shadow: 0 2px 10px rgb(170, 170, 170);
+        }
+        .calendar>h2{
+            text-align: center;
+            font-weight: 900;
+            font-size: 30px;
+            margin: 0 0 10px;
+        }
+        .week{
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            border-bottom: 1px solid rgb(0,0,0);
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+        .week>span{
+            width: 14%;
+            font-size: 18px;
+            text-align: center;
+        }
+        .week>span:first-of-type,.week>span:last-of-type{
+            font-weight: 900;
+        }
+        .day{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .day>span{
+            width: 14.2857%;
+            display: inline-block;
+            text-align: center;
+            padding: 10px 0;
+            margin: 5px 0;
+            cursor: default;
+        }
+        .day>span:hover{
+            background-color: rgb(231, 231, 231);
+        }
+        .gray{
+            color: rgb(200, 200, 200);
+        }
+        .btn{
+            margin-bottom: 10px;
+        }
+        @media screen and (max-width:768px) {
+            .calendar{
+                width: 350px;
+            }
+            .day>span{
+                width: 50px;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+
+
+    
+
+    <div class="btn">
+        <button id="beforeBtn">上個月</button>
+        <button id="nextBtn">下個月</button>
+    </div>
+    <div class="calendar" id="calendar">
+
+        <h2 id="month"></h2>
+        <header class="week">
+            <span>日</span>
+            <span>一</span>
+            <span>二</span>
+            <span>三</span>
+            <span>四</span>
+            <span>五</span>
+            <span>六</span>
+        </header>
+        <div class="day" id="day">
+
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+
+        ;(function(){
+
+
+            const month = document.getElementById('month')
+            const day = document.getElementById('day')
+            const beforeBtn = document.getElementById('beforeBtn')
+            const nextBtn = document.getElementById('nextBtn')
+
+            let nowDate = new Date()
+
+            // 渲染畫面
+            function init(){
+                day.innerHTML = ''
+                // 這個月一號是哪一天
+                let nowDays = new Date(nowDate.getFullYear(),nowDate.getMonth(),1)
+                // 要拿來做前一個月的第二份copy 與上方獲取方式一樣
+                let nowDays2 = new Date(nowDate.getFullYear(),nowDate.getMonth(),1)
+                // 先算前面的天數 把要顯示在畫面的天數設定為這個月一號減掉這個月一號的禮拜幾 12/1禮拜三 減掉3 = 11/28禮拜日 從上禮拜開始算
+                nowDays.setDate(nowDays.getDate()-nowDays.getDay())
+
+                let i = 0;
+                //130行已經將現在月份減掉到上個月份的禮拜日的時間 因此從那個時間點開始做 裡面條件下每做一次就加一天
+                while(nowDays<nowDays2 && i <= 300){
+                    day.innerHTML += `<span class="gray">${nowDays.getDate()}</span>`
+                    nowDays.setDate(nowDays.getDate()+1)
+                    i++
+                    console.log('1',i)
+                }
+                
+                //這個月開始做 如果月份沒改變就繼續做 裡面條件下每做一次就加一天
+                while(nowDays.getMonth() === nowDate.getMonth()){
+                    
+                    // 設定當前的天數為計算的天數+1
+                    day.innerHTML += `<span>${nowDays.getDate()}</span>`
+                    month.textContent = `${nowDate.getFullYear()}年${nowDate.getMonth()+1}月`
+                    nowDays.setDate(nowDays.getDate()+1)
+                    i++
+                    console.log('2',i)
+                }
+
+                //做下個月的 如果大於0就做 這邊的0指的是Date物件的getDay範圍是0~6 0代表禮拜日 6代表禮拜六 
+                while(nowDays.getDay()>0){
+                    day.innerHTML += `<span class="gray">${nowDays.getDate()}</span>`
+                    nowDays.setDate(nowDays.getDate()+1)
+                    i++
+                    console.log('3',i)
+                }
+
+            }
+            // 載入就先做
+            init()
+
+            // 點擊就做
+            beforeBtn.addEventListener('click',function(){
+                nowDate.setMonth(nowDate.getMonth()-1)
+                init()
+            })
+            nextBtn.addEventListener('click',function(){
+                nowDate.setMonth(nowDate.getMonth()+1)
+                init()
+            })
+
+
+        })()
+
+
+
+    </script>
+
+
+</body>
+</html>
