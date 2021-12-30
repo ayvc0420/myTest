@@ -113,6 +113,7 @@
             background-color: black;
             left: 0;
             right: 0;
+            height: 0px;
             margin: auto;
         }
         .center::before{
@@ -203,7 +204,7 @@
     </div>
     <section id="app" v-cloak>
         <h3 id="title">{{practiceNumber}}</h3>
-        <div class="center"></div>
+        <div class="center" id="center"></div>
         <article v-for="(item,index) in list" @click="hrefHandler">
             <h3 v-html="item.title"></h3>
             <p>{{item.text}}</p>
@@ -217,18 +218,18 @@
 
     <script src="js/vue.js"></script>
     <script>
-        ;(function(){
+        ;(function(Vue){
             const article = document.querySelectorAll('article')
             const url = './data/data.json'
 
-            const v = new Vue({
+            new Vue({
                 el:'#app',
                 data:{
                     list:[]
                 },
                 computed:{
                     practiceNumber(){
-                        centerHeightHandler()
+                        this.centerHeightHandler()
                         return `目前的練習數量有${this.list.length}個!!`
                     },
                     listLength(){
@@ -237,11 +238,26 @@
                 },
                 methods: {
                     hrefHandler(){
-                        window.open(
-                            'https://github.com/ayvc0420/myTest/tree/main/%E7%B7%B4%E7%BF%92/%E6%AF%8F%E6%97%A5%E7%B7%B4%E7%BF%92','new')
-                    }    
+                        window.open('https://github.com/ayvc0420/myTest/tree/main/%E7%B7%B4%E7%BF%92/%E6%AF%8F%E6%97%A5%E7%B7%B4%E7%BF%92','new')
+                    },
+                    centerHeightHandler(){
+                        this.$nextTick(function(){
+                            if(document.documentElement.scrollWidth > 1024){
+                                setTimeout(() => {
+                                    let centerHeight = 66 * (this.listLength - 3)
+                                    document.getElementById('center').style.height = centerHeight+'px'
+                                    console.log('centerHeight',centerHeight+'px')
+                                }, 200);
+                            }else{
+                                center.style.height = `0px`
+                            }
+                        })
+                    }
                 },
                 async mounted() {
+                    this.$nextTick(this.centerHeightHandler())
+                    window.addEventListener('scroll',this.centerHeightHandler)
+                    window.addEventListener('resize',this.centerHeightHandler)
                     let data;
                     try{
                         data = await fetch(url)
@@ -255,21 +271,7 @@
             })
 
 
-            const center = document.querySelector('.center')
-                function centerHeightHandler(){
-                    if( document.documentElement.scrollWidth > 1024){
-                        setTimeout(() => {
-                            let centerHeight = 66 * (v.listLength-3)
-                            center.style.height = `${centerHeight}px`
-                        }, 200);
-                    }else{
-                        center.style.height = `0px`
-                    }
-                }
-                centerHeightHandler()
-            window.addEventListener('scroll',centerHeightHandler)
-            window.addEventListener('resize',centerHeightHandler)
-        })()
+        })(Vue)
     </script>
 </body>
 </html>
