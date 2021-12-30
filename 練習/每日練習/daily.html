@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>每日記錄清單</title>
-    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="./css/reset.css">
     <style>
         [v-cloak]{
             display : none;
@@ -15,45 +15,52 @@
             color: blue;
         }
         .comment{
+            font-family: '微軟正黑體';
             max-width: 300px;
             position: fixed;
             left: 20px;
             top: 30vh;
-            font-size: 20px;
-            padding: 10px 20px;
+            font-size: 19px;
+            padding: 10px 30px 10px 15px;
             line-height: 1.4;
-            border: 1px solid black;
-            box-shadow: 0 2px 5px 0 black;
+            border: 1px solid rgb(0, 0, 0);
+            box-shadow: 0 2px 5px 0 rgb(0, 0, 0);
         }
+
         section{
+            font-family: '微軟正黑體';
             max-width: 1000px;
-            margin: auto;
-            padding-bottom: 150px;
+            margin: 0 auto 300px;
         }
         section>article{
-            margin: 10px 50px;
-            width: 300px;
-            border: 1px solid black;
-            box-shadow: 0 0 5px rgba(0,0,0,0.5);
-            padding: 10px 5px;
-            border-radius: 5px;
-            position: relative;
+            display: flex;
+            flex-direction: column;
             line-height: 1.5;
-        }
-        section>article:hover{
-            background-color: rgb(33, 33, 255);
-            color: white;
+            width: 300px;
+            border: 1px solid rgb(0,0,0);
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: -20px;
+            transition: all .2s;
             cursor: pointer;
-            transition: all .1s;
-        }
-        section>article:hover a{
-            color: orange;
         }
         section>article:nth-of-type(odd){
-            float: left;
+            position: relative;
+            transform: translateX(calc(10% + 2px));
         }
         section>article:nth-of-type(even){
-            float: right;
+            position: relative;
+            transform: translateX(calc(200% + -2px));
+        }
+        section>article:hover{
+            background-color: rgb(204, 217, 255);
+            color: rgb(0, 17, 170);
+        }
+        section>article a{
+            transition: all .3s;
+        }
+        section>article a:hover{
+            color: rgb(255, 166, 0);
         }
         section>article:nth-of-type(odd)::before{
             content: '';
@@ -68,10 +75,10 @@
             content: '';
             position: absolute;
             top: 16px;
-            right: -46.4%;
+            right: -149px;
             width: 10px;
             height: 10px;
-            background-color: black;
+            background-color: rgb(0, 0, 0);
             border-radius: 50%;
         }
         section>article:nth-of-type(even)::before{
@@ -81,26 +88,20 @@
             left: -45%;
             width: 45%;
             height: 1px;
-            background-color: black;
+            background-color: rgb(0, 0, 0);
         }
         section>article:nth-of-type(even)::after{
             content: '';
             position: absolute;
             top: 16px;
-            left: -46.4%;
+            left: -148px;
             width: 10px;
             height: 10px;
             background-color: black;
             border-radius: 50%;
         }
-        @media screen and (min-width:1025px){
-            section>article:nth-of-type(2){
-                margin-top: 40px;
-            }
-        
-        }
         section>article>h3{
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
             margin-bottom: 10px;
         }
@@ -124,31 +125,27 @@
             width: 150px;
             font-size: 24px;
         }
-        .clear{
-            clear: both;
-        }
         #title{
-            font-size: 30px;
+            font-size: 32px;
+            font-weight: 700;
             text-align: center;
             margin: 20px 0;
         }
 
         footer{
             background-color: black;
-            padding: 10px 0;
+            padding: 10px 20px;
             text-align: center;
             color: white;
             font-size: 20px;
+            line-height: 1.5;
+        }
+        footer a:hover{
+            transition: all .2s;
+            color: rgb(255, 255, 0);
         }
 
-        @media screen and (max-width:1650px) {
-            .comment{
-                max-width: 200px;
-                word-wrap: break-word;
-            }
-        }
-        
-        @media screen and (max-width:1440px) {
+        @media screen and (max-width:1690px) {
             .comment{
                 position:unset;
                 margin: 20px auto;
@@ -158,33 +155,37 @@
         }
         
         @media screen and (max-width:1024px){
-            section{
-                display: flex ;
-                justify-content: center ;
-                align-items: center ;
-                flex-direction: column ;
-            }
-            section>article:nth-of-type(odd){
-                float: none;
-            }
-            section>article:nth-of-type(even){
-                float: none;
-            }
-            section>article:nth-of-type(odd)::before{
-                content: none;
-            }
-            section>article:nth-of-type(odd)::after{
-                content: none;
-            }
-            section>article:nth-of-type(even)::before{
-                content: none;
-            }
-            section>article:nth-of-type(even)::after{
-                content: none;
-            }
-            .center::before{
-                content: none;
-            }
+        section{
+            display: flex ;
+            justify-content: center ;
+            align-items: center ;
+            flex-direction: column ;
+            margin: 0 auto 5vh;
+        }
+        section>article{
+            margin-bottom: 18px;
+        }
+        section>article:nth-of-type(odd){
+            transform: translateX(0%);
+        }
+        section>article:nth-of-type(even){
+            transform: translateX(0%);
+        }
+        section>article:nth-of-type(odd)::before{
+            content: none;
+        }
+        section>article:nth-of-type(odd)::after{
+            content: none;
+        }
+        section>article:nth-of-type(even)::before{
+            content: none;
+        }
+        section>article:nth-of-type(even)::after{
+            content: none;
+        }
+        .center::before{
+            content: none;
+        }
         }
         @media screen and (max-width:700px) {
             .comment{
@@ -196,7 +197,7 @@
 <body>
     <div class="comment">
         <p>本頁面是紀錄每日練習清單<br>
-            以下紀錄需要查看頁面輸入對應的日期及對應的.html檔名<br>
+            需要直接查看頁面內容可以直接輸入對應的日期及對應的.html檔名<br>
             如: https://ayvc0420.github.io/myTest/練習/每日練習/0911/index.html<br>
             如: https://ayvc0420.github.io/myTest/練習/每日練習/1113/1.html<br>
             如: https://ayvc0420.github.io/myTest/練習/每日練習/1201/1.html<br>
@@ -209,11 +210,11 @@
             <h3 v-html="item.title"></h3>
             <p>{{item.text}}</p>
         </article>
-        <div class="clear"></div>
     </section>
 
     <footer>
-        &copy;ayvc0420
+        <p>本頁面根據<a href="https://ayvc0420.github.io/myTest/練習/每日練習/每日練習簡介.txt" target="new">每日練習簡介</a>紀錄製作易瀏覽樣式</p>
+        <p>&copy;ayvc0420</p>
     </footer>
 
     <script src="js/vue.js"></script>
@@ -242,12 +243,11 @@
                     },
                     centerHeightHandler(){
                         this.$nextTick(function(){
-                            if(document.documentElement.scrollWidth > 1024){
-                                setTimeout(() => {
-                                    let centerHeight = 66 * (this.listLength - 3)
-                                    document.getElementById('center').style.height = centerHeight+'px'
-                                    console.log('centerHeight',centerHeight+'px')
-                                }, 200);
+                            if(window.innerWidth >= 1024){
+
+                                let centerHeight = 104 * this.listLength
+                                document.getElementById('center').style.height = centerHeight+'px'
+                                console.log('centerHeight',centerHeight+'px')
                             }else{
                                 center.style.height = `0px`
                             }
@@ -262,7 +262,7 @@
                     try{
                         data = await fetch(url)
                     }catch{
-                        alert('資料獲取失敗，請稍後再試試!')
+                        alert('資料獲取失敗，請重新整理或稍後再試試!')
                     }
                     data.json().then(res=>{
                         this.list = res
