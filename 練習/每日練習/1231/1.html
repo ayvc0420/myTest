@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    <title>Document</title>
+    <style>
+
+        body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+        #map{
+            width: 1000px;
+            height: 1000px;
+        }
+        .user{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div id="map"></div>
+
+    <div class="user">
+        X度<input type="number" id="mapX" value="25.041667">
+        <br>
+        Y度<input type="number" id="mapY" value="121.543889">
+    </div>
+    <button id="btn">查看</button>
+
+    <!-- https://leafletjs.com/examples/quick-start/ -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <script>
+        let mapData = []
+
+        document.getElementById('btn').addEventListener('click',function(){
+            const valueX = document.getElementById('mapX').value
+            const valueY = document.getElementById('mapY').value
+            init(valueX,valueY)
+            document.querySelector('.user').style.display = 'none'
+            document.getElementById('btn').style.display = 'none'
+        })
+
+
+        // 仿資料庫區塊
+        let markData = [
+            {x:25.041667,y:121.543889,msg:'忠孝復興站'},
+            {x:25.041667,y:121.550556,msg:'忠孝敦化站'}
+        ]
+
+
+
+        function init(valueX,valueY){
+
+            let map = L.map('map').setView([valueX,valueY],16)
+            let markerCluster = L.markerClusterGroup();
+            // let OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+            //     maxZoom: 17,
+            //     attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+            // }).addTo(map);
+
+            let OPNVKarte = L.tileLayer('https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png', {
+                maxZoom: 18,
+                attribution: 'Map <a href="https://memomaps.de/">memomaps.de</a> <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            let imageUrl = 'https://opendata.cwb.gov.tw/fileapi/opendata/MSC/O-B0028-003.jpg',
+                imageBounds = [[18.600625745, 115.976888855], [27.79937425, 126.02300114]];
+            imageUrlLayer = L.imageOverlay(imageUrl, imageBounds, {
+                opacity:0.4
+            }).addTo(map);
+
+            let redIcon = L.icon({
+                iconUrl: './images/redfill.svg',
+
+                iconSize:     [38, 95], // size of the icon
+                shadowSize:   [50, 64], // size of the shadow
+                iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+                shadowAnchor: [4, 62],  // the same for the shadow
+                popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+            });
+
+            let greenIcon = L.icon({
+                iconUrl: './images/greenfill.svg',
+
+                iconSize:     [38, 95], // size of the icon
+                shadowSize:   [50, 64], // size of the shadow
+                iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+                shadowAnchor: [4, 62],  // the same for the shadow
+                popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+            });
+
+            // markData.forEach((item,index)=>{
+            //     // 如果是基數就紅 偶數就綠 實際操作會依照其他資料判別
+            //     const icon = index % 2 ? redIcon : greenIcon
+            //     L.marker([item.x,item.y],{icon : icon}).bindPopup(`<h2>這是捷運${item.msg}</h2>`).addTo(map)
+            // })
+
+
+            mapData.forEach((item,index)=>{
+                // 如果是基數就紅 偶數就綠 實際操作會依照其他資料判別
+                const icon = index % 2 ? redIcon : greenIcon
+                // 原
+                // L.marker([item.x,item.y],{icon : icon}).bindPopup(`<h2>這是${item.x}${item.y}</h2><br>${index}編號`).addTo(map)
+                // Leaflet.markercluster
+                markerCluster.addLayer(L.marker([item.x,item.y],{icon : icon}).bindPopup(`<h2>經度:${item.x}緯度:${item.y}</h2><br>${index}編號`))
+            })
+
+            map.addLayer(markerCluster);
+
+
+
+            // L.circle([valueX, valueY], {
+            //     color: 'red',
+            //     fillColor: '#f03',
+            //     fillOpacity: 0.5,
+            //     radius: 150
+            // }).addTo(map);
+            
+        }
+
+
+
+
+        // 隨機數字區塊
+        function randMap(){
+            for(let i = 0; i < 500; i++){
+                const x = random(24.98,25.1)
+                const y = random(121.4,121.6)
+                mapData.push({
+                    x,y
+                })
+            }
+        }
+        randMap()
+
+        function random(min, max) {
+            const n = Math.random() * (max - min) + min
+            return n.toFixed(7);
+        }
+
+
+
+    </script>
+</body>
+
+
+
+</html>
