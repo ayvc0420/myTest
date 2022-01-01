@@ -1,7 +1,10 @@
 1.html
 
-學習leaflet套件 了解語法及使用 
+學習leaflet套件 了解語法及使用 隨機產出1000人位置及顯示目前位置
 文件 https://leafletjs.com/examples/custom-icons/
+leaflet.markercluster套件
+說明 https://github.com/Leaflet/Leaflet.markercluster
+
 
 花費時間3小時
 

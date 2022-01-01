@@ -1,0 +1,14 @@
+將1231的套件做備註及再修改部分
+
+花費時間1小時
+
+
+
+
+根據TDX API文件 做一個簡易型的公車資訊圖表 詳細到站時間需要接其他API
+文件: https://tdx.transportdata.tw/api-service/swagger
+到站預估可以參考 公車預估到站資料(N1)、取得指定[縣市],[路線名稱]的公車預估到站資料(N1)
+
+本次方式採用document.createElement根據資料大小筆有可能影響CPU資源率 專案開發可參考textContent innerHTML等方式寫入資料
+API有讀取限制 若無顯示可以查看console.log 伺服器回應編號
+花費時間2小時
