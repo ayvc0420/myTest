@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+
+    <style>/* layout */
+
+        .images{
+            background-color: rgb(255, 215, 215);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .images img{
+            vertical-align: middle;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(230, 255, 192);
+        }
+        footer{
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+        footer a{
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 0;
+            color: yellow;
+        }
+    </style>
+    <style> /* box work */
+        .menu{
+            background-color: rgb(255,255,255);
+            box-sizing: border-box;
+            border: 1px solid rgb(199, 199, 199);
+            padding: 0px 10px 10px 15px;
+            width: 250px;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .menu a{
+            text-decoration: none;
+            color: #555;
+            display: inline-block;
+        }
+        .menu a:hover{
+            color: orange;
+        }
+        .menu h4{
+            color: rgb(0, 0, 0);
+            font-weight: 900;
+            /* margin-bottom: 10px; */
+        }
+        .menu li{
+            padding-top: 10px;
+            margin-bottom: 15px;
+        }
+        .menu li+li{
+            border-top: 1px solid rgb(199, 199, 199);
+        }
+        .menu span{
+            display: inline-block;
+        }
+        .menu p span:nth-of-type(2){
+            margin-left: 69px;
+        }
+        .menu li:nth-of-type(1) a{
+            width: 75px;
+        }
+        .menu li:nth-of-type(2) a{
+            width: 100px;
+        }
+        .menu li:nth-of-type(3) a{
+            width: 70px;
+        }
+        .menu li:nth-of-type(3) a.long{
+            width: 100%;
+        }
+        .menu li:last-of-type{
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="images">
+        <img src="1.png">
+    </div>
+    <div class="box">
+        <div class="work">
+            <ul class="menu">
+                <li>
+                    <h4>諮詢入口</h4>
+                    <span><a href="#">聯絡客服</a></span>
+                    <span><a href="#">申訴回覆</a></span>
+                </li>
+                <li>
+                    <h4>自助服務</h4>
+                    <span><a href="#">修改註冊手機</a></span>
+                    <span><a href="#">忘記帳密</a></span>
+                    <span><a href="#">實名認證</a></span>
+                    <span><a href="#">賣家取消交易</a></span>
+                    <span><a href="#">買家取消交易</a></span>
+                    <span><a href="#">手續費計算器</a></span>
+                    <span><a href="#">切結書下載</a></span>
+                </li>
+                <li>
+                    <h4>新手幫助</h4>
+                    <span><a href="#">付款教學</a></span>
+                    <span><a href="#">幫助中心</a></span>
+                    <span><a href="#">交易手續費</a></span>
+                    <span><a href="#" class="long">買家常見交易問題</a></span>
+                    <span><a href="#" class="long">賣家常見交易問題</a></span>
+                </li>
+                <li>
+                    <h4>客服信息</h4>
+                    <span>客服電話：(02) 5579-8591</span>
+                    <p>電話服務：
+                        <span>週一至週五 10:00-21:00</span>
+                        <span>週六至周日 14:00-21:00</span>
+                    </p>
+                    <span>客服傳真：(02) 5579-3435</span>
+                    <span>客服信箱：services@8591.com.tw</span>
+                </li>
+            </ul>
+        </div>
+
+
+
+    </div>
+
+    <footer>
+        <a href="#" target="new">參照網站</a>
+    </footer>
+</body>
+</html>

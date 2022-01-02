@@ -1,0 +1,13 @@
+1.html
+根據網站圖片切版
+
+花費時間 20分
+
+
+讀
+VUE文件
+https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/A_re-introduction_to_JavaScript
+https://ithelp.ithome.com.tw/users/20091827/ironman/1101
+Re Vue Day 2 & 3
+
+花費時間6~7小時

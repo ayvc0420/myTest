@@ -11,6 +11,10 @@ https://www.vmware.com/tw/products/workstation-player/workstation-player-evaluat
 <!-- github -->
 ...
 
+<!-- Vue -->
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
 <!-- linux mint -->
 https://linuxmint.com/edition.php?id=288
 http://free.nchc.org.tw/linuxmint/isos/stable/20.2/linuxmint-20.2-cinnamon-64bit.iso
@@ -51,3 +55,5 @@ set-ExecutionPolicy RemoteSigned
 bootstrap icon
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 https://icons.getbootstrap.com/
+
+
