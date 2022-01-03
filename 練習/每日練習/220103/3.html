@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    
+
+
+    <script>
+        ;(function(){
+
+
+            function test1 (){
+                let v1 = 10;
+                function child1(methods,e){
+                    if(methods === '+'){
+                        console.log(methods,v1 + e)
+                    }else if(methods === '-'){
+                        console.log(methods,v1 - e)
+                    }else if(methods === '*'){
+                        console.log(methods,v1 * e)
+                    }else if(methods === '/'){
+                        console.log(methods,v1 / e)
+                    }
+                }
+                child1('*',10)
+            }
+
+            test1()
+                // function child2(){
+
+                // }
+
+
+//             閉包
+// 接著我們介紹一種十分強大卻也常使人困惑的機制：閉包 (closure)。在解釋之前，我們先看看下面這段程式，猜猜執行的結果是什麼。
+
+            function makeAdder(v1) { //1-第一個參數53行5 
+                console.log('v1',v1) //1- 第一個參數53行5
+                return function(v2) { //1- 第二個參數55行6 
+                    console.log('內v1',v1) //1- 第二個參數53行5
+                    console.log('v2',v2) //1- 第二個參數55行6
+                    return v1 + v2;  //1- 5+6 = 11
+                }
+            }
+            let m1 = makeAdder(5);  //呼叫第一次帶5參數
+            let m2 = makeAdder(20); //呼叫第一次帶20參數
+            m1(6) //呼叫第二次帶6參數
+            m2(7) //呼叫第二次帶7參數
+            console.log(m1(6)) //11
+            console.log(m2(7)) //27
+            
+            // MDN
+            // 這裡發生的事情很類似先前提過的「內部函式」(inner function)：一個新的函式被創造在別的函式內部，並且可以接觸到外面函式的變數。但不同的地方在於，內部函式中一旦回到上層函式，其先前創造的內部函式中的本地變數就消滅了（因為作用域結束了）。但在閉包中，這些本地變數卻依然存在（有一種本地變數在離開作用域的那一刻被凍結的感覺！）－－否則我們上面例子中的 adder 就無法運作了。說到這裡，你應該知道結果了。m1(6) 是 11 而 m2(7) 是 27。
+
+
+        })()
+    </script>    
+</body>
+</html>

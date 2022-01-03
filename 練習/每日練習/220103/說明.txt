@@ -1,0 +1,13 @@
+1.html 2.html new.html
+get post傳送表單
+web伺服器對於post請求跳轉網址通常有封鎖
+參考影片 https://www.youtube.com/watch?v=qTpw9EKEeqk
+F12 Network Header內含訊息 認識HTTP狀態碼 [偷米騎巴哥]HTTP header & Status code
+
+花費時間5小時
+
+3.html
+https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/A_re-introduction_to_JavaScript
+巢狀函式
+
+花費時間1小時
