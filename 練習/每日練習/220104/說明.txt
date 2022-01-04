@@ -1,0 +1,9 @@
+前端技術分享介紹 新增網站Ajax頁面
+
+花費時間5小時
+
+
+https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects
+MDN 標準內建物件使用及了解
+
+花費時間1小時

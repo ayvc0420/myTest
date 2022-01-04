@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- alert('hello') -->
+    <input type="text" id="input1">
+    <button id="btn">OK</button>
+
+    <script>
+        ;(function(){
+            window.btn.addEventListener('click',function(){
+                const input1 = document.getElementById('input1').value
+                console.log(eval(input1))
+            })
+
+            let a = new Function('v1','v2','return v1+v2')
+            console.log(a('hello ','world!'))
+
+            function func1(v){
+                // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isFinite
+                if(isFinite(v)){
+                    console.log('v is not Infinity',v)
+                }else{
+                    console.log('v is Infinity/NaN',v)
+                }
+            }
+            func1(NaN)
+
+
+            // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat
+            function func2(v){
+                if(!isNaN(v)){
+                    console.log('parameter*PI =',parseFloat(v * Math.PI))
+                }else{
+                    console.log('parameter is NaN')
+                }
+            }
+            func2(10)
+
+            // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURI
+            function func3(v){
+                const value = encodeURI(v)
+                console.log('encodeURI',value)
+                console.log('no encodeURI',v)
+            }
+
+            func3('ht tps :// ayvc 042 0.gi thub.io/')
+            
+        })()
+    </script>
+
+
+
+</body>
+</html>
