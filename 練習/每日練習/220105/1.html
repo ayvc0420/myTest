@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+
+    <div id="app">
+        <!-- 根據綁定的template 會一次做
+            <nav_component></nav_component>
+            <chloe_component></chloe_component> 這兩個 -->
+        <wrap-component v-bind="wrapBind"></wrap-component>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="./vue.js"></script>
+    <script>
+        ;(function(Vue){
+
+
+            document.querySelectorAll('.banner>img').forEach(item=>{
+                let leftValue = 100
+                item.addEventListener('mouseenter',function(){
+                    const left = parseInt(window.getComputedStyle(this,null).left)
+                    const width = parseInt(window.getComputedStyle(this,null).width)+100
+                    if(left < window.innerWidth-width){
+                        this.style.left = `${leftValue}px`
+                        leftValue+=leftValue;
+                    }else{
+                        this.style.left = `0px`
+                        leftValue = 0;
+                    }
+
+                })
+            })
+        })(Vue)
+
+    </script>
+
+</body>
+</html>

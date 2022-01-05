@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        ;(function(){
+
+            // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent
+            function func1 (){
+                const url = 'https://ayvc0420.github.io/'
+                console.log('decodeURIComponent',decodeURIComponent(url))
+            }
+            func1()
+            // https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
+            // https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Object/create
+            function func2(){
+                const obj1 = {
+                    name:'るしあ',
+                    age:18,
+                    gender:'女',
+                }
+                const obj2 = Object.assign(obj1,{obj:'vtuber'})
+                // 傳址傳值
+                console.log('obj1 2',obj1,obj2)
+
+                const obj3 = Object.assign({},obj1,{company:'hololive'})
+                console.log('obj3',obj3)
+
+                const obj4 = Object.create(obj1)
+                obj4['color'] = 'green'
+                // 新增內容
+                obj4.__proto__['type'] = 'cute'
+                console.log('obj4',obj4)
+                // 比較
+                console.log('obj4 === obj1',obj4 === obj1)
+                console.log('obj4.name',obj4.name)
+                console.log('__proto__.name',obj4.__proto__.name)
+                // 找不到內容且往回原型找也找不到
+                console.log('obj4.name2',obj4.name2)
+                // 
+                console.log(obj4.name === obj1.name)
+            }
+            func2()
+
+        })()
+    </script>
+
+</body>
+</html>
