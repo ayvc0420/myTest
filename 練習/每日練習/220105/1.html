@@ -15,6 +15,7 @@
             <nav_component></nav_component>
             <chloe_component></chloe_component> 這兩個 -->
         <wrap-component v-bind="wrapBind"></wrap-component>
+        <input_component checked="checked" :data-time="time"></input_component>
     </div>
 
 
@@ -27,11 +28,12 @@
             document.querySelectorAll('.banner>img').forEach(item=>{
                 let leftValue = 100
                 item.addEventListener('mouseenter',function(){
+                    if(document.getElementById('imgMove').checked) return
                     const left = parseInt(window.getComputedStyle(this,null).left)
                     const width = parseInt(window.getComputedStyle(this,null).width)+100
                     if(left < window.innerWidth-width){
                         this.style.left = `${leftValue}px`
-                        leftValue+=leftValue;
+                        leftValue+=100;
                     }else{
                         this.style.left = `0px`
                         leftValue = 0;

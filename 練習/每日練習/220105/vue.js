@@ -45,6 +45,22 @@ const WrapComponent = {
         'chloe-component':ChloeComponent
     }
 }
+const InputComponent = {
+    template:
+    `
+    <table>
+        <input type="checkbox" id="imgMove" v-bind="$attrs">
+        <input type="checkbox" >
+        <input type="checkbox" >
+        <input type="checkbox" v-bind="$attrs" >
+    </table>
+    `,
+    // 在多個input的情況下直接對template標籤下參數會下在根元素 因此取消繼承inheritAttrs:false 
+    // 在需要自帶預設參數的input標籤加上$attrs (style與class不適用)
+    // 但是參數是需要賦予值的 無法使用checked 而是需要checked="checked"
+    inheritAttrs:false
+}
+
 
 // 全域註冊
 // Vue.component('logo_banner',Banner)
@@ -61,6 +77,7 @@ new Vue({
             bg1:'rgb(0,255,0)',
             fz1:20,
             level:5,
+            time:200,
         }
     },
     // 區域註冊
@@ -69,6 +86,7 @@ new Vue({
         'nav_component':NavComponent,
         'chloe_component':ChloeComponent,
         'pekora_component':PekoraComponent,
+        'input_component':InputComponent,
         // 採用ES6的方式綁定 但需要自動轉換大小寫 用-
         WrapComponent
     },

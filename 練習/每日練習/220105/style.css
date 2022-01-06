@@ -4,6 +4,7 @@
 }
 .banner>img{
     position: absolute;
+    top: 30px;
 }
 .nav{
     list-style: none;
