@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+
+        // 大型程式才會使用 建議用其他方式代替
+        let obj1 = {name:'小美',age:18};
+        console.log(obj1)
+        Object.defineProperty(obj1,'key',{
+            value:'阿力',
+            writable: true
+        });
+        console.log(obj1)
+        obj1.key2 = '阿新'
+        console.log(obj1)
+
+        // 大型程式才會使用 建議用其他方式代替
+        let obj2 = {name:'小白',age:2}
+        console.log(obj2)
+        Object.defineProperties(obj2,{
+            'obj':{
+                value:'dog',
+                writable: true
+            },
+            'gender':{
+                value:'M',
+                writable: false
+            }
+        })
+        // 上面設定writable: false 不可寫入
+        obj2.gender = 'F'
+        console.log(obj2)
+
+
+        // 回傳物件 用陣列與迴圈方式列出內容
+        let obj3 = {
+            name:'小白',age:2,gender:'M'
+        }
+        for(let [value,key] of Object.entries(obj3)){
+            console.log(value,key)
+        }
+        console.log('Object.entries(obj3)[0]',Object.entries(obj3)[0])
+
+
+        // Object.freeze 凍結物件 防止修改
+        let obj4 = {name:'小新',age:5}
+        console.log('修改前',obj4)
+        obj4.name = '野原小新'
+        console.log('freeze前',obj4)
+        Object.freeze(obj4)
+        obj4.name = '小白'
+        console.log('freeze後',obj4)
+
+
+        // 回傳對象物件屬性內的值
+        let obj5 = {name:'小葵',age:2}
+        const obj5getOwn = Object.getOwnPropertyDescriptor(obj5,'name')
+        obj5getOwn.writable = false
+        console.log('getOwnPropertyDescriptor',obj5,obj5getOwn)
+        console.log(obj5getOwn.value)
+        // Object.getOwnPropertyDescriptors() 與上類似 回傳所有
+
+
+
+        // 顯示物件屬性 迴圈顯示
+        let obj6 = {name:'小新',age:5,gender:'F'}
+        console.log(Object.getOwnPropertyNames(obj6))
+
+
+        // 給自己的 class 實現迭代
+        // let obj7 = [0,1,2,3,4]
+        // console.log(obj7[Symbol.iterator]())
+        // let obj8 = ['h','e','l','l','o']
+        // console.log(obj8 [Symbol.iterator]())
+        // for(let i of obj8){
+        //     console.log(i[Symbol.iterator]())
+        // }
+
+        // Object.getOwnPropertySymbols 此方法獲得Symbol length
+        let obj7 = {name:'小葵',age:2,gender:'M'}
+        let obj7_a = Symbol('a')
+        let obj7_b = Symbol.for('b')
+        console.log(obj7)
+        obj7[obj7_a] = 'my is a'
+        obj7[obj7_b] = 'my is b'
+        console.log(obj7)
+        let obj7Symbols = Object.getOwnPropertySymbols(obj7)
+
+
+
+        // Object.getPrototypeOf() 回傳指定物件的原型，換句話說，就是取得該物件的 [[Prototype]] 屬性的值).
+        // 一般原型可以直接用 Array.prototype
+        let obj8Array = [
+            {name:'美冴',age:29},
+            {name:'小新',age:29},
+            {name:'廣志',age:32},
+            {name:'小葵',age:2}
+        ]
+        console.log(obj8Array)
+        let obj8ArrayOf = Object.getPrototypeOf(obj8Array)
+        console.log('陣列的',obj8ArrayOf)
+
+        let obj8Obj = {name:'小葵',age:2}
+        let obj8ObjOf = Object.getPrototypeOf(obj8Obj)
+        console.log('物件的',obj8ObjOf)
+
+
+
+    </script>
+
+</body>
+</html>
