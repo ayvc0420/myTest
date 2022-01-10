@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        // 比較兩個物件  或 ===
+        let obj1_1 = {name:'美冴',age:29}
+        let obj1_2 = {name:'美冴',age:29}
+        let obj1_3 = obj1_1
+
+        console.log(Object.is(obj1_1,obj1_2))
+        console.log(Object.is(obj1_1,obj1_3))
+        console.log(Object.is(undefined,undefined))
+        
+        // isExtensible 查看物件對象是否可以被新增  //可以就回傳true
+        let obj2 = {name:'小新',age:5}
+        console.log(Object.isExtensible(obj2))
+        Object.preventExtensions(obj2)
+        obj2.pet="小白"
+        console.log(Object.isExtensible(obj2))
+        console.log(obj2)
+
+        
+
+        // Object.isFrozen 查看對象是否為凍結狀態 (不可修改、新增、刪除) 是回傳true
+        let obj3 = {
+            name:'小新',age:5,obj:'student'
+        }
+        console.log(obj3)
+        console.log(Object.isFrozen(obj3))
+        obj3.obj = 'old'
+        console.log(obj3)
+        Object.freeze(obj3)  //writable
+        console.log(Object.isFrozen(obj3))
+        obj3.obj = 'new'
+        console.log(obj3)
+
+        // Object.isSealed 查看對象是否為密封狀態 (不可修改、新增 但不限刪除) 是回傳true
+        let obj4 = {
+            name:'小新',age:5
+        }
+        console.log(obj4)
+        console.log(Object.isSealed(obj4))
+        // 注意 這種刪除方法如果對象的來源是傳址有可能會出現預期外的刪除
+        delete obj4.age
+        console.log('刪除後',obj4)
+        Object.seal(obj4)
+        delete obj4.name
+        console.log(Object.isSealed(obj4))
+
+
+
+
+        // Object.keys 回傳對象
+        let obj5 = {
+            0:'a',
+            1:'b',
+            2:'c',
+            3:'d'
+        }
+        let obj5_2 = {
+            123:'a',
+            456:'b',
+            10:'c',
+            88:'d'
+        }
+        let obj5_3 = {
+            ab:'a',
+            pc:'b',
+            ber:'c',
+            zjq:'d',
+        }
+        let arr5_4 = [665,8161,213,554,81103,1]
+        console.log('obj5_3',Object.keys(obj5))  //一般數字順序
+        console.log('obj5_3',Object.keys(obj5_2))  //隨機數字順序
+        console.log('obj5_3',Object.keys(obj5_3))  //隨機英文順序
+        console.log('arr5_4',Object.keys(arr5_4))  //隨機英文順序
+
+
+        // Object.preventExtensions 將對象變更為無法新增狀態 或參考obj2
+        let obj6 = {
+            name:'小新',obj:'student'
+        }
+        console.log(obj6)
+        obj6.age = 5
+        console.log(obj6)
+        Object.preventExtensions(obj6)
+        obj6.gender = 'F'
+        obj6.obj = '學生'
+        console.log(obj6)
+
+
+        // Object.seal 參考obj4
+
+
+        // Object.setPrototypeOf 繼承物件原型  和Object.create類似可以參考0105 3.html
+        let obj7 = {
+            name:'小新',
+            msg:function(){
+                console.log(`hello~ my is ${this.name}`)
+            }
+        }
+        let obj7Copy = {
+            name:'小葵'
+        }
+        Object.setPrototypeOf(obj7Copy,obj7)
+        console.log(obj7Copy)
+        obj7Copy.msg()
+
+
+
+
+
+        // Object.values 回傳屬性值對應的內容 與for in順序相同
+        let obj8 = {
+            lastName:'廣志',
+            firstName:'野原',
+            age:32,
+            obj:'上班族',
+            symbol:'腳很臭'
+        }
+
+        console.log(Object.values(obj8)) 
+        // for in方式可以參考以下
+        for(let i in obj8){ 
+            console.log(i,':',obj8[i])
+        }
+        // for of方式可以參考以下
+        for(let [key,value] of Object.entries(obj8)){
+            console.log(key,':',value)
+        }
+
+
+    </script>
+
+</body>
+</html>

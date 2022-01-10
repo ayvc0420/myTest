@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        nav{
+            width: 100%;
+            background: linear-gradient(45deg,rgb(176,123,200),rgb(211,153,199));
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+        .logo{
+            margin-left: 100px;
+        }
+        .logo img{
+            width: 50px;
+            vertical-align: middle;
+        }
+        nav>ul{
+            display: flex;
+            margin: 0 100px 0 0;
+        }
+        nav ul a{
+            text-decoration: none;
+            color: rgb(17, 0, 255);
+            display: inline-block;
+            height: 100%;
+            padding: 20px 10px;
+        }
+        nav ul a:hover{
+            background-color: rgb(168, 168, 168);
+            color: rgb(0, 255, 255);
+        }
+        
+
+
+        .banner{
+            width: 100%;
+            height: 1040px;
+            background-color: darkorange;
+        }
+        .banner .img{
+            position: relative;
+            width: 100%;
+            height: 1000px;
+            margin: auto;
+            max-width: 1200px;
+            display: flex;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .banner .img img{
+            position: absolute;
+            width: 100%;
+            height: 1000px;
+            object-fit: cover;
+            left: 100%;
+            overflow: hidden;
+            transition: left .6s;
+        }
+        .banner .img img.active{
+            left: 0px;
+        }
+        .banner .btn{
+            width: 100px;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            padding: 10px 0;
+            margin: auto;
+            position: relative;
+            z-index: 10;
+        }
+
+
+        aside{
+            width: 200px;
+            float: left;
+            border: 1px solid rgb(0, 0, 0);
+            display: flex;
+            align-items: center;
+            margin-top: 150px;
+            margin-left: 20px;
+            border-radius: 4px;
+        }
+        aside ul{
+            padding-left: 70px;
+            font-size: 20px;
+        }
+        .content{
+            width: 1200px;
+            margin: auto;
+            font-size: 20px;
+        }
+        .content h3{
+            font-size: 40px;
+            text-align: center;
+        }
+
+        footer{
+            background-color: rgb(0, 0, 0);
+            color: rgb(255,255,255);
+            text-align: center;
+            padding: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div id="app">
+        <nav_component></nav_component>
+        <banner_component></banner_component>
+        <aside_component></aside_component>
+        <content_component></content_component>
+        <footer_component></footer_component>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+
+        const NavComponent = {
+            template:
+            `
+            <nav>
+                <div class="logo">
+                    <a href="#"><img src="https://ayvc0420.github.io/images/vt_01.webp" alt="ホロライブ logo 圖片"></a>
+                </div>
+                <ul>
+                    <li><a href="#">ホロライブ</a></li>
+                    <li><a href="#">潤羽るしあ</a></li>
+                    <li><a href="#">白銀ノエル</a></li>
+                    <li><a href="#">宝鍾マリン</a></li>
+                </ul>
+            </nav>
+            `
+        }
+
+        const bannerComponent = {
+            template:
+            `
+            <section class="banner">
+                <div class="btn">
+                    <button @click="switchHandler(key-1)"><</button>
+                    <button @click="switchHandler(key+1)">></button>
+                </div>
+                <div class="img" ref="bannerImg">
+                    <img src="https://ayvc0420.github.io/images/76193394_rushia_title.jpg" :class="{active:key === 0}">
+                    <img src="https://ayvc0420.github.io/images/76909869_koronne_title.jpg" :class="{active:key === 1}">
+                    <img src="https://ayvc0420.github.io/images/1273069461403131904_rushia_title.jpg" :class="{active:key === 2}">
+                </div>
+            </section>
+            `,
+            data(){
+                return{
+                    key:0
+                }
+            },
+            computed:{
+                imgLength(){
+                    return this.$refs.bannerImg.children.length
+                },
+            },
+            methods:{
+                switchHandler(index){
+                    this.key = (index + this.imgLength) % this.imgLength
+                },
+            }
+        }
+
+        const asideComponent = {
+            template:
+            `
+            <aside>
+                <ul>
+                    <li>內容1</li>
+                    <li>內容2</li>
+                    <li>內容3</li>
+                </ul>
+            </aside>
+            `
+        }
+
+        const contentComponent = {
+            template:
+            `
+            <section class="content">
+                <h3>標題標題</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate eveniet, omnis aut consequatur fuga sit magnam animi at inventore, ab ut tempora! Neque explicabo facilis cumque asperiores necessitatibus cupiditate itaque ad molestiae illo iusto. Eius ad suscipit amet facilis quis harum molestiae neque repellendus quaerat. Corrupti id asperiores libero vero.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate eveniet, omnis aut consequatur fuga sit magnam animi at inventore, ab ut tempora! Neque explicabo facilis cumque asperiores necessitatibus cupiditate itaque ad molestiae illo iusto. Eius ad suscipit amet facilis quis harum molestiae neque repellendus quaerat. Corrupti id asperiores libero vero.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate eveniet, omnis aut consequatur fuga sit magnam animi at inventore, ab ut tempora! Neque explicabo facilis cumque asperiores necessitatibus cupiditate itaque ad molestiae illo iusto. Eius ad suscipit amet facilis quis harum molestiae neque repellendus quaerat. Corrupti id asperiores libero vero.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate eveniet, omnis aut consequatur fuga sit magnam animi at inventore, ab ut tempora! Neque explicabo facilis cumque asperiores necessitatibus cupiditate itaque ad molestiae illo iusto. Eius ad suscipit amet facilis quis harum molestiae neque repellendus quaerat. Corrupti id asperiores libero vero.</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate eveniet, omnis aut consequatur fuga sit magnam animi at inventore, ab ut tempora! Neque explicabo facilis cumque asperiores necessitatibus cupiditate itaque ad molestiae illo iusto. Eius ad suscipit amet facilis quis harum molestiae neque repellendus quaerat. Corrupti id asperiores libero vero.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate eveniet, omnis aut consequatur fuga sit magnam animi at inventore, ab ut tempora! Neque explicabo facilis cumque asperiores necessitatibus cupiditate itaque ad molestiae illo iusto. Eius ad suscipit amet facilis quis harum molestiae neque repellendus quaerat. Corrupti id asperiores libero vero.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate eveniet, omnis aut consequatur fuga sit magnam animi at inventore, ab ut tempora! Neque explicabo facilis cumque asperiores necessitatibus cupiditate itaque ad molestiae illo iusto. Eius ad suscipit amet facilis quis harum molestiae neque repellendus quaerat. Corrupti id asperiores libero vero.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate eveniet, omnis aut consequatur fuga sit magnam animi at inventore, ab ut tempora! Neque explicabo facilis cumque asperiores necessitatibus cupiditate itaque ad molestiae illo iusto. Eius ad suscipit amet facilis quis harum molestiae neque repellendus quaerat. Corrupti id asperiores libero vero.</p>
+            </section>
+            `
+        }
+
+        const footerComponent = {
+            template:
+            `
+            <footer>
+                &copy;ayvc0420
+            </footer>
+            `
+        }
+
+        const app = new Vue({
+            components:{
+                'nav_component':NavComponent,
+                'banner_component':bannerComponent,
+                'aside_component':asideComponent,
+                'content_component':contentComponent,
+                'footer_component':footerComponent
+            }
+
+        })
+        app.$mount('#app')
+
+    </script>
+
+</body>
+</html>

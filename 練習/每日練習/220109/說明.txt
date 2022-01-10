@@ -1,0 +1,22 @@
+1.html
+用Vue template功能做一個基本版面 重複性高 模組化概念
+詳細可以參考https://book.vue.tw/CH2/2-1-components.html#%E5%AE%B9%E5%99%A8%E5%9E%8B%E5%85%83%E4%BB%B6-container
+
+花費時間 1小時半
+
+2.html
+MDN 標準內建物件使用及了解
+
+花費時間2小時
+
+
+    let obj8 = {
+        lastName:'廣志',
+        firstName:'野原',
+        age:32,
+        obj:'上班族',
+        symbol:'腳很臭'
+    }
+    console.log(obj8['lastName'])
+    console.log(obj8.lastName)
+看看分別列印出什麼?
