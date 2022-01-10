@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            font-size: 80px;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div id="app">
+
+        <!-- 預設v-model綁定參數是value   .sync方式 比起傳統在客製標籤上自製監聽 事件 Vue部分寫methods修改資料的情況下要來的更簡單 -->
+        <content_component v-model="contentData" :msg="msg" @div_event="divHandler" @click.native="vueEventClick" :msg.sync="msg" ></content_component>
+
+
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+
+        Vue.component('content_component',{
+            template:
+            `
+            <div>
+                <div @click="clickHandler">this is DIV</div>
+                <div @click="msgHandler">&copy; {{msg}} </div>
+            </div>
+            `,
+            // 設定雙向綁定參數
+            model:{
+                prop:'active',
+                event:'div_event'
+            }, 
+            props:{
+                active:{
+                    type: Number,
+                    default:0
+                },
+                msg:{
+                    type:String,
+                    required:true
+                }
+            },
+            methods:{
+                clickHandler(){
+                    // $emit子模組通知外層方式 這邊的命名方式建議用kebab-case 或 snake_case
+                    this.$emit('div_event',this.active+1)
+                },
+                msgHandler(){
+                    // sync
+                    this.$emit('update:msg','ayvc0420')
+                }
+            }
+        })
+
+        new Vue({
+            data(){
+                return{
+                    contentData:0,
+                    msg:'?'
+                }
+            },
+            methods:{
+                divHandler(){
+                    console.log(`觸發了Vue methods divHandler.`)
+                },
+                vueEventClick(){
+                    console.log('觸發了Vue methods vueEventClick')
+                }
+            }
+        }).$mount('#app')
+
+
+
+    </script>
+
+</body>
+</html>
