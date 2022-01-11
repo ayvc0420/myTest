@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+    <script>
+        
+        // https://developer.mozilla.org/zh-CN/docs/web/api/document/cookie
+
+        function cookieCreate(){
+            const dataCreate = [
+                {name:'醋卡溴脲',money:1000,number:3},
+                {name:'醋氯芬酸',money:800,number:6},
+                {name:'乙醯丙嗪',money:5000,number:2},
+                {name:'乙醯苯胺',money:300,number:1},
+            ]
+            let data = encodeURIComponent(JSON.stringify(dataCreate))
+            // max-age單位為秒 86400 = 1天
+            document.cookie = `genericDrugs=${data};path=/;max-age=86400;`
+
+        }
+
+        function view_genericDrugs(){
+            let jsonDate = JSON.parse(decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\s*)genericDrugs\s*\=\s*([^;]*).*$)|^.*$/, "$1")))
+            console.log(jsonDate)
+        }
+
+
+
+    </script>
+    
+</body>
+</html>
