@@ -235,3 +235,5 @@
 0111 learngitbranching本地通關 / webDesign頁面更新訊息 / MDN文件cookie部分認識及實作 自評90分 滿分100
 
 0112 使用cookie製作小遊戲 自評89分 滿分100
+
+0113 接續0112製作cookie小遊戲 自評88分 滿分100
