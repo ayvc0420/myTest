@@ -1,0 +1,22 @@
+prettier 設定及套用在專案
+ayvc0420.github.io 優化部分JS程式碼與增加可讀性
+commit點:0115資訊更新
+
+
+花費時間 5小時
+
+
+
+
+
+1.html
+試做文字動畫效果 一共兩種
+
+花費時間 40分
+
+
+form表單測試
+搭配json-server
+axios get post
+
+花費時間 2小時

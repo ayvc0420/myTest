@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			body {
+				margin: 0 0 0 10px;
+			}
+			.animation_text {
+				background-color: cadetblue;
+				color: rgb(255, 255, 255);
+				font-weight: 900;
+				font-size: 48px;
+			}
+			@keyframes blinkAni {
+				0% {
+					opacity: 0;
+				}
+				50% {
+					opacity: 0;
+				}
+				51% {
+					opacity: 1;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			.blink_line {
+				animation: blinkAni infinite 1s;
+				transform: translateY(-4px);
+				display: inline-block;
+			}
+			.text1af::after {
+				content: '|';
+				animation: blinkAni infinite 1s;
+				transform: translateY(-4px);
+				display: inline-block;
+			}
+			button {
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="animation_text" id="text1"></div>
+
+		<button id="text1Btn">text1動畫開始</button>
+
+		<br />
+		<br />
+		<form method="POST">
+			<input type="file" name="userFile" id="userFile" />
+			<label for="userName">信箱</label>
+			<input type="text" name="name" id="userName" required />
+			<input type="submit" value="送出" />
+		</form>
+		<button id="load">load</button>
+
+		<div id="loadView"></div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+		<script>
+			const form = document.querySelector('form');
+			const url = 'http://localhost:3000/data';
+			form.addEventListener('submit', function (e) {
+				console.log('e.srcElement.userFile', e.srcElement.userFile);
+				const name = e.srcElement.name;
+				axios.post(url, { name: name.value }).then((item) => {
+					console.log('post_item', item);
+				});
+				e.preventDefault();
+			});
+
+			document.getElementById('load').addEventListener('click', function () {
+				document.getElementById('loadView').innerHTML = '';
+				fetch(url).then((item) => {
+					item.json().then((item) => {
+						item.forEach((item) => {
+							document.getElementById(
+								'loadView'
+							).innerHTML += `${item.name}<br>`;
+						});
+					});
+				});
+			});
+			// 以上程式碼僅在測試中使用 正式專案不要這樣寫 會被打死的
+			const text1 = document.getElementById('text1');
+			document
+				.getElementById('text1Btn')
+				.addEventListener('click', function () {
+					requestAnimationFrame(text1Ani);
+				});
+			function text1Ani() {
+				const content = Array.from(
+					'今天的天氣真好，你也很好嗎?有沒有吃麥當勞了?'
+				);
+				let delay = 0;
+				// 利用class的方式動態加入標籤
+				// text1.classList.add('text1af')
+				let one = true;
+				content.forEach((item) => {
+					delay += 100;
+					if (item === '你') {
+						delay += 300;
+					}
+					if (item === '有' && one === true) {
+						delay += 500;
+						one = false;
+					}
+					setTimeout(() => {
+						text1.textContent += item;
+					}, delay);
+				});
+				let time = 200 + (content.length + 2) * 100 + 300 + 500;
+				setTimeout(() => {
+					let span = document.createElement('span');
+					span.textContent = '|';
+					span.classList.add('blink_line');
+					text1.appendChild(span);
+				}, time);
+			}
+			// window.load window.addEventListener('load',function)等等 可以做到載入畫面後就自動執行func
+		</script>
+	</body>
+</html>
