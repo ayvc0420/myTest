@@ -1,0 +1,114 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="div1">this is div1</div>
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/dojo/1.1.1/dojo/dojo.xd.js"></script>
+		<script>
+			dojo.addOnLoad(function () {
+                const div1 = dojo.byId('div1');
+                console.log(div1);
+            });
+
+
+            
+		</script>
+	</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			body {
+				margin: 0;
+			}
+			.mouse_animation {
+				width: 90%;
+				height: 100vh;
+				position: relative;
+				border: 1px solid black;
+				box-sizing: border-box;
+				margin: auto;
+				background-color: black;
+				overflow: hidden;
+			}
+			.shine {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				box-shadow: 0 0 0 0;
+				display: none;
+				filter: brightness(200%);
+				background: linear-gradient(45deg);
+			}
+			/* @keyframes shineAni {
+				0% {
+					transform: scale(1);
+				}
+				25% {
+					transform: scale(0.75);
+				}
+				50% {
+					transform: scale(0.5);
+				}
+				75% {
+					transform: scale(0.25);
+				}
+				100% {
+					transform: scale(0);
+				}
+			} */
+			.ani {
+				animation: shineAni infinite 0.6s;
+			}
+			.mouse_animation:hover .shine {
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mouse_animation">
+			<div class="shine"></div>
+		</div>
+
+		<script>
+			const target = document.querySelector('.mouse_animation');
+			const shine = document.querySelector('.shine');
+			target.addEventListener('mousemove', function (e) {
+				let vague = Math.floor(Math.random() * (300 - 100 + 1) + 100);
+				const { offsetX, offsetY } = e;
+				let loop = setInterval(() => {
+					let r = Math.floor(Math.random() * (255 - 1 + 1) + 1);
+					let g = Math.floor(Math.random() * (255 - 1 + 1) + 1);
+					let b = 0;
+					let r1 = Math.floor(Math.random() * (255 - 1 + 1) + 1);
+					let g1 = Math.floor(Math.random() * (255 - 1 + 1) + 1);
+					let b1 = 0;
+					// shine.style.background = `linear-gradient(${vague}deg,rgb(${r},${g},${b}),rgb(${r1},${g1},${b1}))`;
+					shine.style.background = `rgb(${r},${g},${b})`;
+					shine.style.boxShadow = `0px 0px 30px ${vague}px rgb(${r},${g},${b})`;
+				}, 10);
+				shine.style.top = offsetY + 'px';
+				shine.style.left = offsetX + 'px';
+				shine.classList.add('ani');
+				target.addEventListener('mouseleave', () => {
+					clearInterval(loop);
+				});
+			});
+		</script>
+	</body>
+</html>

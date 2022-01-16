@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			body {
+				margin: 0;
+			}
+			div {
+				margin: 30px;
+			}
+			div.pwd {
+				background-color: rgb(71, 117, 117);
+				padding: 10px 0 10px 5px;
+				color: rgb(255, 255, 0);
+				font-size: 30px;
+			}
+			input:not([type='checkbox']) {
+				font-size: 30px;
+				width: 200px;
+			}
+			input[type='checkbox'] {
+				width: 20px;
+				height: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="pwd">
+			密碼:<input type="password" id="pw1" /> 顯示密碼<input
+				type="checkbox"
+				id="pw1View"
+			/>
+		</div>
+		<div class="pwd">
+			密碼:<input type="password" id="pw2" />
+			<span id="pw2View">觸摸顯示密碼</span>
+		</div>
+
+		<div>
+			<select id="area">
+				<option value="taipei">台北</option>
+				<option value="new_taipei_city">新北</option>
+				<option value="taoyuan">桃園</option>
+				<option value="keelung">基隆</option>
+			</select>
+			<button id="btn2">送出</button>
+		</div>
+
+		<div>
+			<input list="areaList" type="text" />
+			<datalist id="areaList" value="">
+				<option value="taipei">台北</option>
+				<option value="new_taipei_city">新北</option>
+				<option value="taoyuan">桃園</option>
+				<option value="keelung">基隆</option>
+			</datalist>
+			<button id="btn3">送出</button>
+		</div>
+ &#11167;
+		<script>
+			const pw1 = document.getElementById('pw1');
+			const pw1View = document.getElementById('pw1View');
+
+			pw1View.addEventListener('change', function () {
+				if (pw1View.checked === true) {
+					pw1.type = 'text';
+				} else {
+					pw1.type = 'password';
+				}
+			});
+
+			const pw2 = document.getElementById('pw2');
+			const pw2View = document.getElementById('pw2View');
+
+			pw2View.addEventListener('mouseenter', function () {
+				pw2.type = 'text';
+			});
+			pw2View.addEventListener('mouseleave', function () {
+				pw2.type = 'password';
+			});
+		</script>
+
+		<script>
+			document.getElementById('btn2').addEventListener('click', function () {
+				const area = document.getElementById('area');
+				console.log(area.value);
+			});
+			document.getElementById('btn3').addEventListener('click', function () {
+				const areaList = document.querySelector('input[list="areaList"]');
+				console.log(areaList.value);
+			});
+		</script>
+	</body>
+</html>
