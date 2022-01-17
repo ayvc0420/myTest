@@ -1,0 +1,18 @@
+https://ayvc0420.github.io/webDesign/index.html
+footer區域改用vue template製作
+部分資訊修改
+
+花費時間1.5小時
+
+1.html
+scroll-behavior: smooth; 屬性
+實際操作後將webDesign網站的連節改用此方式
+
+2.html
+區塊蓋背景 濾鏡效果
+
+花費時間20分
+
+準備面試
+
+花費時間2小時

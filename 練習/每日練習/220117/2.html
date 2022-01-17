@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			body {
+				margin: 0;
+			}
+			.banner {
+				background: url(https://ayvc0420.github.io/images/rushia_header.webp)
+					center / cover;
+				width: 100%;
+				height: 90vh;
+				position: relative;
+				z-index: 1;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				font-size: 30px;
+				font-weight: 900;
+				text-align: center;
+			}
+			.banner > p {
+				padding: 0 50px;
+			}
+			.banner > button {
+				font-size: 24px;
+				font-weight: 900;
+				padding: 10px 12px;
+				border: none;
+				border-radius: 6px;
+				background-color: turquoise;
+				cursor: pointer;
+				transition: background-color 0.3s;
+			}
+			.banner > button:hover {
+				background-color: wheat;
+			}
+			.banner > .mask {
+				background-color: rgba(0, 255, 0, 0.3);
+				width: 100%;
+				height: 90vh;
+				position: absolute;
+				z-index: -1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="banner">
+			<div class="mask"></div>
+			<p>
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus sed
+				rerum itaque hic pariatur voluptas provident, optio amet molestias.
+				Aspernatur!
+			</p>
+			<button>BTN</button>
+		</div>
+	</body>
+</html>
