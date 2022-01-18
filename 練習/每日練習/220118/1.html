@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+        今日重點 var全域性宣告後可以直接用window.呼叫
+        <script>
+            var test1 = 'test1'
+            let test2 = 'test2'
+            console.log(window.test1)
+            console.log(window.test2)
+        </script>
+		<script>
+
+
+			function a(a) {
+				a();
+			}
+			function b(b) {
+				b();
+			}
+			function c(c) {
+				console.log('casper');
+			}
+			a(b(c));
+		</script>
+		<script>
+			function sayHi(a) {
+				var a = 'Mark';
+				function fu() {
+					var a = 'Casper';
+				}
+				fu();
+				a = 'HexSchool';
+			}
+			var a = 'Mary';
+			sayHi(a);
+			console.log(a);
+		</script>
+		<script>
+			(function () {
+				console.log('六角學院 A');
+			})();
+
+			(function () {
+				console.log('六角學院 B');
+			});
+		</script>
+	</body>
+</html>

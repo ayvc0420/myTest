@@ -1,0 +1,17 @@
+六角學院 熱門面試題測試
+
+網址 https://docs.google.com/forms/d/e/1FAIpQLSejHq3uUFMMaWOuUK6miSCB4oe3OZJLoZqByiuCLkL1tqK8CQ/viewform
+
+實際分數 : 28
+但實際應為31分以上 已知三題答對卻顯示錯誤
+
+
+花費時間40~50分
+
+
+1.html
+JS特性以及六角陷阱題
+
+花費時間30分
+
+由於下午面試 早上並未實作內容 僅晚上重複複習JS的特性(1.html)以及填寫六角題目考題測試
