@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.file_block {
+				width: 500px;
+				padding: 20px;
+				box-sizing: border-box;
+				border: 1px solid rgb(0, 0, 0);
+				margin: 100px auto 0;
+			}
+			.file_block .segment {
+				display: flex;
+				flex-wrap: wrap;
+				margin: 20px 0;
+			}
+			.file_block .segment.column {
+				flex-direction: column;
+			}
+			.file_block .label_block {
+				min-width: 100px;
+				min-height: 100px;
+				box-sizing: border-box;
+				border: 1px dotted rgb(0, 0, 0);
+				display: inline-block;
+			}
+			.file_block .img_view {
+				width: 100%;
+			}
+			.file_block input[type='file'] {
+				width: 200px;
+				height: 80px;
+				border: 1px dotted rgb(0, 0, 0);
+				padding: 25px 0 0 15px;
+				box-sizing: border-box;
+				margin-bottom: 10px;
+			}
+			.file_block input[type='submit'] {
+				width: 50px;
+				margin: 10px auto;
+				display: block;
+			}
+
+			.drag_ing {
+				background-color: rgba(0, 255, 255, 0.2);
+				position: relative;
+			}
+			.drag_ing::before {
+				content: '鬆開上傳檔案';
+				position: absolute;
+				top: 3px;
+				left: 15px;
+				font-size: 16px;
+				color: rgb(124, 124, 124);
+			}
+			.err {
+				border: 1px solid rgb(255, 0, 0);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="file_block">
+			<form action="./1.html" method="post" enctype="multipart/form-data">
+				<div class="segment">
+					<label for="fo_name">姓名:</label>
+					<input type="text" name="name" id="fo_name" required />
+				</div>
+				<div class="segment">
+					<label>性別:</label>
+					<label for="gender_M" class="no_block">男</label>
+					<input type="radio" name="gender" value="M" id="gender_M" required />
+					<label for="gender_F" class="no_block">女</label>
+					<input type="radio" name="gender" value="F" id="gender_F" required />
+				</div>
+				<div class="segment column">
+					<label for="imgUp">大頭貼上傳:</label>
+					<input
+						type="file"
+						name="image"
+						id="imgUp"
+						accept="image/*"
+						required
+					/>
+					<div class="drag_view"></div>
+				</div>
+				<div class="segment column">
+					<label for="pdfUp">PDF上傳(多個):</label>
+					<input
+						type="file"
+						name="pdf"
+						id="pdfUp"
+						accept=".pdf"
+						multiple="true"
+						required
+					/>
+				</div>
+				<input type="submit" value="送出" />
+			</form>
+		</div>
+
+		<script>
+			const form = document.querySelector('form');
+			const imgUp = document.getElementById('imgUp');
+			const pdfUp = document.getElementById('pdfUp');
+			const dragBlocks = document.querySelectorAll('input[type="file"]');
+			dragBlocks.forEach((item) => {
+				item.addEventListener('dragenter', function () {
+					// 元素拖曳進入區域時
+					this.classList.add('drag_ing');
+				});
+				item.addEventListener('dragleave', function () {
+					// 元素拖曳離開區域時
+					this.classList.remove('drag_ing');
+				});
+				item.addEventListener('drop', function () {
+					// 元素被放置一個有效的目標區域時觸發
+					this.classList.remove('drag_ing');
+				});
+				item.addEventListener('dragover', function () {
+					// 在區域內拖曳經過會觸發 (會連續觸發)
+				});
+			});
+			imgUp.addEventListener('change', function (e) {
+				let file = e.target.files[0];
+				// console.log('this檔案資訊',this.files[0])
+				const imgTest = /image.*/;
+				if (file.size > 262144 || !imgTest.test(file.type)) {
+					alert('檔案類型錯誤或檔案過大!必須為圖片檔且限制2MB以下');
+					this.value = '';
+					return;
+				}
+				const dragView = e.target.parentNode.querySelector('.drag_view');
+				let reader = new FileReader();
+				reader.readAsDataURL(file);
+				reader.addEventListener('load', function (e) {
+					// 預覽顯示的部分先清除掉
+					dragView.innerHTML = '';
+					let img = document.createElement('img');
+					img.classList.add('img_view');
+					img.src = e.target.result;
+					dragView.style.border = 'none';
+					dragView.appendChild(img);
+				});
+			});
+
+			pdfUp.addEventListener('change', function (e) {
+				// 單位轉換 http://tw.bestconverter.org/unitconverter_number.php
+				let check = checkFile(e, 'application/pdf', 10485760, 'PDF');
+				if (check === false) {
+					// 錯誤處理
+					e.target.value = '';
+				}
+			});
+
+			function checkFile(fileTarget, type, size, errMsg) {
+				// 檔案目標
+				let file = fileTarget.target.files;
+				let allSize = 0;
+				// 最終回傳狀態 預設為true
+				let state = true;
+				// 陣列方法檢查檔案類型與計算總共size
+				Array.from(file).forEach((item) => {
+					if (item.type !== type) {
+						// 檢查迴圈對象 如果與參數的type不一樣則傳回false 同時跳出警告視窗
+						state = false;
+						alert(`${item.name}檔案必須為${errMsg}類型!`);
+					}
+					allSize += item.size;
+				});
+				// 傳入的參數/1024/1024 = Bytes轉為MB
+				let errSize = size / 1024 / 1024;
+				if (allSize > size) {
+					state = false;
+					alert(`整體檔案必須小於${errSize}MB!`);
+				}
+
+				return state;
+			}
+
+			form.addEventListener('submit', function (e) {
+				e.preventDefault();
+				let formData = new FormData(form);
+				for (let [name, file] of formData) {
+					console.log('name:', name);
+					console.log('file:', file);
+				}
+
+				for (let content of formData) {
+					console.log('contentArray:', content);
+				}
+
+
+                // 元素空值檢查
+				// e.target.querySelectorAll('div>input').forEach((item) => {
+				// 	if (item.value === '') {
+				// 		item.classList.add('err');
+				// 	}
+				// });
+
+
+
+
+				// let name = formData.get('name');
+				// let gender = formData.get('gender');
+				// let image = formData.get('image');
+				// let pdf = formData.get('pdf');
+				// console.log('name', name);
+				// console.log('gender', gender);
+				// console.log('image', image);
+				// console.log('pdf', pdf);
+
+				// 實際發送時可能需要將name進行其他處理 如encodeURIComponent
+				// e.stopPropagation();
+			});
+		</script>
+	</body>
+</html>
