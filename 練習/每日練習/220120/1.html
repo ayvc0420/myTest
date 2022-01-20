@@ -1,12 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="css/reset.css" />
+
+		<style>
+			/* layout */
+
+			.images {
+				background-color: rgb(255, 215, 215);
+				margin-bottom: 20px;
+				display: flex;
+				justify-content: center;
+			}
+			.images img {
+				vertical-align: middle;
+			}
+			.box {
+				display: flex;
+				justify-content: center;
+				background-color: rgb(230, 255, 192);
+			}
+			footer {
+				background-color: black;
+				color: white;
+				text-align: center;
+			}
+			footer a {
+				display: inline-block;
+				text-decoration: none;
+				padding: 10px 0;
+				color: yellow;
+			}
+		</style>
+		<style>
+			/* box work */
+			.wrap {
+				width: 1230px;
+				background: rgb(0, 0, 0);
+				margin: auto;
+			}
+			.wrap nav {
+				padding: 7px 15px 3px;
+				box-sizing: border-box;
+				display: flex;
+				align-items: center;
+				font-size: 26px;
+				background: rgb(0, 17, 75);
+			}
+			.wrap nav > h1 {
+				color: rgb(201, 201, 39);
+				margin-right: 20px;
+			}
+			.arrow_right {
+				color: rgb(134, 134, 134);
+			}
+			.wrap .version {
+				color: rgb(255, 255, 255);
+				font-size: 24px;
+				padding: 5px;
+				vertical-align: middle;
+				line-height: 15px;
+			}
+			.wrap .version:hover {
+				background: rgba(255, 255, 255, 0.3);
+			}
+			.wrap .version > h3 {
+				display: inline-block;
+			}
+			.wrap .version::before {
+				content: '看板';
+				font-size: 14px;
+				color: rgb(255, 255, 255);
+				margin: 0 10px;
+				vertical-align: middle;
+			}
+			.wrap nav > ul {
+				margin: 0 10px 7px auto;
+				display: flex;
+				align-items: center;
+				vertical-align: middle;
+			}
+			.wrap nav > ul > li + li {
+				margin-left: 10px;
+			}
+			.wrap a {
+				text-decoration: none;
+				color: rgb(134, 134, 134);
+				font-size: 14px;
+				vertical-align: middle;
+			}
+
+			main {
+				padding: 0 25px 0 8px;
+			}
+
+			.header {
+				color: rgb(200, 200, 200);
+				display: flex;
+			}
+			.header > div {
+				background: rgb(75, 75, 75);
+				padding: 13px 20px;
+				cursor: pointer;
+			}
+			.header > div:first-of-type,
+			.header > div:hover {
+				background: rgb(200, 200, 200);
+				color: rgb(49, 49, 49);
+			}
+			.header > ul {
+				margin-left: auto;
+				display: flex;
+                align-items: flex-start;
+			}
+            .header > ul > li{
+                display: flex;
+            }
+            .header > ul > li.href_none a{
+                color: rgb(105, 101, 101);
+                background: rgb(20, 20, 20);
+                border: none;
+                border-left: 1px solid rgb(0, 0, 0);
+                cursor: inherit;
+            }
+            .header > ul > li a{
+                font-size: 18px;
+                width: 100%;
+                height: 100%;
+                background: rgb(53, 53, 53);
+                color: rgb(204, 204, 204);
+                padding: 10px 20px;
+                border-top: 1px solid grey;
+                border-left: 1px solid grey;
+                border-bottom: 1px solid grey;
+            }
+
+			.header > ul > li:last-of-type {
+				border-right: 1px solid grey;
+			}
+			.header > ul > li:hover:not(.href_none) a{
+				background: rgb(200, 200, 200);
+				color: rgb(49, 49, 49);
+			}
+			.header > ul > li span {
+				padding: 0 3px;
+                box-sizing: border-box;
+			}
+
+			#search {
+				width: 100%;
+				background: rgb(37, 37, 37);
+				color: rgb(204, 204, 204);
+				margin: 15px 0;
+				box-sizing: border-box;
+				padding: 10px 5px;
+				border: none;
+                font-size: 20px;
+			}
+			#search:focus {
+				background: rgb(70, 70, 70);
+			}
+            main>.items .article{
+                color: rgb(173, 173, 173);
+                display: flex;
+                margin-bottom: 8px;
+                background-color: rgb(13, 13, 13);
+            }
+            main>.items .msg_number{
+                text-align: right;
+                width: 40px;
+                padding: 5px;
+                box-sizing: border-box;
+            }
+            main>.items .right{
+                width: 100%;
+                /* padding: 5px 0 10px -40px; */
+            }
+            main>.items .title{
+                font-size: 23px;
+                padding: 5px 0;
+                box-sizing: border-box;
+            }
+            main>.items .title>a{
+                font-size: 20px;
+                color: rgb(173, 173, 173);
+            }
+            main>.items .title>a:hover{
+                background: rgb(173, 173, 173);
+                color: rgb(0, 0, 0);
+            }
+            .title_news{
+                display: flex;
+                margin:5px 0;
+            }
+            .title_news>.author{
+                font-size: 17px;
+                letter-spacing: 1.1px;
+            }
+            .title_news>.date{
+                margin-left: auto;
+                font-size: 19px;
+            }
+            .title_news>.more a{
+                width: 27px;
+                display: inline-block;
+                margin-left: 17px;
+            }
+            .msg_0{
+                color:rgb(78, 255, 87);
+            }
+            .msg_10{
+                color: rgb(255, 255, 0);
+            }
+
+		</style>
+	</head>
+	<body>
+		<div class="images">
+			<img src="1.png" />
+		</div>
+		<div class="box">
+			<div class="work">
+				<div class="wrap">
+					<nav>
+						<h1>批踢踢實業坊</h1>
+						<span class="arrow_right">&#8250;</span>
+						<a href="#" class="version"><h3>Salary</h3></a>
+						<ul>
+							<li><a href="#">聯絡資訊</a></li>
+							<li><a href="#">關於我們</a></li>
+						</ul>
+					</nav>
+					<main>
+						<div class="header">
+							<div>看板</div>
+							<div>精華區</div>
+							<ul>
+								<li><a href="#">最舊</a></li>
+								<li><a href="#"><span>&#8249;</span>上頁</a></li>
+								<li class="href_none"><a href="#" >下頁<span>&#8250;</span></a></li>
+								<li><a href="#">最新</a></li>
+							</ul>
+						</div>
+						<input type="text" name="" id="search" placeholder="搜尋文章···" />
+                        <section v-html="articleView" class="items"></section>
+					</main>
+				</div>
+			</div>
+		</div>
+
+		<footer>
+			<a href="https://www.ptt.cc/bbs/Salary/index3571.html" target="new">參照網站</a>
+		</footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script>
+            
+            ;(function(Vue){
+                window.addEventListener('load',function(){
+                    document.querySelectorAll('.href_none>a').forEach(item => {
+                        item.addEventListener('click',function(e){
+                            event.preventDefault()
+                        })
+                    })
+                })
+
+
+                new Vue({
+                    el:'main',
+                    data(){
+                        return{
+                            articleData:[
+                                {msg:26,re:false,sort:'問題',title:'是否要領完完整年終',author:'lili0624',date:'1/19'},
+                                {msg:'',re:false,sort:'',title:'',author:'dear5520',date:'1/19'},
+                                {msg:8,re:true,sort:'問題',title:'近40歲職涯歸劃請益',author:'bobshih',date:'1/19'},
+                                {msg:23,re:true,sort:'問題',title:'近40歲職涯歸劃請益',author:'lovelili19',date:'1/19'},
+                                {msg:4,re:false,sort:'選擇',title:'offer選擇（大公司vs小公司）',author:'ab3434334',date:'1/19'},
+                                {msg:7,re:false,sort:'問題',title:'職訓局課程結束後到府訪查',author:'kathy0213',date:'1/19'},
+                                {msg:3,re:false,sort:'新聞',title:'縮水了！疫情嚴重影響營收 高鐵今年年終',author:'zzzz8931',date:'1/19'},
+                                {msg:18,re:false,sort:'問題',title:'業務技巧狀況請益',author:'davidherlin',date:'1/19'},
+                                {msg:8,re:false,sort:'新聞',title:'上班族學非所用 學以致用者月薪高3成',author:'cjol',date:'1/19'},
+                                {msg:'',re:false,sort:'新聞',title:'離職潮來了！他問「該領完年終就閃人嗎」',author:'zzzz8931',date:'1/20'},
+                                {msg:3,re:false,sort:'問題',title:'社區財務秘書',author:'leaderer',date:'1/20'},
+                            ]
+                        }
+                    },
+                    computed:{
+                        articleView:function(index){
+                            return this.articleData.map(item => {
+                                let returnMsg = undefined;
+                                // 條件 condition
+                                let msgC = 0;
+                                let sortC = 0;
+                                let titleC = 0;
+                                if(item.msg >= 10){
+                                    msgC = 1;
+                                }else{
+                                    msgC = 0;
+                                }
+
+                                if(item.sort === ''){
+                                    sortC = 1;
+                                }else{
+                                    sortC = 0;
+                                }
+
+                                if(item.title === ''){
+                                    titleC = 1;
+                                }else{
+                                    titleC = 0;
+                                }
+
+
+
+                                if(sortC === 1){
+                                    returnMsg = 
+                                    `
+                                    <article class="article">
+                                        <span class="msg_number"></span>
+                                        <div class="right">
+                                            <div class="title">(本文已被刪除)[${item.author}]</div>
+                                            <div class="title_news"><span class="author">-</span> <span class="date">${item.date}</span><span class="more"><a href="#"></a></span></div>
+                                        </div>
+                                    </article>
+                                    `
+                                }else if(item.re === true && msgC === 1){
+                                    returnMsg = 
+                                    `
+                                    <article class="article">
+                                        <span class="msg_number msg_10">${item.msg}</span>
+                                        <div class="right">
+                                            <div class="title"><a href="#">Re: [${item.sort}] ${item.title}</a></div>
+                                            <div class="title_news"><span class="author">${item.author}</span> <span class="date">${item.date}</span><span class="more"><a href="#">⋯</a></span></div>
+                                        </div>
+                                    </article>
+                                    `
+                                }else if(item.re === true && msgC === 0){
+                                    returnMsg = 
+                                    `
+                                    <article class="article">
+                                        <span class="msg_number msg_0">${item.msg}</span>
+                                        <div class="right">
+                                            <div class="title"><a href="#">Re: [${item.sort}] ${item.title}</a></div>
+                                            <div class="title_news"><span class="author">${item.author}</span> <span class="date">${item.date}</span><span class="more"><a href="#">⋯</a></span></div>
+                                        </div>
+                                    </article>
+                                    `
+                                }else if(item.re === false && msgC === 1){
+                                    returnMsg = 
+                                    `
+                                    <article class="article">
+                                        <span class="msg_number msg_10">${item.msg}</span>
+                                        <div class="right">
+                                            <div class="title"><a href="#">[${item.sort}] ${item.title}</a></div>
+                                            <div class="title_news"><span class="author">${item.author}</span> <span class="date">${item.date}</span><span class="more"><a href="#">⋯</a></span></div>
+                                        </div>
+                                    </article>
+                                    `  
+                                }else{
+                                    returnMsg = 
+                                    `
+                                    <article class="article">
+                                        <span class="msg_number msg_0">${item.msg}</span>
+                                        <div class="right">
+                                            <div class="title"><a href="#">[${item.sort}] ${item.title}</a></div>
+                                            <div class="title_news"><span class="author">${item.author}</span> <span class="date">${item.date}</span><span class="more"><a href="#">⋯</a></span></div>
+                                        </div>
+                                    </article>
+                                    `  
+                                }
+
+                                return returnMsg
+                            }).join('')
+                        }
+                    }
+                })
+            })(Vue)
+        </script>
+	</body>
 </html>
