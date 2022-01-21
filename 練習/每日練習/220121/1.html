@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #btn,#btn2{
+            display: block;
+            padding: 8px 12px;
+            margin: 20px auto;
+        }
+        .img{
+            width: 800px;
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+            text-align: center;
+        }
+        .img>div{
+            width: 400px;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+        .img>p{
+            text-align: center;
+        }
+        .img img{
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <button id="btn">產出</button>
+    <button id="btn2">看console</button>
+    <div class="img">
+
+    </div>
+
+
+
+
+    <script>
+        const url = 'https://api.unsplash.com/photos/?client_id=t0YL-hefB8n1GIxtx4rZmz9TJsiCl2XUs32uexmA0e0';
+        const img = document.querySelector('.img')
+
+
+        document.getElementById('btn').addEventListener('click',function(){
+            // 沒有意義的作法 因為fetch回傳就是promise物件
+            let promise = new Promise((resolve,reject) =>{
+                let data = fetch(url)
+                return resolve(data)  //成功
+                // return reject() //失敗
+            })
+            promise.then(res => {
+                res.json().then(res=>{
+                    console.log(res)
+                    res.forEach(item =>{
+                        img.innerHTML += 
+                        `
+                        <div>
+                            <p>${item.promoted_at}</p>
+                            <img src="${item.urls.regular}">
+                        </div>
+                        `
+                    })
+                })
+            })
+            promise.catch(err=>{
+                console.log('err')
+            })
+        })
+
+
+
+        document.getElementById('btn2').addEventListener('click',function(){
+            new Promise(function(resolve,reject){
+                let data = 1;
+                setTimeout(function(){
+                    return resolve(1)
+                    // return reject('83行Promise錯誤!!!')
+                },3000)
+            })
+            .then(function(res){
+                console.log('三秒後才看的到我',res)
+            })
+            .catch(function(err){
+                console.log('錯誤才看的到我',err)
+            })
+        })
+
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>
