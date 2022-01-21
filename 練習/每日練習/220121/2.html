@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<!-- 嘗試註解以下#test1後再點擊按鈕 -->
+		<input type="text" id="test1" />
+		<button id="btn1">檢查</button>
+
+		<script>
+			(function () {
+				document.getElementById('btn1').addEventListener('click', function () {
+					let test1 = document.getElementById('test1') ?? '請在欄位輸入訊息!';
+
+					console.log(test1);
+					console.log(test1.value ? test1.value : '裡面沒訊息!');
+
+					let test2 = {
+						a: {
+							b: '我是b',
+						},
+					};
+					console.log(test2.a?.b);
+					console.log(test2.b ?? '沒有b');
+				});
+			})();
+		</script>
+	</body>
+</html>
