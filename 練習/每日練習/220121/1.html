@@ -81,14 +81,23 @@
 
         document.getElementById('btn2').addEventListener('click',function(){
             new Promise(function(resolve,reject){
-                let data = 1;
+                let data = 3;
                 setTimeout(function(){
-                    return resolve(1)
+                    return resolve(data)
                     // return reject('83行Promise錯誤!!!')
                 },3000)
             })
             .then(function(res){
                 console.log('三秒後才看的到我',res)
+                new Promise(function(resolve,reject){
+                    let data = 6;
+                    setTimeout(function(){
+                        return resolve(data)
+                    },3000)
+                })
+                .then(function(res){
+                    console.log('六秒後才看的到我',res)
+                })
             })
             .catch(function(err){
                 console.log('錯誤才看的到我',err)

@@ -1,3 +1,4 @@
 使用Promise物件撈出API的資料 以及回傳成功 回傳失敗等應用方式
+將callback包裝成Promise方式
 
 花費時間1小時
