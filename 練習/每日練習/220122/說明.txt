@@ -1,0 +1,14 @@
+Program.cs
+接觸C# 認識C#基本宣告 類型
+
+花費時間2小時
+
+
+
+
+
+1.html
+
+嘗試在5分鐘內做出一個互動東西
+
+實際花費時間 8分鐘左右 不使用querySelector 或 getElementById 等

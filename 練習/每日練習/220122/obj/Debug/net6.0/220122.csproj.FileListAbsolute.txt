@@ -1,0 +1,15 @@
+C:\Users\Sheila\Desktop\myTest\練習\每日練習\220122\bin\Debug\net6.0\220122.exe
+C:\Users\Sheila\Desktop\myTest\練習\每日練習\220122\bin\Debug\net6.0\220122.deps.json
+C:\Users\Sheila\Desktop\myTest\練習\每日練習\220122\bin\Debug\net6.0\220122.runtimeconfig.json
+C:\Users\Sheila\Desktop\myTest\練習\每日練習\220122\bin\Debug\net6.0\220122.dll
+C:\Users\Sheila\Desktop\myTest\練習\每日練習\220122\bin\Debug\net6.0\ref\220122.dll
+C:\Users\Sheila\Desktop\myTest\練習\每日練習\220122\bin\Debug\net6.0\220122.pdb
+C:\Users\Sheila\Desktop\myTest\練習\每日練習\220122\obj\Debug\net6.0\220122.csproj.AssemblyReference.cache
+C:\Users\Sheila\Desktop\myTest\練習\每日練習\220122\obj\Debug\net6.0\220122.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sheila\Desktop\myTest\練習\每日練習\220122\obj\Debug\net6.0\220122.AssemblyInfoInputs.cache
+C:\Users\Sheila\Desktop\myTest\練習\每日練習\220122\obj\Debug\net6.0\220122.AssemblyInfo.cs
+C:\Users\Sheila\Desktop\myTest\練習\每日練習\220122\obj\Debug\net6.0\220122.csproj.CoreCompileInputs.cache
+C:\Users\Sheila\Desktop\myTest\練習\每日練習\220122\obj\Debug\net6.0\220122.dll
+C:\Users\Sheila\Desktop\myTest\練習\每日練習\220122\obj\Debug\net6.0\ref\220122.dll
+C:\Users\Sheila\Desktop\myTest\練習\每日練習\220122\obj\Debug\net6.0\220122.pdb
+C:\Users\Sheila\Desktop\myTest\練習\每日練習\220122\obj\Debug\net6.0\220122.genruntimeconfig.cache

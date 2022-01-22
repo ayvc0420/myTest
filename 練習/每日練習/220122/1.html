@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+        <style>
+            body{
+                padding-left: 50px;
+            }
+            #msg{
+                display: inline-block;
+            }
+            #msg2{
+                position: absolute;
+                top: 10px;
+                left: 20vw;
+                width: 500px;
+                line-height: 1.7;
+                background-color: blanchedalmond;
+            }
+            button{
+                display: block;
+                margin: 10px 0;
+            }
+        </style>
+	</head>
+	<body>
+		<input type="text" id="userInput" />
+		<p id="msg"></p>
+		<button id="btn">送出</button>
+
+		<button id="btn2">看你輸入了甚麼鬼</button>
+		<div id="msg2"></div>
+
+		<script>
+			// let msg = document.getElementById('msg');
+
+			let msgArray = [];
+
+			window.btn.addEventListener('click', function () {
+				window.msg.textContent = window.userInput.value;
+				msgArray.push(window.userInput.value);
+			});
+			window.btn2.addEventListener('click', function () {
+                window.msg2.textContent = '';
+				window.msg2.innerHTML += msgArray.map((item,index) => `第${index+1}次輸入了${item}<br>`).join(' ');
+			});
+		</script>
+	</body>
+</html>
