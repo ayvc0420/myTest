@@ -58,7 +58,7 @@ namespace ConsoleApp1
             }
 
 
-            //ystem.Console.Write("輸入你的名字:");
+            //System.Console.Write("輸入你的名字:");
             //string test = System.Console.ReadLine();
             //System.Console.Write($"\n\n\n你叫{test} 是一個87 {test.GetType()}");
 

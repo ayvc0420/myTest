@@ -1,0 +1,13 @@
+1.cs
+C#陣列應用 互動等等
+今日主要是再找學習資源 具體學習時間並不長
+
+花費時間2小時
+
+選取集合類別
+https://docs.microsoft.com/zh-tw/dotnet/standard/collections/selecting-a-collection-class
+
+List 
+https://docs.microsoft.com/zh-tw/dotnet/api/system.collections.generic.list-1?view=net-6.0
+
+
