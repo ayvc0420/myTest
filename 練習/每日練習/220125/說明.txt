@@ -1,0 +1,20 @@
+
+Program.cs
+基於C#中轉型的規則以及類別應用
+
+參考網址: https://docs.microsoft.com/zh-tw/dotnet/csharp/fundamentals/tutorials/classes#create-deposits-and-withdrawals
+https://ithelp.ithome.com.tw/users/20120055/ironman/2275
+https://dotblogs.com.tw/lapland/2015/12/10/161527
+https://dotblogs.com.tw/daniel/2018/01/31/153636
+
+
+花費時間5小時
+進度有點慢.. 明天開始進入.NET
+
+
+
+static: 一般類別中的方法必須先建立該類別的實體物件(new)後才能使用。若宣告為static，代表一開始就存在在記憶體中，不用先建立Main()的物件實體就能叫用。
+void:表示不會傳回任何值。
+Main():為程式開始執行的進入點，跟JAVA、C、C++相同，Main必須是static。
+string[] args:代表執行Main()方法時會將接在專案執行檔後面的參數置入 args 陣列。args是一個字串陣列。
+
