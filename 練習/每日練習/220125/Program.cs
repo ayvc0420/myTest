@@ -114,7 +114,7 @@ namespace ConsoleApp1
             Console.WriteLine("20.4:"+Math.Round(20.4));
             Console.WriteLine("20.5:"+Math.Round(20.5));
             Console.WriteLine("(AwayFromZero)20.5:" + Math.Round(20.5, MidpointRounding.AwayFromZero));
-            Console.WriteLine("20.5:"+Math.Round(20.501));
+            Console.WriteLine("20.501:"+Math.Round(20.501));
             Console.WriteLine("20.6:"+Math.Round(20.6));
             Console.WriteLine("25.499:"+Math.Round(25.499));
             Console.WriteLine("25.501:"+Math.Round(25.501));
