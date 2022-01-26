@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+
+    <style>/* layout */
+
+        .images{
+            background-color: rgb(255, 215, 215);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .images img{
+            vertical-align: middle;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(230, 255, 192);
+        }
+        footer{
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+        footer a{
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 0;
+            color: yellow;
+        }
+    </style>
+    <style> /* box work */
+        .work{
+            width: 1800px;
+            margin: 0 auto;
+        }
+        .items img{
+            width: 100%;
+        }
+        .items{
+            display: flex;
+            justify-content: space-around;
+            background-color: rgb(255,255,255);
+            padding-bottom: 20px;
+        }
+        .items>div{
+            width: 530px;
+        }
+        .item_img{
+            height: 400px;
+            overflow: hidden;
+            box-shadow: 0 0 30px 10px rgba(0,0,0,.1);
+        }
+        .item_img img{
+            transition: transform 5s;
+            transform: translateY(0px);
+        }
+
+        .items>div>img{
+            width: 300px;
+            margin: 20px auto;
+            display: block;
+        }
+        .items>div>p{
+            width: 80%;
+            margin: auto;
+            font-weight: 500;
+            font-size: 23px;
+            text-align: center;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="images">
+        <img src="1.png">
+    </div>
+    <div class="box">
+        <div class="work">
+            
+            <div class="items">
+                <div class="item1">
+                    <div class="item_img">
+                        <img src="https://ld-prestashop.template-help.com/nextprest_splash_page/img/CakeStore.jpg" alt="NextPrest Cake Store">
+                    </div>
+                    <img src="https://ld-prestashop.template-help.com/nextprest_splash_page/img/logo-cake-store.png" alt="NextPrest Cake Store">
+                    <p>A great basis for creating a successful cake shop online to make a birthday party or an anniversary completed.</p>
+                </div>
+                <div class="item2">
+                    <div class="item_img">
+                        <img src="https://ld-prestashop.template-help.com/nextprest_splash_page/img/FuneralServices.jpg" alt="NextPrest Funeral Services">
+                    </div>
+                    <img src="https://ld-prestashop.template-help.com/nextprest_splash_page/img/logo-funeral.png" alt="NextPrest Funeral Services">
+                    <p>Use this theme that is designed to meet the highest standards to promote funeral services online.</p>
+                </div>
+                <div class="item3">
+                    <div class="item_img">
+                        <img src="https://ld-prestashop.template-help.com/nextprest_splash_page/img/ApparelStore.jpg" alt="NextPrest Kid`s Apparel Store">
+                    </div>
+                    <img src="https://ld-prestashop.template-help.com/nextprest_splash_page/img/logo-apparel-store.png" alt="NextPrest Kid`s Apparel Store">
+                    <p>An excellent eCommerce solution to sell children’s clothing and accessories items.</p>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+    <script>
+        document.querySelectorAll('.items>div>div>img').forEach(item => {
+            item.addEventListener('mouseenter',function(){
+                const itemHeight = parseInt(window.getComputedStyle(item,null).height);
+                item.style.transform = `translateY(-${itemHeight-400}px)`;
+            })
+            item.addEventListener('mouseleave',function(){
+                item.style.transform = `translateY(0px)`;
+            })
+        })
+    </script>
+
+
+
+    <footer>
+        <a href="#" target="new">參照網站</a>
+    </footer>
+</body>
+</html>
