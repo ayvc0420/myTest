@@ -1,0 +1,13 @@
+
+1.html
+
+重做即時預覽大頭貼 XHR $.AJAX進度條上傳
+
+xhr debug3小時多才搞定 參考資料:
+https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/progress_event
+https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
+
+https://www.796t.com/article.php?id=200104
+
+
+花費時間5小時

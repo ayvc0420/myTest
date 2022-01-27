@@ -29,7 +29,7 @@
 				display: inline-block;
 			}
 			.file_block .img_view {
-				width: 100%;
+				width: 200px;
 			}
 			.file_block input[type='file'] {
 				width: 200px;
@@ -128,7 +128,7 @@
 				let file = e.target.files[0];
 				// console.log('this檔案資訊',this.files[0])
 				const imgTest = /image.*/;
-				if (file.size > 262144 || !imgTest.test(file.type)) {
+				if (file.size > 2097152 || !imgTest.test(file.type)) {
 					alert('檔案類型錯誤或檔案過大!必須為圖片檔且限制2MB以下');
 					this.value = '';
 					return;

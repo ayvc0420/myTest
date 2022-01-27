@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		<style>
+			body {
+				margin: 0;
+			}
+			.update {
+				width: 500px;
+				margin: 10px auto;
+				border: 1px solid rgb(0, 0, 0);
+				padding: 10px;
+			}
+			.update label,
+			.update input {
+				display: block;
+				margin: 10px 0;
+			}
+			.update input {
+				width: 150px;
+				height: 150px;
+				border: 1px dotted rgb(0, 0, 0);
+			}
+			.view_img {
+				width: 200px;
+			}
+			.view_img img {
+				width: 100%;
+			}
+			.send_btn {
+				width: 100px;
+				display: block;
+				margin: 10px auto;
+			}
+			.file_active {
+				background-color: rgba(0, 255, 255, 0.4);
+			}
+			.schedule {
+				width: 200px;
+				position: relative;
+                margin-bottom: 50px;
+                display: none;
+			}
+			.schedule > div {
+				height: 30px;
+                margin-top: 30px;
+				position: absolute;
+				border-radius: 12px;
+				top: 0;
+				left: 0;
+			}
+			.schedule > .top {
+				width: 100%;
+				background-color: rgb(63, 63, 60);
+			}
+			.schedule > .down {
+				width: 0%;
+				background-color: rgb(255, 255, 31);
+			}
+		</style>
+	</head>
+	<body>
+
+		<form
+			action="./1.html"
+			class="update"
+			method="post"
+			enctype="multipart/form-data"
+		>
+			<div>
+				<label for="mugshot">上傳大頭貼(預覽圖片) : </label>
+				<input type="file" name="mugshot" id="mugshot" />
+				<div class="view_img"></div>
+			</div>
+			<div>
+				<label for="anyfiles">上傳任意檔案(查看進度條) : </label>
+				<input type="file" name="anyfiles" id="anyfiles" />
+				<div class="schedule">
+                    <p>進度條:</p>
+					<div class="top"></div>
+					<div class="down"></div>
+				</div>
+			</div>
+			<button type="submit" class="send_btn">送出</button>
+		</form>
+
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script>
+			let aaa = undefined;
+			(function () {
+				const update = document.querySelector('.update');
+				const mugShot = document.getElementById('mugshot');
+				const anyFiles = document.getElementById('anyfiles');
+
+				mugShot.addEventListener('dragenter', addFileClass);
+				mugShot.addEventListener('dragleave', removeFileClass);
+				mugShot.addEventListener('drop', removeFileClass);
+
+				function addFileClass() {
+					this.classList.add('file_active');
+				}
+				function removeFileClass() {
+					this.classList.remove('file_active');
+				}
+
+				mugShot.addEventListener('change', function (e) {
+					let file = e.target.files[0];
+					let regex = /image.*/;
+					let type = e.target.files[0].type;
+					let viewImg = document.querySelector('.view_img');
+
+					if (regex.test(type)) {
+						let baba = e.target.parentNode;
+						let reader = new FileReader();
+						console.log(file);
+						reader.readAsDataURL(file);
+						reader.addEventListener('load', function (e) {
+							viewImg.innerHTML = '';
+							console.log('e', e);
+							let img = document.createElement('img');
+							img.src = e.target.result;
+							viewImg.appendChild(img);
+						});
+					} else {
+						alert('上傳檔案錯誤!');
+						console.log(this);
+						this.value = '';
+						viewImg.innerHTML = '';
+					}
+				});
+
+				// XMLHttpRequest進度條 
+
+				anyFiles.addEventListener('change', function (e) {
+					console.log(e.target.files[0]);
+				});
+
+				update.addEventListener('submit', function (e) {
+					document.querySelector('.schedule').style.display = 'block';
+					let formData = new FormData();
+					const down = document.querySelector('.schedule>.down');
+					formData.append('file', e.target.querySelector('#anyfiles').files[0]);
+
+					let xhr = new XMLHttpRequest();
+					xhr.upload.addEventListener('progress', function (evt) {
+                        console.log('evt',evt)
+						down.style.width = `${(evt.loaded * 100/ evt.total) }%`;
+					});
+					xhr.open('POST', '/');
+					xhr.send(formData);
+					// e.preventDefault();
+				});
+
+			})();
+		</script>
+
+		<script>
+			(function () {
+                //jQuery 進度條
+				const update = document.querySelector('.update');
+				update.addEventListener('submit', function (e) {
+					// document
+					// 	.querySelectorAll('.schedule>div')
+					// 	.forEach((item) => (item.style.display = 'block'));
+                    document.querySelector('.schedule').style.display = 'block';
+					let formData = new FormData();
+					formData.append('file', e.target.querySelector('#anyfiles').files[0]);
+					console.log('$ajax');
+					$.ajax({
+						url: './',
+						type: 'post',
+						data: formData,
+						processData: false,
+						xhr: function () {
+							let xhrHttp = new XMLHttpRequest();
+							xhrHttp.upload.addEventListener('progress', function (e) {
+								console.log('e', e);
+								$('.schedule>.down').css({
+									width: `${(e.loaded / e.total) * 100}%`,
+								});
+							});
+							return xhrHttp;
+						},
+					});
+				});
+			})
+            // ();
+		</script>
+	</body>
+</html>
