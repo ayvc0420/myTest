@@ -73,6 +73,9 @@ body{
     #nav_show li a span{
         color: #FF845E;
     }
+    .itemTop>div{
+        width: 33.3%;
+    }
     #about_menu{
         display: none;
         position: absolute;
@@ -182,6 +185,10 @@ body{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+.itemTop{
+    max-width: 1200px;
+    margin: auto;
 }
 .item1 , .item2 , .item3 , .item4 , .item5 , .item6{
     display: flex;
