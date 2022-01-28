@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        .microsoft{
+            max-width: 860px;
+            margin: auto;
+            line-height: 1.5;
+        }
+        .microsoft h1{
+            font-weight: 900;
+            font-size: 36px;
+        }
+        .microsoft h2{
+            font-size: 34px;
+        }
+        .microsoft h4{
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+        .microsoft p{
+            margin-top: 10px;
+            font-size: 17px;
+        }
+        .microsoft a{
+            color: rgb(0, 0, 255);
+            text-decoration: none;
+        }
+        .microsoft a:hover{
+            text-decoration: underline;
+        }
+        .microsoft ul{
+            list-style: inherit;
+            box-sizing: border-box;
+            padding-left: 40px;
+        }
+        .notice{
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 12px;
+            background-color: rgb(251, 220, 255);
+            margin: 20px 0;
+        }
+        .notice a{
+            color: rgb(0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div id="app">
+
+        <content-component></content-component>
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+
+        let contentComponent = {
+            data(){
+                return{
+                    webFormHref:[
+                        '在 Visual Studio 2013 中以程式碼編輯 ASP.NET Web Form',
+                        '在 Visual Studio 2013 中以程式碼編輯 ASP.NET Web Form',
+                        '在 Visual Studio 2012 中使用 Page Inspector',
+                        'Visual Studio 2013 中的模型繫結和 Web Form',
+                        'ASP.NET Web Form 連線恢復功能和命令攔截',
+                        '以使用者註冊、電子郵件確認和密碼重設建立安全的 ASP.NET Web Form 應用程式 (C#)',
+                        '使用 SMS 雙因素驗證建立 ASP.NET Web Form 應用程式 (C#)',
+                        '使用 ASP.NET 4.5 中的非同步方法',
+                        '使用 Visual Studio 的 ASP.NET Web 部署',
+                        'ASP.NET 4 - 企業部署簡介',
+                        'ASP.NET 4 - 企業部署系列 1',
+                        'ASP.NET 4 - 企業部署系列 2 設定伺服器',
+                        'ASP.NET 4 - 企業部署系列 3 設定 TFS',
+                        'ASP.NET 4 - 企業部署系列 4 進階主題',
+                        'ASP.NET 4 - Tailspin Spyworks',
+                        'ASP.NET 4 - Entity Framework 4 和 Web Form 使用者入門',
+                        'ASP.NET 4 - 繼續使用 Entity Framework 4 及 Web Form',
+                        'ASP.NET 4 - 使用 Visual Studio 的 SQL Server Compact Web 部署'
+                    ]
+                }
+            },
+            template:
+            `
+            <article class="microsoft">
+                <h1>ASP.NET 教學課程</h1>
+                <h4>發行項 2021/05/13</h4>
+                <p>針對新的 web 應用程式開發，建議 Razor Pages。 如需詳細資訊，請參閱<a href="#">開始使用 Razor Pages</a>。</p>
+                <p>開發 ASP.NET 應用程式的下列逐步指南可供使用。</p>
+                <div class="notice">
+                    <p>注意</p>
+                    <p>尋找 ASP.NET Core 的教學課程嗎？ 請<a href="#">在這裡</a>尋找。</p>
+                </div>
+                <div>
+                    <h2>Web Form</h2>
+                    <ul>
+                        <li v-for="item in webFormHref"><a href="#">{{item}}</a></li>
+                    </ul>
+                </div>
+            </article>
+            `
+        }
+
+        // Vue.component('content-component',contentComponent)
+
+        new Vue({
+            el:'#app',
+            data:{
+
+            },
+            components:{
+                'content-component':contentComponent,
+            }
+        })
+
+    </script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+
+
+1.html
+template 切版練習
+
+參照網站為 https://docs.microsoft.com/zh-tw/aspnet/tutorials
+
+花費時間40分
+
+
+
+2022-01-28下午接到offer 至此這個 repository 預計至 2022年02月04日 停止紀錄
+
+紀錄最後心得以220204資料夾內撰寫
