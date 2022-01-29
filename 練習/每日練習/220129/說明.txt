@@ -1,0 +1,20 @@
+WindowsFormsApp1
+
+C#練習 做一個+-*/小程式
+
+
+花費時間 15分
+
+
+瀏覽文章 
+https://linux.vbird.org/linux_basic/centos7/
+http://cs0.wikidot.com/
+https://ithelp.ithome.com.tw/users/20083608/ironman/3780
+
+
+
+
+
+2022-01-28下午接到offer 至此這個 repository 預計至 2022年02月04日 停止紀錄
+
+紀錄最後心得以220204資料夾內撰寫
