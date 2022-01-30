@@ -14,7 +14,7 @@
 		<script>
 			(function () {
 				document.getElementById('btn1').addEventListener('click', function () {
-					let test1 = document.getElementById('test1') ?? '請在欄位輸入訊息!';
+					let test1 = document.getElementById('test1') ?? '找不到#test1欄位';
 
 					console.log(test1);
 					console.log(test1.value ? test1.value : '裡面沒訊息!');
@@ -25,6 +25,7 @@
 						},
 					};
 					console.log(test2.a?.b);
+					console.log(test2?.b);
 					console.log(test2.b ?? '沒有b');
 				});
 			})();
