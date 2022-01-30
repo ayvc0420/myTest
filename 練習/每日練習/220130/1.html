@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+
+    <style>/* layout */
+
+        .images{
+            background-color: rgb(255, 215, 215);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .images img{
+            vertical-align: middle;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(230, 255, 192);
+        }
+        footer{
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+        footer a{
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 0;
+            color: yellow;
+        }
+    </style>
+    <style> /* box work */
+        .work{
+            width: 100%;
+        }
+        .item_bg{
+            width: 100%;
+            background-color: rgb(218, 18, 18);
+        }
+        .item{
+            width: 1350px;
+            margin: auto;
+            display: flex;
+            justify-content: space-around;
+            color: white;
+            padding: 60px 30px;
+            box-sizing: border-box;
+        }
+        .item>li{
+            display: flex;
+        }
+        .item .text{
+            padding-left: 15px;
+        }
+        .item .text>p{
+            font-weight: 700;
+            margin-top: 5px;
+        }
+        .item h3{
+            font-weight: 900;
+            font-size: 36px;
+        }
+        .item_logo{
+            width: 50px;
+            height: 50px;
+        }
+        .svg1130{
+            fill: rgb(255,255,255);
+            width: 100%;
+            height: 100%;
+        }
+
+
+        .about{
+            width: 100%;
+            background-color: rgb(255,255,255);
+        }
+        .about_video video{
+            width: 100%;
+            margin: auto;
+        }
+        .about>article{
+            width: 1200px;
+            padding: 70px 0 90px 0;
+            box-sizing: border-box;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+        }
+        .about>article>div{
+            width: 50%;
+        }
+        .about_text{
+            padding-left: 20px;
+        }
+        .about_text>h2{
+            font-size: 22px;
+            font-weight: 900;
+            position: relative;
+        }
+        .about_text>h2::before{
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 0;
+            width: 20px;
+            height: 2px;
+            background-color: rgb(255,0,0);
+        }
+        .about_text>h3{
+            font-size: 34px;
+            font-weight: 900;
+            color: rgb(232, 0, 0);
+            line-height: 1.5;
+        }
+        .about_text>p{
+            font-size: 20px;
+            line-height: 1.3;
+            color: rgb(120,120,120);
+        }
+    </style>
+</head>
+<body>
+    <div class="images">
+        <img src="1.png">
+    </div>
+    <div class="box">
+        <div class="work">
+            
+            <div class="item_bg">
+                <ul class="item">
+                    <li>
+                        <div class="item_logo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" class="svg1130"><path d="M608 992h256c17.664 0 32-14.304 32-32v-492.672l43.168 36.992c13.472 11.488 33.664 9.984 45.12-3.488 11.488-13.408 9.952-33.632-3.456-45.12l-448.064-384c-12-10.24-29.664-10.272-41.664 0.032l-139.104 119.2v-94.944c0-17.696-14.336-32-32-32h-128c-17.664 0-32 14.304-32 32v259.552l-116.832 100.16c-13.408 11.488-14.976 31.68-3.456 45.088 6.304 7.424 15.296 11.2 24.288 11.2 7.36 0 14.784-2.528 20.8-7.712l43.2-37.024v492.736c0 17.696 14.336 32 32 32h256c17.664 0 32-14.304 32-32v-224h128v224c0 17.696 14.336 32 32 32zM224 128h64v117.824l-64 54.88v-172.704zM416 672c-17.664 0-32 14.304-32 32v224h-192v-515.584l319.936-274.24 320.064 274.304v515.52h-192v-224c0-17.696-14.336-32-32-32h-192zM640 544v-160c0-17.696-14.336-32-32-32h-192c-17.664 0-32 14.304-32 32v160c0 17.696 14.336 32 32 32h192c17.664 0 32-14.304 32-32zM576 512h-128v-96h128v96z"></path></svg>
+                        </div>
+                        <div class="text">
+                            <h3>42</h3>
+                            <p>PROJECTS</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item_logo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" class="svg1130"><title></title><g id="icomoon-ignore">
+                            </g><path d="M64 192c0 70.592 57.408 128 128 128s128-57.408 128-128-57.408-128-128-128-128 57.408-128 128zM256 192c0 35.296-28.704 64-64 64s-64-28.704-64-64 28.704-64 64-64 64 28.704 64 64zM896 352h-128c-34.24 0-66.464 14.176-90.112 37.664-27.776-23.168-63.008-37.664-101.888-37.664h-128c-38.88 0-74.112 14.496-101.888 37.664-23.648-23.488-55.872-37.664-90.112-37.664h-128c-70.592 0-128 57.408-128 128v192h64v224h224v-64h-160v-224h-64v-128c0-35.296 28.704-64 64-64h128c19.584 0 37.664 9.376 49.696 24.352-10.944 21.664-17.696 45.76-17.696 71.648v256h96v256h256v-256h96v-256c0-25.888-6.752-49.984-17.696-71.648 12.032-14.976 30.112-24.352 49.696-24.352h128c35.296 0 64 28.704 64 64v128h-64v224h-160v64h224v-224h64v-192c0-70.592-57.408-128-128-128zM672 704h-96v256h-128v-256h-96v-192c0-52.928 43.072-96 96-96h128c52.928 0 96 43.072 96 96v192zM704 192c0 70.592 57.408 128 128 128s128-57.408 128-128-57.408-128-128-128-128 57.408-128 128zM896 192c0 35.296-28.704 64-64 64s-64-28.704-64-64 28.704-64 64-64 64 28.704 64 64zM352 160c0 88.224 71.776 160 160 160s160-71.776 160-160-71.776-160-160-160-160 71.776-160 160zM608 160c0 52.928-43.072 96-96 96s-96-43.072-96-96 43.072-96 96-96 96 43.072 96 96z"></path></svg>            
+                        </div>
+                        <div class="text">
+                            <h3>140</h3>
+                            <p>HAPPY CLIENTS</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item_logo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" class="svg1130"><title></title><g id="icomoon-ignore">
+                            </g><path d="M32 896h640v32c0 12.8 6.4 22.4 16 28.8s22.4 6.4 32 0l76.8-51.2 76.8 51.2c6.4 3.2 12.8 6.4 19.2 6.4s9.6 0 16-3.2c9.6-6.4 16-16 16-28.8v-176c38.4-35.2 64-86.4 64-144s-25.6-108.8-64-144v-243.2c0-19.2-12.8-32-32-32h-150.4l-217.6-137.6c-6.4-28.8-32-54.4-64-54.4s-57.6 22.4-64 54.4l-214.4 137.6h-150.4c-19.2 0-32 12.8-32 32v640c0 19.2 12.8 32 32 32zM768 419.2c-89.6 16-160 92.8-160 188.8 0 48 19.2 92.8 48 128h-496v-384h608v67.2zM864 867.2l-44.8-32c-9.6-6.4-25.6-6.4-35.2 0l-44.8 32v-3.2c0 0 0 0 0 0s0 0 0 0v-73.6c19.2 6.4 41.6 12.8 64 12.8s44.8-3.2 64-12.8v76.8zM876.8 710.4c0 0-3.2 3.2-3.2 3.2-22.4 12.8-48 22.4-73.6 22.4-70.4 0-128-57.6-128-128s57.6-128 128-128 128 57.6 128 128c0 41.6-19.2 76.8-51.2 102.4zM425.6 115.2c9.6 6.4 22.4 12.8 38.4 12.8s28.8-6.4 38.4-12.8l124.8 76.8h-326.4l124.8-76.8zM64 256h800v172.8c-9.6-3.2-22.4-6.4-32-9.6v-99.2c0-19.2-12.8-32-32-32h-672c-19.2 0-32 12.8-32 32v448c0 19.2 12.8 32 32 32h544v32h-608v-576zM256 512h320c19.2 0 32-12.8 32-32s-12.8-32-32-32h-320c-19.2 0-32 12.8-32 32s12.8 32 32 32zM256 640h192c19.2 0 32-12.8 32-32s-12.8-32-32-32h-192c-19.2 0-32 12.8-32 32s12.8 32 32 32z"></path></svg>            
+                        </div>
+                        <div class="text">
+                            <h3>2</h3>
+                            <p>QUALIFIED STAFF</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item_logo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" class="svg1130"><title></title><g id="icomoon-ignore">
+                            </g><path d="M224 480c-124.8 0-224 99.2-224 224s99.2 224 224 224 224-99.2 224-224-99.2-224-224-224zM224 864c-89.6 0-160-70.4-160-160s70.4-160 160-160 160 70.4 160 160-70.4 160-160 160zM896 611.2v-35.2c0-54.4-41.6-96-96-96h-32v-96c0-19.2 12.8-32 32-32h32c19.2 0 32-12.8 32-32s-12.8-32-32-32h-32c-54.4 0-96 41.6-96 96v96h-41.6l-121.6-361.6c-3.2-12.8-16-22.4-28.8-22.4h-384c-19.2 0-32 12.8-32 32s12.8 32 32 32h64v195.2c-38.4 3.2-73.6 12.8-108.8 28.8-16 6.4-22.4 25.6-16 41.6s25.6 22.4 41.6 16c35.2-16 73.6-25.6 115.2-25.6 160 0 288 128 288 288 0 28.8-3.2 57.6-12.8 86.4-3.2 9.6 0 19.2 3.2 28.8 6.4 9.6 16 12.8 25.6 12.8h188.8c25.6 57.6 80 96 147.2 96 89.6 0 160-70.4 160-160 0-76.8-54.4-140.8-128-156.8zM256 355.2v-195.2h233.6l105.6 320h-99.2c-57.6-70.4-144-118.4-240-124.8zM569.6 768c3.2-22.4 6.4-41.6 6.4-64 0-57.6-12.8-112-38.4-160h102.4c0 0 0 0 0 0s0 0 0 0h160c19.2 0 32 12.8 32 32v35.2c-73.6 16-128 80-128 156.8h-134.4zM864 864c-54.4 0-96-41.6-96-96s41.6-96 96-96 96 41.6 96 96-41.6 96-96 96z"></path></svg>            
+                        </div>
+                        <div class="text">
+                            <h3>24</h3>
+                            <p>MACHINERIES</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="about">
+                <article>
+                    <div class="about_video">
+                        <video src="./Construction.mp4" controls></video>
+                    </div>
+                    <div class="about_text">
+                        <h2>ABOUT US</h2>
+                        <h3>The Built Wall Construction More<br>Than 30 Years on Building Market</h3>
+                        <p>BuildWall is a diversified construction company, made up of teams of people who are proven in their industries. All working to design, build, transport, operate, and maintain projects all over the USA. But we believe that</p>
+                    </div>
+                </article>
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+    <footer>
+        <a href="https://www.templatemonsterpreview.com/demo/53591.html" target="new">參照網站</a>
+    </footer>
+</body>
+</html>
