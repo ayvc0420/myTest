@@ -6,7 +6,7 @@ C#練習 做一個+-*/小程式
 花費時間 15分
 
 
-瀏覽文章 
+瀏覽文章(未結束)
 https://linux.vbird.org/linux_basic/centos7/
 http://cs0.wikidot.com/
 https://ithelp.ithome.com.tw/users/20083608/ironman/3780
