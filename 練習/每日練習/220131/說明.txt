@@ -1,0 +1,9 @@
+
+WindowsFormsApp1
+
+基於0129的計算小程式上製作登入功能
+此功能設計部分參考 以下影片執行
+https://www.youtube.com/watch?v=mZAwJ5eEAEA
+須更熟悉回傳方式以及類別使用 主視窗子視窗操作
+
+花費時間30分
