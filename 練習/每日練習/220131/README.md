@@ -1,6 +1,6 @@
 # 最後記錄
 
-原定計畫為0204才停止庫的紀錄，但過年期間忙碌因此提早3天結束，後續會先以0129的技術文章瀏覽結束後再繼續技術學習
+原定計畫為0204才停止庫的紀錄，但過年期間忙碌因此提早3天結束，後續會先以0129的技術文章瀏覽結束後再繼續技術學習。
 
 ## 以2022年結束前訂下目標:
 1. 熟練使用C#
@@ -16,7 +16,7 @@
 10. 你野心會不會太大?
 
 
-## Images
+## 技術圖
 
 ![technology image.](./technology.jpg "This is technology image")
 
@@ -32,19 +32,19 @@
 
 
 #### myTest紀錄測試庫
-> https://ayvc0420.github.io/myTest/%E7%B7%B4%E7%BF%92/%E6%AF%8F%E6%97%A5%E7%B7%B4%E7%BF%92/daily.html.
+> [點我前往](https://ayvc0420.github.io/myTest/%E7%B7%B4%E7%BF%92/%E6%AF%8F%E6%97%A5%E7%B7%B4%E7%BF%92/daily.html)
 
 #### 帶你快速了解hololive|現今最紅的VTuber
-> https://ayvc0420.github.io/
+> [點我前往](https://ayvc0420.github.io/)
 
 #### 前端技術分享介紹
-> https://ayvc0420.github.io/webDesign/index.html
+> [點我前往](https://ayvc0420.github.io/webDesign/index.html)
 
 #### 猜數字遊戲
-> https://ayvc0420.github.io/guessNumber/
+> [點我前往](https://ayvc0420.github.io/guessNumber/)
 
 #### 點擊標靶遊戲
-> https://ayvc0420.github.io/targetGame/
+> [點我前往](https://ayvc0420.github.io/targetGame/)
 
 
 
@@ -52,42 +52,42 @@
 ## 技術參考網頁:
 
 #### 前端JS各項技術 Vue技術 - Alex宅幹嘛頻道
-> https://www.youtube.com/channel/UCEL8871qFEakpqYpwBSjHNA
+> [點我前往](https://www.youtube.com/channel/UCEL8871qFEakpqYpwBSjHNA)
 
 #### 前端HTML、CSS技術 - CSScoke頻道
-> https://www.youtube.com/c/CSScoke
+> [點我前往](https://www.youtube.com/c/CSScoke)
 
 #### 六角學院相關前端技術分享頻道
-> https://www.youtube.com/channel/UC-b2nGm0xLzic38Byti0VjA
+> [點我前往](https://www.youtube.com/channel/UC-b2nGm0xLzic38Byti0VjA)
 
 #### 前端HTML、CSS、JS技術 - 彭彭的課程頻道
-> https://www.youtube.com/channel/UCguZS-y7codLSt6vpkVdnKg
+> [點我前往](https://www.youtube.com/channel/UCguZS-y7codLSt6vpkVdnKg)
 
 #### 卡斯伯Blog
-> https://wcc723.github.io/
+> [點我前往](https://wcc723.github.io/)
 
 #### MDN文件
-> https://developer.mozilla.org/zh-TW/
+> [點我前往](https://developer.mozilla.org/zh-TW/)
 
 #### GitHub各種JS庫
-> https://github.com/
+> [點我前往](https://github.com/)
 
 #### W3C文件
-> https://www.w3schools.com/
+> [點我前往](https://www.w3schools.com/)
 
 #### Ti邦
-> https://ithelp.ithome.com.tw/questions
+> [點我前往](https://ithelp.ithome.com.tw/questions)
 
 #### 切版練習網頁
-> https://www.templatemonster.com/
+> [點我前往](https://www.templatemonster.com/)
 
 #### Vue.JS詳細文件網站 - 作者:Kuro
-> https://book.vue.tw/
+> [點我前往](https://book.vue.tw/)
 
 #### Vue document
-> https://vuejs.org/
+> [點我前往](https://vuejs.org/)
 
 
 
 #### 最終且最實用的Google
-> https://www.google.com/
+[點我前往](https://www.google.com)/
