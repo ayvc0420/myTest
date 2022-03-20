@@ -78,7 +78,7 @@
         }
         .text{
             max-width: 100%;
-            width: 600px;
+            /* width: 600px; */
             border:3px solid rgb(0, 0, 0);
             padding: 30px;
             position: relative;
@@ -233,9 +233,16 @@
         @media screen and (max-width:1690px) {
             .comment{
                 position:unset;
-                margin: 20px auto !important;
-                max-width: 600px;
+                margin: 20px 20px !important;
+                /* max-width: 600px; */
+                width: calc(100% - 40px) !important;
                 word-wrap: break-word;
+            }
+            .comment.active{
+                justify-content: center;
+            }
+            .comment.active .text{
+                max-width: 1200px;
             }
         }
         
@@ -309,22 +316,22 @@
     <script src="js/vue.js"></script>
     <script>
         ;(function(Vue){
-            const article = document.querySelectorAll('article')
-            const url = './data/data.json'
+            const article = document.querySelectorAll('article');
+            const url = './data/data.json';
 
-            document.querySelector('.clear').addEventListener('click',view)
+            document.querySelector('.clear').addEventListener('click',view);
             window.addEventListener('resize',function(){
-                if(window.innerWidth > 1680) return
-                view()
+                if(window.innerWidth > 1680) return;
+                view();
             })
             if(window.innerWidth <= 1680){
-                view()
+                view();
             }
 
             function view(){
-                document.querySelector('.comment').classList.add('active')
-                document.querySelector('.clear').style.display = 'none'
-                document.getElementById('app').classList.add('active')
+                document.querySelector('.comment').classList.add('active');
+                document.querySelector('.clear').style.display = 'none';
+                document.getElementById('app').classList.add('active');
             }
 
 
@@ -336,42 +343,41 @@
                 },
                 computed:{
                     practiceNumber(){
-                        this.centerHeightHandler()
-                        return `目前的練習數量有${this.list.length}個!!`
+                        this.centerHeightHandler();
+                        return `目前的練習數量有${this.list.length}個!!`;
                     },
                     listLength(){
-                        return this.list.length
+                        return this.list.length;
                     }
                 },
                 methods: {
                     hrefHandler(){
-                        window.open('https://github.com/ayvc0420/myTest/tree/main/%E7%B7%B4%E7%BF%92/%E6%AF%8F%E6%97%A5%E7%B7%B4%E7%BF%92','new')
+                        window.open('https://github.com/ayvc0420/myTest/tree/main/%E7%B7%B4%E7%BF%92/%E6%AF%8F%E6%97%A5%E7%B7%B4%E7%BF%92','new');
                     },
                     centerHeightHandler(){
                         this.$nextTick(function(){
                             if(window.innerWidth >= 1024){
-
-                                let centerHeight = 102 * this.listLength
-                                document.getElementById('center').style.height = centerHeight+'px'
+                                let centerHeight = 102 * this.listLength;
+                                document.getElementById('center').style.height = centerHeight+'px';
                                 // console.log('centerHeight',centerHeight+'px')
                             }else{
-                                center.style.height = `0px`
+                                center.style.height = `0px`;
                             }
                         })
                     }
                 },
                 async mounted() {
-                    this.$nextTick(this.centerHeightHandler())
-                    window.addEventListener('scroll',this.centerHeightHandler)
-                    window.addEventListener('resize',this.centerHeightHandler)
+                    this.$nextTick(this.centerHeightHandler());
+                    window.addEventListener('scroll',this.centerHeightHandler);
+                    window.addEventListener('resize',this.centerHeightHandler);
                     let data;
                     try{
-                        data = await fetch(url)
+                        data = await fetch(url);
                     }catch{
                         alert('資料獲取失敗，請重新整理或稍後再試試!')
                     }
                     data.json().then(res=>{
-                        this.list = res
+                        this.list = res;
                     })
                 },
             })
